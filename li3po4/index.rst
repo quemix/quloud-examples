@@ -9,4 +9,7 @@ Li\ :math:`_3`\ PO\ :math:`_4`
 .. toctree::
 
    introduction
+   amorphous
+   rdf
+   msd
 
