@@ -1,0 +1,5 @@
+/* アイコン（！など）を非表示にする */
+div.admonition > p.admonition-title::before {
+    content: none !important;
+}
+
