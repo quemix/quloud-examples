@@ -10,6 +10,5 @@ Li\ :math:`_3`\ PO\ :math:`_4`
 
    introduction
    amorphous
-   rdf
    msd
-
+   rdf

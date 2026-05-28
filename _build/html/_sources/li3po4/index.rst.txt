@@ -8,14 +8,7 @@ Li\ :math:`_3`\ PO\ :math:`_4`
 
 .. toctree::
 
-   MD計算例により非晶質Li3PO4を導入する
-   
-   CHGNetには単純なテスト
-   - エネルギー予測
-   - 結晶構造パラメター
-
-   MSD計算ー小非晶質Li3PO4-31原子数
-   RDF計算ー小非晶質Li3PO4-31原子数
-
-   
-
+   introduction
+   amorphous
+   msd
+   rdf
