@@ -10,5 +10,10 @@ BaTi\ :math:`_3`
 
    introduction
    stability
+   geometry-optimization
    phase_transition
+
+
+
+
 
