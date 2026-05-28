@@ -10,5 +10,5 @@ Examples
    :maxdepth: 2
    :numbered:
 
-   BaTiO3/index
+   batio3/index
    li3po4/index
