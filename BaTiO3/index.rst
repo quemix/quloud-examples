@@ -3,14 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-BaTiO3
+BaTiO\ :math:`_3`
 ===========================================
 
 .. toctree::
 
    introduction
-   stability
+   lattice-constant 
    geometry-optimization
+   stability
    phase_transition
 
 
