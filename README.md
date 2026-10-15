@@ -1,11 +1,22 @@
 # Quloud Examples
 
 ## 環境構築
-htmlドキュメントの作成にはSphinxを用いる。外観には「RTDテーマ」を用いるので、pipインストールで下記の環境を整える。
+HTMLのビルドにはSphinxとRTDテーマを使う。Python環境に次をインストールする。
 ```
-$ pip install sphinx
-$ pip install sphinx-rtd-theme
+python -m pip install sphinx sphinx-rtd-theme
 ``` 
+
+内部の作業方針や記録は、公開リポジトリに含めず、非公開の
+`quloud-examples-meta`リポジトリを隣のディレクトリにチェックアウトして管理する。
+初回のみ、`quloud-examples`のルートで次を実行する。
+
+```
+git clone git@github.com:quemix/quloud-examples-meta.git ../quloud-examples-meta
+make meta-link
+make agent-link
+```
+
+`meta/`と`AGENTS.md`は`.gitignore`対象。metaの内容や履歴を公開リポジトリへコピーしない。
 
 
 ## GitHub (clone)　→　編集・更新　→　GitHub (push)
@@ -19,7 +30,7 @@ $ pip install sphinx-rtd-theme
 ### クローン ###
 自分のPC上で下記のコマンドを実行する。
 ```
-$ git clone git@github.com:quemix/quloud-exapmples.git
+$ git clone git@github.com:quemix/quloud-examples.git
 ```
 そうすると`quloud-examples/`というフォルダができるはずなので、その中で編集作業を行う。ただし、そのままではブランチが`main`になっているので
 ```
