@@ -18,7 +18,7 @@ extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages']
 # extensions = ['sphinx.ext.mathjax', 'sphinx_rtd_theme']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'docs', 'meta', '.claude', 'Thumbs.db', '.DS_Store']
 
 language = 'ja'
 
@@ -33,6 +33,8 @@ numfig_secnum_depth = 1
 
 import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
+# sphinx.ext.githubpages writes CNAME from this domain.
+html_baseurl = 'https://example.quloud-platform.quemix.com/'
 # html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
 # html_js_files = ['three.min.js']

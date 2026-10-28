@@ -1,3 +1,7 @@
 # Internal workflow knowledge and agent instructions live in the private companion repo.
 /meta
 /AGENTS.md
+
+# Sphinx build output. GitHub Actions builds and publishes the site.
+/_build/
+/docs/

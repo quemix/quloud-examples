@@ -6,11 +6,11 @@
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
-BUILDDIR      = docs
-#BUILDDIR      = _build
+BUILDDIR      = _build
 
-html:
-	@$(SPHINXBUILD) -b html "$(SOURCEDIR)" "$(BUILDDIR)"
+# Preview the local build at http://localhost:8000
+serve:
+	python3 -m http.server -d "$(BUILDDIR)/html" 8000
 
 # Link the private workflow instructions for Codex and other agents.
 agent-link:
@@ -28,7 +28,7 @@ meta-link:
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help agent-link meta-link Makefile
+.PHONY: help serve agent-link meta-link Makefile
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

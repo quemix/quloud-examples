@@ -1,10 +1,10 @@
 # Quloud Examples
 
 ## 環境構築
-HTMLのビルドにはSphinxとRTDテーマを使う。Python環境に次をインストールする。
+HTMLのビルドにはSphinxとRTDテーマを使う。公開用のビルド（GitHub Actions）と同じ版をPython環境にインストールする。
 ```
-python -m pip install sphinx sphinx-rtd-theme
-``` 
+python -m pip install -r requirements.txt
+```
 
 内部の作業方針や記録は、公開リポジトリに含めず、非公開の
 `quloud-examples-meta`リポジトリを隣のディレクトリにチェックアウトして管理する。
@@ -20,7 +20,7 @@ make agent-link
 
 
 ## GitHub (clone)　→　編集・更新　→　GitHub (push)
-更新を行った内容を`main`ブランチにマージすると、自動でGitHub Pagesによりhtmlドキュメントが公開されるようになっている。そのため更新は、
+更新を行った内容を`main`ブランチにマージすると、GitHub Actions（`.github/workflows/pages.yml`）がHTMLをビルドし、GitHub Pagesで公開する。生成したHTMLはリポジトリにコミットしない。そのため更新は、
 
 - まず適当なブランチ名で本リポジトリにプッシュ
 - プッシュしたブランチを`main`ブランチにマージする
@@ -46,14 +46,18 @@ $ git checkout -b 作業用ブランチ名
 ```
 $ make html
 ```
-を実行すると、`docs/`フォルダにhtmlファイルが生成される（GitHub Pagesは、`docs/`下にあるものを公開するように設定されている）。`*.rst`ファイルをまたぐ参照等を追加した場合には、一度全体をクリーン
+を実行すると、`_build/html/`フォルダにhtmlファイルが生成される。これは手元での確認用で、コミットされない（`.gitignore`対象）。
+```
+$ make serve
+```
+を実行してブラウザで http://localhost:8000 を開くと、生成したページを確認できる（Ctrl+Cで終了）。`*.rst`ファイルをまたぐ参照等を追加した場合には、一度全体をクリーン
 ```
 $ make clean
 ```
 してから、改めて`make html`を実行する。
 
 ### コミット ###
-修正が入ったファイルや新規に追加されたファイルを全てgitに追加＆コミットする
+修正が入ったファイルや新規に追加されたファイル（`*.rst`、図、データなど）をgitに追加＆コミットする
 ```
 $ git add ファイル名
 $ git commit
@@ -67,4 +71,4 @@ $ git push origin 作業用ブランチ名
 手元で「作業用ブランチ名」という名前をリモート（GitHubリポジトリ上）では別の名前にすることも可能だが、上記のように書けば、手元で作業していたブランチ名のままリモートにプッシュされる。
 
 ### メインブランチへのマージ ###
-GitHub上の「Pull Request」から、`main`ブランチへのマージを行えば、あとは自動で、GitHub Pagesが更新を行ってくれる。
+GitHub上の「Pull Request」から、`main`ブランチへのマージを行えば、あとは自動で、GitHub Actionsがビルドして公開する。進み具合や失敗はGitHubの「Actions」タブで確認できる。
