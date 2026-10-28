@@ -27,6 +27,15 @@ make agent-link
 
 という手順で行うようにする。
 
+### 作業の流れ（まとめ） ###
+```
+$ make html     # _build/html に出力（コミットされない）
+$ make serve    # ブラウザで http://localhost:8000 を開いて確認（Ctrl+C で終了）
+$ git add 編集した.rstや図など && git commit
+$ git push
+```
+`main`に反映されると、2分ほどで自動的に公開される。進み具合や失敗はGitHubの「Actions」タブで確認できる。各手順の詳細は以下に記す。
+
 ### クローン ###
 自分のPC上で下記のコマンドを実行する。
 ```
