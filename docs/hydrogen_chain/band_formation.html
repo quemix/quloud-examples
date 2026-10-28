@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.1. 水素原子を並べると電子バンドは生まれるのか</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=c1f5603a" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=855244f2" />
+
+  
+      <script src="../_static/jquery.js?v=958b65b0"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c033477b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="3.2. 計算条件と再現手順" href="reproduction.html" />
+    <link rel="prev" title="3. 水素原子鎖" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quloud Examples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../BaTiO3/index.html">1. BaTiO<span class="math notranslate nohighlight">\(_3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../li3po4/index.html">2. Li<span class="math notranslate nohighlight">\(_3\)</span>PO<span class="math notranslate nohighlight">\(_4\)</span></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 水素原子鎖</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. 水素原子を並べると電子バンドは生まれるのか</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1.1. 計算対象と条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.2. 分子軌道の集まりはバンドに近づくか</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rhfpbe">3.1.3. RHFとPBEでギャップの振る舞いが違う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.1.4. 原子核は等間隔なのに、結合が交替する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.1.5. スピン分極を許すと、別の電子状態が現れる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.1.6. どの結果が「正しい」のか</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">3.1.7. この数値実験から分かること</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">3.1.8. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reproduction.html">3.2. 計算条件と再現手順</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quloud Examples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">3. </span>水素原子鎖</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.1. </span>水素原子を並べると電子バンドは生まれるのか</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/hydrogen_chain/band_formation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3.1. </span>水素原子を並べると電子バンドは生まれるのか<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>固体物理の教科書では、原子がたくさん集まると、原子の離散的なエネルギー準位が密集して「バンド」になると説明されます。この過程を、実際の電子状態計算で確かめてみましょう。</p>
+<p>このページでは、水素原子を2個、4個、8個……と一直線に並べ、量子化学計算で分子軌道のエネルギーを求めます。原子数が増えるにつれて準位は期待どおり密集していきます。ところが、Hartree–Fock（HF）法と密度汎関数理論（PBE汎関数）を比べると、予想外に大きな違いが現れます。その原因を結合次数やスピン分極から調べていくと、バンド形成だけでなく、電子状態の対称性の破れや平均場近似の限界まで見えてきます。</p>
+<p>この例題は、実在材料の物性を予測するものではありません。原子核の位置を意図的に固定した理想化モデルを計算し、その結果から物理を読み取る「数値実験」です。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>このページの計算は、WSL上のDockerで実行したPsi4 1.10によるものです。Quloud上で実行した結果ではありません。計算条件、スクリプト、数値データ、図の再生成手順は <a class="reference internal" href="reproduction.html"><span class="doc">計算条件と再現手順</span></a> にまとめています。</p>
+</div>
+<section id="id2">
+<h2><span class="section-number">3.1.1. </span>計算対象と条件<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>計算するのは、等間隔に一直線に並んだ中性の水素原子鎖 <span class="math notranslate nohighlight">\(\mathrm{H}_N\)</span> です。隣り合う水素原子の間隔はすべて1.8 Åとし、原子核の位置は最適化せずに固定します。鎖の両端は開いており、周期境界条件は課しません。</p>
+<figure class="align-default" id="fig-hchain-model">
+<a class="reference internal image-reference" href="../_images/model_chains.png"><img alt="../_images/model_chains.png" src="../_images/model_chains.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">図 3.1 </span><span class="caption-text">計算モデルの模式図。全原子間隔を1.8 Åに保ち、原子核を固定したまま原子数 <span class="math notranslate nohighlight">\(N\)</span> を増やします。原子を結ぶ線は並び方を示すためのもので、化学結合を表すものではありません。</span><a class="headerlink" href="#fig-hchain-model" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default" id="tab-hchain-conditions">
+<caption><span class="caption-number">表 3.1 </span><span class="caption-text">計算条件</span><a class="headerlink" href="#tab-hchain-conditions" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>条件</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>計算コード</p></td>
+<td><p>Psi4 1.10</p></td>
+</tr>
+<tr class="row-odd"><td><p>モデル</p></td>
+<td><p>中性の有限水素原子鎖。開放端、原子核位置固定</p></td>
+</tr>
+<tr class="row-even"><td><p>原子間距離</p></td>
+<td><p>1.8 Å</p></td>
+</tr>
+<tr class="row-odd"><td><p>原子数</p></td>
+<td><p>主に <span class="math notranslate nohighlight">\(N\)</span> = 2, 4, 8, 16, 24, 32, 48, 64</p></td>
+</tr>
+<tr class="row-even"><td><p>基底関数</p></td>
+<td><p>STO-3G（H原子あたり1個の空間基底関数）</p></td>
+</tr>
+<tr class="row-odd"><td><p>スピン制限計算</p></td>
+<td><p>RHF、RKS-PBE</p></td>
+</tr>
+<tr class="row-even"><td><p>スピン非制限計算</p></td>
+<td><p>UHF、UKS-PBE（<span class="math notranslate nohighlight">\(N\)</span> = 16, 32）</p></td>
+</tr>
+<tr class="row-odd"><td><p>電子数とスピン</p></td>
+<td><p>電子数 <span class="math notranslate nohighlight">\(N\)</span>、偶数原子数、<span class="math notranslate nohighlight">\(N_\alpha = N_\beta = N/2\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>SCF収束条件</p></td>
+<td><p>エネルギー・密度ともに <span class="math notranslate nohighlight">\(10^{-9}\)</span>、最大500反復</p></td>
+</tr>
+</tbody>
+</table>
+<p>原子数依存性の計算には密度フィッティング（DF）SCFを、後半のスピン制限解・非制限解の比較と安定性解析には近似のない4中心積分（PK法）を使いました。PBEの積分グリッドはPsi4の既定値です。示す数値はすべて収束したSCF解から取得しています。</p>
+<p>水素原子そのものは実在しますが、等間隔・固定核の鎖は教育用の理想化モデルです。また、原子核を直線上に並べているだけで、電子の運動を数学的な1次元空間に閉じ込めているわけではありません。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.1.2. </span>分子軌道の集まりはバンドに近づくか<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>孤立した水素原子の基底状態では、電子が1s軌道を占めます。水素原子を2個近づけると、2つの1s軌道から結合性軌道と反結合性軌道ができます。さらに原子を増やすと、 <span class="math notranslate nohighlight">\(N\)</span> 個の1s基底関数から <span class="math notranslate nohighlight">\(N\)</span> 個の分子軌道ができます。</p>
+<p>中性の <span class="math notranslate nohighlight">\(\mathrm{H}_N\)</span> 鎖には <span class="math notranslate nohighlight">\(N\)</span> 個の電子があり、スピン制限の閉殻計算では、エネルギーの低い <span class="math notranslate nohighlight">\(N/2\)</span> 個の分子軌道を2電子ずつ占有します。1原子あたり1電子なので、1軌道のバンド模型でいえば <strong>半充填</strong> の状態です。</p>
+<p>この状況を説明する最も簡単なモデルが、隣接原子間のホッピングだけを考える強束縛（tight-binding）模型です。各原子の軌道エネルギーを <span class="math notranslate nohighlight">\(\varepsilon_0\)</span> 、隣接原子間のホッピングを <span class="math notranslate nohighlight">\(t\)</span> とすると、開放端の <span class="math notranslate nohighlight">\(N\)</span> 原子鎖の固有値は</p>
+<div class="math notranslate nohighlight">
+\[E_j = \varepsilon_0 - 2t\cos\left(\frac{j\pi}{N+1}\right),
+\qquad j = 1, \ldots, N\]</div>
+<p>となります。一方、原子間隔 <span class="math notranslate nohighlight">\(a\)</span> の無限周期鎖のバンド分散は</p>
+<div class="math notranslate nohighlight">
+\[E(k) = \varepsilon_0 - 2t\cos(ka)\]</div>
+<p>です。有限鎖の <span class="math notranslate nohighlight">\(j\)</span> 番目の準位に形式的に <span class="math notranslate nohighlight">\(k_j a = j\pi/(N+1)\)</span> を割り当てると、原子数を増やすほど、この余弦曲線を細かくサンプリングしていくことが分かります。</p>
+<p>RKS-PBE計算で得た分子軌道エネルギーを、同じように割り当てた <strong>擬似波数</strong> に対して並べたのが <a class="reference internal" href="#fig-hchain-pbe-levels"><span class="std std-numref">図 3.2</span></a> です。</p>
+<figure class="align-default" id="fig-hchain-pbe-levels">
+<a class="reference internal image-reference" href="../_images/pbe_levels.png"><img alt="../_images/pbe_levels.png" src="../_images/pbe_levels.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">図 3.2 </span><span class="caption-text">RKS-PBEで求めた分子軌道エネルギー。原子数ごとに軌道エネルギーの平均を差し引いています。横軸はエネルギー順の軌道番号 <span class="math notranslate nohighlight">\(j\)</span> から割り当てた擬似波数 <span class="math notranslate nohighlight">\(ka = j\pi/(N+1)\)</span> で、波動関数から求めたBloch波数ではありません。点線は半充填位置 <span class="math notranslate nohighlight">\(ka = \pi/2\)</span> です。</span><a class="headerlink" href="#fig-hchain-pbe-levels" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>原子数が少ないうちは準位がまばらですが、 <span class="math notranslate nohighlight">\(N\)</span> = 32、64になると点が1本の滑らかな曲線を描きます。分子軌道の集まりからバンド状のエネルギースペクトルが生まれる様子を、数値実験として直接確認できます。</p>
+<p>ただし、ここで計算しているのは有限の孤立分子であり、周期結晶のバンド構造そのものではありません。擬似波数が実際の波動関数の空間振動と対応しているかは、軌道係数を解析すればさらに検証できます。また、PBEの曲線は全域で完全な余弦関数にはなりません。実際の電子状態計算には、隣接原子以外との軌道の重なりや長距離の相互作用が含まれるためです。</p>
+</section>
+<section id="rhfpbe">
+<h2><span class="section-number">3.1.3. </span>RHFとPBEでギャップの振る舞いが違う<a class="headerlink" href="#rhfpbe" title="Link to this heading"></a></h2>
+<p>同じ水素鎖をRHFとRKS-PBEで計算すると、最高被占有軌道（HOMO）と最低空軌道（LUMO）のエネルギー差、すなわち軌道ギャップが大きく異なります。</p>
+<table class="docutils align-default" id="tab-hchain-gaps">
+<caption><span class="caption-number">表 3.2 </span><span class="caption-text">HOMO–LUMO軌道ギャップ（DF-SCF）</span><a class="headerlink" href="#tab-hchain-gaps" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>原子数 <span class="math notranslate nohighlight">\(N\)</span></p></th>
+<th class="head"><p>RHF (eV)</p></th>
+<th class="head"><p>RKS-PBE (eV)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>7.089</p></td>
+<td><p>1.302</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>5.679</p></td>
+<td><p>0.691</p></td>
+</tr>
+<tr class="row-even"><td><p>32</p></td>
+<td><p>5.007</p></td>
+<td><p>0.356</p></td>
+</tr>
+<tr class="row-odd"><td><p>64</p></td>
+<td><p>4.764</p></td>
+<td><p>0.181</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="fig-hchain-gaps">
+<a class="reference internal image-reference" href="../_images/orbital_gaps.png"><img alt="../_images/orbital_gaps.png" src="../_images/orbital_gaps.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">図 3.3 </span><span class="caption-text">原子数に対するHOMO–LUMO軌道ギャップ（縦軸は対数）。破線は有限サイズ則 <span class="math notranslate nohighlight">\(11.75/(N+1)\)</span> eVです。</span><a class="headerlink" href="#fig-hchain-gaps" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>PBEのギャップは原子数とともに速やかに小さくなり、今回の計算範囲では</p>
+<div class="math notranslate nohighlight">
+\[\Delta_N^{\mathrm{PBE}} \simeq \frac{11.75\ \mathrm{eV}}{N+1}\]</div>
+<p>とよく表せます。これは、半充填の最近接強束縛模型での有限サイズギャップ</p>
+<div class="math notranslate nohighlight">
+\[\Delta_N^{\mathrm{TB}} = 4t\sin\left(\frac{\pi}{2(N+1)}\right) \simeq \frac{2\pi t}{N+1}\]</div>
+<p>と同じ形です。フェルミ準位付近の準位間隔だけを対応させると、有効ホッピングは <span class="math notranslate nohighlight">\(t \approx 1.87\)</span> eVになります。ただし、これはエネルギー分散の全体を1つの最近接ホッピングで再現できるという意味ではありません。</p>
+<p>一方、RHFでは <span class="math notranslate nohighlight">\(N\)</span> = 64まで増やしても約4.8 eVのギャップが残ります。 <span class="math notranslate nohighlight">\(N\)</span> = 64の軌道エネルギーを2つの手法で並べると、違いがはっきり見えます（ <a class="reference internal" href="#fig-hchain-levels-n64"><span class="std std-numref">図 3.4</span></a> ）。PBEの準位は半充填位置 <span class="math notranslate nohighlight">\(ka = \pi/2\)</span> をはさんで途切れずにつながるのに対し、RHFでは占有軌道と空軌道の間に大きな段差があります。</p>
+<figure class="align-default" id="fig-hchain-levels-n64">
+<a class="reference internal image-reference" href="../_images/rhf_pbe_levels_n64.png"><img alt="../_images/rhf_pbe_levels_n64.png" src="../_images/rhf_pbe_levels_n64.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">図 3.4 </span><span class="caption-text"><span class="math notranslate nohighlight">\(N\)</span> = 64でのRHFとRKS-PBEの分子軌道エネルギー。塗りつぶしは占有軌道、白抜きは空軌道です。軸の定義は <a class="reference internal" href="#fig-hchain-pbe-levels"><span class="std std-numref">図 3.2</span></a> と同じです。</span><a class="headerlink" href="#fig-hchain-levels-n64" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>同じ原子配置と電子数なのに、なぜこれほど違う結果になるのでしょうか。</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.1.4. </span>原子核は等間隔なのに、結合が交替する<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>原因を探るため、隣り合う原子の間の電子的な結びつきを調べます。重なり行列 <span class="math notranslate nohighlight">\(S\)</span> と（スピンについて和をとった）密度行列 <span class="math notranslate nohighlight">\(D\)</span> から、Löwdin直交化した密度行列</p>
+<div class="math notranslate nohighlight">
+\[P^{\mathrm{L}} = S^{1/2} D S^{1/2}\]</div>
+<p>をつくり、その隣接原子間の要素 <span class="math notranslate nohighlight">\(B_i = P^{\mathrm{L}}_{i,i+1}\)</span> を <strong>結合次数に相当する量</strong> として使います。これはこの解析のための指標で、結合次数の唯一の定義ではありません。</p>
+<p>RHFでは、鎖の中央でも <span class="math notranslate nohighlight">\(B_i\)</span> がおおよそ0.86、0.38、0.86、0.38、……と大きく交替していました。PBEでは0.67と0.61程度の小さな交替にとどまります。</p>
+<p>鎖の中央にある8本の結合を1本おきの2組に分け、2組の平均値の差の半分を交替振幅 <span class="math notranslate nohighlight">\(A_{\mathrm{BOW}}\)</span> と定義すると、次のようになります。</p>
+<table class="docutils align-default" id="tab-hchain-bow">
+<caption><span class="caption-number">表 3.3 </span><span class="caption-text">鎖中央の結合次数の交替振幅 <span class="math notranslate nohighlight">\(A_{\mathrm{BOW}}\)</span> （PK積分）</span><a class="headerlink" href="#tab-hchain-bow" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>原子数 <span class="math notranslate nohighlight">\(N\)</span></p></th>
+<th class="head"><p>RHF</p></th>
+<th class="head"><p>RKS-PBE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>0.24744</p></td>
+<td><p>0.06340</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>0.24222</p></td>
+<td><p>0.02995</p></td>
+</tr>
+<tr class="row-even"><td><p>64</p></td>
+<td><p>0.24209</p></td>
+<td><p>0.01481</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="fig-hchain-bow">
+<a class="reference internal image-reference" href="../_images/bond_alternation.png"><img alt="../_images/bond_alternation.png" src="../_images/bond_alternation.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">図 3.5 </span><span class="caption-text">鎖中央のLöwdin結合次数の交替振幅。PBEでは原子数とともに小さくなり、RHFではほぼ一定のまま残ります。</span><a class="headerlink" href="#fig-hchain-bow" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>端のある有限鎖では、単純な強束縛模型でも端に起因する結合次数の振動が生じ、鎖の中央に向かって弱まります。PBEの交替振幅が原子数とともに小さくなる傾向は、この端の効果とよく合います。これに対してRHFの交替は、少なくとも <span class="math notranslate nohighlight">\(N\)</span> = 64までは鎖の中央に残り続けます。</p>
+<p>このように、 <strong>原子核は等間隔のまま、電子による結合の強さだけが「強・弱・強・弱」と交替する状態</strong> を、結合次数波（bond-order wave、BOW）と呼びます。原子そのものが交互に変位する通常のPeierls歪みとは区別が必要です。</p>
+<p>BOWが無限鎖でも保たれるなら、電子状態の周期は <span class="math notranslate nohighlight">\(a\)</span> から <span class="math notranslate nohighlight">\(2a\)</span> に倍化します。強弱2種類のホッピング <span class="math notranslate nohighlight">\(t_1, t_2\)</span> を交互に並べた簡単な模型（SSH模型）では、折り返されたバンドの境界に</p>
+<div class="math notranslate nohighlight">
+\[\Delta_{\mathrm{BOW}} = 2|t_1 - t_2|\]</div>
+<p>のギャップが開きます。 <a class="reference internal" href="#fig-hchain-levels-n64"><span class="std std-numref">図 3.4</span></a> でRHFの準位が半充填位置 <span class="math notranslate nohighlight">\(ka = \pi/2\)</span> で段差を持つことも、この描像と整合します。ただし、これは仕組みを理解するための模型であり、RHFのFock演算子をSSH模型と同一視するものではありません。</p>
+<p>また、有限鎖にはもともと端があり、厳密な並進対称性はありません。 <strong>原子数を増やしてもBOWの振幅が残ることは、無限鎖での対称性の破れを支持しますが、証明ではありません</strong> 。周期境界条件での確認などは今後の課題です。</p>
+</section>
+<section id="id5">
+<h2><span class="section-number">3.1.5. </span>スピン分極を許すと、別の電子状態が現れる<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>ここまでの計算は、上向きスピンと下向きスピンの電子に同じ空間軌道を使わせるスピン制限計算でした。そこで、両スピンの軌道を独立に最適化できるUHFとUKS-PBEでも計算しました。</p>
+<p>その結果、RHFで大きかったBOWはほぼ消え、代わりに <strong>隣り合う原子ごとにスピン人口の符号が反転する解</strong> が得られました。</p>
+<table class="docutils align-default" id="tab-hchain-spin">
+<caption><span class="caption-number">表 3.4 </span><span class="caption-text"><span class="math notranslate nohighlight">\(N\)</span> = 32でのスピン制限解と非制限解の比較（PK積分）</span><a class="headerlink" href="#tab-hchain-spin" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 26.0%" />
+<col style="width: 22.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>手法</p></th>
+<th class="head"><p>HOMO–LUMO軌道ギャップ (eV)</p></th>
+<th class="head"><p>中央のBOW振幅</p></th>
+<th class="head"><p>Löwdinスピン人口の平均絶対値</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RHF</p></td>
+<td><p>5.005</p></td>
+<td><p>0.24222</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>RKS-PBE</p></td>
+<td><p>0.356</p></td>
+<td><p>0.02995</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>UHF</p></td>
+<td><p>19.493</p></td>
+<td><p>約0</p></td>
+<td><p>0.898</p></td>
+</tr>
+<tr class="row-odd"><td><p>UKS-PBE</p></td>
+<td><p>3.611</p></td>
+<td><p>約0</p></td>
+<td><p>0.626</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-default" id="fig-hchain-spin">
+<a class="reference internal image-reference" href="../_images/spin_and_bonds_n32.png"><img alt="../_images/spin_and_bonds_n32.png" src="../_images/spin_and_bonds_n32.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">図 3.6 </span><span class="caption-text"><span class="math notranslate nohighlight">\(N\)</span> = 32の鎖のLöwdin結合次数（上）とLöwdinスピン人口 <span class="math notranslate nohighlight">\(\alpha-\beta\)</span> （下）。RHFの結合交替に対し、UHFとUKS-PBEでは結合次数がほぼ一様になり、スピン人口が原子ごとに反転します。</span><a class="headerlink" href="#fig-hchain-spin" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>スピン人口は、各原子上のLöwdin解析によるα電子数とβ電子数の差です。その平均絶対値はUHFで約0.90、UKS-PBEで約0.63でした。各原子に交互のスピン分極が現れるこの解は、反強磁性的なスピン密度波（SDW）に相当する <strong>平均場解</strong> と解釈できます。非制限計算の軌道ギャップは、αとβの両スピンを通じた最高被占有軌道と最低空軌道の差です。</p>
+<p>非制限計算では、交互のスピン分極を誘起する仮想的な場を加えて初期軌道を準備しましたが、自己無撞着な本計算のハミルトニアンにはこの場を含めていません。得られた解は初期値に依存し得るもので、唯一の解であるとは限りません。</p>
+<p>非制限解の全エネルギーは、対応するスピン制限解より低くなりました。 <span class="math notranslate nohighlight">\(N\)</span> = 32では、RHF→UHFで1原子あたり約1.49 eV、RKS-PBE→UKS-PBEで1原子あたり約0.125 eVの低下です。HFとPBEはエネルギー汎関数が異なるため、HFとPBEの全エネルギー同士を比べて優劣を判断することはできません。比較は同じ汎関数の中で行います。</p>
+<p>RHFでは結合が交替し、UHFとUKS-PBEではスピンが交替しました。どちらも元の1原子周期とは異なる空間パターンです。平均場の自己無撞着解では、どの対称性の破れを許すかによって解の性質そのものが変わることが分かります。</p>
+</section>
+<section id="id6">
+<h2><span class="section-number">3.1.6. </span>どの結果が「正しい」のか<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>ここで注意したいのは、 <strong>軌道ギャップが大きい計算ほど正しいわけではない</strong> ということです。</p>
+<p>RHF解についてPsi4の安定性解析 <a class="footnote-reference brackets" href="#id12" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> を行うと、スピン制限の範囲（RHF→RHF）では最低固有値がすべて正で、結合交替した解は局所的に安定でした。一方、スピン対称性を破る方向（RHF→UHF）には負の固有値があり、不安定でした。固有値はエネルギーの低下量そのものではありませんが、この結果と整合して、UHFでは実際によりエネルギーの低い、スピン分極した解が得られています。</p>
+<table class="docutils align-default" id="tab-hchain-stability">
+<caption><span class="caption-number">表 3.5 </span><span class="caption-text">RHF解の安定性解析の最低固有値（PK積分、単位 <span class="math notranslate nohighlight">\(E_\mathrm{h}\)</span>）</span><a class="headerlink" href="#tab-hchain-stability" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>原子数 <span class="math notranslate nohighlight">\(N\)</span></p></th>
+<th class="head"><p>RHF→RHF（一重項）</p></th>
+<th class="head"><p>RHF→UHF（三重項）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>+0.126</p></td>
+<td><p>−0.359</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>+0.107</p></td>
+<td><p>−0.361</p></td>
+</tr>
+<tr class="row-even"><td><p>64</p></td>
+<td><p>+0.103</p></td>
+<td><p>−0.362</p></td>
+</tr>
+</tbody>
+</table>
+<p>ただし、UHF解は一重項のスピン固有状態ではありません。 <span class="math notranslate nohighlight">\(N\)</span> = 32ではUHF行列式の <span class="math notranslate nohighlight">\(\langle S^2\rangle\)</span> が約12.97で（一重項なら0）、大きなスピン混入を含みます。UKS-PBEの補助的なKohn–Sham行列式でも約6.89です。交互のスピン人口を持つ平均場解が得られたからといって、実際の無限水素鎖に静的な長距離反強磁性秩序があると結論することはできません。</p>
+<p>スピン制限のPBE計算で軌道ギャップがほぼ <span class="math notranslate nohighlight">\(1/N\)</span> で小さくなったことも、真の多電子系が金属であることの証明ではありません。HFの軌道エネルギー差もKohn–Shamの軌道エネルギー差も、一般には電子を1個加えたり取り去ったりするときの多電子系の電荷ギャップとは一致しません。特にDFTのギャップには、交換相関汎関数の微分不連続性が関わります。</p>
+<p>水素原子鎖は、電子相関を扱う手法のベンチマークとして広く使われている系です。多体計算による研究では、原子間距離に応じてMott絶縁体的な振る舞い、準長距離の反強磁性相関、絶縁体–金属転移などの性質が報告されています <a class="footnote-reference brackets" href="#id13" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> 。有限の水素鎖でHF解の安定性と対称性の破れを調べた古典的な研究もあります <a class="footnote-reference brackets" href="#id14" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> 。STO-3G基底・固定距離・有限鎖の今回の計算から、これらの相の境界や真の電荷ギャップを決めることはできません。</p>
+<p>今回の計算で確認できたのは、 <strong>同じ原子配置と電子数であっても、計算手法と対称性の制約が違えば、得られる電子状態の解釈そのものが変わる</strong> ということです。</p>
+</section>
+<section id="id10">
+<h2><span class="section-number">3.1.7. </span>この数値実験から分かること<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<p>水素原子鎖の計算から、次の3点が読み取れます。</p>
+<ol class="arabic simple">
+<li><p><strong>原子軌道からバンドへ。</strong> 原子数を増やすと分子軌道の準位が密集し、周期系のバンド分散に対応する構造が見えてきます。</p></li>
+<li><p><strong>バンド形成は終点ではない。</strong> 電子状態が結合次数波やスピン密度波といった空間パターンをつくると、半充填の単純なバンド描像からは予想されないギャップが現れ得ます。</p></li>
+<li><p><strong>計算結果はモデルと近似を通して読む。</strong> RHF、RKS-PBE、UHF、UKS-PBEの違いは単なる数値誤差ではなく、採用した近似と対称性の制約を反映しています。</p></li>
+</ol>
+<p>今回は原子間距離を1.8 Åに固定しました。距離を縮めたり広げたりすると、軌道の重なりと電子の局在しやすさが変わります。原子間距離依存性、周期境界条件での計算、軌道係数の空間分布の解析などが次の検討課題です。</p>
+<p>実在材料に似せることだけがシミュレーションの役割ではありません。結果が何を表し、どこに近似の影響が現れるかを学ぶために理想化した系を計算してみることも、計算科学の有用な使い方です。</p>
+</section>
+<section id="id11">
+<h2><span class="section-number">3.1.8. </span>参考文献<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">1</a><span class="fn-bracket">]</span></span>
+<p>Psi4 documentation, &quot;HF: Hartree–Fock Theory.&quot; <a class="reference external" href="https://psi4.github.io/psi4docs/master/scf.html">https://psi4.github.io/psi4docs/master/scf.html</a></p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">2</a><span class="fn-bracket">]</span></span>
+<ol class="upperalpha simple" start="13">
+<li><p>Motta et al., &quot;Ground-State Properties of the Hydrogen Chain: Dimerization, Insulator-to-Metal Transition, and Magnetic Phases,&quot; <em>Physical Review X</em> <strong>10</strong>, 031058 (2020). <a class="reference external" href="https://doi.org/10.1103/PhysRevX.10.031058">https://doi.org/10.1103/PhysRevX.10.031058</a></p></li>
+</ol>
+</aside>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">3</a><span class="fn-bracket">]</span></span>
+<ol class="upperalpha simple" start="13">
+<li><p>Bénard and J. Paldus, &quot;Stability of Hartree–Fock solutions and symmetry breaking in the independent particle model: An ab initio case study of the LCAO–MO–SCF solutions for finite chains of hydrogen atoms,&quot; <em>The Journal of Chemical Physics</em> <strong>72</strong>, 6546–6559 (1980). <a class="reference external" href="https://doi.org/10.1063/1.439112">https://doi.org/10.1063/1.439112</a></p></li>
+</ol>
+</aside>
+</aside>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="3. 水素原子鎖" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reproduction.html" class="btn btn-neutral float-right" title="3.2. 計算条件と再現手順" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Quemix inc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

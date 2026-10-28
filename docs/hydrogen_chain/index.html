@@ -1,0 +1,150 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. 水素原子鎖</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=c1f5603a" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=855244f2" />
+
+  
+      <script src="../_static/jquery.js?v=958b65b0"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c033477b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="3.1. 水素原子を並べると電子バンドは生まれるのか" href="band_formation.html" />
+    <link rel="prev" title="2.4. 動径分布関数" href="../li3po4/rdf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quloud Examples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../BaTiO3/index.html">1. BaTiO<span class="math notranslate nohighlight">\(_3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../li3po4/index.html">2. Li<span class="math notranslate nohighlight">\(_3\)</span>PO<span class="math notranslate nohighlight">\(_4\)</span></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 水素原子鎖</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html">3.1. 水素原子を並べると電子バンドは生まれるのか</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproduction.html">3.2. 計算条件と再現手順</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quloud Examples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>水素原子鎖</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/hydrogen_chain/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3. </span>水素原子鎖<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="band_formation.html">3.1. 水素原子を並べると電子バンドは生まれるのか</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#id2">3.1.1. 計算対象と条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#id3">3.1.2. 分子軌道の集まりはバンドに近づくか</a></li>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#rhfpbe">3.1.3. RHFとPBEでギャップの振る舞いが違う</a></li>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#id4">3.1.4. 原子核は等間隔なのに、結合が交替する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#id5">3.1.5. スピン分極を許すと、別の電子状態が現れる</a></li>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#id6">3.1.6. どの結果が「正しい」のか</a></li>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#id10">3.1.7. この数値実験から分かること</a></li>
+<li class="toctree-l2"><a class="reference internal" href="band_formation.html#id11">3.1.8. 参考文献</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reproduction.html">3.2. 計算条件と再現手順</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reproduction.html#id2">3.2.1. 計算環境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproduction.html#id3">3.2.2. 配布ファイル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#psi4">3.2.2.1. Psi4入力スクリプト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#id4">3.2.2.2. 図の作成スクリプト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#csv">3.2.2.3. 数値データ（CSV）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reproduction.html#id5">3.2.3. 計算手順</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#rhf">3.2.3.1. 1. RHFの原子数依存性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#rks-pbe">3.2.3.2. 2. RKS-PBEの原子数依存性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#id6">3.2.3.3. 3. 結合次数とRHFの安定性解析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#id7">3.2.3.4. 4. スピン制限解と非制限解の比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reproduction.html#id8">3.2.3.5. 5. 図の作成</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reproduction.html#id9">3.2.4. 数値を扱う上での注意</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../li3po4/rdf.html" class="btn btn-neutral float-left" title="2.4. 動径分布関数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="band_formation.html" class="btn btn-neutral float-right" title="3.1. 水素原子を並べると電子バンドは生まれるのか" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Quemix inc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

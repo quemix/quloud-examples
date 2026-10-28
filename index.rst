@@ -12,3 +12,4 @@ Examples
 
    BaTiO3/index
    li3po4/index
+   hydrogen_chain/index
