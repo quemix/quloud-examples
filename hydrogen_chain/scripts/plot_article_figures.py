@@ -1,4 +1,4 @@
-"""Generate the figures of the hydrogen-chain example from the CSV files in ../data.
+"""Generate selected figures of the hydrogen-chain example from CSV files in ../data.
 
 Run:     python plot_article_figures.py
 
@@ -68,6 +68,9 @@ for n in (2, 4, 8, 16, 32, 64):
     ax.scatter([float(r['pseudo_ka']) for r in rr],
                [float(r['energy_relative_to_mean_eV']) for r in rr],
                label=f'N={n}', s=48 if n < 16 else 22 if n < 64 else 15, alpha=.9)
+ka = np.linspace(0, np.pi, 400)
+t = 11.75 / (2 * np.pi)  # eV, from the near-Fermi finite-size gap
+ax.plot(ka, -2 * t * np.cos(ka), 'k--', lw=1.7)
 ax.axvline(np.pi / 2, c='0.65', ls=':', lw=1)
 ax.set_xlabel('Assigned pseudo wave number  ka')
 ax.set_ylabel('MO energy relative to chain mean (eV)')
@@ -76,6 +79,26 @@ ax.set_xlim(0, np.pi)
 ax.legend(ncol=3, loc='upper left', fontsize=10)
 fig.tight_layout()
 fig.savefig(FIG / 'pbe_levels.png', bbox_inches='tight')
+plt.close(fig)
+
+# Figure: the same orbital-energy plot for restricted Hartree-Fock.
+rhf_levels = {(int(r['n_atoms']), int(r['orbital_index'])): r
+              for r in records('rhf_orbitals.csv')}
+fig, ax = plt.subplots(figsize=(9.0, 5.6))
+for n in (2, 4, 8, 16, 32, 64):
+    rr = [rhf_levels[(n, j)] for j in range(1, n + 1)]
+    ax.scatter([float(r['pseudo_ka']) for r in rr],
+               [float(r['energy_relative_to_mean_eV']) for r in rr],
+               label=f'N={n}', s=48 if n < 16 else 22 if n < 64 else 15, alpha=.9)
+ax.plot(ka, -2 * t * np.cos(ka), 'k--', lw=1.7)
+ax.axvline(np.pi / 2, c='0.65', ls=':', lw=1)
+ax.set_xlabel('Assigned pseudo wave number  ka')
+ax.set_ylabel('MO energy relative to chain mean (eV)')
+ax.set_title('Restricted Hartree-Fock: orbital levels versus chain length')
+ax.set_xlim(0, np.pi)
+ax.legend(ncol=3, loc='upper left', fontsize=10)
+fig.tight_layout()
+fig.savefig(FIG / 'rhf_levels.png', bbox_inches='tight')
 plt.close(fig)
 
 # Figure: HOMO-LUMO orbital gap versus N with the finite-size reference.
@@ -120,7 +143,7 @@ fig.tight_layout()
 fig.savefig(FIG / 'rhf_pbe_levels_n64.png', bbox_inches='tight')
 plt.close(fig)
 
-# Figure: central Lowdin bond-order alternation versus N.
+# Central Lowdin bond-order alternation versus N.
 groups = {}
 for r in records('hydrogen_chain_bond_order.csv'):
     groups.setdefault((int(r['n_atoms']), r['method']), []).append(
@@ -128,20 +151,6 @@ for r in records('hydrogen_chain_bond_order.csv'):
 nums = [16, 32, 64]
 series = {m: [central_alternation([v for _, v in sorted(groups[(n, m)])]) for n in nums]
           for m in ('RHF', 'RKS-PBE')}
-fig, ax = plt.subplots(figsize=(8.5, 5.0))
-for meth, vals in series.items():
-    ax.plot(nums, vals, 'o-', label=meth, ms=7, lw=2.2)
-ax.set_xlabel('Number of H atoms, N')
-ax.set_ylabel('Central bond-order alternation amplitude')
-ax.set_title('RHF bond alternation persists, while PBE boundary oscillation shrinks')
-ax.set_ylim(0, .28)
-ax.set_xticks(nums)
-ax.grid(axis='y', alpha=.2)
-ax.legend()
-fig.tight_layout()
-fig.savefig(FIG / 'bond_alternation.png', bbox_inches='tight')
-plt.close(fig)
-
 # Figure: bond orders and spin populations of the N=32 chain,
 # restricted and unrestricted solutions.
 methods = ('RHF', 'RKS-PBE', 'UHF', 'UKS-PBE')
@@ -172,7 +181,8 @@ fig.tight_layout()
 fig.savefig(FIG / 'spin_and_bonds_n32.png', bbox_inches='tight')
 plt.close(fig)
 
-print('Generated:', *sorted(p.name for p in FIG.glob('*.png')), sep='\n  ')
+print('Generated: model_chains.png, pbe_levels.png, rhf_levels.png, orbital_gaps.png, '
+      'rhf_pbe_levels_n64.png, spin_and_bonds_n32.png')
 print('Central bond alternation:')
 for meth, vals in series.items():
     print(' ', meth, dict(zip(nums, [round(float(v), 5) for v in vals])))

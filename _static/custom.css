@@ -3,3 +3,66 @@ div.admonition > p.admonition-title::before {
     content: none !important;
 }
 
+/* 図・表とそのキャプションを表示領域の中央に配置する。 */
+.rst-content figure {
+    text-align: center;
+}
+
+.rst-content figure figcaption p {
+    text-align: center;
+}
+
+.rst-content table.docutils {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rst-content table.docutils caption {
+    text-align: center;
+}
+
+.hchain-spin-spectra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hchain-spin-spectra figure {
+    flex: 1 1 320px;
+    min-width: 0;
+    margin: 0;
+}
+
+/* 水素鎖のギャップ表と図を、十分な幅があるときに並べる。 */
+.hchain-gap-comparison {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.hchain-gap-table {
+    flex: 1 1 260px;
+    min-width: 0;
+    padding: 0.75rem;
+}
+
+.hchain-gap-table table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hchain-gap-figure {
+    flex: 2 1 350px;
+    min-width: 0;
+    padding: 0.75rem;
+}
+
+.hchain-gap-figure figure {
+    margin: 0;
+    text-align: center;
+}
+
+.hchain-gap-figure figcaption {
+    text-align: center;
+}

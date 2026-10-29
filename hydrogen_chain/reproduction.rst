@@ -25,12 +25,12 @@ Psi4入力スクリプト
 
 * :download:`hydrogen_chain_psi4.py <scripts/hydrogen_chain_psi4.py>` : 原子数を変えながらRHFまたはRKSを計算し、軌道エネルギーと擬似波数をCSVに出力します（DF-SCF）。
 * :download:`hydrogen_chain_bond_order.py <scripts/hydrogen_chain_bond_order.py>` : RHFとRKS-PBEのLöwdin結合次数を求め、RHF解の安定性解析を行います（PK積分）。
-* :download:`hydrogen_chain_spin.py <scripts/hydrogen_chain_spin.py>` : RHF、RKS-PBE、UHF、UKS-PBEを順に計算し、エネルギー、軌道ギャップ、結合次数、スピン人口、 :math:`\langle S^2\rangle` を出力します（PK積分）。
+* :download:`hydrogen_chain_spin.py <scripts/hydrogen_chain_spin.py>` : RHF、RKS-PBE、UHF、UKS-PBEを順に計算し、エネルギー、軌道ギャップ、結合次数、スピン密度、 :math:`\langle S^2\rangle` を出力します（PK積分）。
 
 図の作成スクリプト
 ------------------
 
-* :download:`plot_article_figures.py <scripts/plot_article_figures.py>` : 下記のCSVから記事中の図をすべて作成します。Psi4の計算は行いません。
+* :download:`plot_article_figures.py <scripts/plot_article_figures.py>` : 下記のCSVからモデル図、軌道エネルギー、ギャップ、スピンと結合次数の比較図を作成します。Psi4の計算は行いません。記事中のその他の図は配布済みのPNGを使用しています。
 
 数値データ（CSV）
 -----------------
@@ -52,9 +52,9 @@ Psi4入力スクリプト
    * - :download:`hydrogen_chain_bond_order.csv <data/hydrogen_chain_bond_order.csv>`
      - RHFとRKS-PBEの隣接原子間Löwdin結合次数（ :math:`N` = 16, 32, 64、PK）。原子番号は0始まり
    * - :download:`hydrogen_chain_spin_summary.csv <data/hydrogen_chain_spin_summary.csv>`
-     - 4手法の全エネルギー、軌道ギャップ、中央の交替振幅、スピン人口、 :math:`\langle S^2\rangle` （ :math:`N` = 16, 32、PK）
+     - 4手法の全エネルギー、軌道ギャップ、中央の交替振幅、スピン密度、 :math:`\langle S^2\rangle` （ :math:`N` = 16, 32、PK）
    * - :download:`hydrogen_chain_spin_sites.csv <data/hydrogen_chain_spin_sites.csv>`
-     - 4手法の原子ごとのLöwdin電子数とスピン人口。原子番号は1始まり
+     - 4手法の原子ごとのLöwdin電子数とスピン密度。原子番号は1始まり
    * - :download:`hydrogen_chain_spin_bonds.csv <data/hydrogen_chain_spin_bonds.csv>`
      - 4手法の隣接原子間Löwdin結合次数。原子番号は1始まり
 
@@ -116,7 +116,7 @@ Psi4入力スクリプト
 
    python plot_article_figures.py
 
-``scripts/`` と同じ階層の ``data/`` にあるCSVを読み、 ``figures/`` に記事中の図を出力します。あわせて、中央の結合次数の交替振幅を表示します。
+``scripts/`` と同じ階層の ``data/`` にあるCSVを読み、 ``figures/`` に上記の図を出力します。あわせて、中央の結合次数の交替振幅を表示します。
 
 数値を扱う上での注意
 ====================
