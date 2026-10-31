@@ -1,7 +1,8 @@
-"""Make RSDFT inputs that displace CO2 along its symmetry modes.
+"""Make the CIF structures of CO2 displaced along its symmetry modes, for static SCF jobs on Quloud.
 
-The reference structure is the optimized molecule along z (C-O 1.1645 A)
-in a 10.6 A cubic cell. Each mode keeps the center of mass fixed:
+The reference structure is the optimized molecule along z (C-O 1.1645 A),
+with C at the center of a 10.6 A cubic cell. Each mode keeps the center of
+mass fixed:
 
 * nu1 (symmetric stretch): O atoms move by +u and -u along z.
 * nu3 (antisymmetric stretch): both O atoms move by +u along z, C by -r u.
@@ -16,9 +17,8 @@ Two further sets check the numerical noise of these energies:
   grid spacing (64 points over 10.6 A), to see how the total energy depends
   on the position of the atoms relative to the real-space grid.
 
-Usage: python make_harmonic_inputs.py <rsdft.in> <output_dir> [standard|small|shift]
+Usage: python make_static_structures.py <output_dir> [standard|small|shift]
 """
-import shutil
 import sys
 from pathlib import Path
 
@@ -81,15 +81,14 @@ def positions(mode, u):
 
 
 def main():
-    rsdft_in, outdir = Path(sys.argv[1]), Path(sys.argv[2])
-    kind = sys.argv[3] if len(sys.argv) > 3 else "standard"
+    outdir = Path(sys.argv[1])
+    kind = sys.argv[2] if len(sys.argv) > 2 else "standard"
+    outdir.mkdir(parents=True, exist_ok=True)
     for mode, u in POINTS[kind]:
-        d = outdir / (f"{mode}_{u:+.2f}" if kind == "standard" else f"{mode}_{u:+.4f}")
-        d.mkdir(parents=True, exist_ok=True)
-        shutil.copy(rsdft_in, d / "rsdft.in")
+        name = f"co2_{mode}_{u:+.2f}" if kind == "standard" else f"co2_{mode}_{u:+.4f}"
         lines = [f"  {el}  {lab}  1  {x:.10f}  {y:.10f}  {z:.10f}  1"
                  for (el, lab), (x, y, z) in zip((("C", "C1"), ("O", "O1"), ("O", "O2")), positions(mode, u))]
-        (d / "rsdft.atom").write_text(HEADER + "\n".join(lines) + "\n")
+        (outdir / f"{name}.cif").write_text(HEADER + "\n".join(lines) + "\n")
 
 
 if __name__ == "__main__":

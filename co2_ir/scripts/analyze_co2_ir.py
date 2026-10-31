@@ -1,11 +1,27 @@
-"""Analyze the CO2 CPMD runs and make the article figures.
+"""Analyze the CO2 IR example from RSDFT jobs downloaded from Quloud.
 
-Reads the CSV files in ../data (made by collect_rsdft_outputs.py), prints the
-numbers quoted in the article, and writes the figures to ../figures.
+Pass the ZIP files downloaded from the job pages of Quloud ("一括ダウンロード"
+of the output files), folders holding them, or their extracted contents. Each
+job is recognized from its output files, so the file names do not matter:
 
-Usage: python analyze_co2_ir.py
+* MD (CPMD or BOMD): TRAJECTORY.cif, info.dat and DIPOLE.dat. DIPOLE.dat is
+  written only when "MDDIPOLE /" is added to rsdft.in before the job is run.
+  CPMD and BOMD are told apart by the number of columns of info.dat, and the
+  starting structure by the first frame of TRAJECTORY.cif.
+* Static SCF: rsdft.json and rsdft.atom. The mode and the displacement are read
+  from the structure, compared with the reference structure of
+  make_static_structures.py.
+
+The script prints the numbers quoted in the article and writes the figures for
+the jobs it finds; parts that need missing jobs are skipped.
+
+Usage: python analyze_co2_ir.py <zip or folder> [...] [--figures DIR]
 """
-from pathlib import Path
+import argparse
+import io
+import json
+import zipfile
+from pathlib import Path, PurePosixPath
 
 import numpy as np
 import matplotlib
@@ -13,19 +29,19 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-HERE = Path(__file__).resolve().parent
-DATA = HERE.parent / "data"
-FIG = HERE.parent / "figures"
+FIG = Path("figures")
 
 HA2CM = 219474.63  # hartree -> cm^-1
 FS2AU = 1.0 / 2.418884326505e-2  # fs -> atomic time unit
 C_CM_PER_FS = 2.99792458e-5  # speed of light (cm/fs)
 AU2DEBYE = 2.541746
+BOHR = 0.529177210903  # angstrom
 AMU = 1822.888486  # electron masses
 M_C, M_O = 12.011, 15.999
 MASS = np.array([M_C, M_O, M_O])
 R_CO = 2 * M_O / M_C
 KMMOL = 42.2561  # A (km/mol) per (D / (A amu^1/2))^2
+Z_O = 0.609861  # fractional z of the upper O atom in the reference structure (C at the cell center)
 
 COL = {"x": "#2a78d6", "y": "#eb6834", "z": "#1baf7a"}
 MODE_COL = {"sym": "#6250d6", "asym": "#1baf7a", "bend_x": "#2a78d6", "bend_y": "#eb6834"}
@@ -38,10 +54,167 @@ plt.rcParams.update({
 })
 
 
-def load(name):
-    d = np.loadtxt(DATA / name, delimiter=",", skiprows=1)
-    return {"t": d[:, 0], "mu": d[:, 1:4], "R": d[:, 4:13].reshape(-1, 3, 3),
-            "dE": d[:, 13], "fke": d[:, 14], "temp": d[:, 15]}
+def find_jobs(paths):
+    """Output folders of RSDFT jobs (those holding rsdft.json) in ZIP files and folders.
+
+    Returns a list of (name, read), where read(filename) gives the text of that
+    file in the job's folder, or None if it is not there.
+    """
+    jobs = []
+
+    def add_zip(zpath):
+        zf = zipfile.ZipFile(zpath)
+        names = [n for n in zf.namelist() if not n.endswith("/")]
+        for n in names:
+            p = PurePosixPath(n)
+            if p.name == "rsdft.json":
+                members = {PurePosixPath(m).name: m for m in names if PurePosixPath(m).parent == p.parent}
+                label = f"{zpath}" + ("" if str(p.parent) == "." else f":{p.parent}")
+                jobs.append((label, lambda f, zf=zf, m=members: zf.read(m[f]).decode() if f in m else None))
+
+    for p in map(Path, paths):
+        if p.is_file() and p.suffix.lower() == ".zip":
+            add_zip(p)
+        elif p.is_dir():
+            for z in sorted(p.rglob("*.zip")):
+                add_zip(z)
+            for j in sorted(p.rglob("rsdft.json")):
+                d = j.parent
+                jobs.append((str(d), lambda f, d=d: (d / f).read_text() if (d / f).exists() else None))
+        else:
+            raise SystemExit(f"Not a ZIP file or a folder: {p}")
+    return jobs
+
+
+def read_cif(text):
+    """Element symbols, cell lengths (A) and fractional coordinates of every frame of a CIF.
+
+    Works for rsdft.atom (one frame) and TRAJECTORY.cif (one frame per MD step).
+    Returns (symbols, cell, frac) with frac of shape (frames, atoms, 3).
+    """
+    frames, cell, angles = [], {}, {}
+    keys, atoms, symbols = [], [], None
+    for line in text.splitlines():
+        s = line.strip()
+        if s.startswith("#RS-CPMD_STEP") or s.startswith("data_"):
+            if atoms:
+                frames.append(atoms)
+                atoms = []
+            continue
+        if not s or s.startswith("#"):
+            continue
+        if s == "loop_":
+            keys = []
+        elif s.startswith("_cell_length_"):
+            cell[s.split()[0][-1]] = float(s.split()[1])
+        elif s.startswith("_cell_angle_"):
+            angles[s.split()[0]] = float(s.split()[1])
+        elif s.startswith("_"):
+            keys.append(s.split()[0])
+        elif "_atom_site_fract_x" in keys:
+            v = s.split()
+            if len(v) == len(keys):
+                atoms.append(v)
+    if atoms:
+        frames.append(atoms)
+    if any(abs(a - 90) > 1e-6 for a in angles.values()):
+        raise SystemExit("Only orthogonal cells are supported")
+    i_sym = keys.index("_atom_site_type_symbol")
+    i_x = keys.index("_atom_site_fract_x")
+    symbols = [a[i_sym] for a in frames[0]]
+    frac = np.array([[[float(v) for v in a[i_x:i_x + 3]] for a in f] for f in frames])
+    return symbols, np.array([cell["a"], cell["b"], cell["c"]]), frac
+
+
+def co2_positions(text):
+    """Cartesian positions (A) of C, O1, O2 for every frame; O1 is the O atom with larger z at the start."""
+    symbols, cell, frac = read_cif(text)
+    if sorted(symbols) != ["C", "O", "O"]:
+        raise ValueError(f"not a CO2 molecule: {symbols}")
+    c = symbols.index("C")
+    o = sorted((i for i, s in enumerate(symbols) if s == "O"), key=lambda i: -frac[0, i, 2])
+    return frac[:, [c] + o] * cell, cell
+
+
+def load_md(read):
+    """MD time series from TRAJECTORY.cif, info.dat and DIPOLE.dat."""
+    R, _ = co2_positions(read("TRAJECTORY.cif"))
+    info = np.loadtxt(io.StringIO(read("info.dat")))
+    dip = np.loadtxt(io.StringIO(read("DIPOLE.dat")))
+    if not len(R) == len(info) == len(dip) or np.abs(info[:, 0] - dip[:, 0]).max() > 1e-6:
+        raise ValueError("TRAJECTORY.cif, info.dat and DIPOLE.dat do not share the same time steps")
+    # info.dat columns: time, conserved energy, its change, Etot, ion KE,
+    # [fictitious KE (CPMD only)], bath energy, temperature, ...
+    cp = info.shape[1] == 10
+    return {"method": "CPMD" if cp else "BOMD", "t": dip[:, 0], "mu": dip[:, 1:4], "R": R,
+            "dE": info[:, 2], "fke": info[:, 5] if cp else np.zeros(len(info)), "temp": info[:, 7 if cp else 6]}
+
+
+def static_point(text):
+    """(mode, u) of a static structure: u (bohr) is the displacement of the upper O atom.
+
+    nu1: the O atoms move by +u and -u along z; nu2 (x) and nu3 (z): both O atoms
+    move by +u and C by -2 m_O u / m_C; shift: all atoms move by u along x.
+    The structures are made with u in steps of 0.0001 bohr, so u of the modes is
+    rounded to that step (rsdft.atom in the output keeps only 6 decimals).
+    Returns None for a structure that is none of these.
+    """
+    R, cell = co2_positions(text)
+    a = cell[0]
+    ref = np.array([[0.5, 0.5, 0.5], [0.5, 0.5, Z_O], [0.5, 0.5, 1 - Z_O]]) * a
+    d = (R[0] - ref) / BOHR
+    tol = 2e-4  # bohr; rsdft.atom in the output has 6 decimals in fractional coordinates
+    dc, d1, d2 = d
+    if np.abs(d).max() < tol:
+        return "ref", 0.0
+    if np.abs(d[:, 1:]).max() < tol and np.ptp(d[:, 0]) < tol:
+        return "shift", d[:, 0].mean()
+    if np.abs(d[:, :2]).max() < tol and abs(dc[2]) < tol and abs(d1[2] + d2[2]) < tol:
+        return "nu1", round((d1[2] - d2[2]) / 2, 4)
+    for mode, k in (("nu2", 0), ("nu3", 2)):
+        other = [i for i in range(3) if i != k]
+        if np.abs(d[:, other]).max() < tol and abs(d1[k] - d2[k]) < tol and abs(dc[k] + R_CO * d1[k]) < tol:
+            return mode, round((d1[k] + d2[k]) / 2, 4)
+    return None
+
+
+def load_jobs(paths):
+    """Sort the jobs into MD runs (keyed by method and start) and static points."""
+    runs, static, seen = {}, [], set()
+    print("Jobs found:")
+    for name, read in find_jobs(paths):
+        ident = (read("rsdft.json"), read("info.dat") is not None)
+        if ident in seen:
+            print(f"  {name}: same as a job above, skipped")
+            continue
+        seen.add(ident)
+        if read("TRAJECTORY.cif") is not None and read("info.dat") is not None:
+            if read("DIPOLE.dat") is None:
+                print(f"  {name}: MD without DIPOLE.dat (add 'MDDIPOLE /' to rsdft.in), skipped")
+                continue
+            run = load_md(read)
+            r0 = internal(run["R"][:1])["sym"][0]
+            start = "opt" if abs(r0 - 1.1645) < 0.002 else "1150" if abs(r0 - 1.150) < 0.002 else f"{r0:.4f}"
+            key = ("bo_" if run["method"] == "BOMD" else "") + start
+            print(f"  {name}: {run['method']}, {len(run['t']) - 1} steps of {run['t'][1] - run['t'][0]:g} fs,"
+                  f" start C-O {r0:.4f} A -> run '{key}'")
+            if key in runs:
+                print(f"    run '{key}' already found, skipped")
+                continue
+            runs[key] = run
+        else:
+            etot = json.loads(read("rsdft.json"))["etot"]["value"]
+            atom = read("rsdft.atom") or read("rsdft.atom.out.cif")
+            pt = static_point(atom) if atom else None
+            if pt is None:
+                print(f"  {name}: static job with an unknown structure, skipped")
+                continue
+            static.append((pt[0], pt[1], etot))
+    if static:
+        modes = [m for m, _, _ in static]
+        print(f"  static: {modes.count('ref')} reference, " + ", ".join(
+            f"{modes.count(m)} {m}" for m in ("nu1", "nu2", "nu3", "shift")) + " points")
+    return runs, static
 
 
 def power_spectrum(x, dt_fs, npad=16):
@@ -93,48 +266,64 @@ def internal(R):
             "tilt": tilt, "r1": r1, "r2": r2}
 
 
-def harmonic_frequencies():
-    """Harmonic wavenumbers from static total energies along the symmetry modes."""
-    d = np.genfromtxt(DATA / "harmonic_energies.csv", delimiter=",", names=True, dtype=None, encoding=None)
-    e0 = d["etot_Ha"][d["mode"] == "ref"][0]
-    # sum_i m_i |d_i|^2 for unit displacement u of the O atoms (see make_harmonic_inputs.py)
-    meff = {"nu1": 2 * M_O, "nu2": 2 * M_O + M_C * R_CO ** 2, "nu3": 2 * M_O + M_C * R_CO ** 2}
+
+MEFF = {"nu1": 2 * M_O, "nu2": 2 * M_O + M_C * R_CO ** 2, "nu3": 2 * M_O + M_C * R_CO ** 2}  # amu
+# sum_i m_i |d_i|^2 for unit displacement u of the O atoms (see make_static_structures.py)
+
+
+def static_sets(static):
+    """Energies relative to the reference, split into the standard (|u| >= 0.015 bohr) and small sets."""
+    e0 = [e for m, _, e in static if m == "ref"]
+    if not e0:
+        return None
+    sets = {"standard": {}, "small": {}, "shift": {0.0: 0.0}}
+    for m, u, e in static:
+        if m == "shift":
+            sets["shift"][u] = e - e0[0]
+        elif m != "ref":
+            sets["standard" if abs(u) >= 0.015 else "small"][(m, u)] = e - e0[0]
+    return sets
+
+
+def harmonic_frequencies(sets):
+    """Harmonic wavenumbers from the standard set of static total energies along the symmetry modes."""
     res = {}
     for m in ("nu1", "nu2", "nu3"):
-        u = d["u_bohr"][d["mode"] == m]
-        e = d["etot_Ha"][d["mode"] == m] - e0
+        pts = [(u, e) for (mm, u), e in sets["standard"].items() if mm == m]
+        if len(pts) < 3:
+            print(f"  {m}: not enough points")
+            continue
+        u, e = np.array(pts).T
         if m != "nu1":  # E(-u) = E(u) by symmetry
             u, e = np.r_[u, -u], np.r_[e, e]
         u, e = np.r_[0.0, u], np.r_[0.0, e]
         k = np.linalg.lstsq(np.vstack([u ** 2 / 2, u ** 3, u ** 4]).T, e, rcond=None)[0][0]
         small = np.abs(u) <= 0.021
         k2 = np.linalg.lstsq((u[small] ** 2 / 2)[:, None], e[small], rcond=None)[0][0]
-        w = [np.sqrt(kk / (meff[m] * AMU)) * HA2CM for kk in (k, k2)]
+        w = [np.sqrt(kk / (MEFF[m] * AMU)) * HA2CM for kk in (k, k2)]
         res[m] = w
         print(f"  {m}: {w[0]:.0f} cm^-1 (quartic fit, |u|<=0.06 bohr), {w[1]:.0f} cm^-1 (quadratic, |u|<=0.02 bohr)")
     return res
 
 
-def static_checks():
+def static_checks(sets):
     """Effective harmonic wavenumbers from single points, and the grid-shift energy variation."""
-    meff = {"nu1": 2 * M_O, "nu2": 2 * M_O + M_C * R_CO ** 2, "nu3": 2 * M_O + M_C * R_CO ** 2}
-    for name in ("harmonic_energies.csv", "harmonic_small_energies.csv"):
-        d = np.genfromtxt(DATA / name, delimiter=",", names=True, dtype=None, encoding=None)
-        e0 = d["etot_Ha"][d["mode"] == "ref"][0]
-        e = {(m, round(u, 4)): v - e0 for m, u, v in zip(d["mode"], d["u_bohr"], d["etot_Ha"])}
+    for name in ("standard", "small"):
+        e = {(m, round(u, 4)): v for (m, u), v in sets[name].items()}
         rows = []
         for (m, u), de in sorted(e.items()):
             if m == "nu1" and u > 0 and ("nu1", -u) in e:
                 de = (de + e[("nu1", -u)]) / 2  # remove the linear term
             elif m not in ("nu2", "nu3"):
                 continue
-            w = np.sqrt(2 * de / u ** 2 / (meff[m] * AMU)) * HA2CM
+            w = np.sqrt(2 * de / u ** 2 / (MEFF[m] * AMU)) * HA2CM
             rows.append(f"{m} u={u:.4f}: {w:.0f}")
-        print(f"  {name}: 2 dE / u^2 -> " + ", ".join(rows))
-    d = np.genfromtxt(DATA / "grid_shift_energies.csv", delimiter=",", names=True, dtype=None, encoding=None)
-    rng = np.ptp(d["etot_Ha"])
-    print(f"  rigid shift along x over one grid spacing: energy range {rng * 1e6:.0f} uHa"
-          f" = {rng * 315775.0:.0f} K (E/k_B)")
+        if rows:
+            print(f"  {name} set: 2 dE / u^2 -> " + ", ".join(rows))
+    if len(sets["shift"]) > 1:
+        rng = np.ptp(list(sets["shift"].values()))
+        print(f"  rigid shift along x by up to {max(sets['shift']) * BOHR:.3f} A ({len(sets['shift'])} points):"
+              f" energy range {rng * 1e6:.0f} uHa = {rng * 315775.0:.0f} K (E/k_B)")
 
 
 def normal_coords(R):
@@ -190,19 +379,29 @@ def sideband_origin(run):
 
 
 def main():
-    FIG.mkdir(exist_ok=True)
-    runs = {"opt": load("md_start_optimized.csv.gz"), "1150": load("md_start_1150.csv.gz"),
-            "bo_opt": load("md_bomd_start_optimized.csv.gz"), "bo_1150": load("md_bomd_start_1150.csv.gz")}
-    print("Harmonic wavenumbers from static PBE energies:")
-    harm = harmonic_frequencies()
-    static_checks()
+    global FIG
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("paths", nargs="+", help="ZIP files downloaded from Quloud, or folders holding them")
+    ap.add_argument("--figures", default="figures", help="folder to write the figures to (default: figures)")
+    args = ap.parse_args()
+    FIG = Path(args.figures)
+    FIG.mkdir(parents=True, exist_ok=True)
+    runs, static = load_jobs(args.paths)
+
+    harm = None
+    sets = static_sets(static)
+    if sets:
+        print("\nHarmonic wavenumbers from static PBE energies:")
+        harm = harmonic_frequencies(sets)
+        static_checks(sets)
 
     spec, mot = {}, {}
     for key, run in runs.items():
         t, mu = run["t"], run["mu"]
         dt, T = t[1] - t[0], t[-1] - t[0]
         ic = internal(run["R"])
-        print(f"\n=== run {key}: {len(t)} steps, dt={dt} fs, T={T} fs, 1/(cT)={1 / (C_CM_PER_FS * T):.1f} cm^-1")
+        print(f"\n=== run {key} ({run['method']}): {len(t)} steps, dt={dt:g} fs, T={T:g} fs,"
+              f" 1/(cT)={1 / (C_CM_PER_FS * T):.1f} cm^-1")
         print(f"  C-O at t=0: {ic['r1'][0]:.4f} A; mean over run {ic['sym'].mean():.4f} A")
         print(f"  max |dE_conserved| {np.abs(run['dE']).max():.1e} Ha, max fictitious KE {run['fke'].max():.1e} Ha,"
               f" temperature mean {run['temp'].mean():.1f} K")
@@ -238,20 +437,23 @@ def main():
             print(f"  {name}: dmu/dQ={c:+.3f} D/(A amu^1/2), A={A:.1f} km/mol, std(Q)={q:.4f} amu^1/2 A")
         print(f"  variance of mu (D^2) x,y,z: " + " ".join(f"{v:.3g}" for v in (mu * AU2DEBYE).var(0)))
 
-    print("\nOrigin of the nu3 -/+ nu1 sidebands (run started at 1.150 A):")
-    sideband_origin(runs["1150"])
+    if "1150" in runs:
+        print("\nOrigin of the nu3 -/+ nu1 sidebands (CPMD run started at 1.150 A):")
+        sideband_origin(runs["1150"])
 
-    print("\nSymmetric-stretch and bend amplitudes per 100 fs (10^-3 A):")
+    if runs:
+        print("\nSymmetric-stretch and bend amplitudes per 100 fs (10^-3 A):")
     for key, run in runs.items():
         ic, t = run["ic"], run["t"]
         bp = np.hypot(ic["bend_x"], ic["bend_y"])
         rows = []
-        for w0 in range(0, 800, 100):
+        for w0 in range(0, int(t[-1]), 100):
             m = (t >= w0) & (t < w0 + 100)
             rows.append(f"{w0}-{w0 + 100}: {1e3 * np.ptp(ic['sym'][m]) / 2:.1f}/{1e3 * bp[m].max():.1f}")
         print(f"  {key}: " + "  ".join(rows))
 
-    print("\nKinetic energy of each normal coordinate as a temperature, <dQ/dt^2>/k_B (K):")
+    if runs:
+        print("\nKinetic energy of each normal coordinate as a temperature, <dQ/dt^2>/k_B (K):")
     amu_a2_fs2_to_k = 1.66053907e-27 * 1e10 / 1.380649e-23  # amu A^2/fs^2 -> K
     for key, run in runs.items():
         nc = normal_coords(run["R"])
@@ -260,12 +462,18 @@ def main():
                                        for k, q in nc.items()))
 
     plot_modes()
-    plot_dipole(runs["opt"], runs["bo_opt"])
-    plot_spectra(spec["opt"], mot["opt"], harm, "CPMD", "spectra.png")
-    plot_spectra(spec["bo_opt"], mot["bo_opt"], harm, "BOMD", "spectra_bomd.png")
-    plot_rsdft(runs["opt"])
-    plot_sidebands(spec)
-    plot_energy_flow(runs)
+    if "opt" in runs or "bo_opt" in runs:
+        plot_dipole(runs.get("opt"), runs.get("bo_opt"))
+    for key, method, fname in (("opt", "CPMD", "spectra.png"), ("bo_opt", "BOMD", "spectra_bomd.png")):
+        if key in runs:
+            plot_spectra(spec[key], mot[key], harm, method, fname)
+    if "opt" in runs:
+        plot_rsdft(runs["opt"])
+    if any(p + "opt" in spec and p + "1150" in spec for p in ("", "bo_")):
+        plot_sidebands(spec)
+    if any(k in runs for k in ("opt", "1150", "bo_1150")):
+        plot_energy_flow(runs)
+    print(f"\nFigures written to {FIG}/")
 
 
 def plot_modes():
@@ -302,7 +510,8 @@ def plot_modes():
 def plot_dipole(cp, bo):
     """Dipole time series of the CPMD and BOMD runs started from the same structure and velocities."""
     fig, ax = plt.subplots(3, 2, figsize=(7.5, 4.9), sharex="col", gridspec_kw={"width_ratios": [2.2, 1]})
-    for run, col, label in ((cp, "#2a78d6", "CPMD"), (bo, "#eb6834", "BOMD")):
+    pairs = [(r, c, l) for r, c, l in ((cp, "#2a78d6", "CPMD"), (bo, "#eb6834", "BOMD")) if r is not None]
+    for run, col, label in pairs:
         t, mu = run["t"], run["mu"]
         dmu = mu - mu.mean(0)
         for i, lab in enumerate("xyz"):
@@ -312,7 +521,7 @@ def plot_dipole(cp, bo):
                 ax[i, j].set_xlim(lo, hi)
     for i, lab in enumerate("xyz"):
         ax[i, 0].set_ylabel(rf"$\delta\mu_{lab}$ ($10^{{-3}}$ a.u.)")
-        lim = 1.15 * max(np.abs(r["mu"][:, i] - r["mu"][:, i].mean()).max() for r in (cp, bo)) * 1e3
+        lim = 1.15 * max(np.abs(r["mu"][:, i] - r["mu"][:, i].mean()).max() for r, _, _ in pairs) * 1e3
         for j in range(2):
             ax[i, j].set_ylim(-lim, lim)
     ax[0, 0].set_title("0-800 fs", fontsize=9)
@@ -330,12 +539,13 @@ def plot_spectra(spec, mot, harm, method, fname):
     # two panels side by side; legends sit above each panel so that they never cover the curves
     fig, ax = plt.subplots(1, 2, figsize=(11, 3.9))
     for a in ax:
-        for m in ("nu1", "nu2", "nu3"):
+        for m in (harm or {}):
             a.axvline(harm[m][0], color=MUTED, ls=":", lw=0.8)
     nu = spec["nu"]
     for lab in "xyz":
         ax[0].semilogy(nu, spec[lab], color=COL[lab], label=rf"$\mu_{lab}$")
-    ax[0].plot([], [], color=MUTED, ls=":", lw=0.8, label="static harmonic")
+    if harm:
+        ax[0].plot([], [], color=MUTED, ls=":", lw=0.8, label="static harmonic")
     ax[0].set_ylim(1e-8, 1)
     ax[0].set_ylabel(f"Dipole power spectrum, {method} (a.u.)")
     nu2 = mot["nu"]
@@ -374,8 +584,10 @@ def plot_rsdft(run):
 
 
 def plot_sidebands(spec):
-    fig, ax = plt.subplots(2, 1, figsize=(7.5, 5.0), sharex=True)
-    for a, (method, pre) in zip(ax, (("CPMD", ""), ("BOMD", "bo_"))):
+    methods = [(m, p) for m, p in (("CPMD", ""), ("BOMD", "bo_")) if p + "opt" in spec and p + "1150" in spec]
+    fig, ax = plt.subplots(len(methods), 1, figsize=(7.5, 2.5 * len(methods)), sharex=True, squeeze=False)
+    ax = ax[:, 0]
+    for a, (method, pre) in zip(ax, methods):
         a.semilogy(spec[pre + "opt"]["nu"], spec[pre + "opt"]["z"], color="#2a78d6",
                    label="start at 1.1645 Å (optimized)")
         a.semilogy(spec[pre + "1150"]["nu"], spec[pre + "1150"]["z"], color="#eb6834", label="start at 1.150 Å")
@@ -383,8 +595,8 @@ def plot_sidebands(spec):
         a.set_ylabel(r"Power spectrum of $\mu_z$ (a.u.)")
         a.set_title(method, fontsize=9, loc="right")
         a.legend(loc="upper left")
-    ax[1].set_xlim(0, 4000)
-    ax[1].set_xlabel(r"Wavenumber (cm$^{-1}$)")
+    ax[-1].set_xlim(0, 4000)
+    ax[-1].set_xlabel(r"Wavenumber (cm$^{-1}$)")
     fig.tight_layout()
     fig.savefig(FIG / "sidebands.png", dpi=200)
     plt.close(fig)
@@ -394,6 +606,8 @@ def plot_energy_flow(runs):
     fig, ax = plt.subplots(2, 1, figsize=(7.5, 4.4), sharex=True)
     for key, col, label in (("opt", "#2a78d6", "CPMD, start at 1.1645 Å"), ("1150", "#eb6834", "CPMD, start at 1.150 Å"),
                             ("bo_1150", "#1baf7a", "BOMD, start at 1.150 Å")):
+        if key not in runs:
+            continue
         ic, t = runs[key]["ic"], runs[key]["t"]
         ax[0].plot(t, ic["sym"], color=col, lw=0.6, label=label)
         ax[1].plot(t, np.hypot(ic["bend_x"], ic["bend_y"]) * 1e3, color=col, lw=0.6, label=label)
