@@ -115,6 +115,28 @@ def harmonic_frequencies():
     return res
 
 
+def static_checks():
+    """Effective harmonic wavenumbers from single points, and the grid-shift energy variation."""
+    meff = {"nu1": 2 * M_O, "nu2": 2 * M_O + M_C * R_CO ** 2, "nu3": 2 * M_O + M_C * R_CO ** 2}
+    for name in ("harmonic_energies.csv", "harmonic_small_energies.csv"):
+        d = np.genfromtxt(DATA / name, delimiter=",", names=True, dtype=None, encoding=None)
+        e0 = d["etot_Ha"][d["mode"] == "ref"][0]
+        e = {(m, round(u, 4)): v - e0 for m, u, v in zip(d["mode"], d["u_bohr"], d["etot_Ha"])}
+        rows = []
+        for (m, u), de in sorted(e.items()):
+            if m == "nu1" and u > 0 and ("nu1", -u) in e:
+                de = (de + e[("nu1", -u)]) / 2  # remove the linear term
+            elif m not in ("nu2", "nu3"):
+                continue
+            w = np.sqrt(2 * de / u ** 2 / (meff[m] * AMU)) * HA2CM
+            rows.append(f"{m} u={u:.4f}: {w:.0f}")
+        print(f"  {name}: 2 dE / u^2 -> " + ", ".join(rows))
+    d = np.genfromtxt(DATA / "grid_shift_energies.csv", delimiter=",", names=True, dtype=None, encoding=None)
+    rng = np.ptp(d["etot_Ha"])
+    print(f"  rigid shift along x over one grid spacing: energy range {rng * 1e6:.0f} uHa"
+          f" = {rng * 315775.0:.0f} K (E/k_B)")
+
+
 def normal_coords(R):
     """Mass-weighted normal coordinates (amu^1/2 A) of a CO2 molecule along z."""
     dR = (R - R.mean(0)) * np.sqrt(MASS)[None, :, None]
@@ -169,9 +191,11 @@ def sideband_origin(run):
 
 def main():
     FIG.mkdir(exist_ok=True)
-    runs = {"opt": load("md_start_optimized.csv.gz"), "1150": load("md_start_1150.csv.gz")}
+    runs = {"opt": load("md_start_optimized.csv.gz"), "1150": load("md_start_1150.csv.gz"),
+            "bo_opt": load("md_bomd_start_optimized.csv.gz"), "bo_1150": load("md_bomd_start_1150.csv.gz")}
     print("Harmonic wavenumbers from static PBE energies:")
     harm = harmonic_frequencies()
+    static_checks()
 
     spec, mot = {}, {}
     for key, run in runs.items():
@@ -188,8 +212,13 @@ def main():
             nu, s = power_spectrum(mu[:, i], dt)
             spec[key][lab] = s
             pk = [f"{peak(nu, s, lo, hi)[0]:.0f}({peak(nu, s, lo, hi)[1]:.2g})"
-                  for lo, hi in ((400, 900), (900, 1100), (1100, 1500), (1900, 2500), (3200, 3600))]
-            print(f"  C_{lab}{lab} max in 400-900/900-1100/1100-1500/1900-2500/3200-3600: {' '.join(pk)}")
+                  for lo, hi in ((400, 900), (900, 1100), (1100, 1500), (1900, 2500), (3200, 3800))]
+            print(f"  C_{lab}{lab} max in 400-900/900-1100/1100-1500/1900-2500/3200-3800: {' '.join(pk)}")
+        nu, s = power_spectrum(mu[:, 2], dt)
+        main_z = peak(nu, s, 1900, 2500)[1]
+        side = [peak(nu, s, lo, hi) for lo, hi in ((850, 1150), (3300, 3800))]
+        print(f"  C_zz side peaks: " + ", ".join(f"{w:.0f} (1/{main_z / v:.0f} of main)" for w, v in side)
+              + f"; 1100-1400 max / main = {peak(nu, s, 1100, 1400)[1] / main_z:.1e}")
         spec[key]["nu"] = nu
         mot[key] = {}
         for name in ("sym", "asym", "bend_x", "bend_y"):
@@ -212,7 +241,7 @@ def main():
     print("\nOrigin of the nu3 -/+ nu1 sidebands (run started at 1.150 A):")
     sideband_origin(runs["1150"])
 
-    print("\nSymmetric-stretch and bend amplitudes per 100 fs (mA):")
+    print("\nSymmetric-stretch and bend amplitudes per 100 fs (10^-3 A):")
     for key, run in runs.items():
         ic, t = run["ic"], run["t"]
         bp = np.hypot(ic["bend_x"], ic["bend_y"])
@@ -222,9 +251,18 @@ def main():
             rows.append(f"{w0}-{w0 + 100}: {1e3 * np.ptp(ic['sym'][m]) / 2:.1f}/{1e3 * bp[m].max():.1f}")
         print(f"  {key}: " + "  ".join(rows))
 
+    print("\nKinetic energy of each normal coordinate as a temperature, <dQ/dt^2>/k_B (K):")
+    amu_a2_fs2_to_k = 1.66053907e-27 * 1e10 / 1.380649e-23  # amu A^2/fs^2 -> K
+    for key, run in runs.items():
+        nc = normal_coords(run["R"])
+        dt = run["t"][1] - run["t"][0]
+        print(f"  {key}: " + "  ".join(f"{k} {np.mean(np.gradient(q, dt) ** 2) * amu_a2_fs2_to_k:.2f}"
+                                       for k, q in nc.items()))
+
     plot_modes()
-    plot_dipole(runs["opt"])
-    plot_spectra(spec["opt"], mot["opt"], harm)
+    plot_dipole(runs["opt"], runs["bo_opt"])
+    plot_spectra(spec["opt"], mot["opt"], harm, "CPMD", "spectra.png")
+    plot_spectra(spec["bo_opt"], mot["bo_opt"], harm, "BOMD", "spectra_bomd.png")
     plot_rsdft(runs["opt"])
     plot_sidebands(spec)
     plot_energy_flow(runs)
@@ -261,53 +299,59 @@ def plot_modes():
     plt.close(fig)
 
 
-def plot_dipole(run):
-    t, mu = run["t"], run["mu"]
-    dmu = mu - mu.mean(0)
-    fig, ax = plt.subplots(3, 2, figsize=(7.5, 4.6), sharex="col", gridspec_kw={"width_ratios": [2.2, 1]})
+def plot_dipole(cp, bo):
+    """Dipole time series of the CPMD and BOMD runs started from the same structure and velocities."""
+    fig, ax = plt.subplots(3, 2, figsize=(7.5, 4.9), sharex="col", gridspec_kw={"width_ratios": [2.2, 1]})
+    for run, col, label in ((cp, "#2a78d6", "CPMD"), (bo, "#eb6834", "BOMD")):
+        t, mu = run["t"], run["mu"]
+        dmu = mu - mu.mean(0)
+        for i, lab in enumerate("xyz"):
+            for j, (lo, hi) in enumerate(((0, 800), (0, 100))):
+                m = (t >= lo) & (t <= hi)
+                ax[i, j].plot(t[m], dmu[m, i] * 1e3, color=col, lw=0.7 if j == 0 else 1.2, label=label)
+                ax[i, j].set_xlim(lo, hi)
     for i, lab in enumerate("xyz"):
-        for j, (lo, hi) in enumerate(((0, 800), (0, 100))):
-            m = (t >= lo) & (t <= hi)
-            ax[i, j].plot(t[m], dmu[m, i] * 1e3, color=COL[lab], lw=0.8 if j == 0 else 1.2)
-            ax[i, j].set_xlim(lo, hi)
         ax[i, 0].set_ylabel(rf"$\delta\mu_{lab}$ ($10^{{-3}}$ a.u.)")
-        lim = 1.1 * np.abs(dmu[:, i]).max() * 1e3
+        lim = 1.15 * max(np.abs(r["mu"][:, i] - r["mu"][:, i].mean()).max() for r in (cp, bo)) * 1e3
         for j in range(2):
             ax[i, j].set_ylim(-lim, lim)
     ax[0, 0].set_title("0-800 fs", fontsize=9)
     ax[0, 1].set_title("0-100 fs (zoom)", fontsize=9)
+    fig.legend(*ax[0, 0].get_legend_handles_labels(), loc="upper left", ncol=2, fontsize=8,
+               bbox_to_anchor=(0.08, 1.0))
     ax[2, 0].set_xlabel("Time (fs)")
     ax[2, 1].set_xlabel("Time (fs)")
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0, 1, 0.96))
     fig.savefig(FIG / "dipole_time.png", dpi=200)
     plt.close(fig)
 
 
-def plot_spectra(spec, mot, harm):
-    fig, ax = plt.subplots(2, 1, figsize=(7.5, 5.4), sharex=True)
+def plot_spectra(spec, mot, harm, method, fname):
+    # two panels side by side; legends sit above each panel so that they never cover the curves
+    fig, ax = plt.subplots(1, 2, figsize=(11, 3.9))
+    for a in ax:
+        for m in ("nu1", "nu2", "nu3"):
+            a.axvline(harm[m][0], color=MUTED, ls=":", lw=0.8)
     nu = spec["nu"]
     for lab in "xyz":
         ax[0].semilogy(nu, spec[lab], color=COL[lab], label=rf"$\mu_{lab}$")
+    ax[0].plot([], [], color=MUTED, ls=":", lw=0.8, label="static harmonic")
     ax[0].set_ylim(1e-8, 1)
-    ax[0].set_ylabel("Dipole power spectrum (a.u.)")
-    ax[0].legend(loc="upper right", ncol=3)
+    ax[0].set_ylabel(f"Dipole power spectrum, {method} (a.u.)")
     nu2 = mot["nu"]
-    names = {"sym": "symmetric stretch", "asym": "antisymmetric stretch",
-             "bend_x": "bend (x)", "bend_y": "bend (y)"}
+    names = {"sym": "sym. stretch", "asym": "antisym. stretch", "bend_x": "bend (x)", "bend_y": "bend (y)"}
     for k, label in names.items():
         s = mot[k] / mot[k][(nu2 > 300) & (nu2 < 4000)].max()
         ax[1].semilogy(nu2, s, color=MODE_COL[k], label=label)
     ax[1].set_ylim(1e-7, 2)
-    ax[1].set_ylabel("Atomic-motion spectrum\n(each normalized)")
-    ax[1].legend(loc="upper right", ncol=2)
+    ax[1].set_ylabel(f"Atomic-motion spectrum, {method}\n(each normalized)")
     for a in ax:
-        for m, ls in (("nu1", ":"), ("nu2", ":"), ("nu3", ":")):
-            a.axvline(harm[m][0], color=MUTED, ls=ls, lw=0.8)
-    ax[0].text(harm["nu1"][0] + 30, 0.2, "static\nharmonic", color=MUTED, fontsize=7.5, va="top")
-    ax[1].set_xlim(0, 4000)
-    ax[1].set_xlabel(r"Wavenumber (cm$^{-1}$)")
+        a.legend(loc="lower left", bbox_to_anchor=(0, 1.01), ncol=4, fontsize=8,
+                 handlelength=1.6, columnspacing=1.0, borderaxespad=0)
+        a.set_xlim(0, 4000)
+        a.set_xlabel(r"Wavenumber (cm$^{-1}$)")
     fig.tight_layout()
-    fig.savefig(FIG / "spectra.png", dpi=200)
+    fig.savefig(FIG / fname, dpi=200)
     plt.close(fig)
 
 
@@ -330,23 +374,26 @@ def plot_rsdft(run):
 
 
 def plot_sidebands(spec):
-    fig, ax = plt.subplots(figsize=(7.5, 3.0))
-    nu = spec["opt"]["nu"]
-    ax.semilogy(nu, spec["opt"]["z"], color="#2a78d6", label="start at 1.1645 Å (optimized)")
-    ax.semilogy(spec["1150"]["nu"], spec["1150"]["z"], color="#eb6834", label="start at 1.150 Å")
-    ax.set_xlim(0, 4000)
-    ax.set_ylim(1e-8, 1)
-    ax.set_xlabel(r"Wavenumber (cm$^{-1}$)")
-    ax.set_ylabel(r"Power spectrum of $\mu_z$ (a.u.)")
-    ax.legend(loc="upper left")
+    fig, ax = plt.subplots(2, 1, figsize=(7.5, 5.0), sharex=True)
+    for a, (method, pre) in zip(ax, (("CPMD", ""), ("BOMD", "bo_"))):
+        a.semilogy(spec[pre + "opt"]["nu"], spec[pre + "opt"]["z"], color="#2a78d6",
+                   label="start at 1.1645 Å (optimized)")
+        a.semilogy(spec[pre + "1150"]["nu"], spec[pre + "1150"]["z"], color="#eb6834", label="start at 1.150 Å")
+        a.set_ylim(1e-8, 1)
+        a.set_ylabel(r"Power spectrum of $\mu_z$ (a.u.)")
+        a.set_title(method, fontsize=9, loc="right")
+        a.legend(loc="upper left")
+    ax[1].set_xlim(0, 4000)
+    ax[1].set_xlabel(r"Wavenumber (cm$^{-1}$)")
     fig.tight_layout()
     fig.savefig(FIG / "sidebands.png", dpi=200)
     plt.close(fig)
 
 
 def plot_energy_flow(runs):
-    fig, ax = plt.subplots(2, 1, figsize=(7.5, 4.0), sharex=True)
-    for key, col, label in (("opt", "#2a78d6", "start at 1.1645 Å"), ("1150", "#eb6834", "start at 1.150 Å")):
+    fig, ax = plt.subplots(2, 1, figsize=(7.5, 4.4), sharex=True)
+    for key, col, label in (("opt", "#2a78d6", "CPMD, start at 1.1645 Å"), ("1150", "#eb6834", "CPMD, start at 1.150 Å"),
+                            ("bo_1150", "#1baf7a", "BOMD, start at 1.150 Å")):
         ic, t = runs[key]["ic"], runs[key]["t"]
         ax[0].plot(t, ic["sym"], color=col, lw=0.6, label=label)
         ax[1].plot(t, np.hypot(ic["bend_x"], ic["bend_y"]) * 1e3, color=col, lw=0.6, label=label)
@@ -354,7 +401,7 @@ def plot_energy_flow(runs):
     ax[1].set_ylabel("C off the O–O line\n($10^{-3}$ Å)")
     ax[1].set_xlabel("Time (fs)")
     ax[1].set_xlim(0, 800)
-    ax[0].legend(loc="lower right", ncol=2)
+    ax[0].legend(loc="lower left", bbox_to_anchor=(0, 1.01), ncol=3, fontsize=8, borderaxespad=0)
     fig.tight_layout()
     fig.savefig(FIG / "energy_flow.png", dpi=200)
     plt.close(fig)

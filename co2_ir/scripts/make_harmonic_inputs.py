@@ -9,7 +9,14 @@ in a 10.6 A cubic cell. Each mode keeps the center of mass fixed:
 
 Here r = 2 m_O / m_C and u is in bohr.
 
-Usage: python make_harmonic_inputs.py <rsdft.in> <output_dir>
+Two further sets check the numerical noise of these energies:
+
+* small: the same modes with smaller displacements (0.0025-0.01 bohr).
+* shift: the whole molecule translated rigidly along x by u, from 0 to one
+  grid spacing (64 points over 10.6 A), to see how the total energy depends
+  on the position of the atoms relative to the real-space grid.
+
+Usage: python make_harmonic_inputs.py <rsdft.in> <output_dir> [standard|small|shift]
 """
 import shutil
 import sys
@@ -43,9 +50,16 @@ loop_
  _atom_site_occupancy
 """
 
+H_BOHR = A_BOHR / 64  # grid spacing
+
 # (mode, displacement u in bohr); nu2 and nu3 are symmetric in u, so only u > 0
-POINTS = [("ref", 0.0)] + [("nu1", u) for u in (-0.06, -0.04, -0.02, 0.02, 0.04, 0.06)] \
-    + [(m, u) for m in ("nu2", "nu3") for u in (0.02, 0.04, 0.06)]
+POINTS = {
+    "standard": [("ref", 0.0)] + [("nu1", u) for u in (-0.06, -0.04, -0.02, 0.02, 0.04, 0.06)]
+    + [(m, u) for m in ("nu2", "nu3") for u in (0.02, 0.04, 0.06)],
+    "small": [("ref", 0.0)] + [("nu1", u) for u in (-0.01, -0.005, -0.0025, 0.0025, 0.005, 0.01)]
+    + [(m, u) for m in ("nu2", "nu3") for u in (0.0025, 0.005, 0.01)],
+    "shift": [("shift", k * H_BOHR / 8) for k in range(9)],
+}
 
 
 def positions(mode, u):
@@ -55,6 +69,9 @@ def positions(mode, u):
     if mode == "nu1":
         pos[1][2] += f
         pos[2][2] -= f
+    elif mode == "shift":
+        for p in pos:
+            p[0] += f
     elif mode in ("nu2", "nu3"):
         k = 0 if mode == "nu2" else 2
         pos[0][k] -= R * f
@@ -65,8 +82,9 @@ def positions(mode, u):
 
 def main():
     rsdft_in, outdir = Path(sys.argv[1]), Path(sys.argv[2])
-    for mode, u in POINTS:
-        d = outdir / f"{mode}_{u:+.2f}"
+    kind = sys.argv[3] if len(sys.argv) > 3 else "standard"
+    for mode, u in POINTS[kind]:
+        d = outdir / (f"{mode}_{u:+.2f}" if kind == "standard" else f"{mode}_{u:+.4f}")
         d.mkdir(parents=True, exist_ok=True)
         shutil.copy(rsdft_in, d / "rsdft.in")
         lines = [f"  {el}  {lab}  1  {x:.10f}  {y:.10f}  {z:.10f}  1"

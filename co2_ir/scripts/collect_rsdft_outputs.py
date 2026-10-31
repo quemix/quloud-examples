@@ -5,7 +5,9 @@ Usage:
   python collect_rsdft_outputs.py harmonic <harmonic_dir> <out.csv>
 
 md: reads DIPOLE.dat (total dipole), traj.dat (written with ALLTRAJ 1) and
-info.dat, and writes one row per MD step.
+info.dat, and writes one row per MD step. The fictitious kinetic energy of
+the electrons is written as 0 for Born-Oppenheimer MD, whose info.dat has no
+such column.
 harmonic: reads <harmonic_dir>/<mode>_<u>/output/rsdft.json made from the
 inputs of make_harmonic_inputs.py.
 """
@@ -37,6 +39,11 @@ def collect_md(outdir, dest):
     if not (len(t) == len(dip) == len(info)) or np.abs(t - dip[:, 0]).max() > 1e-6:
         raise SystemExit("DIPOLE.dat, traj.dat and info.dat do not share the same time steps")
     r = r * BOHR
+    # info.dat columns: time, conserved energy, its change, Etot, ion KE,
+    # [fictitious KE (CPMD only)], bath energy, temperature, ...
+    cp = info.shape[1] == 10
+    fke = info[:, 5] if cp else np.zeros(len(info))
+    temp = info[:, 7] if cp else info[:, 6]
     header = ["time_fs", "mu_x_au", "mu_y_au", "mu_z_au"]
     header += [f"{a}_{k}_A" for a in ("C", "O1", "O2") for k in "xyz"]
     header += ["dE_conserved_Ha", "fictitious_ke_Ha", "temperature_K"]
@@ -46,7 +53,7 @@ def collect_md(outdir, dest):
         for i in range(len(t)):
             w.writerow([f"{t[i]:.2f}"] + [f"{v:.8f}" for v in dip[i, 1:4]]
                        + [f"{v:.10f}" for v in r[i].ravel()]
-                       + [f"{info[i, 2]:.8f}", f"{info[i, 5]:.8f}", f"{info[i, 7]:.6f}"])
+                       + [f"{info[i, 2]:.8f}", f"{fke[i]:.8f}", f"{temp[i]:.6f}"])
 
 
 def collect_harmonic(hdir, dest):
