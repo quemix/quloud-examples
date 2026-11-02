@@ -14,3 +14,5 @@ Examples
    li3po4/index
    hydrogen_chain/index
    co2_ir/index
+   kpoints/index
+   cu_lattice/index

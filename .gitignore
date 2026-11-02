@@ -5,3 +5,6 @@
 # Sphinx build output. GitHub Actions builds and publishes the site.
 /_build/
 /docs/
+
+# Python bytecode from running analysis scripts.
+__pycache__/
