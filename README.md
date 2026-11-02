@@ -1,25 +1,45 @@
 # Quloud Examples
 
 ## 環境構築
-htmlドキュメントの作成にはSphinxを用いる。外観には「RTDテーマ」を用いるので、pipインストールで下記の環境を整える。
+HTMLのビルドにはSphinxとRTDテーマを使う。公開用のビルド（GitHub Actions）と同じ版をPython環境にインストールする。
 ```
-$ pip install sphinx
-$ pip install sphinx-rtd-theme
-``` 
+python -m pip install -r requirements.txt
+```
+
+内部の作業方針や記録は、公開リポジトリに含めず、非公開の
+`quloud-examples-meta`リポジトリを隣のディレクトリにチェックアウトして管理する。
+初回のみ、`quloud-examples`のルートで次を実行する。
+
+```
+git clone git@github.com:quemix/quloud-examples-meta.git ../quloud-examples-meta
+make meta-link
+make agent-link
+```
+
+`meta/`と`AGENTS.md`は`.gitignore`対象。metaの内容や履歴を公開リポジトリへコピーしない。
 
 
 ## GitHub (clone)　→　編集・更新　→　GitHub (push)
-更新を行った内容を`main`ブランチにマージすると、自動でGitHub Pagesによりhtmlドキュメントが公開されるようになっている。そのため更新は、
+更新を行った内容を`main`ブランチにマージすると、GitHub Actions（`.github/workflows/pages.yml`）がHTMLをビルドし、GitHub Pagesで公開する。生成したHTMLはリポジトリにコミットしない。そのため更新は、
 
 - まず適当なブランチ名で本リポジトリにプッシュ
 - プッシュしたブランチを`main`ブランチにマージする
 
 という手順で行うようにする。
 
+### 作業の流れ（まとめ） ###
+```
+$ make html     # _build/html に出力（コミットされない）
+$ make serve    # ブラウザで http://localhost:8000 を開いて確認（Ctrl+C で終了）
+$ git add 編集した.rstや図など && git commit
+$ git push
+```
+`main`に反映されると、2分ほどで自動的に公開される。進み具合や失敗はGitHubの「Actions」タブで確認できる。各手順の詳細は以下に記す。
+
 ### クローン ###
 自分のPC上で下記のコマンドを実行する。
 ```
-$ git clone git@github.com:quemix/quloud-exapmples.git
+$ git clone git@github.com:quemix/quloud-examples.git
 ```
 そうすると`quloud-examples/`というフォルダができるはずなので、その中で編集作業を行う。ただし、そのままではブランチが`main`になっているので
 ```
@@ -35,14 +55,18 @@ $ git checkout -b 作業用ブランチ名
 ```
 $ make html
 ```
-を実行すると、`docs/`フォルダにhtmlファイルが生成される（GitHub Pagesは、`docs/`下にあるものを公開するように設定されている）。`*.rst`ファイルをまたぐ参照等を追加した場合には、一度全体をクリーン
+を実行すると、`_build/html/`フォルダにhtmlファイルが生成される。これは手元での確認用で、コミットされない（`.gitignore`対象）。
+```
+$ make serve
+```
+を実行してブラウザで http://localhost:8000 を開くと、生成したページを確認できる（Ctrl+Cで終了）。`*.rst`ファイルをまたぐ参照等を追加した場合には、一度全体をクリーン
 ```
 $ make clean
 ```
 してから、改めて`make html`を実行する。
 
 ### コミット ###
-修正が入ったファイルや新規に追加されたファイルを全てgitに追加＆コミットする
+修正が入ったファイルや新規に追加されたファイル（`*.rst`、図、データなど）をgitに追加＆コミットする
 ```
 $ git add ファイル名
 $ git commit
@@ -56,4 +80,4 @@ $ git push origin 作業用ブランチ名
 手元で「作業用ブランチ名」という名前をリモート（GitHubリポジトリ上）では別の名前にすることも可能だが、上記のように書けば、手元で作業していたブランチ名のままリモートにプッシュされる。
 
 ### メインブランチへのマージ ###
-GitHub上の「Pull Request」から、`main`ブランチへのマージを行えば、あとは自動で、GitHub Pagesが更新を行ってくれる。
+GitHub上の「Pull Request」から、`main`ブランチへのマージを行えば、あとは自動で、GitHub Actionsがビルドして公開する。進み具合や失敗はGitHubの「Actions」タブで確認できる。
