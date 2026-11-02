@@ -43,6 +43,7 @@ html_baseurl = 'https://example.quloud-platform.quemix.com/'
 # html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
 # html_js_files = ['three.min.js']
+html_js_files = ['js/language-switcher.js']
 html_style = 'css/my_theme.css'
 html_css_files = ['custom.css']
 #html_logo = '_static/Quloud_A_color.png'
