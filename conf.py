@@ -18,7 +18,12 @@ extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages']
 # extensions = ['sphinx.ext.mathjax', 'sphinx_rtd_theme']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'docs', 'meta', '.claude', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [
+    '_build', 'docs', 'meta', '.claude', 'Thumbs.db', '.DS_Store',
+    'li3po4/md-trajectory-energy.rst',
+    'li3po4/nnp-input-energy-error.rst',
+    'li3po4/structure-energy.rst',
+]
 
 language = 'ja'
 

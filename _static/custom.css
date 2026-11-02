@@ -66,3 +66,59 @@ div.admonition > p.admonition-title::before {
 .hchain-gap-figure figcaption {
     text-align: center;
 }
+
+/* Site-wide Japanese/English runtime translation control. */
+.quloud-language-switcher {
+    margin: 0.65rem 0 0.8rem;
+    padding: 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.12);
+    color: #ffffff;
+    text-align: left;
+}
+
+.quloud-language-switcher label,
+.quloud-language-switcher select,
+.quloud-language-status {
+    display: block;
+    width: 100%;
+}
+
+.quloud-language-switcher label {
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.quloud-language-switcher select {
+    min-height: 2rem;
+    margin: 0;
+    padding: 0.25rem 1.8rem 0.25rem 0.45rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #222222;
+    font-size: 0.9rem;
+}
+
+.quloud-language-switcher select:disabled {
+    cursor: progress;
+    opacity: 0.72;
+}
+
+.quloud-language-status {
+    margin-top: 0.35rem;
+    color: #f0f0f0;
+    font-size: 0.7rem;
+    line-height: 1.35;
+}
+
+@media screen and (max-width: 768px) {
+    .quloud-language-switcher {
+        margin-right: 0.4rem;
+        margin-left: 0.4rem;
+    }
+}
+

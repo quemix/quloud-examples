@@ -8,3 +8,23 @@
 
 # Python bytecode from running analysis scripts.
 __pycache__/
+
+# Local temporary analysis files
+tmp/
+
+# Retained locally but not used by the published examples
+Figure/BaTiO3/Figure3.png
+Figure/BaTiO3/Figure4.png
+Figure/BaTiO3/Figure5.png
+Figure/BaTiO3/Figure8.png
+Figure/BaTiO3/Figure9.png
+Figure/BaTiO3/batio3_relative_phase_energies.png
+Figure/BaTiO3/batio3_relative_phase_energies_updated.png
+Figure/Li3PO4/Li12P4O16_final_optimized_OpenMX.png
+Figure/Li3PO4/Li3PO4_32atoms_final_optimized_DFT.eps
+Figure/Li3PO4/Li3PO4_32atoms_final_optimized_DFT.png
+Figure/Li3PO4/quloud_sevennet_chgnet_vacancy_barriers.png
+Figure/Li3PO4/quloud_sevennet_chgnet_vacancy_paths.png
+li3po4/md-trajectory-energy.rst
+li3po4/nnp-input-energy-error.rst
+li3po4/structure-energy.rst
