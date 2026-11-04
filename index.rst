@@ -16,3 +16,4 @@ Quloud 計算例
    co2_ir/index
    kpoints/index
    cu_lattice/index
+   gan_surface/index

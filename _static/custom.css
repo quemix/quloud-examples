@@ -122,3 +122,9 @@ div.admonition > p.admonition-title::before {
     }
 }
 
+
+/* 長い文を入れる表で、セルの中を折り返す（テーマの既定は折り返さない）。 */
+.rst-content table.wrap-table td,
+.rst-content table.wrap-table th {
+    white-space: normal;
+}
