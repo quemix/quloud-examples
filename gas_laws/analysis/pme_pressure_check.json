@@ -1,0 +1,27 @@
+{
+  "method": "Identical TRR state, 10-step NVE from 4 snapshots, compare PME rc=1.2/grid=.12 and rc=6/grid=.6; omit initial frame",
+  "snapshots": [
+    {
+      "snapshot_ps": 40,
+      "max_pressure_difference_bar": 0.0007800000000000029,
+      "mean_pressure_difference_bar": -0.0007733000000000656
+    },
+    {
+      "snapshot_ps": 160,
+      "max_pressure_difference_bar": 0.0007519999999998639,
+      "mean_pressure_difference_bar": -0.0007495999999999947
+    },
+    {
+      "snapshot_ps": 280,
+      "max_pressure_difference_bar": 0.0007040000000000379,
+      "mean_pressure_difference_bar": -0.0006975000000000176
+    },
+    {
+      "snapshot_ps": 400,
+      "max_pressure_difference_bar": 0.0008289999999999687,
+      "mean_pressure_difference_bar": -0.0008224000000000231
+    }
+  ],
+  "max_pressure_difference_bar": 0.0008289999999999687,
+  "limitation": "Short paired trajectories, not an independent long-run pressure convergence test."
+}

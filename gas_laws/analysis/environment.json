@@ -1,0 +1,15 @@
+{
+  "python": "3.14.4",
+  "numpy": "2.3.5",
+  "matplotlib": "3.11.2",
+  "gromacs": "2026.2",
+  "pv_precision": "mixed",
+  "comparison_precision": "mixed",
+  "environment": "WSL local Docker CPU; not submitted through Quloud",
+  "main_results": "33 independent trajectories: 15 Ar PV, 3 Ar pilot, 15 five-gas comparisons",
+  "force_field_source_commit": "59f13c69f26eeedfb7596478143642fac3a032b3",
+  "mixed_image_id": "sha256:754b883e415c18591194ea44927a793f46957f659dd56fb4e49a4edb7d7b7302",
+  "double_image_manifest": "sha256:aea90a5d5547ad50f23f3e0d33df5afae1ede3f690dd42150c86aaa899148a84",
+  "actual_generator_sha256": "ac630b0fb7e2eeae5223e2af4818f493631b49c485d5f6387640c486528af8ca",
+  "gromacs_source_sha256": "d27e4455e8246177952366798631a0dad9f2e1f567400a6cb854a168dcc050dd"
+}

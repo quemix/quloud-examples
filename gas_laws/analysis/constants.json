@@ -1,0 +1,8 @@
+{
+  "k_B_J_K": 1.380649e-23,
+  "N_A_mol_inverse": 6.02214076e+23,
+  "R_J_mol_K": 8.31446261815324,
+  "temperature_K": 273.15,
+  "atm_Pa": 101325.0,
+  "ideal_molar_volume_L_mol": 22.413969545014137
+}

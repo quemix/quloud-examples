@@ -1,0 +1,75 @@
+{
+  "gas": "CO2",
+  "n_molecules": 1000,
+  "n_atoms": 3000,
+  "volume_nm3": 37219.25372327105,
+  "length_nm": 33.387908935546854,
+  "molar_volume_L_mol": 22.413958490369236,
+  "molecular_mass_g_mol": 44.009,
+  "net_charge_e": 0.0,
+  "ideal_pressure_bar": 1.0132504997385425,
+  "ideal_vrms_m_s": 393.4663278502224,
+  "equilibration_ps": 40.0,
+  "time_end_ps": 440.0,
+  "n_energy_samples": 4000,
+  "n_velocity_samples": 400,
+  "dt_ps": 0.002,
+  "integrator": "sd",
+  "verlet_buffer_tolerance": 0.005,
+  "trajectory_precision": "single",
+  "nstcomm": 100,
+  "thermostat_degrees_of_freedom": 6997.0,
+  "target_temperature_K": 273.15,
+  "volume_source": "TRR box determinant; constant across all stored frames",
+  "tpr_box_checked": true,
+  "gro_atom_count_checked": true,
+  "gro_box_checked": true,
+  "thermostat_seed": 102202,
+  "coulombtype": "PME",
+  "rcoulomb_nm": 6.0,
+  "pressure_first_half_bar": 1.019721039,
+  "pressure_second_half_bar": 1.018786633,
+  "max_system_com_m_s": 30.85403967038867,
+  "bond_min_nm": 0.11599415211781551,
+  "bond_max_nm": 0.11601010611421944,
+  "angle_mean_deg": 175.1592619336072,
+  "angle_min_deg": 159.5411423332349,
+  "angle_max_deg": 179.99220584571322,
+  "stats": {
+    "Pressure": {
+      "mean": 1.019253836,
+      "sem": 0.0016381245009858597,
+      "tau_int_ps": 0.06882867088774765
+    },
+    "Temperature": {
+      "mean": 273.38745696599995,
+      "sem": 0.14524455056855276,
+      "tau_int_ps": 0.07246531979966472
+    },
+    "Potential": {
+      "mean": 2241.8752941277503,
+      "sem": 3.3101527192343045,
+      "tau_int_ps": 0.0921968767012944
+    },
+    "Kinetic En.": {
+      "mean": 7952.334670282749,
+      "sem": 4.224896203161863,
+      "tau_int_ps": 0.07246533004841017
+    },
+    "Total Energy": {
+      "mean": 10194.209963380501,
+      "sem": 4.787849886512315,
+      "tau_int_ps": 0.08244863109005014
+    },
+    "vrms_m_s": {
+      "mean": 393.30388117929573,
+      "sem": 0.2929237642824891
+    }
+  },
+  "source_sha256": {
+    "nvt.edr": "d494070471d3dc7785412a81ea56cca38f29af43f67d52335357ac5800f59b1a",
+    "nvt.tpr": "505228c9cf2fc60bb4febdf91031c2091ae42dc596c6e23d68b891c9dfe54556",
+    "nvt.trr": "4bb81cdc1b15f658bb29b66ff95af0ef883ed76daba617809a7c48a91f58d6b4",
+    "nvt.log": "0090f637e9435e49aa1d50482c74ab76ec736372124cf11568fe2bf81417a660"
+  }
+}

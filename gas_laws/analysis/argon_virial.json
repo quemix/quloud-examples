@@ -1,0 +1,11 @@
+{
+  "model": "argon_vrabec",
+  "sigma_nm": 0.33952,
+  "epsilon_kJ_mol": 0.97105,
+  "cutoff_nm": 1.2,
+  "potential_modifier": "Potential-shift",
+  "DispCorr": "no",
+  "pressure_second_virial_L_mol": -0.015771702976337364,
+  "quadrature_difference_L_mol": 1.0507150705052481e-12,
+  "approximation": "dilute pair distribution; omits third and higher virials"
+}

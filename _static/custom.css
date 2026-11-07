@@ -21,6 +21,26 @@ div.admonition > p.admonition-title::before {
     text-align: center;
 }
 
+/* Keep example tables readable within the page, including narrow screens. */
+.rst-content table.wrap-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.rst-content table.wrap-table th,
+.rst-content table.wrap-table td {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 768px) {
+    .rst-content table.wrap-table th,
+    .rst-content table.wrap-table td {
+        padding: 7px 5px;
+        font-size: 14px;
+    }
+}
+
 .hchain-spin-spectra {
     display: flex;
     flex-wrap: wrap;

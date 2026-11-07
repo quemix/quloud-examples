@@ -1,0 +1,75 @@
+{
+  "gas": "N2",
+  "n_molecules": 1000,
+  "n_atoms": 2000,
+  "volume_nm3": 37219.25372327105,
+  "length_nm": 33.387908935546854,
+  "molar_volume_L_mol": 22.413958490369236,
+  "molecular_mass_g_mol": 28.014,
+  "net_charge_e": 0.0,
+  "ideal_pressure_bar": 1.0132504997385425,
+  "ideal_vrms_m_s": 493.1633115380098,
+  "equilibration_ps": 40.0,
+  "time_end_ps": 440.0,
+  "n_energy_samples": 4000,
+  "n_velocity_samples": 400,
+  "dt_ps": 0.002,
+  "integrator": "sd",
+  "verlet_buffer_tolerance": 0.005,
+  "trajectory_precision": "single",
+  "nstcomm": 100,
+  "thermostat_degrees_of_freedom": 4997.0,
+  "target_temperature_K": 273.15,
+  "volume_source": "TRR box determinant; constant across all stored frames",
+  "tpr_box_checked": true,
+  "gro_atom_count_checked": true,
+  "gro_box_checked": true,
+  "thermostat_seed": 103303,
+  "coulombtype": "Cut-off",
+  "rcoulomb_nm": 1.2,
+  "pressure_first_half_bar": 1.0168782715,
+  "pressure_second_half_bar": 1.017464232,
+  "max_system_com_m_s": 45.758546961241336,
+  "bond_min_nm": 0.1097646920587263,
+  "bond_max_nm": 0.10977548919442039,
+  "angle_mean_deg": null,
+  "angle_min_deg": null,
+  "angle_max_deg": null,
+  "stats": {
+    "Pressure": {
+      "mean": 1.01717125175,
+      "sem": 0.0004390034648534988,
+      "tau_int_ps": 0.06764517073113753
+    },
+    "Temperature": {
+      "mean": 273.50777870974997,
+      "sem": 0.08963816238764172,
+      "tau_int_ps": 0.06259064931880604
+    },
+    "Potential": {
+      "mean": -9.275566595499999,
+      "sem": 0.4466563373636413,
+      "tau_int_ps": 6.1700975435112495
+    },
+    "Kinetic En.": {
+      "mean": 5681.7643969655,
+      "sem": 1.8621156741709604,
+      "tau_int_ps": 0.06259065263021281
+    },
+    "Total Energy": {
+      "mean": 5672.488829835,
+      "sem": 1.887816294160768,
+      "tau_int_ps": 0.06347847429698644
+    },
+    "vrms_m_s": {
+      "mean": 492.85604677722984,
+      "sem": 0.3499163997743728
+    }
+  },
+  "source_sha256": {
+    "nvt.edr": "5f025d4dc2961a38c181bd1335683d3ae9d4af8f80916aaacb9cafc3e634d7c1",
+    "nvt.tpr": "6fcc95f757d346436b327c1d40b5a70d17583560a5bfeff9ef96413307feef12",
+    "nvt.trr": "23d358224c250986853f14ddf2227b8dd32c1b007dfa52281d4eb785297a482f",
+    "nvt.log": "36a4893d9f8d891a559bf041fca20d7072e0c3e237658ba85a169b673bba7fa3"
+  }
+}

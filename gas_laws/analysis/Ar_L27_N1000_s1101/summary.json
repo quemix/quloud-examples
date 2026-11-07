@@ -1,0 +1,80 @@
+{
+  "gas": "Ar",
+  "n_molecules": 1000,
+  "n_atoms": 1000,
+  "volume_nm3": 19683.000000000004,
+  "length_nm": 26.999999999999996,
+  "molar_volume_L_mol": 11.853379657908,
+  "molecular_mass_g_mol": 39.948,
+  "net_charge_e": 0.0,
+  "ideal_pressure_bar": 1.915989810242341,
+  "ideal_vrms_m_s": 412.9816943339659,
+  "equilibration_ps": 40.0,
+  "time_end_ps": 440.0,
+  "n_energy_samples": 4000,
+  "n_velocity_samples": 400,
+  "dt_ps": 0.002,
+  "integrator": "md",
+  "verlet_buffer_tolerance": 0.005,
+  "trajectory_precision": "single",
+  "nstcomm": 100,
+  "thermostat_degrees_of_freedom": 2997.0,
+  "target_temperature_K": 273.15,
+  "volume_source": "TRR box determinant; constant across all stored frames",
+  "tpr_box_checked": true,
+  "gro_atom_count_checked": true,
+  "gro_box_checked": true,
+  "thermostat_seed": 101101,
+  "coulombtype": "Cut-off",
+  "rcoulomb_nm": 1.2,
+  "pressure_first_half_bar": 1.9131931199999999,
+  "pressure_second_half_bar": 1.9103424755,
+  "max_system_com_m_s": 1.2072921194256713e-05,
+  "bond_min_nm": null,
+  "bond_max_nm": null,
+  "angle_mean_deg": null,
+  "angle_min_deg": null,
+  "angle_max_deg": null,
+  "stats": {
+    "Pressure": {
+      "mean": 1.91176779775,
+      "sem": 0.001246554136762214,
+      "tau_int_ps": 0.11618688615207608
+    },
+    "Temperature": {
+      "mean": 273.2323779465,
+      "sem": 0.17189243716137356,
+      "tau_int_ps": 0.11720404336060872
+    },
+    "Potential": {
+      "mean": -11.37900518175,
+      "sem": 0.36931251674438803,
+      "tau_int_ps": 3.241336411005656
+    },
+    "Kinetic En.": {
+      "mean": 3404.26292027925,
+      "sem": 2.1416461229517245,
+      "tau_int_ps": 0.11720403912407643
+    },
+    "Total Energy": {
+      "mean": 3392.88391723525,
+      "sem": 2.160924712968768,
+      "tau_int_ps": 0.11803902164533166
+    },
+    "Conserved En.": {
+      "mean": 3403.09103906125,
+      "sem": 0.5943209166700576,
+      "tau_int_ps": 69.79699431067827
+    },
+    "vrms_m_s": {
+      "mean": 412.7417642210353,
+      "sem": 0.2675376052893022
+    }
+  },
+  "source_sha256": {
+    "nvt.edr": "b82abafc4e48d5b7c152f911a7dcde50632f6d39160a4bc6e7c10afd8c56bd61",
+    "nvt.tpr": "0535aa80af6457c8a14d0fffe7aa5faf9689f934722dd3166b61f072fb5ce7d3",
+    "nvt.trr": "274644884a4b47bf26dc16d531078ee9cc470403215b8d32ff3b96c6a5275d25",
+    "nvt.log": "d5e622b7326acfdc6349ce242092d7d4152e6ba5d8c642d3fffa1312ee996bcd"
+  }
+}

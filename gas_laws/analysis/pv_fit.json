@@ -1,0 +1,21 @@
+{
+  "method": "weighted P = a/Vm+b, free a and b; L=30,33,33.3879144,36 nm",
+  "slope_bar_L_mol": 22.666388125937885,
+  "intercept_bar": 0.0005677660020315667,
+  "covariance": [
+    [
+      0.00018117973060107937,
+      -1.1469088400644472e-06
+    ],
+    [
+      -1.1469088400644476e-06,
+      2.9161314798863742e-08
+    ]
+  ],
+  "chi_squared": 0.04661783623492585,
+  "molar_volume_at_1atm_L_mol": 22.38252767252887,
+  "fit_sem_L_mol": 0.011868115356275816,
+  "ideal_molar_volume_L_mol": 22.413969545014137,
+  "error_method": "Paired-seed covariance + synchronized block covariance (maximum over 5..80 ps); propagated through fit. Conservative addition.",
+  "caveat": "Statistical fit SEM; finite-size, force-field, and numerical biases excluded."
+}

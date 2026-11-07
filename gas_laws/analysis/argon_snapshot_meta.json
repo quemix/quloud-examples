@@ -1,0 +1,12 @@
+{
+  "slice_center_z_nm": 16.693954467773438,
+  "slice_thickness_nm": 2.0,
+  "n_atoms_in_slice": 50,
+  "tracked_atom_indices": [
+    29,
+    86,
+    108,
+    135,
+    148
+  ]
+}
