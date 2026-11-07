@@ -18,7 +18,7 @@
 計算するのは、等間隔に一直線に並んだ中性の水素原子鎖 :math:`\mathrm{H}_N` です（下図）。\
 隣り合う水素原子の間隔はすべて1.8 Åとし、原子核の位置は最適化せずに固定します。\
 鎖の両端は開いており、周期境界条件は課しません。\
-これを\ :numref:`tab-hchain-conditions`\ にあるような設定で、量子化学計算ソフト Psi4 [1]_ を用いて計算します 。
+これを\ :numref:`tab-hchain-conditions`\ にあるような設定で、量子化学計算ソフト Psi4 [1]_ を用いて「分子」として計算します 。
 
 .. figure:: figures/model_chains.png
    :name: fig-hchain-model
