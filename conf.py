@@ -14,7 +14,12 @@ version = '2026.5.25'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages']
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath('_ext'))
+
+extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'cjk_linebreak']
 
 templates_path = ['_templates']
 exclude_patterns = [
