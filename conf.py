@@ -45,6 +45,8 @@ html_sidebars = {'index': []}
 html_theme_options = {
     'navbar_center': ['examples-navbar'],
     'navbar_end': ['language-switcher'],
+    'article_header_start': ['breadcrumbs', 'case-links'],
+    'article_footer_items': ['case-end'],
     'footer_start': ['copyright'],
     'footer_end': [],
     'navigation_depth': 2,
@@ -53,3 +55,41 @@ html_theme_options = {
     'shorten_urls': False,
 }
 
+
+def configure_case_navigation(app, pagename, _templatename, context, _doctree):
+    if pagename == app.config.root_doc:
+        context['theme_article_header_start'] = []
+
+    case_dir = pagename.partition('/')[0]
+    case_index = f'{case_dir}/index'
+    toctree = app.env.toctree_includes
+    case_indexes = toctree.get(app.config.root_doc, ())
+    case_pages = toctree.get(case_index, ()) if case_index in case_indexes else ()
+    related = app.builder.relations.get(pagename, (None, None, None))
+    in_case = pagename == case_index or pagename in case_pages
+
+    for key, target in zip(('prev', 'next'), related[1:]):
+        if not in_case or (target != case_index and target not in case_pages):
+            context[key] = None
+            context['rellinks'] = [
+                link for link in context.get('rellinks', ()) if link[0] != target
+            ]
+    context['theme_show_prev_next'] = bool(context.get('prev') or context.get('next'))
+
+    if pagename not in case_pages:
+        return
+
+    context['case_end'] = pagename == case_pages[-1]
+    reproduction = f'{case_dir}/reproduction'
+    if pagename == reproduction:
+        result_pages = [page for page in case_pages if page != reproduction]
+        context['case_results'] = [
+            (page, '計算結果に戻る' if len(result_pages) == 1 else app.env.titles[page].astext())
+            for page in result_pages
+        ]
+    elif reproduction in case_pages:
+        context['case_reproduction'] = reproduction
+
+
+def setup(app):
+    app.connect('html-page-context', configure_case_navigation, priority=400)

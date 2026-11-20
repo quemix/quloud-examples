@@ -1,0 +1,10 @@
+{% if case_reproduction is defined or case_results %}
+<nav class="case-links" aria-label="この事例">
+  {% if case_reproduction is defined %}
+  <a class="case-reproduction-link" href="{{ pathto(case_reproduction) | e }}">計算条件と再現手順 <span aria-hidden="true">→</span></a>
+  {% endif %}
+  {% for page, title in case_results | default([]) %}
+  <a href="{{ pathto(page) | e }}">{{ title | e }}</a>
+  {% endfor %}
+</nav>
+{% endif %}
