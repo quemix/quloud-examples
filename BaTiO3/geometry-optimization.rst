@@ -8,8 +8,6 @@
 OpenMX を使った密度汎関数理論（DFT）の計算では、Ti の中心からのずれが残り、主に O 原子が動きました。
 機械学習原子間ポテンシャル（MLIP）でも極性変位が残りましたが、c 軸に沿う 2 本の Ti–O 結合の長さの差は、いずれも OpenMX より大きくなりました。
 
-:ref:`入力例 <batio3-geometry-inputs>` ｜ :ref:`OpenMX の結果 <batio3-geometry-openmx>` ｜ :ref:`MLIP の結果 <batio3-geometry-mlip>`
-
 目的と背景
 ----------------------------------------------------------------------
 

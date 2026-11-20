@@ -9,8 +9,6 @@ BaTiO₃ の 4 つの結晶相のうち、0 K で最もエネルギーが低い�
 今回の DFT と機械学習原子間ポテンシャル（MLIP）の計算では、5 手法すべてで菱面体晶が最も低く、斜方晶、正方晶、立方晶の順に高くなりました。
 菱面体晶と斜方晶の差は手法によっては 1 化学式単位あたり 1 meV 未満で、計算の収束条件に敏感です。
 
-:ref:`計算手順 <batio3-stability-inputs>` ｜ :ref:`相対エネルギー <batio3-stability-results>` ｜ :ref:`手法間の比較 <batio3-stability-methods>`
-
 .. _batio3-stability:
 
 .. figure:: ../Figure/BaTiO3/schematics-batio3-phase-transition-temperaturedependent.png

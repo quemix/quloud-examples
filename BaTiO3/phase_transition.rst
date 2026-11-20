@@ -11,8 +11,6 @@ UMA-S と SevenNet では、実験と同じ **菱面体晶（R）→ 斜方晶�
 CHGNet では最低温から斜方晶で、菱面体晶は確認できませんでした。
 3 モデルとも、正方晶から立方晶に変わる温度は、実験値の 393 K を 400 K 以上上回りました。
 
-:ref:`転移温度 <batio3-phase-boundaries>` ｜ :ref:`Ti 変位の分布 <batio3-phase-distributions>` ｜ :ref:`サイズ・文献比較 <batio3-phase-comparison>`
-
 .. _batio3-phase-boundaries:
 
 Quloud GPU で得た転移温度
