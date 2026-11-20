@@ -26,6 +26,7 @@
   let originalTitle = document.title;
   let translator = null;
   let translating = false;
+  let statusTimer;
 
   function getPreference() {
     try {
@@ -69,7 +70,19 @@
     return nodes;
   }
 
-  function restoreJapanese(select, status) {
+  function showStatus(status, message, temporary = false) {
+    clearTimeout(statusTimer);
+    statusTimer = undefined;
+    status.textContent = message;
+    if (temporary) {
+      statusTimer = setTimeout(() => {
+        status.textContent = "";
+        statusTimer = undefined;
+      }, 3000);
+    }
+  }
+
+  function restoreJapanese(select) {
     for (const entry of entries) {
       if (entry.node.isConnected) {
         entry.node.nodeValue = entry.original;
@@ -78,7 +91,6 @@
     document.title = originalTitle;
     document.documentElement.lang = SOURCE_LANGUAGE;
     select.value = SOURCE_LANGUAGE;
-    status.textContent = "日本語（原文）";
     setPreference(SOURCE_LANGUAGE);
     if (translator && typeof translator.destroy === "function") {
       translator.destroy();
@@ -88,7 +100,7 @@
 
   function updateProgress(status, loaded) {
     const percent = Math.max(0, Math.min(100, Math.round(loaded * 100)));
-    status.textContent = "翻訳モデルを準備中… " + percent + "%";
+    showStatus(status, "翻訳モデルを準備中… " + percent + "%");
   }
 
   async function translateToEnglish(select, status, userInitiated) {
@@ -98,7 +110,8 @@
 
     translating = true;
     select.disabled = true;
-    status.textContent = "English translationを準備中…";
+    showStatus(status, "English translationを準備中…");
+    let loadingModel = true;
 
     try {
       // When initiated by the selector, create() is called before the first
@@ -107,12 +120,15 @@
         ...LANGUAGE_PAIR,
         monitor(monitor) {
           monitor.addEventListener("downloadprogress", function (event) {
-            updateProgress(status, event.loaded);
+            if (loadingModel) {
+              updateProgress(status, event.loaded);
+            }
           });
         }
       });
 
       translator = await createPromise;
+      loadingModel = false;
       const total = entries.length;
       for (let index = 0; index < total; index += 1) {
         const entry = entries[index];
@@ -121,7 +137,7 @@
         }
         entry.node.nodeValue = await translator.translate(entry.original);
         if (index % 5 === 0 || index + 1 === total) {
-          status.textContent = "翻訳中… " + (index + 1) + "/" + total;
+          showStatus(status, "翻訳中… " + (index + 1) + "/" + total);
         }
       }
 
@@ -130,13 +146,15 @@
       }
       document.documentElement.lang = TARGET_LANGUAGE;
       select.value = TARGET_LANGUAGE;
-      status.textContent = "English（ブラウザーAI自動翻訳）";
+      showStatus(status, "English（ブラウザーAI自動翻訳）", true);
       setPreference(TARGET_LANGUAGE);
     } catch (error) {
-      restoreJapanese(select, status);
-      status.textContent = userInitiated
+      loadingModel = false;
+      restoreJapanese(select);
+      const message = userInitiated
         ? "英訳を開始できませんでした。対応ブラウザーとHTTPS接続を確認してください。"
         : "Englishを選択すると、このページを翻訳できます。";
+      showStatus(status, message, !userInitiated);
       console.warn("Quloud translation unavailable:", error);
     } finally {
       translating = false;
@@ -174,7 +192,7 @@
     select.setAttribute("aria-label", "表示言語 / Display language");
     select.innerHTML =
       '<option value="ja">日本語</option>' +
-      '<option value="en">English</option>';
+      '<option value="en">English（自動翻訳）</option>';
 
     const status = document.createElement("span");
     status.className = "quloud-language-status";
@@ -201,7 +219,8 @@
       if (select.value === TARGET_LANGUAGE) {
         translateToEnglish(select, status, true);
       } else {
-        restoreJapanese(select, status);
+        restoreJapanese(select);
+        showStatus(status, "日本語（原文）", true);
       }
     });
 
