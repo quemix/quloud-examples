@@ -1,7 +1,7 @@
 # Quloud Examples
 
 ## 環境構築
-HTMLのビルドにはSphinxとRTDテーマを使う。公開用のビルド（GitHub Actions）と同じ版をPython環境にインストールする。
+HTMLのビルドにはSphinxとPyData Sphinx Themeを使う。公開用のビルド（GitHub Actions）と同じ版をPython環境にインストールする。
 ```
 python -m pip install -r requirements.txt
 ```

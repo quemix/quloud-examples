@@ -3,6 +3,7 @@
 
   const SOURCE_LANGUAGE = "ja";
   const TARGET_LANGUAGE = "en";
+  const LANGUAGE_PAIR = { sourceLanguage: SOURCE_LANGUAGE, targetLanguage: TARGET_LANGUAGE };
   const STORAGE_KEY = "quloud-display-language";
   const JAPANESE_TEXT = /[\u3040-\u30ff\u3400-\u9fff]/;
   const EXCLUDED_SELECTOR = [
@@ -95,13 +96,6 @@
       return;
     }
 
-    if (!("Translator" in globalThis)) {
-      select.value = SOURCE_LANGUAGE;
-      status.textContent = "英訳にはChrome 138以降のデスクトップ版が必要です。";
-      setPreference(SOURCE_LANGUAGE);
-      return;
-    }
-
     translating = true;
     select.disabled = true;
     status.textContent = "English translationを準備中…";
@@ -110,8 +104,7 @@
       // When initiated by the selector, create() is called before the first
       // await so Chrome can associate a model download with the user action.
       const createPromise = globalThis.Translator.create({
-        sourceLanguage: SOURCE_LANGUAGE,
-        targetLanguage: TARGET_LANGUAGE,
+        ...LANGUAGE_PAIR,
         monitor(monitor) {
           monitor.addEventListener("downloadprogress", function (event) {
             updateProgress(status, event.loaded);
@@ -151,9 +144,19 @@
     }
   }
 
-  function createLanguageSwitcher() {
-    const sidebarHeader = document.querySelector(".wy-side-nav-search");
-    if (!sidebarHeader || document.getElementById("quloud-language-switcher")) {
+  async function createLanguageSwitcher() {
+    const headerMount = document.querySelector("#pst-header .quloud-language-switcher-mount");
+    const menuMount = document.querySelector(".sidebar-header-items__end .quloud-language-switcher-mount");
+    const translatorAPI = globalThis.Translator;
+    if (!headerMount || !menuMount || !globalThis.isSecureContext || typeof translatorAPI?.availability !== "function") {
+      return;
+    }
+
+    try {
+      if (await translatorAPI.availability(LANGUAGE_PAIR) === "unavailable") {
+        return;
+      }
+    } catch {
       return;
     }
 
@@ -177,14 +180,19 @@
     status.className = "quloud-language-status";
     status.setAttribute("role", "status");
     status.setAttribute("aria-live", "polite");
-    status.textContent = "日本語（原文）";
 
     wrapper.appendChild(label);
     wrapper.appendChild(select);
     wrapper.appendChild(status);
 
-    const search = sidebarHeader.querySelector("[role='search']");
-    sidebarHeader.insertBefore(wrapper, search || null);
+    // PyData renders navbar_end in both the desktop header and the mobile menu.
+    const wideViewport = window.matchMedia("(min-width: 992px)");
+    const placeSwitcher = () => {
+      const mount = wideViewport.matches ? headerMount : menuMount;
+      mount.appendChild(wrapper);
+    };
+    placeSwitcher();
+    wideViewport.addEventListener("change", placeSwitcher);
 
     entries = collectJapaneseTextNodes();
     originalTitle = document.title;

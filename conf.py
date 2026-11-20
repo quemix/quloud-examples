@@ -15,7 +15,6 @@ version = '2026.5.25'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages']
-# extensions = ['sphinx.ext.mathjax', 'sphinx_rtd_theme']
 
 templates_path = ['_templates']
 exclude_patterns = [
@@ -29,33 +28,28 @@ language = 'ja'
 
 numfig = True
 numfig_secnum_depth = 1
-#math_number_all = True
-#math_numfig = True
-#math_eqref_format = "Eq.{number}"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-import sphinx_rtd_theme
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'pydata_sphinx_theme'
 # sphinx.ext.githubpages writes CNAME from this domain.
 html_baseurl = 'https://example.quloud-platform.quemix.com/'
-# html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
-# html_js_files = ['three.min.js']
 html_js_files = ['js/language-switcher.js']
-html_style = 'css/my_theme.css'
 html_css_files = ['custom.css']
-#html_logo = '_static/Quloud_A_color.png'
-html_title = ''
-html_short_title = 'aa'
+html_title = 'Quloudの計算事例'
+html_short_title = html_title
+html_context = {'default_mode': 'light'}
+html_sidebars = {'index': []}
 html_theme_options = {
-    # 'logo_only': True,
-    # 'sticky_navigation': True,
-    # 'titles_only': True,
-    # 'display_version': True,
-    # 'flyout_display': 'attached',
-    # 'version_selector': True,
-    # 'language_selector': True,
-    # 'collapse_navigation': True,
+    'navbar_center': ['examples-navbar'],
+    'navbar_end': ['language-switcher'],
+    'footer_start': ['copyright'],
+    'footer_end': [],
+    'navigation_depth': 2,
+    'search_bar_text': '計算事例を検索',
+    'secondary_sidebar_items': {'index': [], '**': ['page-toc']},
+    'shorten_urls': False,
 }
+

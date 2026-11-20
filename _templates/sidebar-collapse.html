@@ -1,0 +1,9 @@
+{% set theme_gettext = _ %}
+{% set sidebar_labels = {
+  "Collapse Sidebar": "サイドバーを閉じる",
+  "Expand Sidebar": "サイドバーを開く",
+} %}
+{% macro _(message) -%}
+  {{- sidebar_labels[message] if language == "ja" and message in sidebar_labels else theme_gettext(message) -}}
+{%- endmacro %}
+{%- include "!components/sidebar-collapse.html" %}
