@@ -1,5 +1,5 @@
 {% set theme_gettext = _ %}
 {% macro _(message) -%}
-  {{- "事例内の目次" if language == "ja" and message == "Section Navigation" else theme_gettext(message) -}}
+  {{- "目次" if language == "ja" and message == "Section Navigation" else theme_gettext(message) -}}
 {%- endmacro %}
 {%- include "!components/sidebar-nav-bs.html" %}
