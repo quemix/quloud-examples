@@ -2,6 +2,17 @@
 BaTiO₃格子定数の計算例
 =======================================
 
+BaTiO₃ の 4 つの結晶相について、各相の対称性を保ちながらセルを最適化し、格子定数を求める。
+実験値を基準とした平均相対誤差は、DFT では OpenMX が約 0.34%、QE が約 0.42% だった。
+機械学習原子間ポテンシャル（MLIP）では、約 1.4～1.5% だった。
+MLIP の誤差が最も大きい項目は正方晶の :math:`c/a` で、3.07～3.92% だった（DFT では 0.30～0.31%）。
+平均を取ったのは 8 項目（立方晶の :math:`a`、正方晶の :math:`a, c/a`、斜方晶の :math:`a, b, c`、菱面体晶の :math:`a, \alpha`）である。
+
+計算値は 0 K の最適化構造、実験値は各相が安定な温度域で測定した値である。
+両者の差には、熱膨張などの温度の影響も含まれる。
+
+:ref:`入力例 <batio3-lattice-inputs>` ｜ :ref:`格子定数の比較 <batio3-lattice-values>` ｜ :ref:`相対誤差 <batio3-lattice-relative-errors>`
+
 .. raw:: html
 
    <style>
@@ -147,14 +158,14 @@ BaTiO₃格子定数の計算例
    }
    </style>
 
-本節では、BaTiO₃の各強誘電相における格子定数について、可変セル最適化により得られた計算値を実験値と比較する。
-実験値は各相が安定に存在する温度領域における代表値であり、一方で計算値は0 Kにおける最適化構造に対応する。
-したがって、両者の比較は定量的な一致のみを評価するものではなく、熱膨張や相安定性の温度依存性を考慮した定性的な比較として扱う必要がある。
+.. _batio3-lattice-inputs:
 
 格子最適化に用いた入力ファイル例
 --------------------------------
 
-ここでは、各相の結晶対称性を保ったまま格子定数を調整するための代表的な入力例を示す。Quloud Jobで利用する場合は、下のブロックを展開してコピーし、対応する入力ファイルを置き換える。OpenMXでは ``openmx.in``、QEでは ``QuloudJob.scf.in``、ASEでは ``ase.in``、LAMMPSでは ``in.QuloudJob`` を使用する。
+Quloud で計算するには、下のブロックから対象の手法・相の入力例を開く。
+コピーした内容で、ジョブの対応する入力ファイルを置き換える。
+使用するファイルは OpenMX では ``openmx.in``、QE では ``QuloudJob.scf.in``、ASE では ``ase.in``、LAMMPS では ``in.QuloudJob`` である。
 
 格子のみを比較したい場合は、内部座標を固定し、相ごとに許される格子自由度だけを動かす必要がある。例えば、立方晶では :math:`a=b=c` を保つ必要があり、正方晶では :math:`a=b` を保ったまま :math:`c` を独立に変化させる。斜方晶では直交角を保って :math:`a`、:math:`b`、:math:`c` を独立に変化させ、菱面体晶では :math:`a=b=c` と菱面体晶の角度関係を保つ。
 
@@ -955,6 +966,8 @@ QE
 MLIP
 ~~~~
 
+MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モデル ``uma-s-1p1``）を用いた。
+
 以下の例は、QuloudのASEまたはLAMMPSジョブでセルを含む緩和を行うための最小設定である。ASEでは ``ase.in``、LAMMPSでは ``in.QuloudJob`` を置き換えて使う。構造データは各相のジョブに含まれるものを利用するため、同じ形式の入力を各相に適用できる。
 
 .. list-table:: MLIP入力の対応
@@ -1039,12 +1052,17 @@ MLIP
      </div>
    </details>
 
+.. _batio3-lattice-values:
+
 格子定数の実験値および計算値
 ----------------------------
 
+表では、相ごとに実験値、Quloud の計算値、先行研究の計算値を照合できる。
+画面が狭い場合は表を横にスクロールして確認する。
+
 .. raw:: html
 
-   <div class="table-scroll">
+   <div class="table-scroll" tabindex="0" role="region" aria-label="BaTiO₃の格子定数の比較">
    <table class="slide-style-table table-lattice">
      <colgroup>
        <col style="width: 8%;">
@@ -1205,6 +1223,8 @@ QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相につ
 表中では、OpenMXおよびQEをDFT法、CHGNet、SevenNetおよびFairChemをMLIP法、文献DFT、文献MDおよび文献ACEを先行研究として分類した。
 文献DFT欄では、上段にSehrawatら :sup:`[3]` の値、下段にQiら :sup:`[4]` の値を示した。
 
+.. _batio3-lattice-relative-errors:
+
 実験値に対する相対誤差
 ----------------------
 
@@ -1220,7 +1240,7 @@ QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相につ
 
 .. raw:: html
 
-   <div class="table-scroll">
+   <div class="table-scroll" tabindex="0" role="region" aria-label="BaTiO₃の格子定数の相対誤差">
    <table class="slide-style-table table-error">
      <colgroup>
        <col style="width: 9%;">
