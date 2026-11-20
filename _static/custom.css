@@ -70,6 +70,14 @@ div.admonition > p.admonition-title::before {
     font-weight: 600;
 }
 
+/* 技術ノートなど別サイトへのリンクに、テーマの外部リンク（.nav-link.nav-external）と同じアイコンを付ける */
+.examples-navbar a.external::after {
+    content: var(--pst-icon-external-link);
+    font: var(--fa-font-solid);
+    font-size: 0.75em;
+    margin-left: 0.3em;
+}
+
 .sidebar-header-items__center .examples-navbar {
     flex-direction: column;
 }
