@@ -46,7 +46,7 @@ k点メッシュ
 金属では、フェルミ面を境に占有数が1から0へ飛ぶため、被積分関数に段差があり、収束は遅く、誤差は符号を変えながら減ると予想されます。\
 この段差を扱うために、占有数をなめらかにする **スメアリング** や、段差を含んだまま積分を近似する **テトラヘドロン法** が使われます。
 
-許されるk点が結晶の周期性からどう決まるかは技術ノートの `周期境界条件とバンドの折り返し <https://technical-notes.quemix.com/solid/periodic_boundary.html>`__ に、等間隔の点の和の誤差が何で決まるか、スメアリングとテトラヘドロン法の考え方は `k点サンプリングとブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__ にまとめました。\
+許されるk点が結晶の周期性からどう決まるかは技術ノートの\ `周期境界条件とバンドの折り返し <https://technical-notes.quemix.com/solid/periodic_boundary.html>`__\ に、等間隔の点の和の誤差が何で決まるか、スメアリングとテトラヘドロン法の考え方は\ `k点サンプリングとブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__\ にまとめました。\
 本稿では、これらの予想を、CuとSiの実際の計算で確かめます。
 
 計算対象と計算条件
@@ -258,7 +258,7 @@ Quloudの「k グリッド」の既定値は4です。\
 
 金属の計算では、占有数の段差をならすために、占有数を幅 :math:`\sigma` のなめらかな関数に置き換えます（スメアリング）。\
 このとき自己無撞着に最小化されるのは、全エネルギー :math:`U` から「スメアリングによるエントロピーの項」 :math:`TS` を引いた自由エネルギー :math:`F = U - TS` です。\
-スメアリングの関数の種類と :math:`F` の性質は、技術ノートの `k点サンプリングとブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__ で説明しています。\
+スメアリングの関数の種類と :math:`F` の性質は、技術ノートの\ `k点サンプリングとブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__\ で説明しています。\
 QEの出力では、 ``!`` で始まる行の ``total energy`` が :math:`F` 、 ``smearing contrib. (-TS)`` が :math:`-TS` 、 ``internal energy E=F+TS`` が :math:`U` です。\
 :math:`\sigma \to 0` で、 :math:`F` も :math:`U` も、スメアリングのない本来の全エネルギーに近づきます（この極限の値は、 :numref:`{number}節 <sec-kp-tetra>` でテトラヘドロン法を使って確かめます）。
 
@@ -363,7 +363,7 @@ Siでは、エネルギー差も圧力も速く収束します。\
 
 ここまでのCuの計算は、すべてスメアリングを使っていました。\
 ここでは、スメアリングを使わない **テトラヘドロン法** で同じ計算を行い、スメアリングと比べます。\
-テトラヘドロン法は、メッシュの点を頂点とする四面体でBZを埋め、その中でバンドのエネルギーを線形に補間して、占有数の段差を含んだまま積分する方法です（技術ノートの `k点サンプリングとブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__ ）。\
+テトラヘドロン法は、メッシュの点を頂点とする四面体でBZを埋め、その中でバンドのエネルギーを線形に補間して、占有数の段差を含んだまま積分する方法です（技術ノートの\ `k点サンプリングとブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__）。\
 線形補間の誤差を補正したBlöchlらの方法 [6]_ と、補間を改良した最適化テトラヘドロン法 [7]_ の2つを使います。\
 QEでは、入力の ``occupations`` を ``'tetrahedra'`` （Blöchlの方法）または ``'tetrahedra_opt'`` （最適化テトラヘドロン法）にすると使えます。\
 Quloudの「電子占有数スメアリング」ではテトラヘドロン法を選べないので、入力ファイルを書き換えて計算しました（ :doc:`reproduction` ）。

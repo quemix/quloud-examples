@@ -14,7 +14,7 @@
 ==================
 
 計算するのは、fccのCuの原始胞（1原子）です。\
-原始胞は、3辺の長さが立方晶の格子定数 :math:`a` の :math:`1/\sqrt{2}` で、辺のなす角がすべて60°のセルです（慣用胞と原始胞の関係は、技術ノートの `格子基底と座標系の変換 <https://technical-notes.quemix.com/solid/lattice_transform.html>`__ を参照してください）。\
+原始胞は、3辺の長さが立方晶の格子定数 :math:`a` の :math:`1/\sqrt{2}` で、辺のなす角がすべて60°のセルです（慣用胞と原始胞の関係は、技術ノートの\ `格子基底と座標系の変換 <https://technical-notes.quemix.com/solid/lattice_transform.html>`__\ を参照してください）。\
 以下では、格子の大きさを立方晶の格子定数 :math:`a` で表し、エネルギーは1原子あたりの値、圧力はQEの出力どおりkbar（10 kbar = 1 GPa）で示します。\
 計算条件を :numref:`tab-cl-conditions` にまとめます。
 
