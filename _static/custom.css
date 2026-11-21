@@ -62,12 +62,14 @@ div.admonition > p.admonition-title::before {
     gap: 0.5rem 1.25rem;
 }
 
+/* 技術ノートのヘッダーと同じく、下線・太字なしで表示し、ホバー時だけ下線を出す */
 .examples-navbar a {
     color: var(--pst-color-text-base);
+    text-decoration: none;
 }
 
-.examples-navbar a[aria-current="page"] {
-    font-weight: 600;
+.examples-navbar a:hover {
+    text-decoration: underline;
 }
 
 /* 技術ノートなど別サイトへのリンクに、テーマの外部リンク（.nav-link.nav-external）と同じアイコンを付ける */
