@@ -14,11 +14,11 @@ OpenMX の計算では中心を挟む 2 か所に極小が現れ、格子定数�
 ----------------------------------------------------------------------
 
 Sehrawat らの方法 :sup:`[1]` に従い、Ti だけを :math:`[001]` 方向にずらし、Ba と O を理想立方晶の位置に固定します。
-変位ごとに構造を固定したまま全エネルギーを計算し、DFT と複数の機械学習原子間ポテンシャル（MLIP）で比較します。
-中心の両側に等価な極小が現れる曲線を二重井戸ポテンシャルと呼びます。
+変位ごとに構造を固定したまま全エネルギーを計算し、DFT と複数の\ `機械学習原子間ポテンシャル <https://technical-notes.quemix.com/md/mlip.html>`__\ （MLIP）で比較します。
+中心の両側に等価な極小が現れる曲線を\ `二重井戸ポテンシャル <https://technical-notes.quemix.com/solid/soft_mode.html#double-well-potential>`__\ と呼びます。
 この形は、Ti が中心からずれるとエネルギーが下がることを示します。
 
-高温の常誘電相でも、平均構造が立方晶のまま、瞬間的には Ti が中心からずれて局所的な極性を持ち得ます。
+高温の常誘電相でも、平均構造が立方晶のまま、瞬間的には Ti が中心からずれて局所的な極性を持ち得ます（技術ノートの\ `局所的なTiの変位と平均構造 <https://technical-notes.quemix.com/solid/ferroelectricity.html#fe-local-average>`__）。
 ここで計算する静的エネルギー曲線は、Ti の変位だけを取り出した断面です。
 原子の協同変位は :doc:`Part 2 <total-energy>`、有限温度での局所変位は :doc:`構造相転移 <phase_transition>` で扱います。
 
@@ -33,8 +33,8 @@ Sehrawat らの方法 :sup:`[1]` に従い、Ti だけを :math:`[001]` 方向�
 二重井戸ポテンシャルの曲線を作成できます。
 
 本計算では、Ba 原子および O 原子を理想立方晶位置に固定し、**Ti 原子の z 座標だけを変更します**。
-構造最適化やセル緩和を行うと指定した変位座標が変化するため、OpenMX では ``MD.Type Nomd``、
-CHGNet では ``run 0`` を用います。SevenNet では、計算条件を ``ase.in`` に記述し、
+構造最適化やセル緩和を行うと指定した変位座標が変化するため、各変位で\ `単点計算 <https://technical-notes.quemix.com/electronic/structure_optimization.html#structure-optimization>`__\ を行います。
+OpenMX では ``MD.Type Nomd``、CHGNet では ``run 0`` を用います。SevenNet では、計算条件を ``ase.in`` に記述し、
 実際の Ti 変位は ``rsdft.atoms`` の分率座標で指定します。
 
 .. list-table:: 各手法で変更する入力ファイル
@@ -438,7 +438,8 @@ DFT の二重井戸ポテンシャルをよく再現し、特に大きな Ti 変
 比較的小さいですが、:math:`1.05a_0` の大変位領域では SevenNet と FairChem の
 DFTからのずれが大きくなります。このことは、汎用MLIPでは
 小変位の強誘電的不安定性と、大変位の非調和的な反発壁を同時に高精度に
-再現することが難しい場合があることを示しています。
+再現することが難しい場合があることを示しています
+（曲率と壁を分けて評価する理由は技術ノートの\ `二重井戸ポテンシャル <https://technical-notes.quemix.com/solid/soft_mode.html#double-well-potential>`__）。
 
 以上より、:math:`a_0` における強誘電的不安定性の確認には SevenNet と FairChem が
 CHGNet よりも明瞭な負の曲率を与えます。一方、:math:`1.05a_0` ではすべてのMLIPが
@@ -459,7 +460,8 @@ MLIPの比較では、SevenNet と FairChem は :math:`a_0` における小変�
 一方、CHGNet は :math:`a_0` では不安定性を過小評価しますが、:math:`1.05a_0` では
 二重井戸を定性的に再現しました。
 この結果は、MLIPによるBaTiO₃の強誘電性評価では、平均的なMAEだけでなく、
-小変位領域の曲率および大変位領域の非調和性を個別に確認する必要があることを示しています。
+小変位領域の曲率および大変位領域の非調和性を個別に確認する必要があることを示しています
+（技術ノートの\ `調べたい性質ごとに検証する <https://technical-notes.quemix.com/md/mlip.html#mlip-validation>`__）。
 
 Ti が中心からずれるとエネルギーが下がることは、BaTiO₃ の強誘電性の起源を理解する出発点になります。
 :doc:`Part 2 <total-energy>` では、Ba・Ti・O の協同変位を含めて調べます。

@@ -26,14 +26,12 @@
 * DOS/PDOS に現れる Ti :math:`3d`–O :math:`2p` 混成が、
   二重井戸ポテンシャルとどのように対応するか。
 
-BaTiO₃ の強誘電性に関する概念的背景として、局所電場の描像 :sup:`[1]` と
-ソフトモード理論 :sup:`[2]` があります。第一原理的には、長距離 Coulomb 相互作用が
-極性変位を促進する一方、短距離重なり反発が非極性立方晶を安定化するという競合から
-強誘電不安定性が生じます。
-Ti :math:`3d`–O :math:`2p` 混成は、この短距離反発を実効的に弱め、
-Ti が中心からずれることを可能にする重要な電子構造要因です :sup:`[4]`。
-二重井戸の深さから、中心からずれた構造がどれだけ安定化するかを評価します。
-電子状態密度（DOS）と軌道に射影した状態密度（PDOS）から、Ti と O の軌道成分がどのエネルギー範囲で重なるかを見ます。
+BaTiO₃ の強誘電性の背景には、局所電場の描像 :sup:`[1]` と\ `ソフトモード <https://technical-notes.quemix.com/solid/soft_mode.html>`__\ 理論 :sup:`[2]` があります。
+第一原理計算では、極性変位を促す長距離 Coulomb 相互作用と、立方晶を安定にする短距離の反発の競合から強誘電不安定性が生じ、
+Ti :math:`3d`–O :math:`2p` 混成がこの短距離反発を弱めると説明されます :sup:`[4]`。
+この機構は技術ノートの\ `長距離のクーロン相互作用と短距離の反発 <https://technical-notes.quemix.com/solid/ferroelectric_origin.html#ferroelectric-instability-origin>`__\ で説明しています。
+ここでは、二重井戸の深さから、中心からずれた構造がどれだけ安定化するかを評価します。
+電子状態密度（DOS）と軌道に射影した状態密度（`PDOS <https://technical-notes.quemix.com/electronic/pdos.html>`__）から、Ti と O の軌道成分がどのエネルギー範囲で重なるかを見ます。
 
 
 .. _batio3-mode-method:
@@ -45,9 +43,11 @@ Ti が中心からずれることを可能にする重要な電子構造要因�
 ----------------
 
 Cohen–Krakauer は、立方晶 BaTiO₃ の :math:`\Gamma` 点において、
-約 :math:`-72\ \mathrm{cm^{-1}}` の不安定な極性モードを報告しました。
-負の符号は、調和近似における虚数振動数、すなわち立方晶構造の
-負のエネルギー曲率を表します :sup:`[3]`。
+約 :math:`-72\ \mathrm{cm^{-1}}` の不安定な極性モードを報告しました :sup:`[3]`。
+負の符号は虚数振動数、すなわち立方晶構造のエネルギー曲率が負であることを表します
+（技術ノートの\ `虚数振動数と動的安定性 <https://technical-notes.quemix.com/solid/phonon.html#imaginary-frequency>`__）。
+このモードの固有ベクトルに沿って原子を動かし、各変位で全エネルギーを計算します
+（`frozen phonon 法 <https://technical-notes.quemix.com/solid/soft_mode.html#frozen-phonon>`__）。
 
 O(2) 原子を固定し、Ti 変位を 1 とした公表固有ベクトルは
 
@@ -138,7 +138,7 @@ O(2) 原子を固定し、Ti 変位を 1 とした公表固有ベクトルは
    O3  0.000000  0.500000  0.500000
 
 とします。各変位点ではセルと原子座標を固定し、OpenMX の
-``MD.Type Nomd`` による単点計算を行います。比較するすべての点で、
+``MD.Type Nomd`` による\ `単点計算 <https://technical-notes.quemix.com/electronic/structure_optimization.html#structure-optimization>`__\ を行います。比較するすべての点で、
 交換相関汎関数、擬ポテンシャル、PAO、エネルギーカットオフ、
 :math:`k` 点メッシュ、電子温度、および SCF 収束条件を統一します。
 本結果では、参照論文との整合性を重視して LDA/CA19、500 Ry、
@@ -160,7 +160,8 @@ DOS/PDOS は、次の三構造について比較します。
 * :math:`Q=0.05` Å、:math:`c/a=1.01`
 
 エネルギーは各構造の VBM を :math:`0` eV として整列し、
-Gaussian 幅 :math:`\sigma=0.08` eV を用います。主な解析範囲は、
+Gaussian 幅 :math:`\sigma=0.08` eV を用います
+（技術ノートの\ `ガウス関数によるぼかし <https://technical-notes.quemix.com/electronic/pdos.html#dos-broadening>`__）。主な解析範囲は、
 O :math:`2p` が支配的な占有価電子帯
 :math:`-6\le E-E_{\mathrm{VBM}}\le0` eV です。
 
@@ -223,7 +224,8 @@ O :math:`2p` が支配的な占有価電子帯
 :math:`V=64.00` Å³、:math:`c/a=1` の :math:`[001]` 系列で
 有限変位のエネルギーが :math:`Q=0` より低いため、立方晶は
 極性ソフトモード方向に不安定です。反転対称性により、
-:math:`+Q` と :math:`-Q` は反対向きの分極を持つ等価な極小に対応します。
+:math:`+Q` と :math:`-Q` は反対向きの分極を持つ等価な極小に対応します
+（技術ノートの\ `+Qと−Qの等価性と反転対称性 <https://technical-notes.quemix.com/solid/soft_mode.html#sm-inversion-equivalence>`__）。
 
 無ひずみ条件では、:math:`[111]` 井戸（:math:`-13.237` meV/f.u.）が
 :math:`[001]` 井戸（:math:`-6.621` meV/f.u.）より深いです。
@@ -257,16 +259,9 @@ DOS/PDOS と Cohen 1992 Figure 2 との比較
 
 三構造の価電子帯は主として O :math:`2p` から構成されますが、
 同じ :math:`-6`–:math:`0` eV 領域に有限の Ti :math:`3d` 成分が存在します。
-これは、占有価電子状態が純粋な O :math:`2p` 状態ではなく、
-
-.. math::
-
-   |\psi_{\mathrm{val}}\rangle
-   \simeq a|\mathrm O\,2p\rangle
-   +b|\mathrm{Ti}\,3d\rangle,
-   \qquad b\ne0
-
-という混成状態であることを示します。すなわち、Ti–O 混成は
+これは、占有価電子状態が純粋な O :math:`2p` 状態ではなく、Ti :math:`3d` の混じった混成状態であることを示します
+（PDOS の重なりと混成の関係は技術ノートの\ `軌道の混成とスペクトルの重なり <https://technical-notes.quemix.com/electronic/pdos.html#orbital-hybridization>`__）。
+すなわち、Ti–O 混成は
 立方晶 :math:`Q=0` ですでに存在し、強誘電変位は混成をゼロから生成するのではなく、
 短い Ti–O 結合と長い Ti–O 結合の間で非対称化します。
 
@@ -297,9 +292,10 @@ DOS/PDOS と Cohen 1992 Figure 2 との比較
 占有 Ti :math:`3d` 重みと :math:`H_{pd}` は変位とひずみに伴ってわずかに増加し、
 Ti :math:`3d`–O :math:`2p` スペクトルの重なりが系統的に変化します。
 ただし、これらは局在基底への射影量および DOS 形状の重なり指標であり、
-形式的な Ti :math:`d` 電子数や Hamiltonian の混成行列要素そのものではありません。
-また、各構造を独立に VBM 整列しているため、重心の低エネルギー側への移動を
-全エネルギー分解として解釈してはなりません。
+形式的な Ti :math:`d` 電子数や Hamiltonian の混成行列要素そのものではありません
+（技術ノートの\ `非直交基底での射影 <https://technical-notes.quemix.com/electronic/pdos.html#pdos-nonorthogonal>`__）。
+また、各構造を独立に VBM 整列しているため、重心の低エネルギー側への移動は
+全エネルギーの分解としては読めません（`エネルギーの基準と価電子帯上端 <https://technical-notes.quemix.com/electronic/pdos.html#pdos-energy-alignment>`__）。
 
 Cohen 1992 の Figure 2(a) は、強誘電 PbTiO₃ と立方晶 PbTiO₃ を比較し、
 強誘電変位によって Ti :math:`3d`–O :math:`2p` 混成が増強され、
@@ -307,10 +303,8 @@ Cohen 1992 の Figure 2(a) は、強誘電 PbTiO₃ と立方晶 PbTiO₃ を比
 PbTiO₃ の実験構造を両方に用いて PbTiO₃ と BaTiO₃ を比較し、
 A サイト元素の化学的違いを分離しています :sup:`[4]`。
 
-PbTiO₃ では Pb :math:`6s`–O :math:`2p` 混成が大きく、
-この A サイト共有結合性が大きな正方晶ひずみを安定化します。
-一方、BaTiO₃ では Ba–O 相互作用はよりイオン的であり、
-主要な共有結合成分は Ti :math:`3d`–O :math:`2p` です。
+PbTiO₃ では Pb :math:`6s`–O :math:`2p` 混成が大きな正方晶ひずみを安定化するのに対し、
+BaTiO₃ では Ba–O 相互作用はよりイオン的で、主要な共有結合成分は Ti :math:`3d`–O :math:`2p` です :sup:`[4]`。
 本計算は PbTiO₃ を含まないため Figure 2 の直接再現ではありませんが、
 BaTiO₃ における Ti :math:`3d` と O :math:`2p` の価電子帯重なりと、
 極性変位に伴う系統的な PDOS 変化を再現しています。
@@ -318,24 +312,11 @@ BaTiO₃ における Ti :math:`3d` と O :math:`2p` の価電子帯重なりと
 Ti 3d の除外試験と価電子密度に関する解釈
 -----------------------------------------
 
-Cohen は、Ti–O 混成を抑制すると強誘電不安定性が消失することを二つの方法で示しました。
-球対称イオンと非共有結合性を仮定した potential-induced-breathing モデルでは、
-長距離 Coulomb エネルギーが極性変位を好んでも、短距離反発が立方晶を安定化しました。
-さらに LAPW 計算で Ti :math:`d` のエネルギーパラメータを上げ、
-Ti :math:`3d` の変分自由度を実効的に除くと、強誘電状態が失われ、
-不安定モードは安定な高振動数モードへ変化しました :sup:`[3]`, :sup:`[4]`。
-
-この結果は、
-
-.. math::
-
-   \mathrm{Ti}\,3d\text{–}\mathrm O\,2p\text{ 混成}
-   \;\longrightarrow\;
-   \text{短距離 Ti–O 反発の緩和}
-   \;\longrightarrow\;
-   \text{極性変位の安定化}
-
-という因果関係を支持します。本計算では Ti :math:`3d` 除外試験を行っていないため、
+Cohen は、混成を含まないイオン模型（potential-induced-breathing モデル）と、Ti :math:`3d` の寄与を抑えた LAPW 計算の二つの方法で、
+Ti–O 混成を抑えると強誘電不安定性が消えることを示しました :sup:`[3]`, :sup:`[4]`。
+この結果は、混成が短距離 Ti–O 反発を緩めて極性変位を安定にするという因果関係を支持します
+（技術ノートの\ `Ti 3d–O 2pの混成の役割 <https://technical-notes.quemix.com/solid/ferroelectric_origin.html#fo-hybridization>`__）。
+本計算では Ti :math:`3d` 除外試験を行っていないため、
 この因果的証明は参照論文に基づきます。一方、二重井戸ポテンシャルと DOS/PDOS は、
 同じ機構に整合する構造的・軌道的証拠を与えます。
 
@@ -352,7 +333,8 @@ Ti :math:`3d` の変分自由度を実効的に除くと、強誘電状態が失
 この期待される実空間像は、本計算で観測された Ti :math:`3d` と
 O :math:`2p` の占有価電子帯重なり、および変位に伴う PDOS の系統的変化と整合します。
 ただし、静的な価電子密度差だけから Born 有効電荷や動的分極を直接決定することはできず、
-その評価には Berry-phase 分極、線形応答、または対応する有限変位解析が必要です。
+その評価には Berry-phase 分極、線形応答、または対応する有限変位解析が必要です
+（技術ノートの\ `分極の評価 <https://technical-notes.quemix.com/solid/ferroelectric_origin.html#polarization-evaluation>`__）。
 
 
 有限温度 MD 計算への接続
@@ -361,14 +343,11 @@ O :math:`2p` の占有価電子帯重なり、および変位に伴う PDOS の�
 本計算で得られる二重井戸ポテンシャルは、0 K における局所的な
 ポテンシャルエネルギー面です。有限温度相転移では、局所井戸に加えて、
 セル間の分極相関、格子ひずみ、エントロピー、および熱揺らぎを考慮する必要があります。
+井戸の深さだけでは、相転移が変位型か秩序–無秩序型かも決まりません
+（技術ノートの\ `変位型と秩序–無秩序型の相転移 <https://technical-notes.quemix.com/solid/soft_mode.html#displacive-order-disorder>`__）。
 次の :doc:`構造相転移 <phase_transition>` では、Ti の局所変位分布と格子定数が温度とともにどう変わるかを調べます。
-局所的な井戸と有限温度の相転移を結びつけるには、さらに次の点を検証する必要があります。
-
-* :math:`[111]` 型の局所変位が高温立方晶でも残るか。
-* セル間の分極相関が相転移温度付近でどのように消失するか。
-* 相転移が変位型、秩序–無秩序型、または両者の混合として記述されるか。
-* 静的 DFT の井戸深さと MD の温度依存構造が整合するか。
-
+:math:`[111]` 型の局所変位が高温立方晶でも残るか、静的 DFT の井戸深さと MD の温度依存構造が整合するかが、
+二つの計算をつなぐ点です。
 静的 DFT は「なぜ局所的な極性不安定性が存在するか」を示し、
 有限温度 MD は「その局所不安定性が温度下でどのように秩序化・無秩序化するか」を示します。
 
