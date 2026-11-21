@@ -81,6 +81,11 @@ def configure_case_navigation(app, pagename, _templatename, context, _doctree):
             ]
     context['theme_show_prev_next'] = bool(context.get('prev') or context.get('next'))
 
+    # The sidebar title (e.g. 「CO₂の赤外スペクトル目次」) links to the case's top page.
+    if case_index in case_indexes and case_index in app.env.titles:
+        context['case_title'] = app.env.titles[case_index].astext()
+        context['case_url'] = context['pathto'](case_index)
+
     if pagename not in case_pages:
         return
 

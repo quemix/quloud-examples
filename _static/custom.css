@@ -272,3 +272,17 @@ div.admonition > p.admonition-title::before {
         background: var(--pst-color-background);
     }
 }
+
+/* 左サイドバーの見出し（例: CO₂の赤外スペクトル目次）は事例のトップへのリンク。
+   技術ノートと同じく、どの状態でも見出しの色のままにし、ホバー時だけ下線を出す */
+nav.bd-links .bd-links__title-link,
+nav.bd-links .bd-links__title-link:visited,
+nav.bd-links .bd-links__title-link:hover,
+nav.bd-links .bd-links__title-link:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+nav.bd-links .bd-links__title-link:hover {
+    text-decoration: underline;
+}

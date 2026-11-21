@@ -1,5 +1,24 @@
-{% set theme_gettext = _ %}
-{% macro _(message) -%}
-  {{- "目次" if language == "ja" and message == "Section Navigation" else theme_gettext(message) -}}
-{%- endmacro %}
-{%- include "!components/sidebar-nav-bs.html" %}
+{# The theme's sidebar, titled with the case (e.g. CO₂の赤外スペクトル目次) linking to its top page. #}
+{% set show_nav_level = meta['html_theme.show_nav_level'] if (meta is defined and meta is not none and 'html_theme.show_nav_level' in meta) else theme_show_nav_level %}
+{% set nav_title = (case_title ~ "目次") if case_title else "目次" %}
+<nav class="bd-docs-nav bd-links"
+     aria-label="{{ nav_title }}">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    {%- if case_url -%}
+      <a class="bd-links__title-link" href="{{ case_url }}">{{ nav_title }}</a>
+    {%- else -%}
+      {{ nav_title }}
+    {%- endif -%}
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    {{- generate_toctree_html(
+      "sidebar",
+      show_nav_level=show_nav_level | int,
+      maxdepth=theme_navigation_depth | int,
+      collapse=theme_collapse_navigation | tobool,
+      includehidden=theme_sidebar_includehidden | tobool,
+      titles_only=True
+      )
+    -}}
+  </div>
+</nav>
