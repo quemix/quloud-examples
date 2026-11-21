@@ -1,7 +1,10 @@
 # Quloud Examples
 
 ## 環境構築
-HTMLのビルドにはSphinxとPyData Sphinx Themeを使う。公開用のビルド（GitHub Actions）と同じ版をPython環境にインストールする。
+HTMLのビルドにはSphinxとPyData Sphinx Themeを使う。`make html`は、手元のPythonに
+PyData Sphinx Themeが無ければ、公開用のビルド（GitHub Actions）と同じ`requirements.txt`の版を
+`~/.cache/quloud-examples/pylib`へ自動で入れて使う（`requirements.txt`を変えると入れ直す）。
+自分のPython環境に入れて使う場合は次を実行する。
 ```
 python -m pip install -r requirements.txt
 ```

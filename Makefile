@@ -8,6 +8,22 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 
+# 手元のPythonにテーマが無ければ（apt版Sphinxなど）、requirements.txt の版を
+# Git管理外の PYLIB に pip で入れて使う。requirements.txt を変えると入れ直す。
+# GitHub Actions は先に pip install するので、こちらは使わない。
+PYLIB ?= $(or $(XDG_CACHE_HOME),$(HOME)/.cache)/quloud-examples/pylib
+ifneq ($(shell python3 -c "import sphinx, pydata_sphinx_theme" 2>/dev/null && echo ok),ok)
+SPHINXBUILD = PYTHONPATH="$(PYLIB)" python3 -m sphinx
+SPHINXDEPS  = $(PYLIB)/requirements.txt
+endif
+
+$(PYLIB)/requirements.txt: requirements.txt
+	python3 -m pip install -q --upgrade --target "$(PYLIB)" -r requirements.txt --break-system-packages
+	cp requirements.txt "$@"
+
+# 末尾の「%: Makefile」がSphinxに渡さないよう、ソースファイルとして扱う。
+requirements.txt: ;
+
 # Preview the local build at http://localhost:8000
 serve:
 	python3 -m http.server -d "$(BUILDDIR)/html" 8000
@@ -32,7 +48,7 @@ help:
 
 # Always rebuild every page (-E). An incremental build rewrites only the pages whose
 # source changed, so after the toctree changes the sidebar of the other pages stays stale.
-html:
+html: $(SPHINXDEPS)
 	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" -E $(SPHINXOPTS) $(O)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
