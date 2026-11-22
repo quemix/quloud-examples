@@ -55,6 +55,12 @@ div.admonition > p.admonition-title::before {
     overflow-x: auto;
 }
 
+/* 本文中の用語リンク（技術ノートへのリンク、:ref:、:numref:、:doc:）は、技術ノートの用語リンク（solid-links.css）にならい、
+   ホバー・フォーカス時だけ下線を出す。配布ファイルのリンクは下線を残す */
+.bd-article a.reference:is(.external, :has(> .std-ref, > .std-numref, > .doc)):not(:hover, :focus-visible) {
+    text-decoration-line: none;
+}
+
 .examples-navbar,
 .case-links {
     display: flex;
