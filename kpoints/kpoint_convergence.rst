@@ -46,7 +46,7 @@ k点メッシュ
 金属では、フェルミ面を境に占有数が1から0へ飛ぶため、被積分関数に段差があり、収束は遅く、誤差は符号を変えながら減ると予想されます。\
 この段差を扱うために、占有数をなめらかにする **スメアリング** や、段差を含んだまま積分を近似する **テトラヘドロン法** が使われます。
 
-許されるk点が結晶の周期性からどう決まるかは技術ノートの\ `周期境界条件とバンドの折り返し <https://technical-notes.quemix.com/solid/periodic_boundary.html>`__\ に、等間隔の点の和の誤差が何で決まるかは\ `k点メッシュと積分誤差 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__\ に、スメアリングとテトラヘドロン法の考え方は\ `金属のブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/metal_bz_integration.html>`__\ にまとめました。\
+許されるk点が結晶の周期性からどう決まるかは技術ノートの\ `ブロッホの定理と周期境界条件 <https://technical-notes.quemix.com/solid/blochstheorem.html#pbc-wavevector-count>`__\ に、等間隔の点の和の誤差が何で決まるかは\ `k点メッシュと積分誤差 <https://technical-notes.quemix.com/solid/kpoint_sampling.html>`__\ に、スメアリングとテトラヘドロン法の考え方は\ `金属のブリルアンゾーン積分 <https://technical-notes.quemix.com/solid/metal_bz_integration.html>`__\ にまとめました。\
 本稿では、これらの予想を、CuとSiの実際の計算で確かめます。
 
 計算対象と計算条件
