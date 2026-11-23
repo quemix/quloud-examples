@@ -683,7 +683,7 @@ MLIP は BaTiO₃ の構造探索や有限温度シミュレーションの初�
 残る課題は、(i) フォノンによる動的安定性の確認、(ii) 分子動力学またはモンテカルロ法による
 有限温度効果の評価、(iii) 自由エネルギー、エントロピー、熱膨張を含む相境界の解析です
 （技術ノートの\ `虚数振動数と動的安定性 <https://technical-notes.quemix.com/solid/phonon.html#imaginary-frequency>`__、
-`零点振動と有限温度の振動エネルギー <https://technical-notes.quemix.com/solid/phonon.html#zero-point-vibration>`__）。
+`零点振動と零点エネルギー <https://technical-notes.quemix.com/solid/phonon_thermal.html#zero-point-vibration>`__）。
 とくに菱面体晶相と斜方晶相のエネルギー差が小さいため、有限温度効果、零点振動、
 格子歪みと分極の結合が相転移挙動に大きく寄与する可能性があります。
 この結果は、フォノン安定性、ドメイン構造、粒界構造などを調べるための 0 K の基準になります。

@@ -11,7 +11,7 @@ MLIP の誤差が最も大きい項目は正方晶の :math:`c/a` で、3.07～3
 平均を取ったのは 8 項目（立方晶の :math:`a`、正方晶の :math:`a, c/a`、斜方晶の :math:`a, b, c`、菱面体晶の :math:`a, \alpha`）です。
 
 計算値は 0 K の最適化構造、実験値は各相が安定な温度域で測定した値です。
-両者の差には、交換相関汎関数の近似によるずれに加えて、熱膨張などの温度の影響も含まれます（技術ノートの\ `LDAとGGA（PBE） <https://technical-notes.quemix.com/electronic/exchange_correlation.html#exchange-correlation-functional>`__\ と\ `熱膨張と準調和近似 <https://technical-notes.quemix.com/solid/phonon.html#thermal-expansion>`__）。
+両者の差には、交換相関汎関数の近似によるずれに加えて、熱膨張などの温度の影響も含まれます（技術ノートの\ `LDAとGGA（PBE） <https://technical-notes.quemix.com/electronic/exchange_correlation.html#exchange-correlation-functional>`__\ と\ `熱膨張と準調和近似 <https://technical-notes.quemix.com/solid/phonon_thermal.html#thermal-expansion>`__）。
 
 .. raw:: html
 
