@@ -334,7 +334,7 @@ Ti–O 混成を抑えると強誘電不安定性が消えることを示しま�
 O :math:`2p` の占有価電子帯重なり、および変位に伴う PDOS の系統的変化と整合します。
 ただし、静的な価電子密度差だけから Born 有効電荷や動的分極を直接決定することはできず、
 その評価には Berry-phase 分極、線形応答、または対応する有限変位解析が必要です
-（技術ノートの\ `分極の評価 <https://technical-notes.quemix.com/solid/ferroelectric_origin.html#polarization-evaluation>`__）。
+（技術ノートの\ `周期結晶の分極 <https://technical-notes.quemix.com/solid/polarization.html>`__）。
 
 
 有限温度 MD 計算への接続
