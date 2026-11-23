@@ -1218,7 +1218,7 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
 
 実験値欄では、立方晶相、正方晶相、菱面体晶相についてKweiら :sup:`[1]`、斜方晶相についてShiraneら :sup:`[2]` の値を参照しました。
 文献DFTおよび文献ACEのうち、Sehrawatら :sup:`[3]` の値は同文献に報告されたDFT参照計算およびACEポテンシャルによる計算結果です。
-Qiら :sup:`[4]` の文献MDおよび文献DFTの値は、同文献に報告されたMDおよびDFTの格子定数です。正方晶相の :math:`c/a` は文献中の :math:`a` および :math:`c` から算出しました。また、Qiら :sup:`[4]` の斜方晶相の :math:`b=c` は擬立方格子定数として示されているため、本表では現行の斜方晶セル表記に合わせて :math:`\sqrt{2}` 倍した値を掲載しました（擬立方の格子角を90°とみなした換算。技術ノートの\ `直方晶のA中心化胞との換算 <https://technical-notes.quemix.com/solid/unitcell_transform.html#pseudocubic-orthorhombic>`__）。菱面体晶相の角度は同表に示されていないため、該当欄はダッシュで示しました。
+Qiら :sup:`[4]` の文献MDおよび文献DFTの値は、同文献に報告されたMDおよびDFTの格子定数です。正方晶相の :math:`c/a` は文献中の :math:`a` および :math:`c` から算出しました。また、Qiら :sup:`[4]` の斜方晶相の :math:`b=c` は擬立方格子定数として示されているため、本表では現行の斜方晶セル表記に合わせて :math:`\sqrt{2}` 倍した値を掲載しました（擬立方の格子角を90°とみなした換算。技術ノートの\ `直方晶のA中心化胞との換算 <https://technical-notes.quemix.com/solid/pseudocubic.html#pseudocubic-orthorhombic>`__）。菱面体晶相の角度は同表に示されていないため、該当欄はダッシュで示しました。
 CHGNetの菱面体晶相の :math:`a` は、最適化後の :math:`a`、:math:`b`、:math:`c` の平均値として示しました。
 QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相について、それぞれ ``ibrav=1``、``ibrav=6``、``ibrav=8``、``ibrav=5`` のBravais格子制約を保持した可変セル最適化結果です。
 表中では、OpenMXおよびQEをDFT法、CHGNet、SevenNetおよびFairChemをMLIP法、文献DFT、文献MDおよび文献ACEを先行研究として分類しました。

@@ -13,7 +13,7 @@ BaTiO₃（チタン酸バリウム）は、温度によって結晶構造と分
 X線回折などで決まる結晶構造は、原子の位置を多数の単位胞と測定時間について平均したもので、**平均構造** と呼ばれます。
 原子は熱で絶えず揺れているので、ある瞬間の原子配置はこの平均構造からずれています。
 BaTiO₃ の平均構造は、低温から順に **菱面体晶（R）→ 斜方晶（O）→ 正方晶（T）→ 立方晶（C）** と変わります。
-分極の向きは、\ `擬立方晶 <https://technical-notes.quemix.com/solid/unitcell_transform.html#pseudocubic-cell>`__\ の軸で菱面体晶が :math:`\langle 111\rangle`、斜方晶が :math:`\langle 110\rangle`、正方晶が :math:`\langle 100\rangle` です。
+分極の向きは、\ `擬立方晶 <https://technical-notes.quemix.com/solid/pseudocubic.html>`__\ の軸で菱面体晶が :math:`\langle 111\rangle`、斜方晶が :math:`\langle 110\rangle`、正方晶が :math:`\langle 100\rangle` です。
 室温では通常、正方晶相にあります。
 約 393 K のキュリー温度を超えると、平均構造は常誘電の立方晶となります。
 4 相の空間群と分極の向きは技術ノートの\ `4つの相と分極の向き <https://technical-notes.quemix.com/solid/ferroelectricity.html#batio3-four-phases>`__\ にまとめました。
