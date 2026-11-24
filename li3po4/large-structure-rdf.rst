@@ -14,7 +14,7 @@ P–Oの第一ピークは、どのモデルでも約1.5 Åに現れました。
 構造と局所配位
 --------------
 
-QuloudのGPU上でCHGNetによる分子動力学を実行し、125、503、1006、2012原子の構造を溶融・急冷で作りました。
+QuloudのGPU上でCHGNetによる分子動力学を実行し、125、503、1006、2012原子の構造を\ `溶融・急冷 <https://technical-notes.quemix.com/md/heating_simulation.html#melt-quench>`__\ で作りました。
 :numref:`li3po4-large-structures` に、溶融・急冷後の各セルの原子配置を示します。
 
 .. _li3po4-large-structures:

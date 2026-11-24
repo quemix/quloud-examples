@@ -10,7 +10,7 @@ OpenMXで32原子のモデルを作ると、初期の結晶に比べてPO₄四�
 32原子モデル
 ------------
 
-γ相の単位胞を出発点とし、第一原理分子動力学（AIMD）で高温保持、急冷、300 Kでの保持を行いました。
+γ相の単位胞を出発点とし、`第一原理分子動力学 <https://technical-notes.quemix.com/md/ensembles.html#md-force-evaluation>`__\ （AIMD）で高温保持、急冷、300 Kでの保持を行いました（各段階の目的と条件の決め方は技術ノートの\ `溶融・急冷で非晶質モデルを作る <https://technical-notes.quemix.com/md/heating_simulation.html#melt-quench>`__）。
 その後、セルの大きさと形を固定し、DFTで原子座標を緩和しました。 :numref:`li3po4-relaxed-32atoms` に緩和後の構造を示します。
 
 .. _li3po4-relaxed-32atoms:

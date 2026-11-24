@@ -11,8 +11,8 @@
 ----------------
 
 * :numref:`{number}. {name} <li3po4-doc-beta-gamma-comparison>` で結晶の格子定数を文献のDFT計算値と実験値に比べ、 :numref:`{number}. {name} <li3po4-doc-melt-quench-structure>` でγ相を溶融・急冷して32原子の不規則構造を作ります。
-* :numref:`{number}. {name} <li3po4-doc-vacancy-formation>` でLiを1個取り除くのに必要なエネルギーを求めます。隣のLiが空いた位置に移る経路と、経路上で越えるエネルギー障壁を :numref:`{number}. {name} <li3po4-doc-vacancy-paths>` と :numref:`{number}. {name} <li3po4-doc-vacancy-barriers>` で調べます。
-* :numref:`{number}. {name} <li3po4-doc-lithium-msd>` と :numref:`{number}. {name} <li3po4-doc-diffusivity-temperature>` では、Li空孔を1つ含む31原子モデルを用います。分子動力学（MD）でLiの位置を時間に沿って追い、平均二乗変位から拡散係数を求めます。 :numref:`{number}. {name} <li3po4-doc-partial-rdf>` では、原子対の距離分布から局所構造の温度変化を調べます。
+* :numref:`{number}. {name} <li3po4-doc-vacancy-formation>` でLiを1個取り除くのに必要なエネルギーを求めます。隣のLiが空いた位置に移る経路と、経路上で越える\ `エネルギー障壁 <https://technical-notes.quemix.com/electronic/neb.html#migration-barrier>`__\ を :numref:`{number}. {name} <li3po4-doc-vacancy-paths>` と :numref:`{number}. {name} <li3po4-doc-vacancy-barriers>` で調べます。
+* :numref:`{number}. {name} <li3po4-doc-lithium-msd>` と :numref:`{number}. {name} <li3po4-doc-diffusivity-temperature>` では、Li空孔を1つ含む31原子モデルを用います。分子動力学（MD）でLiの位置を時間に沿って追い、\ `平均二乗変位 <https://technical-notes.quemix.com/md/diffusion.html#mean-squared-displacement>`__\ から拡散係数を求めます。 :numref:`{number}. {name} <li3po4-doc-partial-rdf>` では、原子対の距離分布から局所構造の温度変化を調べます。
 * :numref:`{number}. {name} <li3po4-doc-large-structure-rdf>` では、125～2012原子のモデルで原子配置と距離分布を比べます。 :numref:`{number}. {name} <li3po4-doc-large-model-diffusivity>` では、1006原子モデルで拡散の温度依存性を評価します。
 
 比較に使う計算手法
