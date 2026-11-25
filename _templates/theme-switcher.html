@@ -1,0 +1,26 @@
+{# PyData theme switcher with localized labels for this site. #}
+{% set modes = [
+  ('auto', 'circle-half-stroke', 'System Settings' if language == 'en' else 'OSの設定に合わせる'),
+  ('light', 'sun', 'Light' if language == 'en' else 'ライト'),
+  ('dark', 'moon', 'Dark' if language == 'en' else 'ダーク')
+] %}
+<div class="theme-switch-container dropdown pst-js-only"
+     data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ 'Color Mode' if language == 'en' else '配色 / Color mode' }}">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle"
+          aria-label="{{ 'Color Mode' if language == 'en' else '配色 / Color mode' }}" aria-expanded="false" data-bs-toggle="dropdown">
+    {% for mode, icon, label in modes %}
+      <i class="theme-switch fa-solid fa-{{ icon }} fa-lg" data-mode="{{ mode }}"
+         title="{{ label }}" aria-hidden="true"></i>
+    {% endfor %}
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    {% for mode, icon, label in modes %}
+      <li>
+        <button type="button" class="dropdown-item d-flex align-items-center theme-change-button"
+                data-mode="{{ mode }}">
+          <i class="fa-solid fa-{{ icon }} fa-lg me-1" aria-hidden="true"></i>{{ label }}
+        </button>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

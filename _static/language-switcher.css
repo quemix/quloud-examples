@@ -1,0 +1,60 @@
+.quloud-language-tooltip {
+    pointer-events: none;
+}
+
+.bd-article .quloud-translation-note {
+    color: var(--pst-color-text-muted);
+    font-size: 0.875rem;
+}
+
+/* English navigation labels need more room than the Japanese labels. */
+html[lang="en"] #pst-header .navbar-header-items {
+    min-inline-size: 0;
+    flex-wrap: nowrap;
+}
+
+html[lang="en"] #pst-header .navbar-header-items__center {
+    min-inline-size: 0;
+}
+
+@media (max-width: 991.98px) {
+    html[lang="en"] #pst-header .navbar-header-items__start {
+        flex-shrink: 1;
+        min-inline-size: 0;
+        overflow: hidden;
+    }
+
+    html[lang="en"] #pst-header .logo__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.quloud-language-switcher .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quloud-language-switcher .dropdown-item:not([aria-current]) .fa-check {
+    visibility: hidden;
+}
+
+.quloud-language-switcher [hidden] {
+    display: none;
+}
+
+.quloud-language-status {
+    max-inline-size: 16rem;
+    color: var(--pst-color-text-muted);
+    font-size: 0.8rem;
+}
+
+.quloud-language-status span:not(:empty) {
+    display: block;
+    padding: 0.125rem 1rem;
+}
+
+.sidebar-header-items__end .quloud-language-switcher .dropdown-menu {
+    --bs-position: start;
+}

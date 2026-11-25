@@ -1,1 +1,26 @@
-<div class="quloud-language-switcher-mount"></div>
+<div class="quloud-language-switcher dropdown" translate="no" hidden
+     data-bs-toggle="tooltip" data-bs-placement="bottom"
+     data-bs-fallback-placements='["bottom"]' data-bs-custom-class="quloud-language-tooltip"
+     title="表示言語 / Language">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon dropdown-toggle"
+          aria-label="表示言語 / Language" aria-expanded="false"
+          data-bs-toggle="dropdown" data-bs-auto-close="outside">
+    <i class="fa-solid fa-language fa-lg" aria-hidden="true"></i>
+    <span class="spinner-border spinner-border-sm" aria-hidden="true" hidden></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li>
+      <button type="button" class="dropdown-item" data-language="ja" lang="ja" aria-current="true">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> 日本語（原文）
+      </button>
+    </li>
+    <li>
+      <button type="button" class="dropdown-item" data-language="en" lang="en" disabled>
+        <i class="fa-solid fa-check" aria-hidden="true"></i> English (auto-translated)
+      </button>
+    </li>
+    <li class="quloud-language-status">
+      <div role="status"><span lang="ja"></span><span lang="en"></span></div>
+    </li>
+  </ul>
+</div>

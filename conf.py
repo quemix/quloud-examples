@@ -42,14 +42,14 @@ html_theme = 'pydata_sphinx_theme'
 html_baseurl = 'https://example.quloud-platform.quemix.com/'
 html_static_path = ['_static']
 html_js_files = ['js/language-switcher.js']
-html_css_files = ['custom.css']
+html_css_files = ['custom.css', 'language-switcher.css']
 html_title = 'Quloudの計算事例'
 html_short_title = html_title
 html_context = {'default_mode': 'light'}
 html_sidebars = {'index': []}
 html_theme_options = {
     'navbar_center': ['examples-navbar'],
-    'navbar_end': ['language-switcher'],
+    'navbar_end': ['theme-switcher', 'language-switcher'],
     'article_header_start': ['breadcrumbs', 'case-links'],
     'article_footer_items': ['case-end'],
     'footer_start': ['copyright'],
