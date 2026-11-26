@@ -243,6 +243,36 @@
       return;
     }
 
+    for (const control of controls) {
+      // Match PyData's color control and keep the tooltip out of the open dropdown.
+      control.menu.addEventListener("show.bs.dropdown", () => {
+        const tooltip = globalThis.bootstrap?.Tooltip.getInstance(control.menu);
+        tooltip?.hide();
+        tooltip?.disable();
+      });
+      control.menu.addEventListener("hide.bs.dropdown", () => {
+        globalThis.bootstrap?.Tooltip.getInstance(control.menu)?.enable();
+      });
+    }
+
+    // A page that has both editions links them instead of translating in the browser.
+    // Remember the choice, so that a reader of English keeps getting the English edition.
+    const links = controls.flatMap(({ japanese, english }) => [japanese, english])
+      .filter((option) => option.matches("a[href]"));
+    if (links.length) {
+      for (const link of links) {
+        link.addEventListener("click", () => savePreference(link.dataset.language));
+      }
+      for (const control of controls) {
+        control.menu.hidden = false;
+      }
+      const english = links.find((link) => link.dataset.language === "en");
+      if (english && readPreference() === "en") {
+        location.replace(english.href);
+      }
+      return;
+    }
+
     const api = globalThis.Translator;
     const englishLabels = loadEnglishLabels();
     const originalTitle = document.title;
@@ -352,15 +382,6 @@
     }
 
     for (const control of controls) {
-      // Match PyData's color control and keep the tooltip out of the open dropdown.
-      control.menu.addEventListener("show.bs.dropdown", () => {
-        const tooltip = globalThis.bootstrap?.Tooltip.getInstance(control.menu);
-        tooltip?.hide();
-        tooltip?.disable();
-      });
-      control.menu.addEventListener("hide.bs.dropdown", () => {
-        globalThis.bootstrap?.Tooltip.getInstance(control.menu)?.enable();
-      });
       control.english.addEventListener("click", () => {
         if (currentLanguage === "ja") {
           control.toggle.focus();

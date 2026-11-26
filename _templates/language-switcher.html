@@ -9,15 +9,33 @@
     <span class="spinner-border spinner-border-sm" aria-hidden="true" hidden></span>
   </button>
   <ul class="dropdown-menu dropdown-menu-end">
+    {#- The English edition links each page to the Japanese original. A Japanese page
+        links to its English edition if it has one, and otherwise translates in the browser. #}
     <li>
+      {%- if language == 'en' %}
+      <a class="dropdown-item" data-language="ja" lang="ja" href="{{ quloud_japanese_url | e }}">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> 日本語 <span lang="en">(Japanese original)</span>
+      </a>
+      {%- else %}
       <button type="button" class="dropdown-item" data-language="ja" lang="ja" aria-current="true">
         <i class="fa-solid fa-check" aria-hidden="true"></i> 日本語（原文）
       </button>
+      {%- endif %}
     </li>
     <li>
+      {%- if language == 'en' %}
+      <button type="button" class="dropdown-item" data-language="en" lang="en" aria-current="true">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> English
+      </button>
+      {%- elif quloud_english_url %}
+      <a class="dropdown-item" data-language="en" lang="en" href="{{ quloud_english_url | e }}">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> English
+      </a>
+      {%- else %}
       <button type="button" class="dropdown-item" data-language="en" lang="en" disabled>
         <i class="fa-solid fa-check" aria-hidden="true"></i> English (auto-translated)
       </button>
+      {%- endif %}
     </li>
     <li class="quloud-language-status">
       <div role="status"><span lang="ja"></span><span lang="en"></span></div>

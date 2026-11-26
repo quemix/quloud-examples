@@ -2,6 +2,23 @@
     pointer-events: none;
 }
 
+/* Notices of the English edition (_ext/english_edition.py). */
+.bd-article .quloud-edition-notice {
+    margin-block: 1rem;
+    padding: 0.5rem 1rem;
+    border-inline-start: 4px solid var(--pst-color-info);
+    background-color: var(--pst-color-info-bg);
+}
+
+.bd-article .quloud-edition-notice p {
+    margin: 0;
+}
+
+.bd-article .quloud-edition-outdated {
+    border-inline-start-color: var(--pst-color-warning);
+    background-color: var(--pst-color-warning-bg);
+}
+
 .bd-article .quloud-translation-note {
     color: var(--pst-color-text-muted);
     font-size: 0.875rem;
