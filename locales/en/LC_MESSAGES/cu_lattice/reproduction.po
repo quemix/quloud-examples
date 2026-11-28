@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -41,19 +41,22 @@ msgid "計算環境"
 msgstr "Computing Environment"
 
 #: ../../cu_lattice/reproduction.rst:11
+#, python-brace-format
 msgid ""
 "記事の計算は、2026年11月に、Quloudで使われているQuantum ESPRESSO "
 "7.5とQuloudのジョブと同じ実行スクリプトをDockerに入れ、Quloudの外で実行したものです。\\ "
-"入力ファイルは、Quloud（Ver.7.0.2）が画面の設定値と構造ファイルから入力を作るプログラムに、以下の「Quloudでの計算手順」の設定値を渡して作りました。\\"
-" 計算はWSL2（Intel Core Ultra 5 225U、MPI 4並列）で行い、記事の計算時間はこの環境での値です。"
+"入力ファイルは、Quloud（Ver.7.0.2）が画面の設定値と構造ファイルから入力を作るプログラムに、 :numref:`{number}節 "
+"<sec-cl-repro-steps>` の設定値を渡して作りました。\\ 計算はWSL2（Intel Core Ultra 5 "
+"225U、MPI 4並列）で行い、記事の計算時間はこの環境での値です。"
 msgstr ""
 "In November 2026, we ran the calculations for the article outside Quloud "
 "in Docker with Quantum ESPRESSO 7.5, the version used in Quloud, and the "
-"same run script as a Quloud Job. \\ We passed the values in \"Calculation"
-" Procedure in Quloud\" below to the Quloud (Ver.7.0.2) program that "
-"generates input files from interface settings and structure files. \\ We "
-"ran the calculations on WSL2 (Intel Core Ultra 5 225U, 4 MPI processes). "
-"The timings in the article are for this environment."
+"same run script as a Quloud Job. \\ We generated the input files by "
+"passing the settings in :numref:`Section {number} <sec-cl-repro-steps>` "
+"to the program that Quloud (Ver.7.0.2) uses to create input from "
+"interface settings and structure files. \\ We ran the calculations on "
+"WSL2 (Intel Core Ultra 5 225U, 4 MPI processes), and the timings in the "
+"article are for this environment."
 
 #: ../../cu_lattice/reproduction.rst:16
 msgid "配布ファイル"
@@ -68,104 +71,110 @@ msgstr "Structure Files"
 msgid ""
 "Quloudの「ファイルアップロード」でMaterialとして登録する構造です。\\ "
 "いずれもfccのCuの原始胞（1原子）のCIFファイルで、3辺の長さが立方晶の格子定数の :math:`1/\\sqrt{2}` "
-"、辺のなす角が60°です。\\ ファイル名の数字が立方晶の格子定数（Å）です。"
+"、辺のなす角が60°です。\\ ファイル名の数字が立方晶の格子定数（Å）です。\\ "
+"表の「全カットオフ」は、平面波カットオフエネルギーの40、60、80、100、120 Ryの5つです。"
 msgstr ""
 "Register these structures as Materials using \"File Upload\" in Quloud. "
 "\\ Each CIF file contains a one-atom primitive cell of fcc Cu. All three "
 "edges have length :math:`1/\\sqrt{2}` times the cubic lattice constant, "
 "and the angles between them are 60°. \\ The number in each filename is "
-"the cubic lattice constant in Å."
+"the cubic lattice constant in Å. \\ In the table, \"all cutoffs\" means "
+"the five plane-wave cutoff energies 40, 60, 80, 100, and 120 Ry."
 
-#: ../../cu_lattice/reproduction.rst:29 ../../cu_lattice/reproduction.rst:78
+#: ../../cu_lattice/reproduction.rst:30 ../../cu_lattice/reproduction.rst:80
 msgid "ファイル"
 msgstr "File"
 
-#: ../../cu_lattice/reproduction.rst:30
+#: ../../cu_lattice/reproduction.rst:31
 msgid "使う計算"
 msgstr "Calculations using the file"
 
-#: ../../cu_lattice/reproduction.rst:31
+#: ../../cu_lattice/reproduction.rst:32
 msgid ":download:`cu_fcc_a3.52.cif <structures/cu_fcc_a3.52.cif>`"
 msgstr ":download:`cu_fcc_a3.52.cif <structures/cu_fcc_a3.52.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:32 ../../cu_lattice/reproduction.rst:34
-#: ../../cu_lattice/reproduction.rst:38 ../../cu_lattice/reproduction.rst:50
-#: ../../cu_lattice/reproduction.rst:54 ../../cu_lattice/reproduction.rst:56
+#: ../../cu_lattice/reproduction.rst:33 ../../cu_lattice/reproduction.rst:35
+#: ../../cu_lattice/reproduction.rst:39 ../../cu_lattice/reproduction.rst:51
+#: ../../cu_lattice/reproduction.rst:55 ../../cu_lattice/reproduction.rst:57
 msgid "エネルギー曲線（60 Ry）"
 msgstr "Energy curve (60 Ry)"
 
-#: ../../cu_lattice/reproduction.rst:33
+#: ../../cu_lattice/reproduction.rst:34
 msgid ":download:`cu_fcc_a3.54.cif <structures/cu_fcc_a3.54.cif>`"
 msgstr ":download:`cu_fcc_a3.54.cif <structures/cu_fcc_a3.54.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:35
+#: ../../cu_lattice/reproduction.rst:36
 msgid ":download:`cu_fcc_a3.56.cif <structures/cu_fcc_a3.56.cif>`"
 msgstr ":download:`cu_fcc_a3.56.cif <structures/cu_fcc_a3.56.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:36 ../../cu_lattice/reproduction.rst:52
-msgid "エネルギー曲線（60 Ry）、vc-relax"
-msgstr "Energy curve (60 Ry) and vc-relax"
+#: ../../cu_lattice/reproduction.rst:37 ../../cu_lattice/reproduction.rst:53
+msgid "エネルギー曲線（60 Ry）、vc-relax（60 Ry）"
+msgstr "Energy curve (60 Ry) and vc-relax (60 Ry)"
 
-#: ../../cu_lattice/reproduction.rst:37
+#: ../../cu_lattice/reproduction.rst:38
 msgid ":download:`cu_fcc_a3.58.cif <structures/cu_fcc_a3.58.cif>`"
 msgstr ":download:`cu_fcc_a3.58.cif <structures/cu_fcc_a3.58.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:39
+#: ../../cu_lattice/reproduction.rst:40
 msgid ":download:`cu_fcc_a3.60.cif <structures/cu_fcc_a3.60.cif>`"
 msgstr ":download:`cu_fcc_a3.60.cif <structures/cu_fcc_a3.60.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:40 ../../cu_lattice/reproduction.rst:42
-#: ../../cu_lattice/reproduction.rst:46 ../../cu_lattice/reproduction.rst:48
+#: ../../cu_lattice/reproduction.rst:41 ../../cu_lattice/reproduction.rst:43
+#: ../../cu_lattice/reproduction.rst:47 ../../cu_lattice/reproduction.rst:49
 msgid "エネルギー曲線（全カットオフ）"
 msgstr "Energy curve (all cutoffs)"
 
-#: ../../cu_lattice/reproduction.rst:41
+#: ../../cu_lattice/reproduction.rst:42
 msgid ":download:`cu_fcc_a3.62.cif <structures/cu_fcc_a3.62.cif>`"
 msgstr ":download:`cu_fcc_a3.62.cif <structures/cu_fcc_a3.62.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:43
+#: ../../cu_lattice/reproduction.rst:44
 msgid ":download:`cu_fcc_a3.64.cif <structures/cu_fcc_a3.64.cif>`"
 msgstr ":download:`cu_fcc_a3.64.cif <structures/cu_fcc_a3.64.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:44
-msgid "エネルギー曲線（全カットオフ）、vc-relax"
-msgstr "Energy curve (all cutoffs) and vc-relax"
-
 #: ../../cu_lattice/reproduction.rst:45
+msgid "エネルギー曲線（全カットオフ）、vc-relax（全カットオフ）"
+msgstr "Energy curve (all cutoffs) and vc-relax (all cutoffs)"
+
+#: ../../cu_lattice/reproduction.rst:46
 msgid ":download:`cu_fcc_a3.66.cif <structures/cu_fcc_a3.66.cif>`"
 msgstr ":download:`cu_fcc_a3.66.cif <structures/cu_fcc_a3.66.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:47
+#: ../../cu_lattice/reproduction.rst:48
 msgid ":download:`cu_fcc_a3.68.cif <structures/cu_fcc_a3.68.cif>`"
 msgstr ":download:`cu_fcc_a3.68.cif <structures/cu_fcc_a3.68.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:49
+#: ../../cu_lattice/reproduction.rst:50
 msgid ":download:`cu_fcc_a3.70.cif <structures/cu_fcc_a3.70.cif>`"
 msgstr ":download:`cu_fcc_a3.70.cif <structures/cu_fcc_a3.70.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:51
+#: ../../cu_lattice/reproduction.rst:52
 msgid ":download:`cu_fcc_a3.72.cif <structures/cu_fcc_a3.72.cif>`"
 msgstr ":download:`cu_fcc_a3.72.cif <structures/cu_fcc_a3.72.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:53
+#: ../../cu_lattice/reproduction.rst:54
 msgid ":download:`cu_fcc_a3.74.cif <structures/cu_fcc_a3.74.cif>`"
 msgstr ":download:`cu_fcc_a3.74.cif <structures/cu_fcc_a3.74.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:55
+#: ../../cu_lattice/reproduction.rst:56
 msgid ":download:`cu_fcc_a3.76.cif <structures/cu_fcc_a3.76.cif>`"
 msgstr ":download:`cu_fcc_a3.76.cif <structures/cu_fcc_a3.76.cif>`"
 
-#: ../../cu_lattice/reproduction.rst:58
-msgid "``vc-relax`` のやり直し（3.6287 Åから）は、3.56 Åから始めた ``vc-relax`` の結果の構造から始めます（後述）。"
+#: ../../cu_lattice/reproduction.rst:59
+#, python-brace-format
+msgid ""
+"``vc-relax`` のやり直し（3.6287 Åから）は、3.56 Åから始めた ``vc-relax`` の結果の構造から始めます（ "
+":numref:`{number}節 <sec-cl-repro-vcrelax>` ）。"
 msgstr ""
-"The ``vc-relax`` restart at 3.6287 Å uses the optimized structure from "
-"the ``vc-relax`` run that started at 3.56 Å, as described below."
+"The ``vc-relax`` restart (from 3.6287 Å) starts from the optimized "
+"structure of the ``vc-relax`` run that started at 3.56 Å "
+"(:numref:`Section {number} <sec-cl-repro-vcrelax>`)."
 
-#: ../../cu_lattice/reproduction.rst:61
+#: ../../cu_lattice/reproduction.rst:62
 msgid "スクリプト"
 msgstr "Script"
 
-#: ../../cu_lattice/reproduction.rst:63
+#: ../../cu_lattice/reproduction.rst:64
 msgid ""
 ":download:`analyze_cu_lattice.py <scripts/analyze_cu_lattice.py>` : "
 "Quloudからダウンロードした出力ファイルのZIPを読み、記事中の数値を表示して、図を作成します。"
@@ -174,77 +183,66 @@ msgstr ""
 "ZIP archives of output files downloaded from Quloud, prints the values "
 "reported in the article, and generates the figures."
 
-#: ../../cu_lattice/reproduction.rst:65
+#: ../../cu_lattice/reproduction.rst:66
 msgid "スクリプトはPython 3、NumPy、Matplotlibで動作します。\\ 状態方程式の当てはめもNumPyだけで行います。"
 msgstr ""
 "The script runs with Python 3, NumPy, and Matplotlib. \\ Fitting an "
 "equation of state requires only NumPy."
 
-#: ../../cu_lattice/reproduction.rst:69
+#: ../../cu_lattice/reproduction.rst:70
 msgid "記事の計算の出力"
 msgstr "Output from the Calculations in This Article"
 
-#: ../../cu_lattice/reproduction.rst:71
+#: ../../cu_lattice/reproduction.rst:72
 msgid ""
-"記事の計算の出力ファイルを、Quloudの「一括ダウンロード」で得られるファイル名にそろえ、1つのZIPに、ジョブごとのフォルダをまとめたものです。\\"
+"記事の計算の出力ファイルを、Quloudの「一括ダウンロード」で得られるファイル名にそろえ、計算の種類ごとに1つのZIPに、ジョブごとのフォルダをまとめたものです。\\"
 " 各フォルダには、解析に使う ``QuloudJob.scf.out`` （pw.xの出力）と、入力のコピー "
 "``QuloudJob.scf.in`` 、終了状態の ``QuloudJob.exit_status.json`` だけを入れています。"
 msgstr ""
-"Each ZIP archive contains output folders for the Jobs in the article and "
-"uses the filenames Quloud provides through \"Batch Download\". \\ Each "
-"folder contains only ``QuloudJob.scf.out`` (the pw.x output used in the "
-"analysis), a copy of the input, ``QuloudJob.scf.in``, and the exit status"
-" file ``QuloudJob.exit_status.json``."
+"These are the output files of the calculations in the article, renamed to"
+" match the filenames that Quloud's \"Batch Download\" provides, with one "
+"folder per Job, collected into one ZIP archive for each type of "
+"calculation. \\ Each folder contains only ``QuloudJob.scf.out`` (the pw.x"
+" output used in the analysis), a copy of the input, ``QuloudJob.scf.in``,"
+" and the exit status file ``QuloudJob.exit_status.json``."
 
-#: ../../cu_lattice/reproduction.rst:79
+#: ../../cu_lattice/reproduction.rst:81
 msgid "内容"
 msgstr "Contents"
 
-#: ../../cu_lattice/reproduction.rst:80
+#: ../../cu_lattice/reproduction.rst:82
 msgid ":download:`cu_eos_60ry.zip <data/cu_eos_60ry.zip>`"
 msgstr ":download:`cu_eos_60ry.zip <data/cu_eos_60ry.zip>`"
 
-#: ../../cu_lattice/reproduction.rst:81
-msgid "エネルギー曲線、60 Ry（13件）"
-msgstr "Energy curve, 60 Ry (13 jobs)"
+#: ../../cu_lattice/reproduction.rst:83
+msgid "エネルギー曲線、60 Ry（13件）：3.52〜3.76 Åの0.02 Å刻み13点"
+msgstr ""
+"Energy curve, 60 Ry (13 jobs): 13 points from 3.52 to 3.76 Å in steps of "
+"0.02 Å"
 
-#: ../../cu_lattice/reproduction.rst:82
+#: ../../cu_lattice/reproduction.rst:84
 msgid ":download:`cu_eos_cutoff.zip <data/cu_eos_cutoff.zip>`"
 msgstr ":download:`cu_eos_cutoff.zip <data/cu_eos_cutoff.zip>`"
 
-#: ../../cu_lattice/reproduction.rst:83
-msgid "エネルギー曲線、40〜120 Ry（20件）"
-msgstr "Energy curves, 40–120 Ry (20 jobs)"
+#: ../../cu_lattice/reproduction.rst:85
+msgid "エネルギー曲線、40〜120 Ry（20件）：40、80、100、120 Ryのそれぞれで、3.60〜3.68 Åの5点"
+msgstr ""
+"Energy curves, 40–120 Ry (20 jobs): 5 points from 3.60 to 3.68 Å at each "
+"of 40, 80, 100, and 120 Ry"
 
-#: ../../cu_lattice/reproduction.rst:84
+#: ../../cu_lattice/reproduction.rst:86
 msgid ":download:`cu_vcrelax.zip <data/cu_vcrelax.zip>`"
 msgstr ":download:`cu_vcrelax.zip <data/cu_vcrelax.zip>`"
 
-#: ../../cu_lattice/reproduction.rst:85
-msgid "vc-relax（8件）"
-msgstr "vc-relax (8 jobs)"
-
 #: ../../cu_lattice/reproduction.rst:87
-msgid "``cu_eos_60ry.zip`` ：3.52〜3.76 Åの0.02 Å刻み13点。"
+msgid ""
+"vc-relax（8件）：3.64 Åから40〜120 Ryの5件、60 Ryで3.56 Åと3.72 Åからの2件、3.6287 "
+"Åからのやり直し1件"
 msgstr ""
-"``cu_eos_60ry.zip`` contains 13 points from 3.52 to 3.76 Å in 0.02 Å "
-"increments."
-
-#: ../../cu_lattice/reproduction.rst:88
-msgid "``cu_eos_cutoff.zip`` ：40、80、100、120 Ryのそれぞれで、3.60〜3.68 Åの5点。"
-msgstr ""
-"``cu_eos_cutoff.zip`` contains 5 points from 3.60 to 3.68 Å at each "
-"cutoff of 40, 80, 100, and 120 Ry."
+"vc-relax (8 jobs): 5 runs from 3.64 Å at 40–120 Ry, 2 runs at 60 Ry from "
+"3.56 Å and 3.72 Å, and 1 restart from 3.6287 Å"
 
 #: ../../cu_lattice/reproduction.rst:89
-msgid ""
-"``cu_vcrelax.zip`` ：3.64 Åから40〜120 Ryの5件、60 Ryで3.56 Åと3.72 Åからの2件と、3.6287"
-" Åからのやり直し1件。"
-msgstr ""
-"``cu_vcrelax.zip`` contains 5 runs from 3.64 Å at cutoffs from 40 to 120 "
-"Ry, 2 runs at 60 Ry from 3.56 Å and 3.72 Å, and 1 restart from 3.6287 Å."
-
-#: ../../cu_lattice/reproduction.rst:91
 msgid ""
 "フォルダ名（例： ``cu_scf_a3.64_ec60`` 、 ``cu_vcrelax_from3.64_ec60`` "
 "）は内容を示すために付けたもので、解析スクリプトは使いません。"
@@ -257,241 +255,256 @@ msgstr ""
 msgid "Quloudでの計算手順"
 msgstr "Calculation Procedure in Quloud"
 
-#: ../../cu_lattice/reproduction.rst:97
-msgid "共通の設定"
-msgstr "Common Settings"
-
-#: ../../cu_lattice/reproduction.rst:99
-msgid "すべての計算で、計算ソフトにQuantum ESPRESSOを選びます。\\ 入力項目は次のように設定します。表にない項目は既定値のままです。"
-msgstr ""
-"Select Quantum ESPRESSO as the calculation software for all calculations."
-" \\ Set the fields as shown below and leave unlisted fields at their "
-"defaults."
-
-#: ../../cu_lattice/reproduction.rst:106 ../../cu_lattice/reproduction.rst:162
-msgid "入力項目"
-msgstr "Input field"
-
-#: ../../cu_lattice/reproduction.rst:107 ../../cu_lattice/reproduction.rst:163
-msgid "設定値"
-msgstr "Value"
-
-#: ../../cu_lattice/reproduction.rst:108 ../../cu_lattice/reproduction.rst:164
-msgid "既定値との違い"
-msgstr "Difference from default"
-
-#: ../../cu_lattice/reproduction.rst:109
-msgid "交換相関汎関数"
-msgstr "Exchange-Correlation Functional"
-
-#: ../../cu_lattice/reproduction.rst:110
-msgid "GGA-PBE"
-msgstr "GGA-PBE"
-
-#: ../../cu_lattice/reproduction.rst:111 ../../cu_lattice/reproduction.rst:120
-#: ../../cu_lattice/reproduction.rst:170 ../../cu_lattice/reproduction.rst:173
-#: ../../cu_lattice/reproduction.rst:176
-msgid "既定値"
-msgstr "Default"
-
-#: ../../cu_lattice/reproduction.rst:112
-msgid "擬ポテンシャル（Cu）"
-msgstr "Pseudopotential (Cu)"
-
-#: ../../cu_lattice/reproduction.rst:113
-msgid "``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF``"
-msgstr "``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF``"
-
-#: ../../cu_lattice/reproduction.rst:114
-msgid "一覧から選ぶ"
-msgstr "Select from the list"
-
-#: ../../cu_lattice/reproduction.rst:115
-msgid "k グリッド（a、b、c 軸）"
-msgstr "k-grid (a-, b-, c-axis)"
-
-#: ../../cu_lattice/reproduction.rst:116
-msgid "24、24、24"
-msgstr "24, 24, 24"
-
-#: ../../cu_lattice/reproduction.rst:117
-msgid "変更（既定値は4）"
-msgstr "Changed (default: 4)"
-
-#: ../../cu_lattice/reproduction.rst:118
-msgid "k グリッドオフセット（a、b、c 軸）"
-msgstr "k-grid offset (a-, b-, c-axis)"
-
-#: ../../cu_lattice/reproduction.rst:119
-msgid "オフ"
-msgstr "Off"
-
-#: ../../cu_lattice/reproduction.rst:121
-msgid "対称性利用"
-msgstr "Using Symmetry"
-
-#: ../../cu_lattice/reproduction.rst:122
-msgid "オン"
-msgstr "On"
-
-#: ../../cu_lattice/reproduction.rst:123
-msgid "**変更**"
-msgstr "**Changed**"
-
-#: ../../cu_lattice/reproduction.rst:124
-msgid "電子占有数スメアリング"
-msgstr "Electronic occupation number smearing"
-
-#: ../../cu_lattice/reproduction.rst:125
-msgid "MV"
-msgstr "MV"
-
-#: ../../cu_lattice/reproduction.rst:126
-msgid "変更（既定値はGaussian）"
-msgstr "Changed (default: Gaussian)"
-
-#: ../../cu_lattice/reproduction.rst:127
-msgid "スメアリング幅"
-msgstr "Smearing Width"
-
-#: ../../cu_lattice/reproduction.rst:128
-msgid "0.02 Ry"
-msgstr "0.02 Ry"
-
-#: ../../cu_lattice/reproduction.rst:129
-msgid "変更（既定値は0.01 Ry）"
-msgstr "Changed (default: 0.01 Ry)"
-
-#: ../../cu_lattice/reproduction.rst:130
-msgid "平面波カットオフエネルギー"
-msgstr "Plane-wave cutoff energy"
-
-#: ../../cu_lattice/reproduction.rst:131
-msgid "60 Ry"
-msgstr "60 Ry"
-
-#: ../../cu_lattice/reproduction.rst:132 ../../cu_lattice/reproduction.rst:135
-msgid "変更"
-msgstr "Changed"
-
-#: ../../cu_lattice/reproduction.rst:133
-msgid "密度・ポテンシャルカットオフエネルギー"
-msgstr "Density-potential cutoff energy"
-
-#: ../../cu_lattice/reproduction.rst:134
-msgid "600 Ry"
-msgstr "600 Ry"
-
-#: ../../cu_lattice/reproduction.rst:136
-msgid "SCF 収束閾値（エネルギー）"
-msgstr "SCF Convergence Threshold (Energy)"
-
-#: ../../cu_lattice/reproduction.rst:137
-msgid "1e-12 Ry"
-msgstr "1e-12 Ry"
-
-#: ../../cu_lattice/reproduction.rst:138
-msgid "変更（既定値は1e-6 Ry）"
-msgstr "Changed (default: 1e-6 Ry)"
-
-#: ../../cu_lattice/reproduction.rst:140
+#: ../../cu_lattice/reproduction.rst:96
 msgid ""
-"カットオフの比較では、平面波カットオフエネルギーを40、80、100、120 "
-"Ryに、密度・ポテンシャルカットオフエネルギーをその10倍（400、800、1000、1200 Ry）にします。\\ "
-"**「対称性利用」は既定値がオフです。** オフのままでは結晶の対称性で既約k点に減らす処理が行われず、計算時間が大きく増えます（ "
-":doc:`../kpoints/reproduction` ）。"
-msgstr ""
-"To compare cutoffs, set \"Plane-wave cutoff energy\" to 40, 80, 100, or "
-"120 Ry and \"Density-potential cutoff energy\" to 10 times that value "
-"(400, 800, 1000, and 1200 Ry, respectively). \\ **\"Using Symmetry\" is "
-"Off by default.** Leaving it Off prevents the use of crystal symmetry to "
-"reduce the mesh to its irreducible k-points, which substantially "
-"increases the calculation time (see :doc:`../kpoints/reproduction`)."
-
-#: ../../cu_lattice/reproduction.rst:143
-msgid ""
+"配布した構造ファイルを「ファイルアップロード」でMaterialとして登録し、計算ごとにJobを作って実行します。\\ "
 "Materialの登録とJobの作成・実行の操作は、マニュアルの `原子構造の登録 <https://manual.quloud-"
 "platform.quemix.com/source/jobs_and_models_atom.html>`__ 、 `計算 Job の登録 "
 "<https://manual.quloud-platform.quemix.com/source/calculation.html>`__ 、 "
 "`Job の実行 <https://manual.quloud-"
 "platform.quemix.com/source/runjob.html>`__ の章を参照してください。"
 msgstr ""
-"For instructions on registering a Material and creating and running a "
-"Job, see the manual sections on `Registering an Atomic Structure "
-"<https://manual.quloud-"
+"Register the supplied structure files as Materials with \"File Upload\", "
+"and create and run a Job for each calculation. \\ For instructions on "
+"registering a Material and creating and running a Job, see the manual "
+"sections `Registering an Atomic Structure <https://manual.quloud-"
 "platform.quemix.com/source/jobs_and_models_atom.html>`__, `Creating a "
 "Calculation Job <https://manual.quloud-"
 "platform.quemix.com/source/calculation.html>`__, and `Running a Job "
 "<https://manual.quloud-platform.quemix.com/source/runjob.html>`__."
 
-#: ../../cu_lattice/reproduction.rst:146
+#: ../../cu_lattice/reproduction.rst:100
+msgid "共通の設定"
+msgstr "Common Settings"
+
+#: ../../cu_lattice/reproduction.rst:102
+msgid "すべての計算で、計算ソフトにQuantum ESPRESSOを選びます。\\ 入力項目は次のように設定します。表にない項目は既定値のままです。"
+msgstr ""
+"Select Quantum ESPRESSO as the calculation software for all calculations."
+" \\ Set the fields as shown below and leave unlisted fields at their "
+"defaults."
+
+#: ../../cu_lattice/reproduction.rst:109 ../../cu_lattice/reproduction.rst:167
+msgid "入力項目"
+msgstr "Input field"
+
+#: ../../cu_lattice/reproduction.rst:110 ../../cu_lattice/reproduction.rst:168
+msgid "設定値"
+msgstr "Value"
+
+#: ../../cu_lattice/reproduction.rst:111 ../../cu_lattice/reproduction.rst:169
+msgid "既定値との違い"
+msgstr "Difference from default"
+
+#: ../../cu_lattice/reproduction.rst:112
+msgid "交換相関汎関数"
+msgstr "Exchange-Correlation Functional"
+
+#: ../../cu_lattice/reproduction.rst:113
+msgid "GGA-PBE"
+msgstr "GGA-PBE"
+
+#: ../../cu_lattice/reproduction.rst:114 ../../cu_lattice/reproduction.rst:123
+#: ../../cu_lattice/reproduction.rst:175 ../../cu_lattice/reproduction.rst:178
+#: ../../cu_lattice/reproduction.rst:181
+msgid "既定値"
+msgstr "Default"
+
+#: ../../cu_lattice/reproduction.rst:115
+msgid "擬ポテンシャル（Cu）"
+msgstr "Pseudopotential (Cu)"
+
+#: ../../cu_lattice/reproduction.rst:116
+msgid "``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF``"
+msgstr "``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF``"
+
+#: ../../cu_lattice/reproduction.rst:117
+msgid "一覧から選ぶ"
+msgstr "Select from the list"
+
+#: ../../cu_lattice/reproduction.rst:118
+msgid "k グリッド（a、b、c 軸）"
+msgstr "k-grid (a-, b-, c-axis)"
+
+#: ../../cu_lattice/reproduction.rst:119
+msgid "24、24、24"
+msgstr "24, 24, 24"
+
+#: ../../cu_lattice/reproduction.rst:120
+msgid "変更（既定値は4）"
+msgstr "Changed (default: 4)"
+
+#: ../../cu_lattice/reproduction.rst:121
+msgid "k グリッドオフセット（a、b、c 軸）"
+msgstr "k-grid offset (a-, b-, c-axis)"
+
+#: ../../cu_lattice/reproduction.rst:122
+msgid "オフ"
+msgstr "Off"
+
+#: ../../cu_lattice/reproduction.rst:124
+msgid "対称性利用"
+msgstr "Using Symmetry"
+
+#: ../../cu_lattice/reproduction.rst:125
+msgid "オン"
+msgstr "On"
+
+#: ../../cu_lattice/reproduction.rst:126
+msgid "**変更**"
+msgstr "**Changed**"
+
+#: ../../cu_lattice/reproduction.rst:127
+msgid "電子占有数スメアリング"
+msgstr "Electronic occupation number smearing"
+
+#: ../../cu_lattice/reproduction.rst:128
+msgid "MV"
+msgstr "MV"
+
+#: ../../cu_lattice/reproduction.rst:129
+msgid "変更（既定値はGaussian）"
+msgstr "Changed (default: Gaussian)"
+
+#: ../../cu_lattice/reproduction.rst:130
+msgid "スメアリング幅"
+msgstr "Smearing Width"
+
+#: ../../cu_lattice/reproduction.rst:131
+msgid "0.02 Ry"
+msgstr "0.02 Ry"
+
+#: ../../cu_lattice/reproduction.rst:132
+msgid "変更（既定値は0.01 Ry）"
+msgstr "Changed (default: 0.01 Ry)"
+
+#: ../../cu_lattice/reproduction.rst:133
+msgid "平面波カットオフエネルギー"
+msgstr "Plane-wave cutoff energy"
+
+#: ../../cu_lattice/reproduction.rst:134
+msgid "60 Ry"
+msgstr "60 Ry"
+
+#: ../../cu_lattice/reproduction.rst:135 ../../cu_lattice/reproduction.rst:138
+msgid "変更"
+msgstr "Changed"
+
+#: ../../cu_lattice/reproduction.rst:136
+msgid "密度・ポテンシャルカットオフエネルギー"
+msgstr "Density-potential cutoff energy"
+
+#: ../../cu_lattice/reproduction.rst:137
+msgid "600 Ry"
+msgstr "600 Ry"
+
+#: ../../cu_lattice/reproduction.rst:139
+msgid "SCF 収束閾値（エネルギー）"
+msgstr "SCF Convergence Threshold (Energy)"
+
+#: ../../cu_lattice/reproduction.rst:140
+msgid "1e-12 Ry"
+msgstr "1e-12 Ry"
+
+#: ../../cu_lattice/reproduction.rst:141
+msgid "変更（既定値は1e-6 Ry）"
+msgstr "Changed (default: 1e-6 Ry)"
+
+#: ../../cu_lattice/reproduction.rst:143
+msgid ""
+"カットオフの比較では、平面波カットオフエネルギーを40、80、100、120 "
+"Ryに、密度・ポテンシャルカットオフエネルギーをその10倍（400、800、1000、1200 Ry）にします。\\ "
+"**「対称性利用」は既定値がオフです。** オフのままでは結晶の対称性で既約k点に減らす処理が行われず、計算時間が大きく増えます（ "
+":doc:`../kpoints/index` の :doc:`../kpoints/reproduction` ）。"
+msgstr ""
+"To compare cutoffs, set \"Plane-wave cutoff energy\" to 40, 80, 100, or "
+"120 Ry and \"Density-potential cutoff energy\" to 10 times that value "
+"(400, 800, 1000, and 1200 Ry, respectively). \\ **\"Using Symmetry\" is "
+"Off by default.** Leaving it Off prevents the use of crystal symmetry to "
+"reduce the mesh to its irreducible k-points, which substantially "
+"increases the calculation time (see :doc:`../kpoints/index`: "
+":doc:`../kpoints/reproduction`)."
+
+#: ../../cu_lattice/reproduction.rst:147
 msgid "1. エネルギー曲線（SCF計算）"
 msgstr "1. Energy Curve (SCF Calculations)"
 
-#: ../../cu_lattice/reproduction.rst:148
+#: ../../cu_lattice/reproduction.rst:149
+#, python-brace-format
 msgid ""
-"計算機能「自己無撞着電子状態計算（SCF）」で、構造ファイルごとにJobを作り、実行します。\\ "
-"Quloudは、3辺が等しく角が60°のセルを、QEの入力で ``ibrav = 2`` （fcc）、 ``A`` = "
-"立方晶の格子定数（Å）として書きます。\\ 3.64 Å・60 RyのJobの入力ファイル ``QuloudJob.scf.in`` "
-"は、k点メッシュが24×24×24であることを除いて、 :doc:`../kpoints/reproduction` に示したものと同じです。\\"
-" 1件の計算時間は、60 Ryで約20秒、120 Ryで約2.5分です。"
+"計算機能「自己無撞着電子状態計算（SCF）」で、構造ファイルごとにJobを作り、実行します。\\ 60 "
+"Ryでは13個すべて、40、80、100、120 Ryでは3.60〜3.68 Åの5個を計算します（合計33件）。\\ "
+"Quloud（Ver.7.0.2）は、3辺が等しく角が60°のセルを、QEの入力で ``ibrav = 2`` （fcc）、 ``A`` = "
+"立方晶の格子定数（Å）として書きます（それより前の版は :numref:`{number}節 <sec-cl-repro-notes>` ）。\\"
+" 3.64 Å・60 RyのJobの入力ファイル ``QuloudJob.scf.in`` は、k点メッシュが24×24×24であることを除いて、"
+" :doc:`../kpoints/index` の :doc:`../kpoints/reproduction` に示したものと同じです。\\ "
+"1件の計算時間は、60 Ryで約20秒、120 Ryで約2.5分です。"
 msgstr ""
 "Use \"Single-Point SCF\" (a self-consistent electronic structure "
-"calculation) to create and run a Job for each structure file. \\ For a "
-"cell with three equal edges and angles of 60°, Quloud writes ``ibrav = "
-"2`` (fcc) and sets ``A`` to the cubic lattice constant in Å in the QE "
-"input. \\ The input file ``QuloudJob.scf.in`` for the 3.64 Å Job at 60 Ry"
-" matches the one in :doc:`../kpoints/reproduction` except that it uses a "
-"24×24×24 k-point mesh. \\ Each calculation took about 20 seconds at 60 Ry"
-" and about 2.5 minutes at 120 Ry."
+"calculation) to create and run a Job for each structure file. \\ At 60 "
+"Ry, calculate all 13 structures; at 40, 80, 100, and 120 Ry, calculate "
+"the 5 structures from 3.60 to 3.68 Å (33 Jobs in total). \\ Quloud "
+"(Ver.7.0.2) writes a cell with three equal edges and 60° angles in the QE"
+" input as ``ibrav = 2`` (fcc) with ``A`` set to the cubic lattice "
+"constant in Å (for earlier versions, see :numref:`Section {number} <sec-"
+"cl-repro-notes>`). \\ Except for the 24×24×24 k-point mesh, the input "
+"file ``QuloudJob.scf.in`` for the 3.64 Å Job at 60 Ry is the same as the "
+"one in :doc:`../kpoints/index`: :doc:`../kpoints/reproduction`. \\ Each "
+"calculation took about 20 seconds at 60 Ry and about 2.5 minutes at 120 "
+"Ry."
 
-#: ../../cu_lattice/reproduction.rst:154
+#: ../../cu_lattice/reproduction.rst:158
 msgid "2. 格子定数最適化（vc-relax）"
 msgstr "2. Lattice Constant Optimization (vc-relax)"
 
-#: ../../cu_lattice/reproduction.rst:156
-msgid "計算機能「格子定数最適化」で、共通の設定に加えて次の項目を設定します。"
+#: ../../cu_lattice/reproduction.rst:160
+msgid ""
+"計算機能「格子定数最適化」で、共通の設定に加えて次の項目を設定します。\\ 3.64 Åからは5つのカットオフ（40、60、80、100、120 "
+"Ry）で、3.56 Åと3.72 Åからは60 Ryで実行します（合計7件。やり直しの1件は、この節の最後で述べます）。"
 msgstr ""
-"To optimize the lattice constant, select \"Lattice Optimization\" and set"
-" the following fields in addition to the common settings."
+"To optimize the lattice constant, use the \"Lattice Optimization\" "
+"feature and set the following fields in addition to the common settings. "
+"\\ Run from 3.64 Å at five cutoffs (40, 60, 80, 100, and 120 Ry) and from"
+" 3.56 Å and 3.72 Å at 60 Ry (7 Jobs in total; the one restart Job is "
+"described at the end of this section)."
 
-#: ../../cu_lattice/reproduction.rst:165
+#: ../../cu_lattice/reproduction.rst:170
 msgid "応力の収束閾値"
 msgstr "Stress Convergence Threshold"
 
-#: ../../cu_lattice/reproduction.rst:166
+#: ../../cu_lattice/reproduction.rst:171
 msgid "0.01 GPa"
 msgstr "0.01 GPa"
 
-#: ../../cu_lattice/reproduction.rst:167
+#: ../../cu_lattice/reproduction.rst:172
 msgid "**変更** （既定値は0.5 GPa）"
 msgstr "**Changed** (default: 0.5 GPa)"
 
-#: ../../cu_lattice/reproduction.rst:168
+#: ../../cu_lattice/reproduction.rst:173
 msgid "目標圧力"
 msgstr "Target Pressure"
 
-#: ../../cu_lattice/reproduction.rst:169
+#: ../../cu_lattice/reproduction.rst:174
 msgid "0 GPa"
 msgstr "0 GPa"
 
-#: ../../cu_lattice/reproduction.rst:171
+#: ../../cu_lattice/reproduction.rst:176
 msgid "最適化最大ステップ数"
 msgstr "Max Optimization Steps"
 
-#: ../../cu_lattice/reproduction.rst:172
+#: ../../cu_lattice/reproduction.rst:177
 msgid "100"
 msgstr "100"
 
-#: ../../cu_lattice/reproduction.rst:174
+#: ../../cu_lattice/reproduction.rst:179
 msgid "力の収束閾値"
 msgstr "Force Convergence Threshold"
 
-#: ../../cu_lattice/reproduction.rst:175
+#: ../../cu_lattice/reproduction.rst:180
 msgid "0.05 eV/Å"
 msgstr "0.05 eV/Å"
 
-#: ../../cu_lattice/reproduction.rst:178
+#: ../../cu_lattice/reproduction.rst:183
 msgid ""
 "**応力の収束閾値の既定値0.5 GPa（5 kbar）は、この記事の目的には粗すぎます。** 圧力1 kbarは格子定数の約0.001 "
 "Åに相当するので、5 kbarでは0.005 Å程度の誤差が残りえます。\\ "
@@ -504,11 +517,11 @@ msgstr ""
 "symmetry gives zero force on the atom, so the force convergence threshold"
 " does not affect the result."
 
-#: ../../cu_lattice/reproduction.rst:181
+#: ../../cu_lattice/reproduction.rst:186
 msgid "3.64 Å・60 RyのJobの入力ファイルは次のようになります。"
 msgstr "The input file for the Job at 3.64 Å and 60 Ry is as follows."
 
-#: ../../cu_lattice/reproduction.rst:183
+#: ../../cu_lattice/reproduction.rst:188
 #, python-brace-format
 msgid ""
 "&control\n"
@@ -595,44 +608,45 @@ msgstr ""
 "K_POINTS automatic\n"
 "24 24 24 0 0 0"
 
-#: ../../cu_lattice/reproduction.rst:227
+#: ../../cu_lattice/reproduction.rst:232
 msgid ""
 "QEの ``press_conv_thr`` の単位はkbarなので、0.01 GPaは ``0.1000`` と書かれます。\\ 出力ファイル "
-"``QuloudJob.scf.out`` の最後の ``Begin final coordinates`` から ``End final "
-"coordinates`` の間に最適化後のセルが、その後の ``The G-vectors are recalculated for the "
-"final unit cell`` に続くSCF計算の ``P=`` に、平面波を選び直したときの圧力が書かれます。\\ 1件の計算時間は、60 "
-"Ryで約2〜7分、120 Ryで約8分です。"
+"``QuloudJob.scf.out`` では、最後の ``Begin final coordinates`` から ``End final "
+"coordinates`` の間に最適化後のセルが書かれます。\\ その後の ``The G-vectors are recalculated "
+"for the final unit cell`` に続くSCF計算の ``P=`` "
+"が、平面波を選び直したときの圧力（記事の「最後のSCFの圧力」）です。\\ 1件の計算時間は、60 Ryで約2〜7分、120 Ryで約8分です。"
 msgstr ""
 "QE specifies ``press_conv_thr`` in kbar, so 0.01 GPa is written as "
 "``0.1000``. \\ In the output file ``QuloudJob.scf.out``, the optimized "
-"cell is between the last ``Begin final coordinates`` and ``End final "
-"coordinates`` markers. After ``The G-vectors are recalculated for the "
-"final unit cell``, the SCF calculation reports the pressure for the newly"
-" selected plane waves as ``P=``. \\ Each calculation took about 2–7 "
-"minutes at 60 Ry and about 8 minutes at 120 Ry."
+"cell is written between the last ``Begin final coordinates`` and ``End "
+"final coordinates``. \\ The ``P=`` of the SCF calculation that follows "
+"``The G-vectors are recalculated for the final unit cell`` is the "
+"pressure with the reselected plane waves (the \"final SCF pressure\" in "
+"the article). \\ Each calculation took about 2–7 minutes at 60 Ry and "
+"about 8 minutes at 120 Ry."
 
-#: ../../cu_lattice/reproduction.rst:231
+#: ../../cu_lattice/reproduction.rst:237
 #, python-brace-format
 msgid ""
-"記事のやり直しの計算（3.6287 Åから）は、3.56 Åから始めたJobの最適化後の格子定数（ ``Begin final "
-"coordinates`` の後の ``CELL_PARAMETERS`` から求めた値）で原始胞のCIFを作り、同じ設定で実行したものです。\\"
-" 立方晶の格子定数 :math:`a` は、 ``CELL_PARAMETERS (alat= ...)`` の ``alat`` "
-"（bohr）と、1行目の最初の成分 :math:`x` から :math:`a = "
+"記事のやり直しの計算（3.6287 Åから）は、3.56 "
+"Åから始めたJobの最適化後の格子定数で原始胞のCIFを作り、同じ設定で実行したものです。\\ 最適化後の立方晶の格子定数 :math:`a` "
+"は、 ``Begin final coordinates`` の後の ``CELL_PARAMETERS (alat= ...)`` の "
+"``alat`` （bohr）と、1行目の最初の成分 :math:`x` から :math:`a = "
 "2|x|\\times\\mathrm{alat}\\times0.529177` Åで求まります。"
 msgstr ""
 "For the restart in the article (from 3.6287 Å), we created a primitive-"
-"cell CIF using the optimized lattice constant of the Job started at 3.56 "
-"Å, obtained from ``Begin final coordinates`` and the subsequent "
-"``CELL_PARAMETERS``, and ran it with the same settings. \\ The cubic "
-"lattice constant :math:`a` follows from the ``CELL_PARAMETERS (alat= "
-"...)`` value of ``alat`` in bohr and the first component :math:`x` of the"
-" first row as :math:`a = 2|x|\\times\\mathrm{alat}\\times0.529177` Å."
+"cell CIF with the optimized lattice constant of the Job started at 3.56 Å"
+" and ran it with the same settings. \\ The optimized cubic lattice "
+"constant :math:`a` follows from ``alat`` (in bohr) in ``CELL_PARAMETERS "
+"(alat= ...)`` after ``Begin final coordinates`` and the first component "
+":math:`x` of the first row as :math:`a = "
+"2|x|\\times\\mathrm{alat}\\times0.529177` Å."
 
-#: ../../cu_lattice/reproduction.rst:235
+#: ../../cu_lattice/reproduction.rst:241
 msgid "3. 出力のダウンロードと解析"
 msgstr "3. Downloading and Analyzing the Output"
 
-#: ../../cu_lattice/reproduction.rst:237
+#: ../../cu_lattice/reproduction.rst:243
 msgid ""
 "各Jobの詳細画面の「ファイル」で「出力ファイル」に切り替え、「一括ダウンロード」でZIPを取得します。\\ "
 "ダウンロードしたZIPを1つのフォルダ（例えば ``downloads`` ）に集め、そのフォルダを指定して解析スクリプトを実行します。"
@@ -642,11 +656,11 @@ msgstr ""
 "ZIP archives in one folder, such as ``downloads``, and pass that folder "
 "to the analysis script."
 
-#: ../../cu_lattice/reproduction.rst:240
+#: ../../cu_lattice/reproduction.rst:246
 msgid "python analyze_cu_lattice.py downloads"
 msgstr "python analyze_cu_lattice.py downloads"
 
-#: ../../cu_lattice/reproduction.rst:244
+#: ../../cu_lattice/reproduction.rst:250
 msgid ""
 "スクリプトは、フォルダの中のZIPを1つずつ開き、pw.xの出力（ ``Program PWSCF`` "
 "を含むファイル）と、同じフォルダにある入力のコピー（ ``K_POINTS`` を含むファイル）から、次の内容を読み取ってJobを判定します。"
@@ -656,13 +670,13 @@ msgstr ""
 " ``Program PWSCF``) and the copy of the input in the same folder (the "
 "file containing ``K_POINTS``)."
 
-#: ../../cu_lattice/reproduction.rst:246
+#: ../../cu_lattice/reproduction.rst:252
 msgid "計算の種類（入力の ``calculation`` が ``'scf'`` か ``'vc-relax'`` か）"
 msgstr ""
 "Calculation type (whether ``calculation`` in the input is ``'scf'`` or "
 "``'vc-relax'``)"
 
-#: ../../cu_lattice/reproduction.rst:247
+#: ../../cu_lattice/reproduction.rst:253
 msgid ""
 "格子定数（出力の ``lattice parameter (alat)`` 。 ``ibrav = 2`` の場合は立方晶の格子定数。 ``vc-"
 "relax`` では開始時の値）"
@@ -671,11 +685,11 @@ msgstr ""
 "the cubic lattice constant for ``ibrav = 2`` and the starting value for "
 "``vc-relax``)"
 
-#: ../../cu_lattice/reproduction.rst:248
+#: ../../cu_lattice/reproduction.rst:254
 msgid "カットオフエネルギー（出力の ``kinetic-energy cutoff`` ）"
 msgstr "Cutoff energy (``kinetic-energy cutoff`` in the output)"
 
-#: ../../cu_lattice/reproduction.rst:250
+#: ../../cu_lattice/reproduction.rst:256
 msgid ""
 "ZIPの名前やファイル名は判定に使わないので、ダウンロードしたままの名前で構いません。\\ 展開したフォルダを指定することもできます。\\ "
 "同じ条件のJobが複数あるときは、最初の1つだけを使います。\\ 判定の結果を最初に表示し、続いて記事中の数値を表示して、図を "
@@ -691,50 +705,142 @@ msgstr ""
 "you run only some of the calculations, the script outputs only the values"
 " and figures that those Jobs provide."
 
-#: ../../cu_lattice/reproduction.rst:256
+#: ../../cu_lattice/reproduction.rst:262
 msgid "記事の数値と図は、上の「記事の計算の出力」のZIPを1つのフォルダに集めて、同じように実行すると得られます。"
 msgstr ""
 "To reproduce the numerical results and figures in the article, put the "
 "ZIP archives from \"Output from the Calculations in This Article\" above "
 "in one folder and run the script in the same way."
 
-#: ../../cu_lattice/reproduction.rst:258
+#: ../../cu_lattice/reproduction.rst:264
 msgid "python analyze_cu_lattice.py data"
 msgstr "python analyze_cu_lattice.py data"
 
-#: ../../cu_lattice/reproduction.rst:262
-msgid ""
-"Jobの数を減らして試す場合は、例えば60 Ryのエネルギー曲線のうち3.58〜3.70 Åの7点と、3.64 Åからの ``vc-relax``"
-" "
-"をQuloudで計算し、配布した出力の同じ条件の値と全エネルギー・圧力が一致することを確かめてから、残りは配布した出力で解析する、という進め方ができます。\\"
-" 7点でも、Birch–Murnaghanの式の格子定数は13点の場合と同じ3.6303 Åになります（ :numref:`tab-cl-eos`"
-" ）。"
+#: ../../cu_lattice/reproduction.rst:268
+msgid "表示される数値の見出しと図のファイルは、記事の図表と次のように対応します。"
 msgstr ""
-"If you want to try fewer Jobs, one option is to run the 7 points from "
-"3.58 to 3.70 Å in the 60 Ry energy curve and the ``vc-relax`` run from "
-"3.64 Å in Quloud. You can then confirm that the total energies and "
-"pressures match the supplied outputs for the same conditions before using"
-" the supplied outputs for the remaining calculations in the analysis. \\ "
-"The Birch–Murnaghan fit gives 3.6303 Å with 7 points, the same lattice "
-"constant as with 13 points (:numref:`tab-cl-eos`)."
+"The printed headings and the figure files correspond to the figures and "
+"tables in the article as follows."
 
-#: ../../cu_lattice/reproduction.rst:266
+#: ../../cu_lattice/reproduction.rst:275
+msgid "表示の見出し・図のファイル"
+msgstr "Printed heading or figure file"
+
+#: ../../cu_lattice/reproduction.rst:276
+msgid "記事の図表"
+msgstr "Figure or table in the article"
+
+#: ../../cu_lattice/reproduction.rst:277
+msgid "``E(a) scan at 60 Ry``"
+msgstr "``E(a) scan at 60 Ry``"
+
+#: ../../cu_lattice/reproduction.rst:278
+msgid ":numref:`fig-cl-eos` の青い点（エネルギーは13点の最小値からの差で表示）"
+msgstr ""
+"Blue points in :numref:`fig-cl-eos` (energies are printed relative to the"
+" lowest of the 13 points)"
+
+#: ../../cu_lattice/reproduction.rst:279
+msgid "``Equation-of-state fits at 60 Ry``"
+msgstr "``Equation-of-state fits at 60 Ry``"
+
+#: ../../cu_lattice/reproduction.rst:280
+msgid ":numref:`tab-cl-eos`"
+msgstr ":numref:`tab-cl-eos`"
+
+#: ../../cu_lattice/reproduction.rst:281
+msgid "``Quadratic fit``"
+msgstr "``Quadratic fit``"
+
+#: ../../cu_lattice/reproduction.rst:282
+msgid ":numref:`tab-cl-quadratic`"
+msgstr ":numref:`tab-cl-quadratic`"
+
+#: ../../cu_lattice/reproduction.rst:283
+msgid "``Pressure: SCF value and -dE/dV of the BM3 fit``"
+msgstr "``Pressure: SCF value and -dE/dV of the BM3 fit``"
+
+#: ../../cu_lattice/reproduction.rst:284
+#, python-brace-format
+msgid ":numref:`{number}節 <sec-cl-pressure>` の圧力の差と、SCFの圧力が0になる格子定数"
+msgstr ""
+"Pressure differences and the lattice constant at zero SCF pressure in "
+":numref:`Section {number} <sec-cl-pressure>`"
+
+#: ../../cu_lattice/reproduction.rst:285
+msgid "``Cutoff dependence``"
+msgstr "``Cutoff dependence``"
+
+#: ../../cu_lattice/reproduction.rst:286
+msgid ":numref:`tab-cl-cutoff`"
+msgstr ":numref:`tab-cl-cutoff`"
+
+#: ../../cu_lattice/reproduction.rst:287
+msgid "``vc-relax``"
+msgstr "``vc-relax``"
+
+#: ../../cu_lattice/reproduction.rst:288
+msgid ":numref:`tab-cl-vcrelax` 、 :numref:`fig-cl-cutoff` の右"
+msgstr ":numref:`tab-cl-vcrelax` and the right panel of :numref:`fig-cl-cutoff`"
+
+#: ../../cu_lattice/reproduction.rst:289
+msgid "``energy_pressure.png``"
+msgstr "``energy_pressure.png``"
+
+#: ../../cu_lattice/reproduction.rst:290
+msgid ":numref:`fig-cl-eos`"
+msgstr ":numref:`fig-cl-eos`"
+
+#: ../../cu_lattice/reproduction.rst:291
+msgid "``quadratic_fit.png``"
+msgstr "``quadratic_fit.png``"
+
+#: ../../cu_lattice/reproduction.rst:292
+msgid ":numref:`fig-cl-quadratic`"
+msgstr ":numref:`fig-cl-quadratic`"
+
+#: ../../cu_lattice/reproduction.rst:293
+msgid "``cutoff_vcrelax.png``"
+msgstr "``cutoff_vcrelax.png``"
+
+#: ../../cu_lattice/reproduction.rst:294
+msgid ":numref:`fig-cl-cutoff`"
+msgstr ":numref:`fig-cl-cutoff`"
+
+#: ../../cu_lattice/reproduction.rst:296
+msgid ""
+"Jobの数を減らして試すこともできます。\\ 例えば、60 Ryのエネルギー曲線のうち3.58〜3.70 Åの7点と、3.64 Åからの "
+"``vc-relax`` をQuloudで計算し、配布した出力の同じ条件の値と全エネルギー・圧力が一致することを確かめます。\\ "
+"一致すれば、残りのJobは配布した出力で補って解析できます。\\ "
+"7点でも、Birch–Murnaghanの式の格子定数は13点の場合と同じ3.6303 Åになります（ :numref:`tab-cl-eos` "
+"）。"
+msgstr ""
+"You can also try this with fewer Jobs. \\ For example, calculate the 7 "
+"points from 3.58 to 3.70 Å of the 60 Ry energy curve and the ``vc-relax``"
+" run from 3.64 Å in Quloud, and check that the total energies and "
+"pressures match the supplied outputs for the same conditions. \\ If they "
+"match, you can fill in the remaining Jobs with the supplied outputs and "
+"run the analysis. \\ Even with 7 points, the Birch–Murnaghan equation "
+"gives 3.6303 Å, the same lattice constant as with 13 points (:numref"
+":`tab-cl-eos`)."
+
+#: ../../cu_lattice/reproduction.rst:304
 msgid "計算と数値を扱う上での注意"
 msgstr "Notes on Calculations and Numerical Results"
 
-#: ../../cu_lattice/reproduction.rst:268
+#: ../../cu_lattice/reproduction.rst:306
 msgid ""
 "**SCFの収束閾値と圧力。** 圧力（応力）は全エネルギーより収束が遅く、SCF収束閾値を1e-9 "
-"Ryにすると、Cuの圧力が計算の設定によって約1 kbarばらつきます（ :doc:`../kpoints/reproduction` "
-"）。圧力を比べる計算では、閾値を1e-12 Ryにしてください。"
+"Ryにすると、Cuの圧力が計算の設定によって約1 kbarばらつきます（ :doc:`../kpoints/index` の "
+":doc:`../kpoints/reproduction` ）。圧力を比べる計算では、閾値を1e-12 Ryにしてください。"
 msgstr ""
 "**SCF convergence threshold and pressure.** Pressure (stress) converges "
 "more slowly than total energy. At an SCF convergence threshold of 1e-9 "
 "Ry, the pressure for Cu varies by about 1 kbar with the calculation "
-"settings (see :doc:`../kpoints/reproduction`). Use 1e-12 Ry for "
-"calculations that compare pressures."
+"settings (see :doc:`../kpoints/index`: :doc:`../kpoints/reproduction`). "
+"Use 1e-12 Ry for calculations that compare pressures."
 
-#: ../../cu_lattice/reproduction.rst:269
+#: ../../cu_lattice/reproduction.rst:307
 msgid ""
 "**QuloudのバージョンとSCFの入力。** QuloudのVer.7.0.2より前のバージョンでは、fccの原始胞を ``ibrav = "
 "5`` （菱面体晶）として書きます。全エネルギーは同じですが、解析スクリプトは ``ibrav = 2`` の出力だけを読みます。"
@@ -743,13 +849,13 @@ msgstr ""
 "the fcc primitive cell as ``ibrav = 5`` (rhombohedral). The total energy "
 "is the same, but the analysis script reads only output for ``ibrav = 2``."
 
-#: ../../cu_lattice/reproduction.rst:270
+#: ../../cu_lattice/reproduction.rst:308
 msgid "**エネルギーの単位。** 全エネルギーはRy、体積弾性率は1 Ry/Å\\ :sup:`3` = 2179.87 GPaで換算しています。"
 msgstr ""
 "**Energy units.** The total energy is in Ry, and we convert the bulk "
 "modulus using 1 Ry/Å\\ :sup:`3` = 2179.87 GPa."
 
-#: ../../cu_lattice/reproduction.rst:271
+#: ../../cu_lattice/reproduction.rst:309
 msgid ""
 "**計算時間。** 記事の時間は、WSL2のMPI 4並列で、QEの出力の最後の ``PWSCF`` "
 "の行の経過時間（WALL）です。Quloudで実行すると、選んだインスタンスによって変わります。"
@@ -757,4 +863,17 @@ msgstr ""
 "**Calculation times.** The article reports elapsed times (WALL) from the "
 "final ``PWSCF`` line of the QE output for runs on WSL2 with 4 MPI "
 "processes. In Quloud, the timing depends on the instance you select."
+
+#~ msgid "エネルギー曲線、60 Ry（13件）"
+#~ msgstr "Energy curve, 60 Ry (13 jobs)"
+
+#~ msgid "エネルギー曲線、40〜120 Ry（20件）"
+#~ msgstr "Energy curves, 40–120 Ry (20 jobs)"
+
+#~ msgid "計算機能「格子定数最適化」で、共通の設定に加えて次の項目を設定します。"
+#~ msgstr ""
+#~ "To optimize the lattice constant, select"
+#~ " \"Lattice Optimization\" and set the "
+#~ "following fields in addition to the "
+#~ "common settings."
 

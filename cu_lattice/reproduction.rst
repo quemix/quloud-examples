@@ -9,7 +9,7 @@
 ========
 
 記事の計算は、2026年11月に、Quloudで使われているQuantum ESPRESSO 7.5とQuloudのジョブと同じ実行スクリプトをDockerに入れ、Quloudの外で実行したものです。\
-入力ファイルは、Quloud（Ver.7.0.2）が画面の設定値と構造ファイルから入力を作るプログラムに、以下の「Quloudでの計算手順」の設定値を渡して作りました。\
+入力ファイルは、Quloud（Ver.7.0.2）が画面の設定値と構造ファイルから入力を作るプログラムに、 :numref:`{number}節 <sec-cl-repro-steps>` の設定値を渡して作りました。\
 計算はWSL2（Intel Core Ultra 5 225U、MPI 4並列）で行い、記事の計算時間はこの環境での値です。
 
 配布ファイル
@@ -20,7 +20,8 @@
 
 Quloudの「ファイルアップロード」でMaterialとして登録する構造です。\
 いずれもfccのCuの原始胞（1原子）のCIFファイルで、3辺の長さが立方晶の格子定数の :math:`1/\sqrt{2}` 、辺のなす角が60°です。\
-ファイル名の数字が立方晶の格子定数（Å）です。
+ファイル名の数字が立方晶の格子定数（Å）です。\
+表の「全カットオフ」は、平面波カットオフエネルギーの40、60、80、100、120 Ryの5つです。
 
 .. list-table::
    :header-rows: 1
@@ -33,7 +34,7 @@ Quloudの「ファイルアップロード」でMaterialとして登録する構
    * - :download:`cu_fcc_a3.54.cif <structures/cu_fcc_a3.54.cif>`
      - エネルギー曲線（60 Ry）
    * - :download:`cu_fcc_a3.56.cif <structures/cu_fcc_a3.56.cif>`
-     - エネルギー曲線（60 Ry）、vc-relax
+     - エネルギー曲線（60 Ry）、vc-relax（60 Ry）
    * - :download:`cu_fcc_a3.58.cif <structures/cu_fcc_a3.58.cif>`
      - エネルギー曲線（60 Ry）
    * - :download:`cu_fcc_a3.60.cif <structures/cu_fcc_a3.60.cif>`
@@ -41,7 +42,7 @@ Quloudの「ファイルアップロード」でMaterialとして登録する構
    * - :download:`cu_fcc_a3.62.cif <structures/cu_fcc_a3.62.cif>`
      - エネルギー曲線（全カットオフ）
    * - :download:`cu_fcc_a3.64.cif <structures/cu_fcc_a3.64.cif>`
-     - エネルギー曲線（全カットオフ）、vc-relax
+     - エネルギー曲線（全カットオフ）、vc-relax（全カットオフ）
    * - :download:`cu_fcc_a3.66.cif <structures/cu_fcc_a3.66.cif>`
      - エネルギー曲線（全カットオフ）
    * - :download:`cu_fcc_a3.68.cif <structures/cu_fcc_a3.68.cif>`
@@ -49,13 +50,13 @@ Quloudの「ファイルアップロード」でMaterialとして登録する構
    * - :download:`cu_fcc_a3.70.cif <structures/cu_fcc_a3.70.cif>`
      - エネルギー曲線（60 Ry）
    * - :download:`cu_fcc_a3.72.cif <structures/cu_fcc_a3.72.cif>`
-     - エネルギー曲線（60 Ry）、vc-relax
+     - エネルギー曲線（60 Ry）、vc-relax（60 Ry）
    * - :download:`cu_fcc_a3.74.cif <structures/cu_fcc_a3.74.cif>`
      - エネルギー曲線（60 Ry）
    * - :download:`cu_fcc_a3.76.cif <structures/cu_fcc_a3.76.cif>`
      - エネルギー曲線（60 Ry）
 
-``vc-relax`` のやり直し（3.6287 Åから）は、3.56 Åから始めた ``vc-relax`` の結果の構造から始めます（後述）。
+``vc-relax`` のやり直し（3.6287 Åから）は、3.56 Åから始めた ``vc-relax`` の結果の構造から始めます（ :numref:`{number}節 <sec-cl-repro-vcrelax>` ）。
 
 スクリプト
 ----------
@@ -68,30 +69,32 @@ Quloudの「ファイルアップロード」でMaterialとして登録する構
 記事の計算の出力
 ----------------
 
-記事の計算の出力ファイルを、Quloudの「一括ダウンロード」で得られるファイル名にそろえ、1つのZIPに、ジョブごとのフォルダをまとめたものです。\
+記事の計算の出力ファイルを、Quloudの「一括ダウンロード」で得られるファイル名にそろえ、計算の種類ごとに1つのZIPに、ジョブごとのフォルダをまとめたものです。\
 各フォルダには、解析に使う ``QuloudJob.scf.out`` （pw.xの出力）と、入力のコピー ``QuloudJob.scf.in`` 、終了状態の ``QuloudJob.exit_status.json`` だけを入れています。
 
 .. list-table::
    :header-rows: 1
    :widths: 30 70
+   :class: wrap-table
 
    * - ファイル
      - 内容
    * - :download:`cu_eos_60ry.zip <data/cu_eos_60ry.zip>`
-     - エネルギー曲線、60 Ry（13件）
+     - エネルギー曲線、60 Ry（13件）：3.52〜3.76 Åの0.02 Å刻み13点
    * - :download:`cu_eos_cutoff.zip <data/cu_eos_cutoff.zip>`
-     - エネルギー曲線、40〜120 Ry（20件）
+     - エネルギー曲線、40〜120 Ry（20件）：40、80、100、120 Ryのそれぞれで、3.60〜3.68 Åの5点
    * - :download:`cu_vcrelax.zip <data/cu_vcrelax.zip>`
-     - vc-relax（8件）
-
-* ``cu_eos_60ry.zip`` ：3.52〜3.76 Åの0.02 Å刻み13点。
-* ``cu_eos_cutoff.zip`` ：40、80、100、120 Ryのそれぞれで、3.60〜3.68 Åの5点。
-* ``cu_vcrelax.zip`` ：3.64 Åから40〜120 Ryの5件、60 Ryで3.56 Åと3.72 Åからの2件と、3.6287 Åからのやり直し1件。
+     - vc-relax（8件）：3.64 Åから40〜120 Ryの5件、60 Ryで3.56 Åと3.72 Åからの2件、3.6287 Åからのやり直し1件
 
 フォルダ名（例： ``cu_scf_a3.64_ec60`` 、 ``cu_vcrelax_from3.64_ec60`` ）は内容を示すために付けたもので、解析スクリプトは使いません。
 
+.. _sec-cl-repro-steps:
+
 Quloudでの計算手順
 ==================
+
+配布した構造ファイルを「ファイルアップロード」でMaterialとして登録し、計算ごとにJobを作って実行します。\
+Materialの登録とJobの作成・実行の操作は、マニュアルの `原子構造の登録 <https://manual.quloud-platform.quemix.com/source/jobs_and_models_atom.html>`__ 、 `計算 Job の登録 <https://manual.quloud-platform.quemix.com/source/calculation.html>`__ 、 `Job の実行 <https://manual.quloud-platform.quemix.com/source/runjob.html>`__ の章を参照してください。
 
 共通の設定
 ----------
@@ -138,22 +141,24 @@ Quloudでの計算手順
      - 変更（既定値は1e-6 Ry）
 
 カットオフの比較では、平面波カットオフエネルギーを40、80、100、120 Ryに、密度・ポテンシャルカットオフエネルギーをその10倍（400、800、1000、1200 Ry）にします。\
-**「対称性利用」は既定値がオフです。** オフのままでは結晶の対称性で既約k点に減らす処理が行われず、計算時間が大きく増えます（ :doc:`../kpoints/reproduction` ）。
-
-Materialの登録とJobの作成・実行の操作は、マニュアルの `原子構造の登録 <https://manual.quloud-platform.quemix.com/source/jobs_and_models_atom.html>`__ 、 `計算 Job の登録 <https://manual.quloud-platform.quemix.com/source/calculation.html>`__ 、 `Job の実行 <https://manual.quloud-platform.quemix.com/source/runjob.html>`__ の章を参照してください。
+**「対称性利用」は既定値がオフです。** オフのままでは結晶の対称性で既約k点に減らす処理が行われず、計算時間が大きく増えます（ :doc:`../kpoints/index` の :doc:`../kpoints/reproduction` ）。
 
 1. エネルギー曲線（SCF計算）
 ----------------------------
 
 計算機能「自己無撞着電子状態計算（SCF）」で、構造ファイルごとにJobを作り、実行します。\
-Quloudは、3辺が等しく角が60°のセルを、QEの入力で ``ibrav = 2`` （fcc）、 ``A`` = 立方晶の格子定数（Å）として書きます。\
-3.64 Å・60 RyのJobの入力ファイル ``QuloudJob.scf.in`` は、k点メッシュが24×24×24であることを除いて、 :doc:`../kpoints/reproduction` に示したものと同じです。\
+60 Ryでは13個すべて、40、80、100、120 Ryでは3.60〜3.68 Åの5個を計算します（合計33件）。\
+Quloud（Ver.7.0.2）は、3辺が等しく角が60°のセルを、QEの入力で ``ibrav = 2`` （fcc）、 ``A`` = 立方晶の格子定数（Å）として書きます（それより前の版は :numref:`{number}節 <sec-cl-repro-notes>` ）。\
+3.64 Å・60 RyのJobの入力ファイル ``QuloudJob.scf.in`` は、k点メッシュが24×24×24であることを除いて、 :doc:`../kpoints/index` の :doc:`../kpoints/reproduction` に示したものと同じです。\
 1件の計算時間は、60 Ryで約20秒、120 Ryで約2.5分です。
+
+.. _sec-cl-repro-vcrelax:
 
 2. 格子定数最適化（vc-relax）
 -----------------------------
 
-計算機能「格子定数最適化」で、共通の設定に加えて次の項目を設定します。
+計算機能「格子定数最適化」で、共通の設定に加えて次の項目を設定します。\
+3.64 Åからは5つのカットオフ（40、60、80、100、120 Ry）で、3.56 Åと3.72 Åからは60 Ryで実行します（合計7件。やり直しの1件は、この節の最後で述べます）。
 
 .. list-table::
    :header-rows: 1
@@ -225,11 +230,12 @@ Quloudは、3辺が等しく角が60°のセルを、QEの入力で ``ibrav = 2`
    24 24 24 0 0 0
 
 QEの ``press_conv_thr`` の単位はkbarなので、0.01 GPaは ``0.1000`` と書かれます。\
-出力ファイル ``QuloudJob.scf.out`` の最後の ``Begin final coordinates`` から ``End final coordinates`` の間に最適化後のセルが、その後の ``The G-vectors are recalculated for the final unit cell`` に続くSCF計算の ``P=`` に、平面波を選び直したときの圧力が書かれます。\
+出力ファイル ``QuloudJob.scf.out`` では、最後の ``Begin final coordinates`` から ``End final coordinates`` の間に最適化後のセルが書かれます。\
+その後の ``The G-vectors are recalculated for the final unit cell`` に続くSCF計算の ``P=`` が、平面波を選び直したときの圧力（記事の「最後のSCFの圧力」）です。\
 1件の計算時間は、60 Ryで約2〜7分、120 Ryで約8分です。
 
-記事のやり直しの計算（3.6287 Åから）は、3.56 Åから始めたJobの最適化後の格子定数（ ``Begin final coordinates`` の後の ``CELL_PARAMETERS`` から求めた値）で原始胞のCIFを作り、同じ設定で実行したものです。\
-立方晶の格子定数 :math:`a` は、 ``CELL_PARAMETERS (alat= ...)`` の ``alat`` （bohr）と、1行目の最初の成分 :math:`x` から :math:`a = 2|x|\times\mathrm{alat}\times0.529177` Åで求まります。
+記事のやり直しの計算（3.6287 Åから）は、3.56 Åから始めたJobの最適化後の格子定数で原始胞のCIFを作り、同じ設定で実行したものです。\
+最適化後の立方晶の格子定数 :math:`a` は、 ``Begin final coordinates`` の後の ``CELL_PARAMETERS (alat= ...)`` の ``alat`` （bohr）と、1行目の最初の成分 :math:`x` から :math:`a = 2|x|\times\mathrm{alat}\times0.529177` Åで求まります。
 
 3. 出力のダウンロードと解析
 ---------------------------
@@ -259,13 +265,45 @@ ZIPの名前やファイル名は判定に使わないので、ダウンロー�
 
    python analyze_cu_lattice.py data
 
-Jobの数を減らして試す場合は、例えば60 Ryのエネルギー曲線のうち3.58〜3.70 Åの7点と、3.64 Åからの ``vc-relax`` をQuloudで計算し、配布した出力の同じ条件の値と全エネルギー・圧力が一致することを確かめてから、残りは配布した出力で解析する、という進め方ができます。\
+表示される数値の見出しと図のファイルは、記事の図表と次のように対応します。
+
+.. list-table::
+   :header-rows: 1
+   :widths: 45 55
+   :class: wrap-table
+
+   * - 表示の見出し・図のファイル
+     - 記事の図表
+   * - ``E(a) scan at 60 Ry``
+     - :numref:`fig-cl-eos` の青い点（エネルギーは13点の最小値からの差で表示）
+   * - ``Equation-of-state fits at 60 Ry``
+     - :numref:`tab-cl-eos`
+   * - ``Quadratic fit``
+     - :numref:`tab-cl-quadratic`
+   * - ``Pressure: SCF value and -dE/dV of the BM3 fit``
+     - :numref:`{number}節 <sec-cl-pressure>` の圧力の差と、SCFの圧力が0になる格子定数
+   * - ``Cutoff dependence``
+     - :numref:`tab-cl-cutoff`
+   * - ``vc-relax``
+     - :numref:`tab-cl-vcrelax` 、 :numref:`fig-cl-cutoff` の右
+   * - ``energy_pressure.png``
+     - :numref:`fig-cl-eos`
+   * - ``quadratic_fit.png``
+     - :numref:`fig-cl-quadratic`
+   * - ``cutoff_vcrelax.png``
+     - :numref:`fig-cl-cutoff`
+
+Jobの数を減らして試すこともできます。\
+例えば、60 Ryのエネルギー曲線のうち3.58〜3.70 Åの7点と、3.64 Åからの ``vc-relax`` をQuloudで計算し、配布した出力の同じ条件の値と全エネルギー・圧力が一致することを確かめます。\
+一致すれば、残りのJobは配布した出力で補って解析できます。\
 7点でも、Birch–Murnaghanの式の格子定数は13点の場合と同じ3.6303 Åになります（ :numref:`tab-cl-eos` ）。
+
+.. _sec-cl-repro-notes:
 
 計算と数値を扱う上での注意
 ==========================
 
-* **SCFの収束閾値と圧力。** 圧力（応力）は全エネルギーより収束が遅く、SCF収束閾値を1e-9 Ryにすると、Cuの圧力が計算の設定によって約1 kbarばらつきます（ :doc:`../kpoints/reproduction` ）。圧力を比べる計算では、閾値を1e-12 Ryにしてください。
+* **SCFの収束閾値と圧力。** 圧力（応力）は全エネルギーより収束が遅く、SCF収束閾値を1e-9 Ryにすると、Cuの圧力が計算の設定によって約1 kbarばらつきます（ :doc:`../kpoints/index` の :doc:`../kpoints/reproduction` ）。圧力を比べる計算では、閾値を1e-12 Ryにしてください。
 * **QuloudのバージョンとSCFの入力。** QuloudのVer.7.0.2より前のバージョンでは、fccの原始胞を ``ibrav = 5`` （菱面体晶）として書きます。全エネルギーは同じですが、解析スクリプトは ``ibrav = 2`` の出力だけを読みます。
 * **エネルギーの単位。** 全エネルギーはRy、体積弾性率は1 Ry/Å\ :sup:`3` = 2179.87 GPaで換算しています。
 * **計算時間。** 記事の時間は、WSL2のMPI 4並列で、QEの出力の最後の ``PWSCF`` の行の経過時間（WALL）です。Quloudで実行すると、選んだインスタンスによって変わります。
