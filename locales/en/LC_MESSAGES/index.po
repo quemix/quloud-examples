@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -45,10 +45,11 @@ msgid ":doc:`li3po4/index`"
 msgstr ":doc:`li3po4/index`"
 
 #: ../../index.rst:14
-msgid "結晶・非晶質の構造、Li空孔の移動障壁、Liイオンの拡散係数を調べます。"
+msgid "DFTと機械学習原子間ポテンシャルで、結晶・非晶質の構造、Li空孔の移動障壁、Liイオンの拡散係数を調べます。"
 msgstr ""
-"Studies crystalline and amorphous structures, migration barriers of Li "
-"vacancies, and Li-ion diffusion coefficients."
+"Uses DFT and machine-learning interatomic potentials to study crystalline and "
+"amorphous structures, migration barriers of Li vacancies, and Li-ion "
+"diffusion coefficients."
 
 #: ../../index.rst:16
 msgid ":doc:`hydrogen_chain/index`"
