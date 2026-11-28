@@ -1,3 +1,3 @@
 {% if case_end %}
-<p class="case-end"><a href="{{ pathto('index') | e }}">事例一覧に戻る</a></p>
+<p class="case-end"><a href="{{ pathto('index') | e }}">{{ 'Back to all examples' if language == 'en' else '事例一覧に戻る' }}</a></p>
 {% endif %}

@@ -1,6 +1,10 @@
 {# The theme's sidebar, titled with the case (e.g. CO₂の赤外スペクトル目次) linking to its top page. #}
 {% set show_nav_level = meta['html_theme.show_nav_level'] if (meta is defined and meta is not none and 'html_theme.show_nav_level' in meta) else theme_show_nav_level %}
-{% set nav_title = (case_title ~ "目次") if case_title else "目次" %}
+{% if language == 'en' -%}
+{% set nav_title = case_title if case_title else "Contents" -%}
+{% else -%}
+{% set nav_title = (case_title ~ "目次") if case_title else "目次" -%}
+{% endif %}
 <nav class="bd-docs-nav bd-links"
      aria-label="{{ nav_title }}">
   <p class="bd-links__title" role="heading" aria-level="1">

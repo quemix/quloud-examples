@@ -1,4 +1,5 @@
-<nav class="examples-navbar" aria-label="サイト">
-  <a href="{{ pathto('index') | e }}"{% if pagename == 'index' %} aria-current="page"{% endif %}>計算事例</a>
-  <a class="external" href="https://technical-notes.quemix.com/">技術ノート</a>
+{%- set en = language == 'en' -%}
+<nav class="examples-navbar" aria-label="{{ 'Site' if en else 'サイト' }}">
+  <a href="{{ pathto('index') | e }}"{% if pagename == 'index' %} aria-current="page"{% endif %}>{{ 'Calculation Examples' if en else '計算事例' }}</a>
+  <a class="external" href="{{ quloud_partner_url | default('https://technical-notes.quemix.com/') | e }}">{{ 'Technical Notes' if en else '技術ノート' }}</a>
 </nav>

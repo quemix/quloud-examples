@@ -19,7 +19,13 @@ import sys
 
 sys.path.insert(0, os.path.abspath('_ext'))
 
-extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'cjk_linebreak']
+# cjk_linebreak: 日本語の文の途中で改行した原稿で、表示に空白が入らないようにする。
+# english_edition: 英語版（locales/en/published.txt のページ）と日本語版を相互にリンクし、未訳のページは原文への案内にする。
+# partner_links: 英語版で、技術ノートへのリンクを技術ノートの英語版へ向ける（英語版のあるページだけ）。
+extensions = [
+    'sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'cjk_linebreak', 'english_edition',
+    'partner_links',
+]
 
 templates_path = ['_templates']
 exclude_patterns = [
@@ -29,7 +35,14 @@ exclude_patterns = [
     'li3po4/structure-energy.rst',
 ]
 
-language = 'ja'
+language = os.environ.get('QULOUD_DOC_LANGUAGE', 'ja')
+locale_dirs = ['locales/']
+gettext_compact = False
+# 日本語の原文が少し変わった文は、訳し直すまで前の英訳を出す（英語のページに日本語の段落を混ぜない）。
+# 古い訳の残るページには english_edition が注記を出し、ビルドで警告する。
+gettext_allow_fuzzy_translations = True
+# コードブロックも翻訳の対象にし、英語版ではコメントを英語にする。
+gettext_additional_targets = ['literal-block']
 
 numfig = True
 numfig_secnum_depth = 1
@@ -39,11 +52,18 @@ numfig_secnum_depth = 1
 
 html_theme = 'pydata_sphinx_theme'
 # sphinx.ext.githubpages writes CNAME from this domain.
-html_baseurl = 'https://example.quloud-platform.quemix.com/'
+quloud_japanese_baseurl = 'https://example.quloud-platform.quemix.com/'
+quloud_english_baseurl = quloud_japanese_baseurl + 'en/'
+# canonical のURLもここから作るので、英語版は /en/ を指す。
+html_baseurl = quloud_english_baseurl if language == 'en' else quloud_japanese_baseurl
+# 技術ノートの英語版で公開しているページの一覧（partner_links）。
+quloud_partner_sites = {
+    'https://technical-notes.quemix.com/': 'https://technical-notes.quemix.com/en/published.json',
+}
 html_static_path = ['_static']
 html_js_files = ['js/language-switcher.js']
 html_css_files = ['custom.css', 'language-switcher.css']
-html_title = 'Quloudの計算事例'
+html_title = 'Quloud Calculation Examples' if language == 'en' else 'Quloudの計算事例'
 html_short_title = html_title
 html_context = {'default_mode': 'light'}
 html_sidebars = {'index': []}
@@ -55,7 +75,7 @@ html_theme_options = {
     'footer_start': ['copyright'],
     'footer_end': [],
     'navigation_depth': 2,
-    'search_bar_text': '計算事例を検索',
+    'search_bar_text': 'Search Calculation Examples' if language == 'en' else '計算事例を検索',
     'secondary_sidebar_items': {'index': [], '**': ['page-toc']},
     'shorten_urls': False,
 }
@@ -93,13 +113,46 @@ def configure_case_navigation(app, pagename, _templatename, context, _doctree):
     reproduction = f'{case_dir}/reproduction'
     if pagename == reproduction:
         result_pages = [page for page in case_pages if page != reproduction]
+        back = 'Back to Results' if app.config.language == 'en' else '計算結果に戻る'
         context['case_results'] = [
-            (page, '計算結果に戻る' if len(result_pages) == 1 else app.env.titles[page].astext())
+            (page, back if len(result_pages) == 1 else app.env.titles[page].astext())
             for page in result_pages
         ]
     elif reproduction in case_pages:
         context['case_reproduction'] = reproduction
 
 
+def localize_navigation(app, env):
+    """Use fixed labels for links to pages outside the translated catalogs."""
+    if app.config.language != 'en' or app.builder.name != 'html':
+        return
+
+    import json
+    from pathlib import Path
+
+    from docutils import nodes
+
+    label_path = Path(app.confdir) / '_static/translations/en.json'
+    labels = json.loads(label_path.read_text(encoding='utf-8'))
+
+    def localize(node):
+        key = ' '.join(node.astext().split())
+        label = labels.get(key)
+        if label:
+            node[:] = [nodes.Text(label)]
+
+    for docname, title in env.titles.items():
+        # Keep each page's own long title independent of its navigation link.
+        title = title.deepcopy()
+        localize(title)
+        env.titles[docname] = title
+
+    for toc in env.tocs.values():
+        for link in toc.findall(nodes.reference):
+            if not link.get('anchorname'):
+                localize(link)
+
+
 def setup(app):
+    app.connect('env-updated', localize_navigation)
     app.connect('html-page-context', configure_case_navigation, priority=400)
