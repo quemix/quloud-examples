@@ -11,6 +11,7 @@
    スラブの底面を終端する擬水素（価数0.75）は、表面に吸着したH原子とは別の擬ポテンシャルを使う必要があります。\
    QuloudのQuantum ESPRESSOの設定では、擬ポテンシャルを元素ごとに1つ選ぶため、同じ構造の中でH原子を2種類に分けられません。\
    また、価数0.75の擬水素の擬ポテンシャルは、Quloudの擬ポテンシャルの一覧にありません。\
+   気相のH₂とGa原子の計算（下の手順1・2）はQuloudで行えます。スラブは配布した出力を使い、手順4でまとめて解析します。\
    表面・界面の計算でこの機能が必要な場合は、 `お問い合わせ <https://www.quemix.com/contact>`__ からご連絡ください。
 
 計算環境
@@ -57,7 +58,7 @@ CIFでは擬水素の元素記号を ``H`` と書いています。
    * - :download:`gan0001_ga_adatom_t4.cif <structures/gan0001_ga_adatom_t4.cif>`
      - Ga adatom、T4サイト（45原子）。構造最適化した Ideal の上にGa原子を置いたもの
    * - :download:`gan0001_ga_adatom_h3.cif <structures/gan0001_ga_adatom_h3.cif>`
-     - Ga adatom、H3サイト（45原子）。 :ref:`吸着位置の確認 <gan-site-check>` の比較用
+     - Ga adatom、H3サイト（45原子）。 :ref:`Ga adatom の吸着サイト <gan-site-check>` の比較用
    * - :download:`gan0001_3ga_h.cif <structures/gan0001_3ga_h.cif>`
      - 3Ga-H （47原子）
    * - :download:`ga_atom_box.cif <structures/ga_atom_box.cif>`
@@ -97,7 +98,7 @@ CIFでは擬水素の元素記号を ``H`` と書いています。
 
 スクリプトはPython 3、NumPy、Matplotlibで動作します。\
 ジョブはファイル名ではなく中身で判定します（QEの入力の原子の種類と数、Psi4の出力の振動数の行）。\
-Ga adatom の吸着位置（T4、H3）は、構造最適化した後の座標から判定します。
+Ga adatom の吸着サイト（T4、H3）は、構造最適化した後の座標から判定します。
 
 記事の計算の出力
 ----------------
@@ -122,17 +123,6 @@ Ga adatom の吸着位置（T4、H3）は、構造最適化した後の座標か
 * 表面スラブはQuloudの外で計算したので、 ``QuloudJob.scf.out`` はpw.xの標準出力をこの名前にしたものです。終了状態のファイル ``QuloudJob.exit_status.json`` はありません。
 * スピン分極なしのGa原子は、参照エネルギーには使わず、スピン分極ありとの差を示すためのものです（ :ref:`適用範囲 <gan-scope>` ）。
 * フォルダ名（例： ``ga_adatom_t4`` ）は内容を示すために付けたもので、解析スクリプトは使いません。
-
-解析の実行
-----------
-
-ダウンロードしたZIPを1つのフォルダに集め、そのフォルダを渡します。
-
-.. code-block:: console
-
-   $ python analyze_gan_surface.py data/ --figures figures/
-
-吸着エネルギー、H₂の振動数と回転定数、分圧、相境界の温度を表示し、記事の4つの図（ ``models.png`` 、 ``delta_g.png`` 、 ``phase_diagram.png`` 、 ``adatom_site.png`` ）を ``figures/`` に書き出します。
 
 Quloudでの計算手順
 ==================
@@ -217,8 +207,9 @@ Ga原子はスピン分極させ、全磁化を1 :math:`\mu_\mathrm{B}` に固�
    /
 
 Ga原子のp軌道は3重に縮退しており、1個の電子をどれかに入れる整数の占有ではSCFが収束しにくくなります。\
-混合の係数（ ``mixing_beta`` ）を小さくし、収束閾値をQuloudの既定値の :math:`10^{-6}` Ryにしました。\
-H₂は閉殻なので、 ``occupations = 'fixed'`` にするだけです。\
+そのため、混合の係数（ ``mixing_beta`` ）を小さくし、SCFの反復の上限（ ``electron_maxstep`` ）を200にしました。\
+収束閾値（ ``conv_thr`` ）は、Quloudの既定値と同じ :math:`10^{-6}` Ryです。\
+H₂は閉殻なので、入力ファイルの編集は ``occupations = 'fixed'`` だけです。\
 記事の入力は ``K_POINTS gamma`` （Γ点だけの計算）で、k グリッド1、1、1と同じk点です。\
 記事で使った入力ファイルは、 ``gas_qe.zip`` の各フォルダにある ``QuloudJob.scf.in`` です。
 
@@ -271,3 +262,22 @@ H₂は閉殻なので、 ``occupations = 'fixed'`` にするだけです。\
 * 座標の後ろの ``0 0 0`` は、その原子を固定する指定です。底面の擬水素4個とN原子4個を固定します。
 * Ideal だけは電子数が奇数なので、 ``occupations = 'smearing'`` 、 ``smearing = 'gaussian'`` 、 ``degauss = 0.01`` です。解析スクリプトは、スメアリングを使った出力では :math:`(F+E)/2` を全エネルギーとして使います（ :numref:`tab-gan-conditions` の注）。
 * 1件の計算時間は、32 MPIプロセスで15〜31分でした（BFGSで13〜26ステップ）。
+
+4. 出力のダウンロードと解析
+---------------------------
+
+手順1・2の各Jobの出力ファイルを「一括ダウンロード」でZIPとして取得します。\
+これらのZIPと、手順3の出力として配布した ``gan_slabs.zip`` を1つのフォルダ（例えば ``downloads`` ）に集め、そのフォルダを指定して解析スクリプトを実行します。
+
+.. code-block:: console
+
+   $ python analyze_gan_surface.py downloads/ --figures figures/
+
+スクリプトは、吸着エネルギー、H₂の振動数と回転定数、分圧、相境界の温度を表示し、記事の4つの図（ ``models.png`` 、 ``delta_g.png`` 、 ``phase_diagram.png`` 、 ``adatom_site.png`` ）を ``figures/`` に書き出します。\
+表示された値は、記事の :numref:`tab-gan-eads` 、 :numref:`tab-gan-h2` と、本文の境界の温度に対応します。
+
+記事の数値と図は、「記事の計算の出力」の3つのZIPを1つのフォルダ（例えば ``data`` ）に集めて、同じように実行すると得られます。
+
+.. code-block:: console
+
+   $ python analyze_gan_surface.py data/ --figures figures/

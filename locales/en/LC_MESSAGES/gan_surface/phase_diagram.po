@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 14:33+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -25,21 +25,23 @@ msgstr "GaN(0001) Surface Phase Diagram in Terms of Gas-Phase Chemical Potential
 
 #: ../../gan_surface/phase_diagram.rst:5
 msgid ""
-"窒化ガリウム（GaN）の結晶は、有機金属気相成長（MOVPE）で、トリメチルガリウム（TMG）とアンモニア（NH₃）をキャリアガス（N₂またはH₂）で基板へ運んで成長させます。\\"
-" 成長中の表面には、気相から来た原子が吸着したり、離れたりしています。\\ "
+"窒化ガリウム（GaN）の結晶は、有機金属気相成長（MOVPE）で作ります。\\ "
+"原料のトリメチルガリウム（TMG）とアンモニア（NH₃）を、キャリアガス（N₂またはH₂）で基板へ運んで成長させます。\\ "
+"成長中の表面には、気相から来た原子が吸着したり、離れたりしています。\\ "
 "どのような表面構造が現れるかは、表面の原子配置のエネルギーだけでなく、成長温度や原料ガスの分圧、キャリアガスの種類によって変わります。"
 msgstr ""
 "Gallium nitride (GaN) crystals are grown by metalorganic vapor phase "
-"epitaxy (MOVPE), in which a carrier gas (N₂ or H₂) transports "
-"trimethylgallium (TMG) and ammonia (NH₃) to the substrate. \\ Atoms from "
-"the gas phase adsorb onto and desorb from the surface during growth. \\ "
-"The surface structure that forms depends on the energy of the surface "
-"atomic arrangement as well as the growth temperature, the partial "
-"pressures of the precursor gases, and the choice of carrier gas."
+"epitaxy (MOVPE). \\ A carrier gas (N₂ or H₂) transports the precursors, "
+"trimethylgallium (TMG) and ammonia (NH₃), to the substrate, where the "
+"crystal grows. \\ Atoms from the gas phase adsorb onto and desorb from "
+"the surface during growth. \\ The surface structure that forms depends on"
+" the energy of the surface atomic arrangement as well as the growth "
+"temperature, the partial pressures of the precursor gases, and the choice"
+" of carrier gas."
 
-#: ../../gan_surface/phase_diagram.rst:9
+#: ../../gan_surface/phase_diagram.rst:10
 msgid ""
-"第一原理計算で求められるのは、絶対零度での表面のエネルギーです。\\ 一方、吸着した原子は、1000 "
+"第一原理計算で求められるのは、絶対零度での表面のエネルギーです。\\ 一方、成長中の表面は、1000 "
 "°Cを超える気相と原子をやりとりしています。\\ そこで、表面のエネルギーを第一原理計算で求め、気相の分子の\\ `化学ポテンシャル <https"
 "://technical-notes.quemix.com/thermo/gibbs_energy.html#chemical-"
 "potential>`__\\ を統計力学で求めて組み合わせると、成長条件ごとに安定な表面構造を予測できます [1]_ [2]_ 。"
@@ -52,7 +54,7 @@ msgstr ""
 "statistical mechanics lets us predict the stable surface structure for "
 "each set of growth conditions [1]_ [2]_."
 
-#: ../../gan_surface/phase_diagram.rst:13
+#: ../../gan_surface/phase_diagram.rst:14
 msgid ""
 "このページでは、Kusabaらの論文 [2]_ にならい、GaN(0001)面について、表面のエネルギーをQuantum "
 "ESPRESSO（QE）、気相のH₂の振動数と回転定数をPsi4で計算し、成長温度とV/III比（原料の供給比）に対する表面相図を描きます。\\ "
@@ -65,22 +67,23 @@ msgstr ""
 "V/III ratio (the precursor feed ratio). \\ What happens to the surface "
 "when we switch the carrier gas from N₂ to H₂?"
 
-#: ../../gan_surface/phase_diagram.rst:18
+#: ../../gan_surface/phase_diagram.rst:19
 msgid ""
-"このページの計算は、Quloudと同じ計算コードを使って実行したものですが、\\ "
+"このページの計算は、Quloudと同じ計算コードを使い、Quloudの外で実行しました。\\ "
 "表面スラブの底面の擬水素（価数0.75）は、現在のQuloudの画面では設定できません。\\ 計算条件と再現手順は "
 ":doc:`reproduction` にまとめています。"
 msgstr ""
-"We ran these calculations with the same codes that Quloud uses, but \\ "
-"the current Quloud interface cannot assign the pseudo-hydrogen (valence "
-"0.75) at the bottom of the surface slab. \\ See :doc:`reproduction` for "
-"the calculation conditions and reproduction procedure."
+"We ran the calculations on this page outside Quloud, using the same codes"
+" that Quloud uses. \\ The current Quloud interface cannot assign the "
+"pseudo-hydrogen (valence 0.75) at the bottom of the surface slab. \\ See "
+":doc:`reproduction` for the calculation conditions and reproduction "
+"procedure."
 
-#: ../../gan_surface/phase_diagram.rst:23
+#: ../../gan_surface/phase_diagram.rst:24
 msgid "表面モデルと計算条件"
 msgstr "Surface Models and Calculation Conditions"
 
-#: ../../gan_surface/phase_diagram.rst:25
+#: ../../gan_surface/phase_diagram.rst:26
 msgid ""
 "論文 [2]_ は(0001)面について9通りの表面構造を比べています。\\ このページでは、そのうちの3つを計算します（ :numref"
 ":`fig-gan-models` ）。"
@@ -88,26 +91,31 @@ msgstr ""
 "Kusaba et al. [2]_ compare nine surface structures for the (0001) face. "
 "\\ We computed three of those structures (:numref:`fig-gan-models`)."
 
-#: ../../gan_surface/phase_diagram.rst:28
+#: ../../gan_surface/phase_diagram.rst:29
 msgid "**Ideal** ：最上層がGaで終わる理想表面です。これをエネルギーの基準にします。"
 msgstr ""
 "**Ideal**: The ideal surface with a Ga-terminated top layer. We use it as"
 " the energy reference."
 
-#: ../../gan_surface/phase_diagram.rst:29
-msgid "**Ga adatom** ：Ideal の上にGa原子が1個吸着した表面です。吸着位置は、最上層のN原子の真上（T4サイト）です。"
+#: ../../gan_surface/phase_diagram.rst:30
+#, python-brace-format
+msgid ""
+"**Ga adatom** ：Ideal "
+"の上にGa原子が1個吸着した表面です。吸着サイトは、最上層のN原子の真上（T4サイト）です。別のサイト（H3）に置いた場合とは "
+":numref:`{number}. {name} <gan-site-check>` で比べます。"
 msgstr ""
 "**Ga adatom**: The Ideal surface with one adsorbed Ga atom. The "
 "adsorption site is directly above an N atom in the topmost layer (the T4 "
-"site)."
+"site). We compare it with placement at another site (H3) in "
+":numref:`{number}. {name} <gan-site-check>`."
 
-#: ../../gan_surface/phase_diagram.rst:30
+#: ../../gan_surface/phase_diagram.rst:31
 msgid "**3Ga-H** ：最上層の4個のGa原子のうち3個にH原子が1個ずつ結合した表面です。"
 msgstr ""
 "**3Ga-H**: The surface with one H atom bonded to each of three of the "
 "four Ga atoms in the top layer."
 
-#: ../../gan_surface/phase_diagram.rst:36
+#: ../../gan_surface/phase_diagram.rst:37
 msgid "計算した3つの表面モデル（QEで構造を最適化した後の原子配置）。上段は最上層のGa–N層と吸着原子を上から見た図で、平行四辺形が2×2の表面セル、太い輪郭が吸着原子です。下段はスラブ全体を横から見た図で、最下層のN原子に擬水素（灰色）が結合しています。"
 msgstr ""
 "Atomic arrangements of the three surface models after geometry "
@@ -117,7 +125,7 @@ msgstr ""
 "from the side, with pseudo-hydrogen (gray) bonded to the bottom-layer N "
 "atoms."
 
-#: ../../gan_surface/phase_diagram.rst:38
+#: ../../gan_surface/phase_diagram.rst:39
 msgid ""
 "表面は、Ga–Nの層を5組重ねたスラブで表します。\\ スラブの下面には、N原子の結合の手（ダングリングボンド）が余ります。\\ "
 "この手を、価数0.75の擬水素で終端します [3]_ 。\\ "
@@ -134,49 +142,49 @@ msgstr ""
 "of all other atoms. \\ The calculation conditions are listed in :numref"
 ":`tab-gan-conditions`."
 
-#: ../../gan_surface/phase_diagram.rst:45
+#: ../../gan_surface/phase_diagram.rst:46
 msgid "計算条件"
 msgstr "Calculation conditions"
 
-#: ../../gan_surface/phase_diagram.rst:51
+#: ../../gan_surface/phase_diagram.rst:52
 msgid "項目"
 msgstr "Item"
 
-#: ../../gan_surface/phase_diagram.rst:52
+#: ../../gan_surface/phase_diagram.rst:53
 msgid "条件"
 msgstr "Conditions"
 
-#: ../../gan_surface/phase_diagram.rst:53
+#: ../../gan_surface/phase_diagram.rst:54
 msgid "表面スラブ"
 msgstr "Surface slab"
 
-#: ../../gan_surface/phase_diagram.rst:54
+#: ../../gan_surface/phase_diagram.rst:55
 msgid "2×2表面セル、Ga–N層5組、真空層20 Å。格子定数 :math:`a` = 3.189 Å、 :math:`c` = 5.185 Å（固定）"
 msgstr ""
 "2×2 surface cell, five Ga–N bilayers, and a 20 Å vacuum layer. Fixed "
 "lattice constants :math:`a` = 3.189 Å and :math:`c` = 5.185 Å"
 
-#: ../../gan_surface/phase_diagram.rst:55
+#: ../../gan_surface/phase_diagram.rst:56
 msgid "計算コード（スラブとGa原子・H₂の全エネルギー）"
 msgstr "Calculation code (total energies of the slabs, Ga atom, and H₂)"
 
-#: ../../gan_surface/phase_diagram.rst:56
+#: ../../gan_surface/phase_diagram.rst:57
 msgid "Quantum ESPRESSO（スラブは7.6、Ga原子とH₂は7.5）"
 msgstr "Quantum ESPRESSO (7.6 for the slabs, 7.5 for the Ga atom and H₂)"
 
-#: ../../gan_surface/phase_diagram.rst:57
+#: ../../gan_surface/phase_diagram.rst:58
 msgid "交換相関汎関数"
 msgstr "Exchange-correlation functional"
 
-#: ../../gan_surface/phase_diagram.rst:58
+#: ../../gan_surface/phase_diagram.rst:59
 msgid "GGA-PBE"
 msgstr "GGA-PBE"
 
-#: ../../gan_surface/phase_diagram.rst:59
+#: ../../gan_surface/phase_diagram.rst:60
 msgid "擬ポテンシャル"
 msgstr "Pseudopotentials"
 
-#: ../../gan_surface/phase_diagram.rst:60
+#: ../../gan_surface/phase_diagram.rst:61
 msgid ""
 "PAW（pslibrary 1.0.0）。Ga ``Ga.pbe-dn-kjpaw_psl.1.0.0.UPF`` 、N "
 "``N.pbe-n-kjpaw_psl.1.0.0.UPF`` 、H ``H.pbe-kjpaw_psl.1.0.0.UPF`` "
@@ -187,64 +195,64 @@ msgstr ""
 "pseudo-hydrogen at the bottom uses a custom norm-conserving "
 "pseudopotential (valence 0.75)."
 
-#: ../../gan_surface/phase_diagram.rst:61
+#: ../../gan_surface/phase_diagram.rst:62
 msgid "カットオフエネルギー"
 msgstr "Cutoff energy"
 
-#: ../../gan_surface/phase_diagram.rst:62
+#: ../../gan_surface/phase_diagram.rst:63
 msgid "波動関数70 Ry、電荷密度400 Ry"
 msgstr "70 Ry for the wave functions, 400 Ry for the charge density"
 
-#: ../../gan_surface/phase_diagram.rst:63
+#: ../../gan_surface/phase_diagram.rst:64
 msgid "k点"
 msgstr "k-points"
 
-#: ../../gan_surface/phase_diagram.rst:64
+#: ../../gan_surface/phase_diagram.rst:65
 msgid "スラブ3×3×1、Ga原子とH₂はΓ点のみ"
 msgstr "3×3×1 for the slabs, Γ point only for the Ga atom and H₂"
 
-#: ../../gan_surface/phase_diagram.rst:65
+#: ../../gan_surface/phase_diagram.rst:66
 msgid "構造最適化"
 msgstr "Geometry optimization"
 
-#: ../../gan_surface/phase_diagram.rst:66
+#: ../../gan_surface/phase_diagram.rst:67
 #, python-brace-format
 msgid "BFGS、力の収束閾値 :math:`10^{-3}` Ry/bohr"
 msgstr "BFGS with a force convergence threshold of :math:`10^{-3}` Ry/bohr"
 
-#: ../../gan_surface/phase_diagram.rst:67
+#: ../../gan_surface/phase_diagram.rst:68
 msgid "電子の占有"
 msgstr "Electronic occupations"
 
-#: ../../gan_surface/phase_diagram.rst:68
+#: ../../gan_surface/phase_diagram.rst:69
 msgid "Ideal はGaussianスメアリング（幅0.01 Ry）\\ :sup:`†`\\ 、それ以外のスラブは固定占有。いずれもスピン分極なし"
 msgstr ""
 "Gaussian smearing (width 0.01 Ry)\\ :sup:`†` \\ for Ideal and fixed "
 "occupations for the other slabs. All slabs were calculated without spin "
 "polarization."
 
-#: ../../gan_surface/phase_diagram.rst:69
+#: ../../gan_surface/phase_diagram.rst:70
 msgid "Ga原子"
 msgstr "Ga atom"
 
-#: ../../gan_surface/phase_diagram.rst:70
+#: ../../gan_surface/phase_diagram.rst:71
 #, python-brace-format
 msgid "一辺24 bohrの立方体セル、スピン分極あり（全磁化1 :math:`\\mu_\\mathrm{B}` ）"
 msgstr ""
 "Cubic cell 24 bohr on a side, with spin polarization (total magnetization"
 " of 1 :math:`\\mu_\\mathrm{B}`)"
 
-#: ../../gan_surface/phase_diagram.rst:71
+#: ../../gan_surface/phase_diagram.rst:72
 msgid "計算コード（H₂の振動数と回転定数）"
 msgstr "Calculation code (H₂ vibrational frequency and rotational constant)"
 
-#: ../../gan_surface/phase_diagram.rst:72
+#: ../../gan_surface/phase_diagram.rst:73
 msgid "Psi4 1.10、PBE/cc-pVTZ、構造最適化の後に振動数解析"
 msgstr ""
 "Psi4 1.10, PBE/cc-pVTZ, with vibrational analysis after geometry "
 "optimization"
 
-#: ../../gan_surface/phase_diagram.rst:74
+#: ../../gan_surface/phase_diagram.rst:75
 msgid ""
 ":sup:`†` Ideal の2×2セルは電子数が奇数（363個）で、固定占有では計算できないため、スメアリングを使いました。\\ "
 "スメアリングを使った全エネルギー（自由エネルギー :math:`F` ）には、電子のエントロピーの項 :math:`-TS` （ここでは "
@@ -259,21 +267,21 @@ msgstr ""
 " :math:`E = F + TS`, :math:`(F+E)/2`, as an approximation to the energy "
 "at zero smearing width."
 
-#: ../../gan_surface/phase_diagram.rst:78
+#: ../../gan_surface/phase_diagram.rst:79
 msgid ""
-"論文 [2]_ は全電子計算コードDMol3（数値基底DNP）を使っており、このページの計算とは計算コードと基底関数が異なります。\\ "
-"スラブの層数、真空層の厚さ、表面セル、k点は論文に合わせました。"
+"スラブの層数、真空層の厚さ、表面セル、k点は論文 [2]_ に合わせました。\\ "
+"一方、論文は全電子計算コードDMol3（数値基底DNP）を使っており、このページの計算とは計算コードと基底関数が異なります。"
 msgstr ""
-"Kusaba et al. [2]_ use the all-electron code DMol3 with the numerical DNP"
-" basis set, so both the code and the basis set differ from ours. \\ We "
-"used the same number of slab layers, vacuum thickness, surface cell, and "
-"k-points as the paper."
+"We matched the number of slab layers, vacuum thickness, surface cell, and"
+" k-points to the paper [2]_. \\ However, the paper uses the all-electron "
+"code DMol3 with the numerical DNP basis set, so both the code and the "
+"basis set differ from those on this page."
 
-#: ../../gan_surface/phase_diagram.rst:82
+#: ../../gan_surface/phase_diagram.rst:83
 msgid "表面のギブズエネルギー"
 msgstr "Surface Gibbs Energy"
 
-#: ../../gan_surface/phase_diagram.rst:84
+#: ../../gan_surface/phase_diagram.rst:85
 msgid ""
 "吸着した原子の数が違う表面どうしは、全エネルギーをそのまま比べることができません。\\ "
 "吸着した原子が気相にあるときのエネルギーまで含めて比べます。\\ Ideal を基準にした表面 :math:`j` のギブズエネルギーは"
@@ -283,7 +291,7 @@ msgstr ""
 "of the atoms in the gas phase. \\ The Gibbs energy of surface :math:`j` "
 "relative to Ideal is"
 
-#: ../../gan_surface/phase_diagram.rst:88
+#: ../../gan_surface/phase_diagram.rst:89
 msgid ""
 "\\Delta G_j(T, p) = E_{\\mathrm{ads},j}\n"
 "- n_{\\mathrm{Ga},j}\\,\\tilde{\\mu}_{\\mathrm{Ga}}(T, p_{\\mathrm{Ga}})\n"
@@ -295,7 +303,7 @@ msgstr ""
 "- \\frac{n_{\\mathrm{H},j}}{2}\\,\\tilde{\\mu}_{\\mathrm{H_2}}(T, "
 "p_{\\mathrm{H_2}})"
 
-#: ../../gan_surface/phase_diagram.rst:95
+#: ../../gan_surface/phase_diagram.rst:96
 msgid ""
 "です [2]_ 。\\ :math:`n_{\\mathrm{Ga},j}` 、 :math:`n_{\\mathrm{H},j}` "
 "は吸着したGa原子とH原子の数、 :math:`E_{\\mathrm{ads},j}` は絶対零度での吸着エネルギー"
@@ -305,7 +313,7 @@ msgstr ""
 "respectively. The adsorption energy :math:`E_{\\mathrm{ads},j}` at "
 "absolute zero is"
 
-#: ../../gan_surface/phase_diagram.rst:98
+#: ../../gan_surface/phase_diagram.rst:99
 msgid ""
 "E_{\\mathrm{ads},j} = E_{\\mathrm{slab}}(j) - "
 "E_{\\mathrm{slab}}(\\mathrm{Ideal})\n"
@@ -317,289 +325,114 @@ msgstr ""
 "- n_{\\mathrm{Ga},j}\\,E_{\\mathrm{Ga}} - "
 "\\frac{n_{\\mathrm{H},j}}{2}\\,E_{\\mathrm{H_2}}"
 
-#: ../../gan_surface/phase_diagram.rst:104
+#: ../../gan_surface/phase_diagram.rst:105
 msgid ""
 "です。\\ :math:`E_{\\mathrm{Ga}}` 、 :math:`E_{\\mathrm{H_2}}` "
 "は孤立したGa原子とH₂分子の全エネルギーで、スラブと同じ擬ポテンシャル・カットオフのQEで計算します。\\ "
-":math:`\\tilde{\\mu}` は気相の分子の化学ポテンシャルのうち温度と分圧に依存する部分で、 :math:`\\mu = E + "
-"\\tilde{\\mu}` です。\\ 表面の原子の振動によるエントロピーは無視しています。\\ :math:`\\Delta G_j` "
+":math:`\\tilde{\\mu}` は気相の原子・分子の化学ポテンシャルのうち温度と分圧に依存する部分で、 :math:`\\mu = E"
+" + \\tilde{\\mu}` です。\\ 表面の原子の振動によるエントロピーは無視しています。\\ :math:`\\Delta G_j` "
 "が負なら、その成長条件では表面 :math:`j` が Ideal より安定です。"
 msgstr ""
 "In this expression, \\ :math:`E_{\\mathrm{Ga}}` and "
 ":math:`E_{\\mathrm{H_2}}` are the total energies of an isolated Ga atom "
 "and an isolated H₂ molecule, computed with QE using the same "
 "pseudopotentials and cutoffs as for the slabs. \\ :math:`\\tilde{\\mu}` "
-"is the part of the gas-phase chemical potential that depends on "
-"temperature and partial pressure, with :math:`\\mu = E + \\tilde{\\mu}`. "
-"\\ We neglect the entropy from vibrations of the surface atoms. \\ "
-":math:`\\Delta G_j` below zero means that surface :math:`j` is more "
-"stable than Ideal under those growth conditions."
+"is the part of the chemical potential of a gas-phase atom or molecule "
+"that depends on temperature and partial pressure, with :math:`\\mu = E + "
+"\\tilde{\\mu}`. \\ We neglect the entropy from vibrations of the surface "
+"atoms. \\ :math:`\\Delta G_j` below zero means that surface :math:`j` is "
+"more stable than Ideal under those growth conditions."
 
 #: ../../gan_surface/phase_diagram.rst:111
+msgid ""
+"以下では、右辺の吸着エネルギー :math:`E_{\\mathrm{ads},j}` 、 :math:`\\tilde{\\mu}` "
+"に入る成長部の分圧、気相の化学ポテンシャル :math:`\\tilde{\\mu}` を順に求めます。"
+msgstr ""
+"Below, we determine in turn the adsorption energy "
+":math:`E_{\\mathrm{ads},j}` on the right-hand side, the partial pressures"
+" in the growth zone that enter :math:`\\tilde{\\mu}`, and the gas-phase "
+"chemical potential :math:`\\tilde{\\mu}`."
+
+#: ../../gan_surface/phase_diagram.rst:114
 msgid "吸着エネルギー"
 msgstr "Adsorption Energy"
 
-#: ../../gan_surface/phase_diagram.rst:113
+#: ../../gan_surface/phase_diagram.rst:116
 msgid "式 :eq:`gan-eads` で求めた吸着エネルギーを :numref:`tab-gan-eads` に示します。"
 msgstr ""
 "The adsorption energy obtained from Equation :eq:`gan-eads` is listed for"
 " each surface in :numref:`tab-gan-eads`."
 
-#: ../../gan_surface/phase_diagram.rst:115
+#: ../../gan_surface/phase_diagram.rst:118
 msgid "吸着エネルギー（2×2表面セルあたり）"
 msgstr "Adsorption energy per 2×2 surface cell"
 
-#: ../../gan_surface/phase_diagram.rst:120
+#: ../../gan_surface/phase_diagram.rst:123
 msgid "表面"
 msgstr "Surface"
 
-#: ../../gan_surface/phase_diagram.rst:121
+#: ../../gan_surface/phase_diagram.rst:124
 #, python-brace-format
 msgid ":math:`n_\\mathrm{Ga}`"
 msgstr ":math:`n_\\mathrm{Ga}`"
 
-#: ../../gan_surface/phase_diagram.rst:122
+#: ../../gan_surface/phase_diagram.rst:125
 #, python-brace-format
 msgid ":math:`n_\\mathrm{H}`"
 msgstr ":math:`n_\\mathrm{H}`"
 
-#: ../../gan_surface/phase_diagram.rst:123
+#: ../../gan_surface/phase_diagram.rst:126
 #, python-brace-format
 msgid ":math:`E_\\mathrm{ads}` （eV）"
 msgstr ":math:`E_\\mathrm{ads}` (eV)"
 
-#: ../../gan_surface/phase_diagram.rst:124
+#: ../../gan_surface/phase_diagram.rst:127
 msgid "Ga adatom"
 msgstr "Ga adatom"
 
-#: ../../gan_surface/phase_diagram.rst:125
+#: ../../gan_surface/phase_diagram.rst:128
 msgid "1"
 msgstr "1"
 
-#: ../../gan_surface/phase_diagram.rst:126
 #: ../../gan_surface/phase_diagram.rst:129
+#: ../../gan_surface/phase_diagram.rst:132
 msgid "0"
 msgstr "0"
 
-#: ../../gan_surface/phase_diagram.rst:127
+#: ../../gan_surface/phase_diagram.rst:130
 msgid "−3.78"
 msgstr "−3.78"
 
-#: ../../gan_surface/phase_diagram.rst:128
+#: ../../gan_surface/phase_diagram.rst:131
 msgid "3Ga-H"
 msgstr "3Ga-H"
 
-#: ../../gan_surface/phase_diagram.rst:130
+#: ../../gan_surface/phase_diagram.rst:133
 msgid "3"
 msgstr "3"
 
-#: ../../gan_surface/phase_diagram.rst:131
+#: ../../gan_surface/phase_diagram.rst:134
 msgid "−3.41"
 msgstr "−3.41"
 
-#: ../../gan_surface/phase_diagram.rst:133
+#: ../../gan_surface/phase_diagram.rst:136
 #, python-brace-format
 msgid ""
-"どちらも負なので、絶対零度ではGa原子もH原子も表面に吸着した方が安定です。\\ 3Ga-H の値はH原子3個分で、1個あたりでは−1.14 "
-"eVです。\\ 吸着した原子が離れるかどうかは、気相の化学ポテンシャル :math:`\\tilde{\\mu}` との競合で決まります。"
+"どちらも負なので、絶対零度では、Ga原子もH原子も、孤立したGa原子やH₂分子でいるより表面に吸着した方が安定です。\\ 3Ga-H "
+"の値はH原子3個分で、1個あたりでは−1.14 eVです。\\ 吸着した原子が離れるかどうかは、気相の化学ポテンシャル "
+":math:`\\tilde{\\mu}` との競合で決まります。"
 msgstr ""
 "Both adsorption energies are negative, so at absolute zero both Ga and H "
-"atoms are more stable when adsorbed on the surface. \\ The value for "
-"3Ga-H is for three H atoms, or −1.14 eV per H atom. \\ Whether the "
-"adatoms desorb depends on the competition with the gas-phase chemical "
-"potential :math:`\\tilde{\\mu}`."
+"atoms are more stable adsorbed on the surface than as an isolated Ga atom"
+" or H₂ molecule. \\ The value for 3Ga-H is for three H atoms, or −1.14 eV"
+" per H atom. \\ Whether the adatoms desorb depends on the competition "
+"with the gas-phase chemical potential :math:`\\tilde{\\mu}`."
 
-#: ../../gan_surface/phase_diagram.rst:138
-msgid "気相の化学ポテンシャル"
-msgstr "Gas-Phase Chemical Potential"
-
-#: ../../gan_surface/phase_diagram.rst:140
-msgid "気相の分子を理想気体とみなすと、化学ポテンシャルは並進・回転・振動の分配関数から"
-msgstr ""
-"For gas-phase molecules treated as an ideal gas, the translational, "
-"rotational, and vibrational partition functions give the chemical "
-"potential"
-
-#: ../../gan_surface/phase_diagram.rst:142
-msgid ""
-"\\begin{aligned}\n"
-"\\tilde{\\mu} &= -k_\\mathrm{B}T "
-"\\ln\\left(g\\,\\frac{k_\\mathrm{B}T}{p}\\,\\zeta_\\mathrm{trans}\\,\\zeta_\\mathrm{rot}\\,\\zeta_\\mathrm{vib}\\right),\\\\"
-"\n"
-"\\zeta_\\mathrm{trans} &= \\left(\\frac{2\\pi m "
-"k_\\mathrm{B}T}{h^2}\\right)^{3/2},\n"
-"\\quad\n"
-"\\zeta_\\mathrm{rot} = \\frac{k_\\mathrm{B}T}{\\sigma h c B},\n"
-"\\quad\n"
-"\\zeta_\\mathrm{vib} = \\frac{1}{1 - e^{-h c\\,\\omega / k_\\mathrm{B}T}}"
-"\n"
-"\\end{aligned}"
-msgstr ""
-"\\begin{aligned}\n"
-"\\tilde{\\mu} &= -k_\\mathrm{B}T "
-"\\ln\\left(g\\,\\frac{k_\\mathrm{B}T}{p}\\,\\zeta_\\mathrm{trans}\\,\\zeta_\\mathrm{rot}\\,\\zeta_\\mathrm{vib}\\right),\\\\"
-"\n"
-"\\zeta_\\mathrm{trans} &= \\left(\\frac{2\\pi m "
-"k_\\mathrm{B}T}{h^2}\\right)^{3/2},\n"
-"\\quad\n"
-"\\zeta_\\mathrm{rot} = \\frac{k_\\mathrm{B}T}{\\sigma h c B},\n"
-"\\quad\n"
-"\\zeta_\\mathrm{vib} = \\frac{1}{1 - e^{-h c\\,\\omega / k_\\mathrm{B}T}}"
-"\n"
-"\\end{aligned}"
-
-#: ../../gan_surface/phase_diagram.rst:154
-msgid ""
-"と書けます [2]_ 。\\ :math:`m` は分子の質量、 :math:`g` は電子状態の縮重度、 :math:`\\sigma` "
-"は対称数（H₂では2）、 :math:`B` は回転定数、 :math:`\\omega` は振動数（いずれも波数単位）です。\\ "
-"論文にならい、振動の分配関数には零点振動の因子を含めていません。\\ Ga原子は並進だけで、基底状態 :sup:`2`\\ P\\ "
-":sub:`1/2` の縮重度 :math:`g` = 2を使います。"
-msgstr ""
-"as given in Ref. [2]_. \\ :math:`m` is the molecular mass, :math:`g` is "
-"the degeneracy of the electronic state, :math:`\\sigma` is the symmetry "
-"number (2 for H₂), :math:`B` is the rotational constant, and "
-":math:`\\omega` is the vibrational frequency (both in wavenumber units). "
-"\\ Following the paper, we omit the zero-point vibration factor from the "
-"vibrational partition function. \\ For the Ga atom, we include only "
-"translation and use the ground-state :sup:`2`\\ P\\ :sub:`1/2` degeneracy"
-" of :math:`g` = 2."
-
-#: ../../gan_surface/phase_diagram.rst:159
-msgid ""
-"H₂の回転定数と振動数は、Psi4で構造を最適化した後の振動数解析から取ります（ :numref:`tab-gan-h2` ）。\\ "
-"PBEの値は実験値より振動数が約2 %、回転定数が約2.5 %小さくなっています。"
-msgstr ""
-"We obtain the rotational constant and vibrational frequency of H₂ from "
-"vibrational analysis after geometry optimization with Psi4 (:numref:`tab-"
-"gan-h2`). \\ The PBE vibrational frequency is about 2 % below the "
-"experimental value, and the rotational constant is about 2.5 % below the "
-"experimental value."
-
-#: ../../gan_surface/phase_diagram.rst:162
-msgid "H₂の振動数と回転定数"
-msgstr "H₂ vibrational frequency and rotational constant"
-
-#: ../../gan_surface/phase_diagram.rst:168
-msgid ":math:`\\omega` （cm⁻¹）"
-msgstr ":math:`\\omega` (cm⁻¹)"
-
-#: ../../gan_surface/phase_diagram.rst:169
-msgid ":math:`B` （cm⁻¹）"
-msgstr ":math:`B` (cm⁻¹)"
-
-#: ../../gan_surface/phase_diagram.rst:170
-msgid "Psi4（PBE/cc-pVTZ）"
-msgstr "Psi4 (PBE/cc-pVTZ)"
-
-#: ../../gan_surface/phase_diagram.rst:171
-msgid "4317.0"
-msgstr "4317.0"
-
-#: ../../gan_surface/phase_diagram.rst:172
-msgid "59.35"
-msgstr "59.35"
-
-#: ../../gan_surface/phase_diagram.rst:173
-msgid "実験値 [4]_"
-msgstr "Experimental values [4]_"
-
-#: ../../gan_surface/phase_diagram.rst:174
-msgid "4401.2"
-msgstr "4401.2"
-
-#: ../../gan_surface/phase_diagram.rst:175
-msgid "60.853"
-msgstr "60.853"
-
-#: ../../gan_surface/phase_diagram.rst:177
-msgid ""
-"この値で式 :eq:`gan-mu` を計算すると、H₂の化学ポテンシャルにはどの自由度が効いているかが分かります（ :numref:`tab-"
-"gan-mu-parts` ）。"
-msgstr ""
-"Evaluating Equation :eq:`gan-mu` with these values shows which degrees of"
-" freedom contribute to the chemical potential of H₂ (:numref:`tab-gan-mu-"
-"parts`)."
-
-#: ../../gan_surface/phase_diagram.rst:179
-#, python-brace-format
-msgid ""
-"H₂の化学ポテンシャル :math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` の内訳（1100 "
-"°C、V/III = 3000、単位eV）"
-msgstr ""
-"Contributions to the H₂ chemical potential term "
-":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` (1100 °C, V/III = 3000, "
-"in eV)"
-
-#: ../../gan_surface/phase_diagram.rst:184
-#, python-brace-format
-msgid "キャリアガス（ :math:`p_\\mathrm{H_2}` ）"
-msgstr "Carrier gas (:math:`p_\\mathrm{H_2}`)"
-
-#: ../../gan_surface/phase_diagram.rst:185
-msgid "並進"
-msgstr "Translation"
-
-#: ../../gan_surface/phase_diagram.rst:186
-msgid "回転"
-msgstr "Rotation"
-
-#: ../../gan_surface/phase_diagram.rst:187
-msgid "振動"
-msgstr "Vibration"
-
-#: ../../gan_surface/phase_diagram.rst:188
-msgid "N₂（0.167 atm）"
-msgstr "N₂ (0.167 atm)"
-
-#: ../../gan_surface/phase_diagram.rst:189
-msgid "−3.06"
-msgstr "−3.06"
-
-#: ../../gan_surface/phase_diagram.rst:190
-#: ../../gan_surface/phase_diagram.rst:194
-msgid "−0.37"
-msgstr "−0.37"
-
-#: ../../gan_surface/phase_diagram.rst:191
-#: ../../gan_surface/phase_diagram.rst:195
-msgid "−0.002"
-msgstr "−0.002"
-
-#: ../../gan_surface/phase_diagram.rst:192
-msgid "H₂（0.611 atm）"
-msgstr "H₂ (0.611 atm)"
-
-#: ../../gan_surface/phase_diagram.rst:193
-msgid "−2.83"
-msgstr "−2.83"
-
-#: ../../gan_surface/phase_diagram.rst:197
-#, python-brace-format
-msgid ""
-"3Ga-H の :math:`\\Delta G` には、 "
-":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` が入ります。\\ "
-"その大半は並進の寄与で、分圧によって変わるのもこの項です。\\ 回転の寄与は約−0.37 eVあり、無視できません。\\ "
-"一方、振動の寄与は−0.002 eVしかありません。\\ H₂の振動数（約4300 cm⁻¹）は1100 °Cの熱エネルギー "
-":math:`k_\\mathrm{B}T` （約950 cm⁻¹）よりずっと大きく、振動はほとんど励起されないからです。\\ "
-"Psi4の値を実験値に置き換えても、 :math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` は5 "
-"meVしか変わりません。"
-msgstr ""
-"For 3Ga-H, :math:`\\Delta G` includes the term "
-":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}`. \\ Translation accounts "
-"for most of that term and is the only contribution that varies with the "
-"partial pressure. \\ The rotational contribution is about −0.37 eV, too "
-"large to neglect. \\ By contrast, the vibrational contribution is only "
-"−0.002 eV. \\ The H₂ vibrational frequency (about 4300 cm⁻¹) far exceeds "
-"the thermal energy :math:`k_\\mathrm{B}T` at 1100 °C (about 950 cm⁻¹), so"
-" the vibration is hardly excited. \\ Replacing the Psi4 values with the "
-"experimental values changes "
-":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` by only 5 meV."
-
-#: ../../gan_surface/phase_diagram.rst:205
+#: ../../gan_surface/phase_diagram.rst:141
 msgid "成長条件と分圧"
 msgstr "Growth Conditions and Partial Pressures"
 
-#: ../../gan_surface/phase_diagram.rst:207
+#: ../../gan_surface/phase_diagram.rst:143
 msgid ""
 "式 :eq:`gan-delta-g` に入れる分圧は、成長部での分圧です。\\ "
 "原料のTMGはGa原子にほぼ完全に分解しますが、NH₃は一部しか分解しません。\\ 論文 [2]_ は、NH₃の分解率を "
@@ -610,7 +443,7 @@ msgstr ""
 " decomposes only partially. \\ Kusaba et al. [2]_ set the NH₃ "
 "decomposition fraction to :math:`\\alpha` = 0.25 and use the reactions"
 
-#: ../../gan_surface/phase_diagram.rst:211
+#: ../../gan_surface/phase_diagram.rst:147
 msgid ""
 "\\mathrm{(CH_3)_3Ga + \\tfrac{3}{2}H_2 \\rightarrow Ga + 3CH_4}, \\qquad\n"
 "\\mathrm{NH_3 \\rightarrow \\tfrac{\\alpha}{2}N_2 + "
@@ -620,11 +453,11 @@ msgstr ""
 "\\mathrm{NH_3 \\rightarrow \\tfrac{\\alpha}{2}N_2 + "
 "\\tfrac{3\\alpha}{2}H_2 + (1-\\alpha)NH_3}"
 
-#: ../../gan_surface/phase_diagram.rst:216
+#: ../../gan_surface/phase_diagram.rst:152
 msgid "の分解の後の分圧を"
 msgstr "to obtain the following partial pressures after decomposition:"
 
-#: ../../gan_surface/phase_diagram.rst:218
+#: ../../gan_surface/phase_diagram.rst:154
 #, python-brace-format
 msgid ""
 "\\begin{aligned}\n"
@@ -645,7 +478,7 @@ msgstr ""
 "\\tfrac{\\alpha}{2}p^0_\\mathrm{NH_3}\\right)\n"
 "\\end{aligned}"
 
-#: ../../gan_surface/phase_diagram.rst:228
+#: ../../gan_surface/phase_diagram.rst:164
 #, python-brace-format
 msgid ""
 "としています。\\ :math:`p^0` は入口での分圧で、キャリアガスの分圧は :math:`p^0_\\mathrm{carrier} = "
@@ -656,7 +489,7 @@ msgid ""
 ":math:`p^0_\\mathrm{NH_3}/p^0_\\mathrm{TMG}` を500〜5000の範囲で変えます。\\ "
 "Gaの分圧はV/III比に反比例し、V/III = 500で約 :math:`9\\times10^{-4}` atm、5000で約 "
 ":math:`9\\times10^{-5}` atmです。\\ H₂の分圧は、N₂キャリアでもNH₃の分解で約0.17 "
-"atmあり、H₂キャリアでは約0.61 atmになります。"
+"atmあり、H₂キャリアでは約0.61 atmになります。\\ どちらも、V/III比ではほとんど変わりません。"
 msgstr ""
 "Here, \\ :math:`p^0` denotes the inlet partial pressures. The carrier gas"
 " partial pressure is :math:`p^0_\\mathrm{carrier} = p^0_\\mathrm{tot} - "
@@ -670,17 +503,220 @@ msgstr ""
 ":math:`9\\times10^{-4}` atm at V/III = 500 and about "
 ":math:`9\\times10^{-5}` atm at 5000. \\ Even with N₂ as the carrier, NH₃ "
 "decomposition produces an H₂ partial pressure of about 0.17 atm. With H₂ "
-"as the carrier, it is about 0.61 atm."
+"as the carrier, it is about 0.61 atm. \\ Both H₂ partial pressures change"
+" little with the V/III ratio."
 
-#: ../../gan_surface/phase_diagram.rst:235
-msgid ""
-":numref:`fig-gan-delta-g` に、V/III = 5000での各表面の :math:`\\Delta G` "
-"を温度に対して示します。"
+#: ../../gan_surface/phase_diagram.rst:173
+msgid "気相の化学ポテンシャル"
+msgstr "Gas-Phase Chemical Potential"
+
+#: ../../gan_surface/phase_diagram.rst:175
+msgid "気相の分子を理想気体とみなすと、化学ポテンシャルは並進・回転・振動の分配関数から"
 msgstr ""
-":numref:`fig-gan-delta-g` shows :math:`\\Delta G` for each surface as a "
-"function of temperature at V/III = 5000."
+"For gas-phase molecules treated as an ideal gas, the translational, "
+"rotational, and vibrational partition functions give the chemical "
+"potential"
+
+#: ../../gan_surface/phase_diagram.rst:177
+msgid ""
+"\\begin{aligned}\n"
+"\\tilde{\\mu} &= -k_\\mathrm{B}T "
+"\\ln\\left(g\\,\\frac{k_\\mathrm{B}T}{p}\\,\\zeta_\\mathrm{trans}\\,\\zeta_\\mathrm{rot}\\,\\zeta_\\mathrm{vib}\\right),\\\\"
+"\n"
+"\\zeta_\\mathrm{trans} &= \\left(\\frac{2\\pi m "
+"k_\\mathrm{B}T}{h^2}\\right)^{3/2},\n"
+"\\quad\n"
+"\\zeta_\\mathrm{rot} = \\frac{k_\\mathrm{B}T}{\\sigma h c B},\n"
+"\\quad\n"
+"\\zeta_\\mathrm{vib} = \\frac{1}{1 - e^{-h c\\,\\omega / k_\\mathrm{B}T}}"
+"\n"
+"\\end{aligned}"
+msgstr ""
+"\\begin{aligned}\n"
+"\\tilde{\\mu} &= -k_\\mathrm{B}T "
+"\\ln\\left(g\\,\\frac{k_\\mathrm{B}T}{p}\\,\\zeta_\\mathrm{trans}\\,\\zeta_\\mathrm{rot}\\,\\zeta_\\mathrm{vib}\\right),\\\\"
+"\n"
+"\\zeta_\\mathrm{trans} &= \\left(\\frac{2\\pi m "
+"k_\\mathrm{B}T}{h^2}\\right)^{3/2},\n"
+"\\quad\n"
+"\\zeta_\\mathrm{rot} = \\frac{k_\\mathrm{B}T}{\\sigma h c B},\n"
+"\\quad\n"
+"\\zeta_\\mathrm{vib} = \\frac{1}{1 - e^{-h c\\,\\omega / k_\\mathrm{B}T}}"
+"\n"
+"\\end{aligned}"
+
+#: ../../gan_surface/phase_diagram.rst:189
+msgid ""
+"と書けます [2]_ 。\\ :math:`m` は分子の質量、 :math:`g` は電子状態の縮重度、 :math:`\\sigma` "
+"は対称数（H₂では2）、 :math:`B` と :math:`\\omega` は波数単位の回転定数と振動数です。\\ "
+"論文にならい、振動の分配関数には零点振動の因子を含めていません。\\ Ga原子は並進だけで、基底状態 :sup:`2`\\ P\\ "
+":sub:`1/2` の縮重度 :math:`g` = 2を使います。"
+msgstr ""
+"as given in Ref. [2]_. \\ :math:`m` is the molecular mass, :math:`g` is "
+"the degeneracy of the electronic state, :math:`\\sigma` is the symmetry "
+"number (2 for H₂), and :math:`B` and :math:`\\omega` are the rotational "
+"constant and vibrational frequency in wavenumber units. \\ Following the "
+"paper, we omit the zero-point vibration factor from the vibrational "
+"partition function. \\ For the Ga atom, we include only translation and "
+"use the ground-state :sup:`2`\\ P\\ :sub:`1/2` degeneracy of :math:`g` = "
+"2."
+
+#: ../../gan_surface/phase_diagram.rst:194
+msgid ""
+"H₂の回転定数と振動数は、Psi4で構造を最適化した後の振動数解析から取ります（ :numref:`tab-gan-h2` ）。\\ "
+"PBEの値は実験値より振動数が約2 %、回転定数が約2.5 %小さくなっています。"
+msgstr ""
+"We obtain the rotational constant and vibrational frequency of H₂ from "
+"vibrational analysis after geometry optimization with Psi4 (:numref:`tab-"
+"gan-h2`). \\ The PBE vibrational frequency is about 2 % below the "
+"experimental value, and the rotational constant is about 2.5 % below the "
+"experimental value."
+
+#: ../../gan_surface/phase_diagram.rst:197
+msgid "H₂の振動数と回転定数"
+msgstr "H₂ vibrational frequency and rotational constant"
+
+#: ../../gan_surface/phase_diagram.rst:203
+msgid ":math:`\\omega` （cm⁻¹）"
+msgstr ":math:`\\omega` (cm⁻¹)"
+
+#: ../../gan_surface/phase_diagram.rst:204
+msgid ":math:`B` （cm⁻¹）"
+msgstr ":math:`B` (cm⁻¹)"
+
+#: ../../gan_surface/phase_diagram.rst:205
+msgid "Psi4（PBE/cc-pVTZ）"
+msgstr "Psi4 (PBE/cc-pVTZ)"
+
+#: ../../gan_surface/phase_diagram.rst:206
+msgid "4317.0"
+msgstr "4317.0"
+
+#: ../../gan_surface/phase_diagram.rst:207
+msgid "59.35"
+msgstr "59.35"
+
+#: ../../gan_surface/phase_diagram.rst:208
+msgid "実験値 [4]_"
+msgstr "Experimental values [4]_"
+
+#: ../../gan_surface/phase_diagram.rst:209
+msgid "4401.2"
+msgstr "4401.2"
+
+#: ../../gan_surface/phase_diagram.rst:210
+msgid "60.853"
+msgstr "60.853"
+
+#: ../../gan_surface/phase_diagram.rst:212
+#, python-brace-format
+msgid ""
+"3Ga-H の :math:`\\Delta G` には、H原子3個分の "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` が入ります。\\ この値で式 :eq:`gan-"
+"mu` を計算し、並進・回転・振動の寄与に分けると、どの自由度が効いているかが分かります（ :numref:`tab-gan-mu-parts` "
+"）。\\ 分圧は、前の小節の式 :eq:`gan-pressure` で求めた値です。"
+msgstr ""
+"The :math:`\\Delta G` of 3Ga-H includes "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}`, which accounts for three"
+" H atoms. \\ Evaluating Equation :eq:`gan-mu` with these values and "
+"splitting the result into translational, rotational, and vibrational "
+"contributions shows which degrees of freedom matter (:numref:`tab-gan-mu-"
+"parts`). \\ The partial pressures are the values obtained from Equation "
+":eq:`gan-pressure` in the previous subsection."
+
+#: ../../gan_surface/phase_diagram.rst:216
+#, python-brace-format
+msgid ""
+"H₂の化学ポテンシャル :math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` の内訳（1100 "
+"°C、V/III = 3000、単位eV）"
+msgstr ""
+"Contributions to the H₂ chemical potential term "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` (1100 °C, V/III = 3000, "
+"in eV)"
+
+#: ../../gan_surface/phase_diagram.rst:221
+#, python-brace-format
+msgid "キャリアガス（ :math:`p_\\mathrm{H_2}` ）"
+msgstr "Carrier gas (:math:`p_\\mathrm{H_2}`)"
+
+#: ../../gan_surface/phase_diagram.rst:222
+msgid "並進"
+msgstr "Translation"
+
+#: ../../gan_surface/phase_diagram.rst:223
+msgid "回転"
+msgstr "Rotation"
+
+#: ../../gan_surface/phase_diagram.rst:224
+msgid "振動"
+msgstr "Vibration"
+
+#: ../../gan_surface/phase_diagram.rst:225
+msgid "N₂（0.167 atm）"
+msgstr "N₂ (0.167 atm)"
+
+#: ../../gan_surface/phase_diagram.rst:226
+msgid "−3.06"
+msgstr "−3.06"
+
+#: ../../gan_surface/phase_diagram.rst:227
+#: ../../gan_surface/phase_diagram.rst:231
+msgid "−0.37"
+msgstr "−0.37"
+
+#: ../../gan_surface/phase_diagram.rst:228
+#: ../../gan_surface/phase_diagram.rst:232
+msgid "−0.002"
+msgstr "−0.002"
+
+#: ../../gan_surface/phase_diagram.rst:229
+msgid "H₂（0.611 atm）"
+msgstr "H₂ (0.611 atm)"
+
+#: ../../gan_surface/phase_diagram.rst:230
+msgid "−2.83"
+msgstr "−2.83"
+
+#: ../../gan_surface/phase_diagram.rst:234
+#, python-brace-format
+msgid ""
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` "
+"の大半は並進の寄与で、分圧によって変わるのもこの項です。\\ 回転の寄与は約−0.37 eVあり、無視できません。\\ "
+"一方、振動の寄与は−0.002 eVしかありません。\\ H₂の振動数（約4300 cm⁻¹）は1100 °Cの熱エネルギー "
+":math:`k_\\mathrm{B}T` （約950 cm⁻¹）よりずっと大きく、振動はほとんど励起されないからです。\\ "
+"Psi4の値を実験値に置き換えても、 :math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` は5 "
+"meVしか変わりません。"
+msgstr ""
+"Translation accounts for most of "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}`, and it is also the term "
+"that varies with the partial pressure. \\ The rotational contribution is "
+"about −0.37 eV, too large to neglect. \\ By contrast, the vibrational "
+"contribution is only −0.002 eV. \\ The H₂ vibrational frequency (about "
+"4300 cm⁻¹) far exceeds the thermal energy :math:`k_\\mathrm{B}T` at 1100 "
+"°C (about 950 cm⁻¹), so the vibration is hardly excited. \\ Replacing the"
+" Psi4 values with the experimental values changes "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` by only 5 meV."
 
 #: ../../gan_surface/phase_diagram.rst:241
+msgid "表面相図"
+msgstr "Surface Phase Diagram"
+
+#: ../../gan_surface/phase_diagram.rst:243
+msgid ""
+"成長温度900〜1300 °C、V/III比500〜5000の範囲で、 :math:`\\Delta G` が最も低い表面を選びます。\\ "
+"まず、V/III = 5000での3つの表面の :math:`\\Delta G` を温度に対して比べ（ :numref:`fig-gan-"
+"delta-g` ）、次に、温度とV/III比のそれぞれの点で最も安定な表面を塗り分けた相図（ :numref:`fig-gan-phase` "
+"）を論文の相図と比べます。"
+msgstr ""
+"For growth temperatures from 900 to 1300 °C and V/III ratios from 500 to "
+"5000, we select the surface with the lowest :math:`\\Delta G`. \\ We "
+"first compare the :math:`\\Delta G` of the three surfaces as a function "
+"of temperature at V/III = 5000 (:numref:`fig-gan-delta-g`). We then "
+"compare the phase diagram, in which each temperature and V/III ratio is "
+"colored by the most stable surface (:numref:`fig-gan-phase`), with the "
+"phase diagram in the paper."
+
+#: ../../gan_surface/phase_diagram.rst:250
 msgid ""
 "V/III = 5000での各表面のギブズエネルギー（Ideal "
 "基準、2×2表面セルあたり）。左がN₂キャリア、右がH₂キャリアです。各温度で最も低い線の表面が安定です。"
@@ -690,57 +726,58 @@ msgstr ""
 " H₂ carrier. At a given temperature, the lowest curve identifies the "
 "stable surface."
 
-#: ../../gan_surface/phase_diagram.rst:243
+#: ../../gan_surface/phase_diagram.rst:252
 #, python-brace-format
 msgid ""
 "温度が上がると、 :math:`-\\tilde{\\mu}` は大きくなるので、吸着した表面の :math:`\\Delta G` "
 "は上がっていきます。\\ 吸着した表面のうち最も低い :math:`\\Delta G` が0を横切ると、Ideal が最も安定になります。\\ "
-"N₂キャリアでは、Ga adatom の線が全温度で 3Ga-H の線より下にあり、Ga adatom から Ideal へ移ります。\\ "
-"H₂キャリアでは、H₂の分圧が高い分だけ :math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` "
-"が上がり（ :numref:`tab-gan-mu-parts` ）、3Ga-H の線が下がって Ga adatom の線と入れ替わります。\\ "
-"Ga adatom の線はキャリアガスによって変わりません。"
+"N₂キャリアでは、Ga adatom の線が全温度で 3Ga-H の線より下にあり、1148 °Cで Ga adatom から Ideal "
+"へ移ります。\\ H₂キャリアでは、H₂の分圧が高い分だけ "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` が上がり（ :numref:`tab-gan-"
+"mu-parts` ）、3Ga-H の線が下がって Ga adatom の線と入れ替わります。\\ 3Ga-H は1174 °Cで Ideal "
+"へ移ります。\\ Ga adatom の線はキャリアガスによって変わりません。\\ Gaの分圧がキャリアガスによらないからです。"
 msgstr ""
-"As temperature increases, :math:`-\\tilde{\\mu}` increases and so does "
-":math:`\\Delta G` for the surfaces with adatoms. \\ Ideal becomes the "
-"most stable surface when the lowest :math:`\\Delta G` among the surfaces "
-"with adatoms crosses zero. \\ With N₂ carrier, the Ga adatom curve stays "
-"below the 3Ga-H curve throughout the temperature range, and the stable "
-"surface changes from Ga adatom to Ideal. \\ With H₂ carrier, the higher "
-"H₂ partial pressure increases "
+"As the temperature increases, :math:`-\\tilde{\\mu}` increases, so the "
+":math:`\\Delta G` of the surfaces with adatoms rises. \\ Ideal becomes "
+"the most stable surface when the lowest :math:`\\Delta G` among the "
+"surfaces with adatoms crosses zero. \\ With N₂ carrier, the Ga adatom "
+"curve stays below the 3Ga-H curve throughout the temperature range, and "
+"the stable surface changes from Ga adatom to Ideal at 1148 °C. \\ With H₂"
+" carrier, the higher H₂ partial pressure raises "
 ":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` (:numref:`tab-gan-mu-"
-"parts`), lowering the 3Ga-H curve below the Ga adatom curve. \\ Changing "
-"the carrier gas leaves the Ga adatom curve unchanged."
+"parts`), which lowers the 3Ga-H curve so that it swaps places with the Ga"
+" adatom curve. \\ 3Ga-H gives way to Ideal at 1174 °C. \\ The Ga adatom "
+"curve does not change with the carrier gas. \\ This is because the Ga "
+"partial pressure does not depend on the carrier gas."
 
-#: ../../gan_surface/phase_diagram.rst:250
-msgid "表面相図"
-msgstr "Surface Phase Diagram"
-
-#: ../../gan_surface/phase_diagram.rst:252
+#: ../../gan_surface/phase_diagram.rst:260
 msgid ""
-"温度とV/III比のそれぞれの点で、 :math:`\\Delta G` が最も低い表面を塗り分けたのが :numref:`fig-gan-"
-"phase` です。"
+"この比較を温度とV/III比のそれぞれの点で行い、 :math:`\\Delta G` が最も低い表面を塗り分けたのが :numref:`fig-"
+"gan-phase` です。"
 msgstr ""
-"The surface with the lowest :math:`\\Delta G` at each temperature and "
-"V/III ratio is identified by color in :numref:`fig-gan-phase`."
+"Making this comparison at each temperature and V/III ratio and coloring "
+"each point by the surface with the lowest :math:`\\Delta G` gives :numref"
+":`fig-gan-phase`."
 
-#: ../../gan_surface/phase_diagram.rst:258
+#: ../../gan_surface/phase_diagram.rst:266
 #, python-brace-format
 msgid ""
-"GaN(0001)面の表面相図。全圧1 atm、 :math:`p^0_\\mathrm{NH_3}` = 0.5 atm、 "
-":math:`\\alpha` = 0.25。各点で式 :eq:`gan-delta-g` の :math:`\\Delta G` "
-"が最も低い表面の色で塗っています（温度2 °C、V/III比25刻み）。"
+"GaN(0001)面の表面相図。左がN₂キャリア、右がH₂キャリアです。全圧1 atm、 :math:`p^0_\\mathrm{NH_3}` ="
+" 0.5 atm、 :math:`\\alpha` = 0.25。各点で式 :eq:`gan-delta-g` の :math:`\\Delta "
+"G` が最も低い表面の色で塗っています（温度2 °C、V/III比25刻み）。"
 msgstr ""
-"Surface phase diagram for GaN(0001). The total pressure is 1 atm, "
+"Surface phase diagram for GaN(0001). The left panel uses N₂ carrier and "
+"the right panel uses H₂ carrier. The total pressure is 1 atm, "
 ":math:`p^0_\\mathrm{NH_3}` = 0.5 atm, and :math:`\\alpha` = 0.25. At each"
 " point, we use Equation :eq:`gan-delta-g` to calculate :math:`\\Delta G` "
 "and color the point by the surface with the lowest value (steps of 2 °C "
 "in temperature and 25 in V/III ratio)."
 
-#: ../../gan_surface/phase_diagram.rst:260
+#: ../../gan_surface/phase_diagram.rst:268
 msgid "相図から次のことが読み取れます。"
 msgstr "The phase diagram shows the following."
 
-#: ../../gan_surface/phase_diagram.rst:262
+#: ../../gan_surface/phase_diagram.rst:270
 msgid ""
 "N₂キャリアでは、低温で Ga adatom、高温で Ideal が現れます。境界の温度は、V/III = 500で1252 "
 "°C、5000で1148 °Cです。V/III比が大きいほどGaの分圧が低く、Ga原子が離れやすいので、境界は低温側へ移ります。"
@@ -751,113 +788,134 @@ msgstr ""
 "making it easier for Ga atoms to desorb and shifting the boundary to "
 "lower temperatures."
 
-#: ../../gan_surface/phase_diagram.rst:263
+#: ../../gan_surface/phase_diagram.rst:271
 msgid ""
-"H₂キャリアでは、V/III比が約2750以上の領域に 3Ga-H が現れます。3Ga-H と Ideal の境界は約1174 "
+"H₂キャリアでは、V/III比が約2750以上（900 °Cでは約3000以上）の領域に 3Ga-H が現れます。3Ga-H と Ideal "
+"の境界は約1174 "
 "°Cで、V/III比にほとんどよりません。H₂の分圧はNH₃の分解とキャリアガスで決まり、V/III比ではほとんど変わらないからです。"
 msgstr ""
-"With H₂ carrier, 3Ga-H appears at V/III ratios of about 2750 or higher. "
-"The boundary between 3Ga-H and Ideal is at about 1174 °C and depends very"
-" little on the V/III ratio. The H₂ partial pressure is set by NH₃ "
-"decomposition and the carrier gas and changes little with the V/III "
-"ratio."
-
-#: ../../gan_surface/phase_diagram.rst:264
-msgid "V/III比が小さい側では、H₂キャリアでも Ga adatom が現れ、Ideal との境界はN₂キャリアと同じです。"
-msgstr ""
-"At low V/III ratios, Ga adatom also appears with H₂ carrier, and its "
-"boundary with Ideal is the same as with N₂ carrier."
-
-#: ../../gan_surface/phase_diagram.rst:266
-msgid ""
-"論文 [2]_ のFig. 2と比べると、現れる表面の種類と並び方は同じです。\\ N₂キャリアで Ga adatom から Ideal "
-"へ移り、V/III比が大きいほど境界が低温になること、H₂キャリアで高V/III側に 3Ga-H が現れ、約1160 °Cで Ideal "
-"に移ることが一致しています。\\ 一方、境界の位置はずれています。\\ N₂キャリアの境界は、論文の図ではV/III = 5000で約1110 "
-"°C、500で約1200 °Cで、このページの計算は約40〜50 °C高温側にあります。\\ H₂キャリアで 3Ga-H "
-"が現れるV/III比の下限は、論文の図では約1200で、このページでは約2750です。"
-msgstr ""
-"We find the same surface types and ordering as in Fig. 2 of the paper "
-"[2]_. \\ Both diagrams show a transition from Ga adatom to Ideal with N₂ "
-"carrier, with the boundary shifting to lower temperatures as the V/III "
-"ratio increases. With H₂ carrier and a high V/III ratio, both diagrams "
-"show 3Ga-H and its transition to Ideal at around 1160 °C. \\ However, the"
-" phase boundaries are shifted. \\ With N₂ carrier, the paper's figure "
-"puts the boundary at about 1110 °C for V/III = 5000 and about 1200 °C for"
-" V/III = 500. Our calculated boundary is about 40–50 °C higher. \\ With "
-"H₂ carrier, the minimum V/III ratio at which 3Ga-H appears is about 1200 "
-"in the paper's figure and about 2750 in our calculation."
+"With H₂ carrier, 3Ga-H appears at V/III ratios of about 2750 or higher "
+"(about 3000 or higher at 900 °C). The boundary between 3Ga-H and Ideal is"
+" at about 1174 °C and depends very little on the V/III ratio. This is "
+"because the H₂ partial pressure is set by NH₃ decomposition and the "
+"carrier gas and changes little with the V/III ratio."
 
 #: ../../gan_surface/phase_diagram.rst:272
-#, python-brace-format
 msgid ""
-"境界の温度は吸着エネルギーに敏感です。\\ :math:`\\tilde{\\mu}_\\mathrm{Ga}` の温度変化は約−2.8 "
-"meV/Kなので、 :math:`E_\\mathrm{ads}` の0.1 eVの違いは、境界の温度で約35 °Cに当たります。\\ "
-"このページの :math:`\\tilde{\\mu}` を使い、論文の図の境界を逆にたどると、論文の吸着エネルギーは Ga adatom "
-"で約−3.65 eV、3Ga-H で約−3.37 eVと推定されます。\\ このページの値（ :numref:`tab-gan-eads` "
-"）は、それぞれ約0.13 eV、0.04 eV安定側にあり、境界のずれと整合します。\\ "
-"計算コードと基底関数（DMol3の数値基底とQEの平面波・PAW）、Ga原子の参照の取り方などの違いが、この程度の差になって現れていると考えられます。"
+"V/III比が小さい側では、H₂キャリアでも Ga adatom が現れ、Ideal との境界はN₂キャリアと同じです。Ga adatom と "
+"Ideal の :math:`\\Delta G` は、H₂の分圧によらないからです。"
 msgstr ""
-"The boundary temperature is sensitive to the adsorption energy. \\ "
-":math:`\\tilde{\\mu}_\\mathrm{Ga}` has a temperature slope of about −2.8 "
-"meV/K, so a difference of 0.1 eV in :math:`E_\\mathrm{ads}` corresponds "
-"to about 35 °C in the boundary temperature. \\ Using our "
-":math:`\\tilde{\\mu}` to work backward from the boundaries in the paper's"
-" figure gives estimated adsorption energies of about −3.65 eV for Ga "
-"adatom and −3.37 eV for 3Ga-H. \\ Our adsorption energies (:numref:`tab-"
-"gan-eads`) are lower by about 0.13 eV and 0.04 eV, respectively, "
-"consistent with the shifts in the boundaries. \\ Differences in the "
-"codes, basis sets (the numerical basis in DMol3 and plane waves with PAW "
-"in QE), and Ga atom reference may account for differences of this size."
+"At low V/III ratios, Ga adatom also appears with H₂ carrier, and its "
+"boundary with Ideal is the same as with N₂ carrier. This is because the "
+":math:`\\Delta G` values of Ga adatom and Ideal do not depend on the H₂ "
+"partial pressure."
+
+#: ../../gan_surface/phase_diagram.rst:274
+msgid ""
+"論文 [2]_ のFig. 2と比べると、現れる表面の種類と並び方は同じです。\\ N₂キャリアで Ga adatom から Ideal "
+"へ移り、V/III比が大きいほど境界が低温になること、H₂キャリアで高V/III側に 3Ga-H が現れ、さらに高温で Ideal "
+"に移ることが一致しています。\\ 一方、境界の位置はずれています。\\ N₂キャリアの境界は、論文の図ではV/III = 5000で約1110 "
+"°C、500で約1200 °Cで、このページの計算は約40〜50 °C高温側にあります。\\ H₂キャリアの 3Ga-H と Ideal "
+"の境界は、論文の図の約1160 °Cに対し、このページでは約1174 °Cです。\\ H₂キャリアで 3Ga-H "
+"が現れるV/III比の下限は、論文の図では約1200で、このページでは約2750です。"
+msgstr ""
+"Compared with Fig. 2 of the paper [2]_, the same surface types appear in "
+"the same order. \\ Both diagrams show that, with N₂ carrier, the surface "
+"changes from Ga adatom to Ideal, with the boundary at lower temperatures "
+"for higher V/III ratios, and that, with H₂ carrier, 3Ga-H appears at high"
+" V/III ratios and gives way to Ideal at even higher temperatures. \\ "
+"However, the boundaries are at different positions. \\ With N₂ carrier, "
+"the paper's figure puts the boundary at about 1110 °C for V/III = 5000 "
+"and about 1200 °C for V/III = 500, and our calculated boundary is about "
+"40–50 °C higher. \\ With H₂ carrier, the boundary between 3Ga-H and Ideal"
+" is at about 1174 °C on this page, compared with about 1160 °C in the "
+"paper's figure. \\ With H₂ carrier, the minimum V/III ratio at which "
+"3Ga-H appears is about 1200 in the paper's figure and about 2750 on this "
+"page."
 
 #: ../../gan_surface/phase_diagram.rst:281
-msgid "吸着位置の確認"
-msgstr "Checking the Adsorption Site"
+#, python-brace-format
+msgid ""
+"境界の温度は吸着エネルギーに敏感で、このずれは吸着エネルギーの0.1 eV程度の違いに当たります。\\ "
+":math:`\\tilde{\\mu}_\\mathrm{Ga}` の温度変化は約−2.8 meV/Kなので、 "
+":math:`E_\\mathrm{ads}` の0.1 eVの違いは、境界の温度で約35 °Cに当たります。\\ 論文の図の境界で "
+":math:`\\Delta G` が0になる吸着エネルギーを、このページの :math:`\\tilde{\\mu}` "
+"を使って逆算すると、論文の吸着エネルギーは Ga adatom で約−3.65 eV、3Ga-H で約−3.37 eVと推定されます。\\ "
+"このページの値（ :numref:`tab-gan-eads` ）は、それぞれ約0.13 eV、0.04 "
+"eV安定側にあり、境界が高温側にずれたことと整合します。\\ Ga adatom の方が大きく安定側にあるので、Ga adatom と 3Ga-H"
+" の境界も高V/III側へ移ります。\\ "
+"計算コードと基底関数（DMol3の数値基底とQEの平面波・PAW）、Ga原子の参照の取り方などの違いが、この程度の差になって現れていると考えられます。"
+msgstr ""
+"The boundary temperature is sensitive to the adsorption energy, and these"
+" shifts correspond to differences of about 0.1 eV in the adsorption "
+"energy. \\ :math:`\\tilde{\\mu}_\\mathrm{Ga}` has a temperature slope of "
+"about −2.8 meV/K, so a difference of 0.1 eV in :math:`E_\\mathrm{ads}` "
+"corresponds to about 35 °C in the boundary temperature. \\ Back-"
+"calculating the adsorption energies at which :math:`\\Delta G` is zero on"
+" the boundaries in the paper's figure, using our :math:`\\tilde{\\mu}`, "
+"gives estimates of the paper's adsorption energies: about −3.65 eV for Ga"
+" adatom and about −3.37 eV for 3Ga-H. \\ Our values (:numref:`tab-gan-"
+"eads`) are more stable (lower) by about 0.13 eV and 0.04 eV, "
+"respectively, consistent with the shift of the boundaries to higher "
+"temperatures. \\ Because Ga adatom is stabilized by more, the boundary "
+"between Ga adatom and 3Ga-H also shifts toward higher V/III ratios. \\ "
+"Differences in the code and basis set (the numerical basis in DMol3 "
+"versus plane waves with PAW in QE), in how the Ga atom reference is "
+"chosen, and in other details likely appear as differences of this size."
 
-#: ../../gan_surface/phase_diagram.rst:283
+#: ../../gan_surface/phase_diagram.rst:291
+msgid "Ga adatom の吸着サイト"
+msgstr "Adsorption Site of the Ga Adatom"
+
+#: ../../gan_surface/phase_diagram.rst:293
 msgid ""
 "Ga adatom のGa原子をどこに置くかで、結果は変わります。\\ "
 "Ga原子はT4サイトが最も安定ですが、H3サイト（スラブを通して真下に原子がない位置）に置いても構造最適化は収束し、その構造から相図を描けます。\\"
 " GaNに限らず、準安定な吸着サイトがある表面の安定性を調べるときは、収束した構造がどのサイトに対応するかを確かめる必要があります。\\ "
 ":numref:`fig-gan-site` に、H3サイトとT4サイトに置いた場合の相図を比べます。"
 msgstr ""
-"Where the Ga atom of the Ga adatom is placed changes the result. \\ Ga "
-"is most stable at the T4 site. However, if we place the Ga atom at the H3"
-" site (with no atom directly below it anywhere in the slab), geometry "
+"Where the Ga atom of the Ga adatom is placed changes the result. \\ Ga is"
+" most stable at the T4 site. However, if we place the Ga atom at the H3 "
+"site (with no atom directly below it anywhere in the slab), geometry "
 "optimization still converges, and we can use that structure to plot a "
 "phase diagram. \\ When assessing the stability of a surface with "
 "metastable adsorption sites, whether on GaN or another material, we need "
-"to identify the site in the converged structure. \\ :numref:`fig-gan-site` compares phase diagrams for Ga at the H3 and T4 "
-"sites."
+"to identify the site in the converged structure. \\ :numref:`fig-gan-"
+"site` compares phase diagrams for Ga at the H3 and T4 sites."
 
-#: ../../gan_surface/phase_diagram.rst:292
+#: ../../gan_surface/phase_diagram.rst:302
 msgid ""
-"Ga adatom の吸着位置による違い。上段がH3サイト、下段がT4サイトです。左端の図は最上層を上から見た図で、太い輪郭がGa adatom "
-"です。相図の条件は :numref:`fig-gan-phase` と同じです。"
+"Ga adatom の吸着サイトによる違い。上段がH3サイト、下段がT4サイトです。左端の図は最上層を上から見た図で、太い輪郭がGa adatom"
+" です。相図の条件は :numref:`fig-gan-phase` と同じです。"
 msgstr ""
 "Effect of the Ga adatom adsorption site. The top row shows the H3 site "
 "and the bottom row shows the T4 site. The panels on the far left show the"
 " topmost layer from above, with a thick outline around the Ga adatom. The"
 " phase diagrams use the same conditions as :numref:`fig-gan-phase`."
 
-#: ../../gan_surface/phase_diagram.rst:294
+#: ../../gan_surface/phase_diagram.rst:304
 #, python-brace-format
 msgid ""
 "T4サイトはH3サイトより0.226 eV安定です（ :math:`E_\\mathrm{ads}` = −3.78 eVと−3.55 "
 "eV）。\\ H3サイトのままでは、N₂キャリアでも高V/III側に 3Ga-H が現れ、H₂キャリアでは Ga adatom "
-"が全く現れません。\\ どちらも論文の相図とは異なります。"
+"が全く現れません。\\ どちらも論文の相図とは異なります。\\ T4サイトに置いた場合（下段）は :numref:`fig-gan-phase` "
+"と同じ相図で、現れる表面の種類と並び方が論文と一致します。"
 msgstr ""
 "The T4 site is more stable than the H3 site by 0.226 eV "
 "(:math:`E_\\mathrm{ads}` = −3.78 eV and −3.55 eV, respectively). \\ With "
 "the adatom at H3, 3Ga-H appears at high V/III ratios even with N₂ "
 "carrier, and Ga adatom does not appear at all with H₂ carrier. \\ Both "
-"results differ from the published phase diagram."
+"results differ from the published phase diagram. \\ With the adatom at "
+"the T4 site (bottom row), the phase diagram is the same as :numref:`fig-"
+"gan-phase`, and the surface types that appear and their order agree with "
+"the paper."
 
-#: ../../gan_surface/phase_diagram.rst:298
+#: ../../gan_surface/phase_diagram.rst:309
 msgid ""
 "構造最適化（BFGS）は、原子に働く力に沿って原子を動かします。\\ "
 "高い対称性の位置に置いた原子には、その対称性を破る向きの力が働かないので、原子は別のサイトへ移りません。\\ "
 "構造最適化が収束しても、「その位置が最も安定」の証拠にはなりません。\\ "
-"吸着位置は、最適化した後の座標から、吸着原子の真下に何の原子があるかで確かめます。\\ :doc:`reproduction` "
+"吸着サイトは、最適化した後の座標から、吸着原子の真下に何の原子があるかで確かめます。\\ :doc:`reproduction` "
 "の解析スクリプトは、この判定をしてから表面の名前を付けます。"
 msgstr ""
 "Geometry optimization (BFGS) moves atoms in response to the forces acting"
@@ -869,17 +927,17 @@ msgstr ""
 " the adatom. \\ :doc:`reproduction` provides the analysis script. The "
 "script performs this check before assigning a name to the surface."
 
-#: ../../gan_surface/phase_diagram.rst:307
+#: ../../gan_surface/phase_diagram.rst:318
 msgid "適用範囲"
 msgstr "Applicability"
 
-#: ../../gan_surface/phase_diagram.rst:309
+#: ../../gan_surface/phase_diagram.rst:320
 msgid "このページの相図は、次の近似と条件の下でのものです。"
 msgstr ""
 "The phase diagram applies under the following approximations and "
 "conditions."
 
-#: ../../gan_surface/phase_diagram.rst:311
+#: ../../gan_surface/phase_diagram.rst:322
 msgid ""
 "論文の9通りの表面構造 [2]_ のうち3つだけを比べています。ここで比べていない表面構造（Ga adlayer、N adatom "
 "など）の方が安定な条件では、相図は変わります。"
@@ -889,20 +947,20 @@ msgstr ""
 "structures we did not compare, such as Ga adlayer or N adatom, is more "
 "stable."
 
-#: ../../gan_surface/phase_diagram.rst:312
+#: ../../gan_surface/phase_diagram.rst:323
 msgid "(000−1)面は扱っていません。N面のスラブの底面には、価数1.25の擬水素が要ります。"
 msgstr ""
 "We do not consider the (000−1) face. The bottom of the N-face slab "
 "requires pseudo-hydrogen with a valence of 1.25."
 
-#: ../../gan_surface/phase_diagram.rst:313
+#: ../../gan_surface/phase_diagram.rst:324
 msgid "表面の原子の振動は含めていません。気相の分子の振動は含めていますが、零点振動のエネルギーは気相・表面とも含めていません（論文と同じ）。"
 msgstr ""
 "We omit vibrations of surface atoms. We include vibrations of gas-phase "
 "molecules, but omit the energy of zero-point vibrations for both the gas "
 "phase and the surface, as in the paper."
 
-#: ../../gan_surface/phase_diagram.rst:314
+#: ../../gan_surface/phase_diagram.rst:325
 msgid ""
 "スラブの計算はスピン分極を考えていません。Ga原子の参照エネルギーはスピン分極ありで計算しました。Ga原子をスピン分極なしで計算すると全エネルギーが0.245"
 " eV高くなり、Ga adatom の吸着エネルギーが同じだけ変わります。"
@@ -912,7 +970,7 @@ msgstr ""
 "Ga atom's total energy is 0.245 eV higher, and the adsorption energy of "
 "Ga adatom changes by the same amount."
 
-#: ../../gan_surface/phase_diagram.rst:315
+#: ../../gan_surface/phase_diagram.rst:326
 msgid ""
 "底面の擬水素は、QEの ``ld1.x`` で作ったノルム保存型の擬ポテンシャルです。原子の自己無撞着計算と ``pw.x`` "
 "での1原子の計算は通りましたが、表面での転移性やカットオフエネルギーへの収束は確かめていません。"
@@ -923,13 +981,16 @@ msgstr ""
 "ran successfully, but we have not checked transferability to the surface "
 "or convergence with respect to cutoff energy."
 
-#: ../../gan_surface/phase_diagram.rst:316
-msgid "スラブの計算はQE 7.6、Ga原子とH₂の計算はQE 7.5で行いました（ :numref:`tab-gan-conditions` ）。"
+#: ../../gan_surface/phase_diagram.rst:327
+msgid ""
+"スラブの計算はQE 7.6、Ga原子とH₂の計算はQE 7.5で行いました（ :numref:`tab-gan-conditions` "
+"）。版による全エネルギーの違いは確かめていません。"
 msgstr ""
 "We ran the slab calculations with QE 7.6 and the Ga atom and H₂ "
-"calculations with QE 7.5 (:numref:`tab-gan-conditions`)."
+"calculations with QE 7.5 (:numref:`tab-gan-conditions`). We have not "
+"checked how much the total energies differ between the two versions."
 
-#: ../../gan_surface/phase_diagram.rst:317
+#: ../../gan_surface/phase_diagram.rst:328
 msgid ""
 "成長部の分圧は、論文の分解モデル（式 :eq:`gan-pressure` ）によります。分解率 :math:`\\alpha` "
 "を変えると、特にH₂の分圧と 3Ga-H の領域が変わります。"
@@ -939,26 +1000,101 @@ msgstr ""
 "fraction :math:`\\alpha` changes the H₂ partial pressure and the 3Ga-H "
 "region in particular."
 
-#: ../../gan_surface/phase_diagram.rst:321
+#: ../../gan_surface/phase_diagram.rst:332
 msgid ""
 "quemix.com の `Quloudの紹介ページ <https://www.quemix.com/quloud>`__ "
-"に掲載した同じ計算の相図は、このページの計算条件のうち2点が揃っていない段階のものでした（H₂のQEの計算のカットオフが50 Ry、Ideal "
+"に掲載した同じ計算の相図は、計算条件がこのページと2点違う段階のものでした（H₂のQEの計算のカットオフが50 Ry、Ideal "
 "のスメアリングの補正なし）。\\ そのときの吸着エネルギーは Ga adatom で−3.73 eV、3Ga-H で−3.36 "
 "eVで、相境界はこのページより約17 °C低温側にありました。相図の形は同じです。"
 msgstr ""
-"The earlier phase diagram for this example on the quemix.com `Quloud "
-"overview page <https://www.quemix.com/quloud>`__ used two different "
-"calculation conditions. The QE calculation for H₂ used a cutoff of 50 Ry,"
-" and the energy of Ideal had no smearing correction. \\ The adsorption "
-"energy was −3.73 eV for Ga adatom and −3.36 eV for 3Ga-H, and the phase "
-"boundary was about 17 °C lower than the one here. The shape of the phase "
-"diagram was the same."
+"The phase diagram of the same calculation posted on the quemix.com "
+"`Quloud overview page <https://www.quemix.com/quloud>`__ dates from a "
+"stage when two calculation conditions differed from those on this page (a"
+" cutoff of 50 Ry for the QE calculation of H₂, and no smearing correction"
+" for Ideal). \\ At that stage, the adsorption energy was −3.73 eV for Ga "
+"adatom and −3.36 eV for 3Ga-H, and the phase boundary was about 17 °C "
+"lower than on this page. The shape of the phase diagram was the same."
 
-#: ../../gan_surface/phase_diagram.rst:325
+#: ../../gan_surface/phase_diagram.rst:336
+msgid "この数値実験から分かること"
+msgstr "What the Numerical Experiment Shows"
+
+#: ../../gan_surface/phase_diagram.rst:338
+msgid ""
+"表面の吸着エネルギー（QE）と気相の化学ポテンシャル（Psi4の振動数・回転定数と理想気体の統計力学）を組み合わせて、成長温度とV/III比に対するGaN(0001)の表面相図を描きました。N₂キャリアでは、低温で"
+" Ga adatom、高温で Ideal が安定で、境界はV/III比が大きいほど低温になります（V/III = 500で1252 "
+"°C、5000で1148 °C）。"
+msgstr ""
+"We combined the adsorption energy of each surface (QE) with the gas-phase"
+" chemical potentials (from the Psi4 vibrational frequency and rotational "
+"constant with ideal-gas statistical mechanics) to plot the surface phase "
+"diagram of GaN(0001) as a function of growth temperature and V/III ratio."
+" With N₂ carrier, Ga adatom is stable at low temperatures and Ideal at "
+"high temperatures, and the boundary is at lower temperatures for higher "
+"V/III ratios (1252 °C at V/III = 500 and 1148 °C at 5000)."
+
+#: ../../gan_surface/phase_diagram.rst:339
+msgid ""
+"キャリアガスをH₂に替えると、H₂の分圧が約0.17 atmから約0.61 atmに上がり、V/III比が約2750以上の領域で、H原子が吸着した"
+" 3Ga-H が約1174 °Cまで安定になります。V/III比が小さい側の Ga adatom と Ideal の境界は変わりません。"
+msgstr ""
+"Switching the carrier gas to H₂ raises the H₂ partial pressure from about"
+" 0.17 atm to about 0.61 atm, and 3Ga-H, with adsorbed H atoms, becomes "
+"stable up to about 1174 °C at V/III ratios of about 2750 or higher. At "
+"low V/III ratios, the boundary between Ga adatom and Ideal does not "
+"change."
+
+#: ../../gan_surface/phase_diagram.rst:340
+#, python-brace-format
+msgid ""
+"3Ga-H の :math:`\\Delta G` に入る "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` （1100 "
+"°C）では、並進に次いで回転の寄与（約−0.37 eV）が大きく、振動の寄与は−0.002 "
+"eVでした。Psi4の振動数と回転定数を実験値に置き換えても、この量は5 meVしか変わりません。"
+msgstr ""
+"In the :math:`\\Delta G` of 3Ga-H, the term "
+":math:`\\frac{3}{2}\\tilde{\\mu}_\\mathrm{H_2}` (at 1100 °C) has its "
+"largest contribution from translation, followed by rotation (about −0.37 "
+"eV), and the vibrational contribution is −0.002 eV. Replacing the Psi4 "
+"vibrational frequency and rotational constant with experimental values "
+"changes this quantity by only 5 meV."
+
+#: ../../gan_surface/phase_diagram.rst:341
+msgid ""
+"現れる表面の種類と並び方は論文 [2]_ と同じで、境界の温度はN₂キャリアで約40〜50 "
+"°C高温側にずれました。このずれは、吸着エネルギーの0.1 eV程度の違い（Ga adatom で約0.13 eV）に当たります。"
+msgstr ""
+"The surface types that appear and their order are the same as in the "
+"paper [2]_, but with N₂ carrier the boundary temperatures are shifted "
+"about 40–50 °C higher. This shift corresponds to a difference of about "
+"0.1 eV in the adsorption energy (about 0.13 eV for Ga adatom)."
+
+#: ../../gan_surface/phase_diagram.rst:342
+msgid ""
+"Ga adatom をH3サイトに置いても構造最適化は収束しますが、T4サイトより0.226 "
+"eV不安定で、相図が変わります。吸着サイトは、最適化した後の座標で確かめる必要があります。"
+msgstr ""
+"Even with Ga adatom placed at the H3 site, geometry optimization "
+"converges, but the structure is 0.226 eV less stable than with the T4 "
+"site, and the phase diagram changes. The adsorption site needs to be "
+"checked using the coordinates after optimization."
+
+#: ../../gan_surface/phase_diagram.rst:344
+#, python-brace-format
+msgid ""
+"この相図は、3つの表面構造だけを比べ、表面の原子の振動を含めず、論文の分解モデルの分圧を使ったものです（ :numref:`{number}. "
+"{name} <gan-scope>` ）。"
+msgstr ""
+"This phase diagram compares only three surface structures, omits "
+"vibrations of the surface atoms, and uses partial pressures from the "
+"decomposition model in the paper (:numref:`{number}. {name} <gan-"
+"scope>`)."
+
+#: ../../gan_surface/phase_diagram.rst:347
 msgid "参考文献"
 msgstr "References"
 
-#: ../../gan_surface/phase_diagram.rst:327
+#: ../../gan_surface/phase_diagram.rst:349
 msgid ""
 "Y\\. Kangawa, T. Ito, A. Taguchi, K. Shiraishi, and T. Ohachi, Surf. Sci."
 " **493**, 178 (2001)."
@@ -966,7 +1102,7 @@ msgstr ""
 "Y\\. Kangawa, T. Ito, A. Taguchi, K. Shiraishi, and T. Ohachi, Surf. Sci."
 " **493**, 178 (2001)."
 
-#: ../../gan_surface/phase_diagram.rst:329
+#: ../../gan_surface/phase_diagram.rst:351
 msgid ""
 "A\\. Kusaba, Y. Kangawa, P. Kempisty, H. Valencia, K. Shiraishi, Y. "
 "Kumagai, K. Kakimoto, and A. Koukitu, \"Thermodynamic analysis of (0001) "
@@ -983,11 +1119,11 @@ msgstr ""
 "available in the `Kyushu University Institutional Repository "
 "<https://hdl.handle.net/2324/7183509>`__."
 
-#: ../../gan_surface/phase_diagram.rst:331
+#: ../../gan_surface/phase_diagram.rst:353
 msgid "K\\. Shiraishi, J. Phys. Soc. Jpn. **59**, 3455 (1990)."
 msgstr "K\\. Shiraishi, J. Phys. Soc. Jpn. **59**, 3455 (1990)."
 
-#: ../../gan_surface/phase_diagram.rst:333
+#: ../../gan_surface/phase_diagram.rst:355
 msgid ""
 "K\\. P. Huber and G. Herzberg, *Molecular Spectra and Molecular Structure"
 " IV. Constants of Diatomic Molecules* (Van Nostrand Reinhold, 1979)。 "
@@ -999,4 +1135,27 @@ msgstr ""
 " IV. Constants of Diatomic Molecules* (Van Nostrand Reinhold, 1979). The "
 "values are listed in the `NIST Chemistry WebBook "
 "<https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&Mask=1000>`__."
+
+#~ msgid ""
+#~ "この値で式 :eq:`gan-mu` "
+#~ "を計算すると、H₂の化学ポテンシャルにはどの自由度が効いているかが分かります（ :numref:`tab-"
+#~ "gan-mu-parts` ）。"
+#~ msgstr ""
+#~ "Evaluating Equation :eq:`gan-mu` with "
+#~ "these values shows which degrees of "
+#~ "freedom contribute to the chemical "
+#~ "potential of H₂ (:numref:`tab-gan-mu-"
+#~ "parts`)."
+
+#~ msgid ""
+#~ ":numref:`fig-gan-delta-g` に、V/III = "
+#~ "5000での各表面の :math:`\\Delta G` を温度に対して示します。"
+#~ msgstr ""
+#~ ":numref:`fig-gan-delta-g` shows :math:`\\Delta"
+#~ " G` for each surface as a "
+#~ "function of temperature at V/III = "
+#~ "5000."
+
+#~ msgid "吸着位置の確認"
+#~ msgstr "Checking the Adsorption Site"
 

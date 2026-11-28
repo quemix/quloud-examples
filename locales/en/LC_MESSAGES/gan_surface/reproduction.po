@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 14:33+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -41,8 +41,10 @@ msgid ""
 "**表面スラブの計算は、現在のQuloudの画面だけでは行えません。**\\ "
 "スラブの底面を終端する擬水素（価数0.75）は、表面に吸着したH原子とは別の擬ポテンシャルを使う必要があります。\\ QuloudのQuantum"
 " ESPRESSOの設定では、擬ポテンシャルを元素ごとに1つ選ぶため、同じ構造の中でH原子を2種類に分けられません。\\ "
-"また、価数0.75の擬水素の擬ポテンシャルは、Quloudの擬ポテンシャルの一覧にありません。\\ 表面・界面の計算でこの機能が必要な場合は、 "
-"`お問い合わせ <https://www.quemix.com/contact>`__ からご連絡ください。"
+"また、価数0.75の擬水素の擬ポテンシャルは、Quloudの擬ポテンシャルの一覧にありません。\\ "
+"気相のH₂とGa原子の計算（下の手順1・2）はQuloudで行えます。スラブは配布した出力を使い、手順4でまとめて解析します。\\ "
+"表面・界面の計算でこの機能が必要な場合は、 `お問い合わせ <https://www.quemix.com/contact>`__ "
+"からご連絡ください。"
 msgstr ""
 "**The surface slab calculations require settings that are unavailable in "
 "the current Quloud interface.** \\ The pseudo-hydrogen (valence 0.75) "
@@ -51,32 +53,35 @@ msgstr ""
 "ESPRESSO settings in Quloud allow one pseudopotential per element, so you"
 " cannot assign two different H species in the same structure. \\ The "
 "Quloud pseudopotential list also lacks a pseudopotential for pseudo-"
-"hydrogen with valence 0.75. \\ If you need this capability for surface or"
-" interface calculations, `contact us <https://www.quemix.com/contact>`__."
+"hydrogen with valence 0.75. \\ You can run the gas-phase H₂ and Ga atom "
+"calculations (steps 1 and 2 below) in Quloud. For the slabs, use the "
+"provided output, and analyze all of the results together in step 4. \\ If"
+" you need this capability for surface or interface calculations, `contact"
+" us <https://www.quemix.com/contact>`__."
 
-#: ../../gan_surface/reproduction.rst:17
+#: ../../gan_surface/reproduction.rst:18
 msgid "計算環境"
 msgstr "Computing Environment"
 
-#: ../../gan_surface/reproduction.rst:19
+#: ../../gan_surface/reproduction.rst:20
 msgid "記事の計算は、Quloudと同じ計算コードを使い、Quloudの外で実行したものです。"
 msgstr ""
 "We ran the calculations for the article outside Quloud using the same "
 "calculation codes that Quloud uses."
 
-#: ../../gan_surface/reproduction.rst:26
+#: ../../gan_surface/reproduction.rst:27
 msgid "計算"
 msgstr "Calculation"
 
-#: ../../gan_surface/reproduction.rst:27
+#: ../../gan_surface/reproduction.rst:28
 msgid "実行環境"
 msgstr "Execution environment"
 
-#: ../../gan_surface/reproduction.rst:28
+#: ../../gan_surface/reproduction.rst:29
 msgid "表面スラブ（4件）"
 msgstr "Surface slabs (4 jobs)"
 
-#: ../../gan_surface/reproduction.rst:29
+#: ../../gan_surface/reproduction.rst:30
 msgid ""
 "Quantum ESPRESSO 7.6、AWS EC2で32 MPIプロセス（2026年10月）。Quloudで使われているQuantum "
 "ESPRESSOは7.5で、版が異なります"
@@ -84,11 +89,11 @@ msgstr ""
 "Quantum ESPRESSO 7.6 on AWS EC2 with 32 MPI processes (October 2026). "
 "Quloud uses Quantum ESPRESSO 7.5, a different version."
 
-#: ../../gan_surface/reproduction.rst:30
+#: ../../gan_surface/reproduction.rst:31
 msgid "Ga原子・H₂（QE）"
 msgstr "Ga atom and H₂ (QE)"
 
-#: ../../gan_surface/reproduction.rst:31
+#: ../../gan_surface/reproduction.rst:32
 msgid ""
 "Quantum ESPRESSO 7.5。Quloudのジョブと同じ実行スクリプトを入れたDockerコンテナを、WSL2（Intel Core "
 "Ultra 5 225U、MPI 4並列）で実行（2026年10〜11月）"
@@ -97,17 +102,17 @@ msgstr ""
 "Quloud Job, on WSL2 (Intel Core Ultra 5 225U, 4 MPI processes, "
 "October–November 2026)"
 
-#: ../../gan_surface/reproduction.rst:32
+#: ../../gan_surface/reproduction.rst:33
 msgid "H₂（Psi4）"
 msgstr "H₂ (Psi4)"
 
-#: ../../gan_surface/reproduction.rst:33
+#: ../../gan_surface/reproduction.rst:34
 msgid "Psi4 1.10。同じくQuloudの実行スクリプトを入れたDockerコンテナで実行（2026年11月）"
 msgstr ""
 "Psi4 1.10, also in a Docker container with the Quloud run script "
 "(November 2026)"
 
-#: ../../gan_surface/reproduction.rst:35
+#: ../../gan_surface/reproduction.rst:36
 msgid ""
 "QEの入力ファイルは、Quloudの入力生成プログラムを通さず、手で作りました。\\ "
 "Psi4の入力ファイルは、Quloudの「振動数解析（Psi4）」が :ref:`1. H₂の振動数と回転定数（Psi4） <gan-"
@@ -119,15 +124,15 @@ msgstr ""
 " :ref:`1. H₂ Frequencies and Rotational Constants (Psi4) <gan-"
 "repro-h2-psi4>`."
 
-#: ../../gan_surface/reproduction.rst:39
+#: ../../gan_surface/reproduction.rst:40
 msgid "配布ファイル"
 msgstr "Downloadable Files"
 
-#: ../../gan_surface/reproduction.rst:42
+#: ../../gan_surface/reproduction.rst:43
 msgid "構造ファイル"
 msgstr "Structure Files"
 
-#: ../../gan_surface/reproduction.rst:44
+#: ../../gan_surface/reproduction.rst:45
 msgid ""
 "Quloudの「ファイルアップロード」でMaterialとして登録する構造です。\\ スラブはすべて構造最適化の前の初期構造で、 ``Hn1`` "
 "〜 ``Hn4`` が底面の擬水素、 ``N1`` 〜 ``N4`` が底面のN原子です（この8原子を固定します）。\\ "
@@ -140,79 +145,79 @@ msgstr ""
 "N atoms. These eight atoms are fixed. \\ The CIF uses the element symbol "
 "``H`` for pseudo-hydrogen."
 
-#: ../../gan_surface/reproduction.rst:53 ../../gan_surface/reproduction.rst:113
+#: ../../gan_surface/reproduction.rst:54 ../../gan_surface/reproduction.rst:114
 msgid "ファイル"
 msgstr "File"
 
-#: ../../gan_surface/reproduction.rst:54 ../../gan_surface/reproduction.rst:114
+#: ../../gan_surface/reproduction.rst:55 ../../gan_surface/reproduction.rst:115
 msgid "内容"
 msgstr "Contents"
 
-#: ../../gan_surface/reproduction.rst:55
+#: ../../gan_surface/reproduction.rst:56
 msgid ":download:`gan0001_ideal.cif <structures/gan0001_ideal.cif>`"
 msgstr ":download:`gan0001_ideal.cif <structures/gan0001_ideal.cif>`"
 
-#: ../../gan_surface/reproduction.rst:56
+#: ../../gan_surface/reproduction.rst:57
 msgid "Ideal （44原子）"
 msgstr "Ideal (44 atoms)"
 
-#: ../../gan_surface/reproduction.rst:57
+#: ../../gan_surface/reproduction.rst:58
 msgid ":download:`gan0001_ga_adatom_t4.cif <structures/gan0001_ga_adatom_t4.cif>`"
 msgstr ":download:`gan0001_ga_adatom_t4.cif <structures/gan0001_ga_adatom_t4.cif>`"
 
-#: ../../gan_surface/reproduction.rst:58
+#: ../../gan_surface/reproduction.rst:59
 msgid "Ga adatom、T4サイト（45原子）。構造最適化した Ideal の上にGa原子を置いたもの"
 msgstr ""
 "Ga adatom, T4 site (45 atoms). A Ga atom placed on the Ideal structure "
 "obtained by geometry optimization"
 
-#: ../../gan_surface/reproduction.rst:59
+#: ../../gan_surface/reproduction.rst:60
 msgid ":download:`gan0001_ga_adatom_h3.cif <structures/gan0001_ga_adatom_h3.cif>`"
 msgstr ":download:`gan0001_ga_adatom_h3.cif <structures/gan0001_ga_adatom_h3.cif>`"
 
-#: ../../gan_surface/reproduction.rst:60
-msgid "Ga adatom、H3サイト（45原子）。 :ref:`吸着位置の確認 <gan-site-check>` の比較用"
-msgstr ""
-"Ga adatom, H3 site (45 atoms). Used for comparison in :ref:`Checking the "
-"Adsorption Site <gan-site-check>`."
-
 #: ../../gan_surface/reproduction.rst:61
+msgid "Ga adatom、H3サイト（45原子）。 :ref:`Ga adatom の吸着サイト <gan-site-check>` の比較用"
+msgstr ""
+"Ga adatom, H3 site (45 atoms). Used for comparison in :ref:`Adsorption "
+"Site of the Ga Adatom <gan-site-check>`."
+
+#: ../../gan_surface/reproduction.rst:62
 msgid ":download:`gan0001_3ga_h.cif <structures/gan0001_3ga_h.cif>`"
 msgstr ":download:`gan0001_3ga_h.cif <structures/gan0001_3ga_h.cif>`"
 
-#: ../../gan_surface/reproduction.rst:62
+#: ../../gan_surface/reproduction.rst:63
 msgid "3Ga-H （47原子）"
 msgstr "3Ga-H (47 atoms)"
 
-#: ../../gan_surface/reproduction.rst:63
+#: ../../gan_surface/reproduction.rst:64
 msgid ":download:`ga_atom_box.cif <structures/ga_atom_box.cif>`"
 msgstr ":download:`ga_atom_box.cif <structures/ga_atom_box.cif>`"
 
-#: ../../gan_surface/reproduction.rst:64
+#: ../../gan_surface/reproduction.rst:65
 msgid "孤立Ga原子、一辺24 bohrの立方体セル"
 msgstr "Isolated Ga atom in a cubic cell 24 bohr on a side"
 
-#: ../../gan_surface/reproduction.rst:65
+#: ../../gan_surface/reproduction.rst:66
 msgid ":download:`h2_box.cif <structures/h2_box.cif>`"
 msgstr ":download:`h2_box.cif <structures/h2_box.cif>`"
 
-#: ../../gan_surface/reproduction.rst:66
+#: ../../gan_surface/reproduction.rst:67
 msgid "H₂分子（QE用）、一辺30 bohrの立方体セル"
 msgstr "H₂ molecule for QE in a cubic cell 30 bohr on a side"
 
-#: ../../gan_surface/reproduction.rst:67
+#: ../../gan_surface/reproduction.rst:68
 msgid ":download:`h2.xyz <structures/h2.xyz>`"
 msgstr ":download:`h2.xyz <structures/h2.xyz>`"
 
-#: ../../gan_surface/reproduction.rst:68
+#: ../../gan_surface/reproduction.rst:69
 msgid "H₂分子（Psi4用、Molecule）"
 msgstr "H₂ molecule for Psi4 (Molecule)"
 
-#: ../../gan_surface/reproduction.rst:71
+#: ../../gan_surface/reproduction.rst:72
 msgid "擬ポテンシャル"
 msgstr "Pseudopotentials"
 
-#: ../../gan_surface/reproduction.rst:73
+#: ../../gan_surface/reproduction.rst:74
 msgid ""
 ":download:`H_N_0.75.PBE.UPF <data/H_N_0.75.PBE.UPF>` "
 "：底面の擬水素の擬ポテンシャル。Quantum ESPRESSO 7.5の ``ld1.x`` で次の条件で作りました。"
@@ -222,57 +227,57 @@ msgstr ""
 "generated it with ``ld1.x`` in Quantum ESPRESSO 7.5 using the settings "
 "below."
 
-#: ../../gan_surface/reproduction.rst:80
+#: ../../gan_surface/reproduction.rst:81
 msgid "項目"
 msgstr "Item"
 
-#: ../../gan_surface/reproduction.rst:81
+#: ../../gan_surface/reproduction.rst:82
 msgid "条件"
 msgstr "Settings"
 
-#: ../../gan_surface/reproduction.rst:82
+#: ../../gan_surface/reproduction.rst:83
 msgid "原子番号・価数"
 msgstr "Atomic number and valence"
 
-#: ../../gan_surface/reproduction.rst:83
+#: ../../gan_surface/reproduction.rst:84
 msgid "0.75（電子配置 1s\\ :sup:`0.75` ）"
 msgstr "0.75 (electron configuration 1s\\ :sup:`0.75`)"
 
-#: ../../gan_surface/reproduction.rst:84 ../../gan_surface/reproduction.rst:187
+#: ../../gan_surface/reproduction.rst:85 ../../gan_surface/reproduction.rst:177
 msgid "交換相関汎関数"
 msgstr "Exchange-Correlation Functional"
 
-#: ../../gan_surface/reproduction.rst:85 ../../gan_surface/reproduction.rst:159
+#: ../../gan_surface/reproduction.rst:86 ../../gan_surface/reproduction.rst:149
 msgid "PBE"
 msgstr "PBE"
 
-#: ../../gan_surface/reproduction.rst:86
+#: ../../gan_surface/reproduction.rst:87
 msgid "種類"
 msgstr "Type"
 
-#: ../../gan_surface/reproduction.rst:87
+#: ../../gan_surface/reproduction.rst:88
 msgid "ノルム保存型、Troullier–Martins、非相対論"
 msgstr "Norm-conserving, Troullier–Martins, nonrelativistic"
 
-#: ../../gan_surface/reproduction.rst:88
+#: ../../gan_surface/reproduction.rst:89
 msgid "カットオフ半径"
 msgstr "Cutoff radius"
 
-#: ../../gan_surface/reproduction.rst:89
+#: ../../gan_surface/reproduction.rst:90
 msgid "0.8 bohr（s軌道のみ、局所成分 :math:`l` = 0）"
 msgstr "0.8 bohr (s orbital only, local component :math:`l` = 0)"
 
-#: ../../gan_surface/reproduction.rst:91
+#: ../../gan_surface/reproduction.rst:92
 msgid "それ以外の擬ポテンシャル（Ga、N、H）は、Quloudの一覧にあるpslibrary 1.0.0のものです。"
 msgstr ""
 "The other pseudopotentials (Ga, N, and H) are from pslibrary 1.0.0 and "
 "are available in Quloud's list."
 
-#: ../../gan_surface/reproduction.rst:94
+#: ../../gan_surface/reproduction.rst:95
 msgid "スクリプト"
 msgstr "Script"
 
-#: ../../gan_surface/reproduction.rst:96
+#: ../../gan_surface/reproduction.rst:97
 msgid ""
 ":download:`analyze_gan_surface.py <scripts/analyze_gan_surface.py>` "
 "：Quloudからダウンロードした出力ファイルのZIPを読み、記事中の数値を表示して、図を作成します。"
@@ -281,11 +286,11 @@ msgstr ""
 " ZIP archives of output files downloaded from Quloud, prints the values "
 "reported in the article, and generates the figures."
 
-#: ../../gan_surface/reproduction.rst:98
+#: ../../gan_surface/reproduction.rst:99
 msgid ""
 "スクリプトはPython 3、NumPy、Matplotlibで動作します。\\ "
 "ジョブはファイル名ではなく中身で判定します（QEの入力の原子の種類と数、Psi4の出力の振動数の行）。\\ Ga adatom "
-"の吸着位置（T4、H3）は、構造最適化した後の座標から判定します。"
+"の吸着サイト（T4、H3）は、構造最適化した後の座標から判定します。"
 msgstr ""
 "The script runs with Python 3, NumPy, and Matplotlib. \\ It identifies "
 "Jobs by their contents instead of their filenames, using the atom types "
@@ -293,11 +298,11 @@ msgstr ""
 "frequency in the Psi4 output. \\ It identifies the Ga adatom adsorption "
 "site (T4 or H3) from the coordinates after geometry optimization."
 
-#: ../../gan_surface/reproduction.rst:103
+#: ../../gan_surface/reproduction.rst:104
 msgid "記事の計算の出力"
 msgstr "Output from the Calculations in This Article"
 
-#: ../../gan_surface/reproduction.rst:105
+#: ../../gan_surface/reproduction.rst:106
 msgid ""
 "記事の計算の出力ファイルを、Quloudの「一括ダウンロード」で得られるファイル名にそろえ、ジョブごとのフォルダを1つのZIPにまとめたものです。\\"
 " 擬ポテンシャルと作業用のファイルは除いています。"
@@ -306,11 +311,11 @@ msgstr ""
 "uses the filenames Quloud provides through \"Batch Download\". \\ We "
 "excluded pseudopotentials and working files."
 
-#: ../../gan_surface/reproduction.rst:115
+#: ../../gan_surface/reproduction.rst:116
 msgid ":download:`gan_slabs.zip <data/gan_slabs.zip>`"
 msgstr ":download:`gan_slabs.zip <data/gan_slabs.zip>`"
 
-#: ../../gan_surface/reproduction.rst:116
+#: ../../gan_surface/reproduction.rst:117
 msgid ""
 "表面スラブの構造最適化（4件）： ``QuloudJob.scf.in`` （入力）と ``QuloudJob.scf.out`` "
 "（pw.xの出力）"
@@ -318,21 +323,21 @@ msgstr ""
 "Geometry optimization for the surface slabs (4 jobs): "
 "``QuloudJob.scf.in`` (input) and ``QuloudJob.scf.out`` (pw.x output)"
 
-#: ../../gan_surface/reproduction.rst:117
+#: ../../gan_surface/reproduction.rst:118
 msgid ":download:`gas_qe.zip <data/gas_qe.zip>`"
 msgstr ":download:`gas_qe.zip <data/gas_qe.zip>`"
 
-#: ../../gan_surface/reproduction.rst:118
+#: ../../gan_surface/reproduction.rst:119
 msgid "Ga原子（スピン分極あり・なし）とH₂のSCF計算（3件）"
 msgstr ""
 "SCF calculations for the Ga atom (with and without spin polarization) and"
 " H₂ (3 jobs)"
 
-#: ../../gan_surface/reproduction.rst:119
+#: ../../gan_surface/reproduction.rst:120
 msgid ":download:`h2_psi4.zip <data/h2_psi4.zip>`"
 msgstr ":download:`h2_psi4.zip <data/h2_psi4.zip>`"
 
-#: ../../gan_surface/reproduction.rst:120
+#: ../../gan_surface/reproduction.rst:121
 msgid ""
 "H₂の振動数解析（Psi4、1件）： ``psi4_input_step1.in`` 、 ``psi4_input_step2.in`` と出力 "
 "``psi4_step1.out`` 、 ``psi4_step2.out``"
@@ -341,7 +346,7 @@ msgstr ""
 "``psi4_input_step2.in``, with outputs ``psi4_step1.out`` and "
 "``psi4_step2.out``"
 
-#: ../../gan_surface/reproduction.rst:122
+#: ../../gan_surface/reproduction.rst:123
 msgid ""
 "表面スラブはQuloudの外で計算したので、 ``QuloudJob.scf.out`` "
 "はpw.xの標準出力をこの名前にしたものです。終了状態のファイル ``QuloudJob.exit_status.json`` はありません。"
@@ -350,7 +355,7 @@ msgstr ""
 "is the standard output of pw.x saved under this filename. There is no "
 "exit status file ``QuloudJob.exit_status.json``."
 
-#: ../../gan_surface/reproduction.rst:123
+#: ../../gan_surface/reproduction.rst:124
 msgid ""
 "スピン分極なしのGa原子は、参照エネルギーには使わず、スピン分極ありとの差を示すためのものです（ :ref:`適用範囲 <gan-scope>` "
 "）。"
@@ -359,43 +364,17 @@ msgstr ""
 "the difference from the spin-polarized calculation, not to provide the "
 "reference energy (see :ref:`Applicability <gan-scope>`)."
 
-#: ../../gan_surface/reproduction.rst:124
+#: ../../gan_surface/reproduction.rst:125
 msgid "フォルダ名（例： ``ga_adatom_t4`` ）は内容を示すために付けたもので、解析スクリプトは使いません。"
 msgstr ""
 "The folder names, such as ``ga_adatom_t4``, describe their contents. The "
 "analysis script does not use these names."
 
-#: ../../gan_surface/reproduction.rst:127
-msgid "解析の実行"
-msgstr "Running the Analysis"
-
-#: ../../gan_surface/reproduction.rst:129
-msgid "ダウンロードしたZIPを1つのフォルダに集め、そのフォルダを渡します。"
-msgstr ""
-"Put the downloaded ZIP archives in one folder and pass that folder to the"
-" script."
-
-#: ../../gan_surface/reproduction.rst:131
-msgid "$ python analyze_gan_surface.py data/ --figures figures/"
-msgstr "$ python analyze_gan_surface.py data/ --figures figures/"
-
-#: ../../gan_surface/reproduction.rst:135
-msgid ""
-"吸着エネルギー、H₂の振動数と回転定数、分圧、相境界の温度を表示し、記事の4つの図（ ``models.png`` 、 "
-"``delta_g.png`` 、 ``phase_diagram.png`` 、 ``adatom_site.png`` ）を "
-"``figures/`` に書き出します。"
-msgstr ""
-"The script prints the adsorption energy, the H₂ vibrational frequency and"
-" rotational constant, the partial pressures, and the phase boundary "
-"temperatures. It writes the four figures from the article "
-"(``models.png``, ``delta_g.png``, ``phase_diagram.png``, and "
-"``adatom_site.png``) to ``figures/``."
-
-#: ../../gan_surface/reproduction.rst:138
+#: ../../gan_surface/reproduction.rst:128
 msgid "Quloudでの計算手順"
 msgstr "Calculation Procedure in Quloud"
 
-#: ../../gan_surface/reproduction.rst:140
+#: ../../gan_surface/reproduction.rst:130
 msgid ""
 "Materialの登録とJobの作成・実行の操作は、マニュアルの `原子構造の登録 <https://manual.quloud-"
 "platform.quemix.com/source/jobs_and_models_atom.html>`__ 、 `計算 Job の登録 "
@@ -411,11 +390,11 @@ msgstr ""
 "platform.quemix.com/source/calculation.html>`__, and `Running a Job "
 "<https://manual.quloud-platform.quemix.com/source/runjob.html>`__."
 
-#: ../../gan_surface/reproduction.rst:145
+#: ../../gan_surface/reproduction.rst:135
 msgid "1. H₂の振動数と回転定数（Psi4）"
 msgstr "1. H₂ Frequencies and Rotational Constants (Psi4)"
 
-#: ../../gan_surface/reproduction.rst:147
+#: ../../gan_surface/reproduction.rst:137
 msgid ""
 "``h2.xyz`` をMoleculeとして登録し、計算ソフトにPsi4、計算機能に「振動数解析（Psi4）」を選びます。\\ "
 "この計算機能は、構造最適化の後に振動数解析を行う2段のワークフローです。\\ 入力項目は次のように設定します。表にない項目は既定値のままです。"
@@ -426,62 +405,62 @@ msgstr ""
 " \\ Set the fields as shown below and leave unlisted fields at their "
 "defaults."
 
-#: ../../gan_surface/reproduction.rst:155
-#: ../../gan_surface/reproduction.rst:185
+#: ../../gan_surface/reproduction.rst:145
+#: ../../gan_surface/reproduction.rst:175
 msgid "入力項目"
 msgstr "Input field"
 
-#: ../../gan_surface/reproduction.rst:156
-#: ../../gan_surface/reproduction.rst:186
+#: ../../gan_surface/reproduction.rst:146
+#: ../../gan_surface/reproduction.rst:176
 msgid "設定値"
 msgstr "Value"
 
-#: ../../gan_surface/reproduction.rst:157
+#: ../../gan_surface/reproduction.rst:147
 msgid "既定値との違い"
 msgstr "Difference from default"
 
-#: ../../gan_surface/reproduction.rst:158
+#: ../../gan_surface/reproduction.rst:148
 msgid "計算手法"
 msgstr "Method"
 
-#: ../../gan_surface/reproduction.rst:160
+#: ../../gan_surface/reproduction.rst:150
 msgid "変更（既定値はB3LYP）"
 msgstr "Changed (default: B3LYP)"
 
-#: ../../gan_surface/reproduction.rst:161
+#: ../../gan_surface/reproduction.rst:151
 msgid "基底関数系"
 msgstr "Basis Set"
 
-#: ../../gan_surface/reproduction.rst:162
+#: ../../gan_surface/reproduction.rst:152
 msgid "cc-pVTZ"
 msgstr "cc-pVTZ"
 
-#: ../../gan_surface/reproduction.rst:163
+#: ../../gan_surface/reproduction.rst:153
 msgid "変更（既定値は6-31G(d,p)）"
 msgstr "Changed (default: 6-31G(d,p))"
 
-#: ../../gan_surface/reproduction.rst:164
+#: ../../gan_surface/reproduction.rst:154
 msgid "スピン多重度"
 msgstr "Spin Multiplicity"
 
-#: ../../gan_surface/reproduction.rst:165
+#: ../../gan_surface/reproduction.rst:155
 msgid "1"
 msgstr "1"
 
-#: ../../gan_surface/reproduction.rst:166
-#: ../../gan_surface/reproduction.rst:169
+#: ../../gan_surface/reproduction.rst:156
+#: ../../gan_surface/reproduction.rst:159
 msgid "既定値"
 msgstr "Default"
 
-#: ../../gan_surface/reproduction.rst:167
+#: ../../gan_surface/reproduction.rst:157
 msgid "Reference"
 msgstr "Reference"
 
-#: ../../gan_surface/reproduction.rst:168
+#: ../../gan_surface/reproduction.rst:158
 msgid "RHF"
 msgstr "RHF"
 
-#: ../../gan_surface/reproduction.rst:171
+#: ../../gan_surface/reproduction.rst:161
 msgid ""
 "振動数解析の温度と圧力の欄は、Psi4が出力する熱化学量の計算にだけ使われます。\\ 記事では、出力 ``psi4_step2.out`` "
 "の振動数（ ``Freq [cm^-1]`` の行）と回転定数（最初の ``Rotational constants`` の行の "
@@ -494,11 +473,11 @@ msgstr ""
 "constants`` line, :math:`B`). The analysis script computes the chemical "
 "potential using the growth temperature and partial pressure."
 
-#: ../../gan_surface/reproduction.rst:175
+#: ../../gan_surface/reproduction.rst:165
 msgid "2. Ga原子とH₂の全エネルギー（QE）"
 msgstr "2. Total Energies of a Ga Atom and H₂ (QE)"
 
-#: ../../gan_surface/reproduction.rst:177
+#: ../../gan_surface/reproduction.rst:167
 msgid ""
 "``ga_atom_box.cif`` と ``h2_box.cif`` をそれぞれMaterialとして登録し、計算ソフトにQuantum "
 "ESPRESSO、計算機能に「自己無撞着電子状態計算（QE）」を選びます。\\ 共通の設定は次のとおりです。"
@@ -508,43 +487,43 @@ msgstr ""
 "consistent Electronic Structure Calculation (QE)\". \\ Use the following "
 "settings for both calculations."
 
-#: ../../gan_surface/reproduction.rst:188
+#: ../../gan_surface/reproduction.rst:178
 msgid "GGA-PBE"
 msgstr "GGA-PBE"
 
-#: ../../gan_surface/reproduction.rst:189
+#: ../../gan_surface/reproduction.rst:179
 msgid "擬ポテンシャル（Ga、H）"
 msgstr "Pseudopotential (Ga, H)"
 
-#: ../../gan_surface/reproduction.rst:190
+#: ../../gan_surface/reproduction.rst:180
 msgid "Ga ``Ga.pbe-dn-kjpaw_psl.1.0.0.UPF`` 、H ``H.pbe-kjpaw_psl.1.0.0.UPF``"
 msgstr "Ga: ``Ga.pbe-dn-kjpaw_psl.1.0.0.UPF``, H: ``H.pbe-kjpaw_psl.1.0.0.UPF``"
 
-#: ../../gan_surface/reproduction.rst:191
+#: ../../gan_surface/reproduction.rst:181
 msgid "k グリッド（a、b、c 軸）"
 msgstr "k-grid (a-, b-, c-axis)"
 
-#: ../../gan_surface/reproduction.rst:192
+#: ../../gan_surface/reproduction.rst:182
 msgid "1、1、1"
 msgstr "1, 1, 1"
 
-#: ../../gan_surface/reproduction.rst:193
+#: ../../gan_surface/reproduction.rst:183
 msgid "平面波カットオフエネルギー"
 msgstr "Plane-wave cutoff energy"
 
-#: ../../gan_surface/reproduction.rst:194
+#: ../../gan_surface/reproduction.rst:184
 msgid "70 Ry"
 msgstr "70 Ry"
 
-#: ../../gan_surface/reproduction.rst:195
+#: ../../gan_surface/reproduction.rst:185
 msgid "密度・ポテンシャルカットオフエネルギー"
 msgstr "Density-potential cutoff energy"
 
-#: ../../gan_surface/reproduction.rst:196
+#: ../../gan_surface/reproduction.rst:186
 msgid "400 Ry"
 msgstr "400 Ry"
 
-#: ../../gan_surface/reproduction.rst:198
+#: ../../gan_surface/reproduction.rst:188
 #, python-brace-format
 msgid ""
 "Ga原子はスピン分極させ、全磁化を1 :math:`\\mu_\\mathrm{B}` に固定して、整数の占有で計算します。\\ "
@@ -558,7 +537,7 @@ msgstr ""
 "while the Job is \"Registered\". Set ``&SYSTEM`` and ``&ELECTRONS`` as "
 "follows."
 
-#: ../../gan_surface/reproduction.rst:201
+#: ../../gan_surface/reproduction.rst:191
 msgid ""
 "&SYSTEM\n"
 "  ...\n"
@@ -592,30 +571,33 @@ msgstr ""
 "  electron_maxstep = 200\n"
 "/"
 
-#: ../../gan_surface/reproduction.rst:219
+#: ../../gan_surface/reproduction.rst:209
 #, python-brace-format
 msgid ""
-"Ga原子のp軌道は3重に縮退しており、1個の電子をどれかに入れる整数の占有ではSCFが収束しにくくなります。\\ 混合の係数（ "
-"``mixing_beta`` ）を小さくし、収束閾値をQuloudの既定値の :math:`10^{-6}` Ryにしました。\\ "
-"H₂は閉殻なので、 ``occupations = 'fixed'`` にするだけです。\\ 記事の入力は ``K_POINTS gamma`` "
-"（Γ点だけの計算）で、k グリッド1、1、1と同じk点です。\\ 記事で使った入力ファイルは、 ``gas_qe.zip`` の各フォルダにある "
-"``QuloudJob.scf.in`` です。"
+"Ga原子のp軌道は3重に縮退しており、1個の電子をどれかに入れる整数の占有ではSCFが収束しにくくなります。\\ そのため、混合の係数（ "
+"``mixing_beta`` ）を小さくし、SCFの反復の上限（ ``electron_maxstep`` ）を200にしました。\\ "
+"収束閾値（ ``conv_thr`` ）は、Quloudの既定値と同じ :math:`10^{-6}` Ryです。\\ "
+"H₂は閉殻なので、入力ファイルの編集は ``occupations = 'fixed'`` だけです。\\ 記事の入力は ``K_POINTS "
+"gamma`` （Γ点だけの計算）で、k グリッド1、1、1と同じk点です。\\ 記事で使った入力ファイルは、 ``gas_qe.zip`` "
+"の各フォルダにある ``QuloudJob.scf.in`` です。"
 msgstr ""
 "The p orbitals of the Ga atom are triply degenerate, which makes SCF "
 "convergence difficult when integer occupations place one electron in one "
-"of the orbitals. \\ We reduced the mixing coefficient (``mixing_beta``) "
-"and used Quloud's default convergence threshold of :math:`10^{-6}` Ry. \\"
-" H₂ is closed shell, so the only change needed is ``occupations = "
-"'fixed'``. \\ The input used in the article specifies ``K_POINTS gamma`` "
-"(Γ point only), which gives the same k-point as a k-grid of 1, 1, 1. \\ "
+"of the orbitals. \\ We therefore reduced the mixing coefficient "
+"(``mixing_beta``) and set the maximum number of SCF iterations "
+"(``electron_maxstep``) to 200. \\ The convergence threshold "
+"(``conv_thr``) is :math:`10^{-6}` Ry, the same as the Quloud default. \\ "
+"H₂ is closed shell, so the only edit to the input file is ``occupations ="
+" 'fixed'``. \\ The input used in the article specifies ``K_POINTS gamma``"
+" (Γ point only), which gives the same k-point as a k-grid of 1, 1, 1. \\ "
 "Each folder in ``gas_qe.zip`` contains the input file "
 "``QuloudJob.scf.in`` used in the article."
 
-#: ../../gan_surface/reproduction.rst:226
+#: ../../gan_surface/reproduction.rst:217
 msgid "3. 表面スラブの構造最適化（QE）"
 msgstr "3. Surface Slab Structure Optimization (QE)"
 
-#: ../../gan_surface/reproduction.rst:228
+#: ../../gan_surface/reproduction.rst:219
 msgid ""
 "4つのスラブ構造の最適化は、Quloudの計算機能「構造最適化（QE）」に相当します。\\ "
 "ただし、底面の擬水素を別の種として扱う設定は現在のQuloudではできないため、記事ではQuloudの外で実行しました。\\ "
@@ -631,7 +613,7 @@ msgstr ""
 "folder in ``gan_slabs.zip`` contains the complete input file, "
 "``QuloudJob.scf.in``."
 
-#: ../../gan_surface/reproduction.rst:233
+#: ../../gan_surface/reproduction.rst:224
 msgid ""
 "&CONTROL\n"
 "  calculation = 'relax'\n"
@@ -703,7 +685,7 @@ msgstr ""
 "K_POINTS automatic\n"
 "3 3 1 0 0 0"
 
-#: ../../gan_surface/reproduction.rst:270
+#: ../../gan_surface/reproduction.rst:261
 msgid ""
 "底面の擬水素は種 ``Hn`` として ``H_N_0.75.PBE.UPF`` を割り当てます。 3Ga-H では、表面のH原子に種 ``H``"
 " （ ``H.pbe-kjpaw_psl.1.0.0.UPF`` ）を加え、 ``ntyp = 4`` になります。"
@@ -712,13 +694,13 @@ msgstr ""
 "pseudopotential ``H_N_0.75.PBE.UPF``. For 3Ga-H, add species ``H`` (``H"
 ".pbe-kjpaw_psl.1.0.0.UPF``) for the surface H atoms and set ``ntyp = 4``."
 
-#: ../../gan_surface/reproduction.rst:271
+#: ../../gan_surface/reproduction.rst:262
 msgid "座標の後ろの ``0 0 0`` は、その原子を固定する指定です。底面の擬水素4個とN原子4個を固定します。"
 msgstr ""
 "The flags ``0 0 0`` after an atom's coordinates fix that atom in place. "
 "Fix the four pseudo-hydrogen atoms and four N atoms at the bottom."
 
-#: ../../gan_surface/reproduction.rst:272
+#: ../../gan_surface/reproduction.rst:263
 msgid ""
 "Ideal だけは電子数が奇数なので、 ``occupations = 'smearing'`` 、 ``smearing = "
 "'gaussian'`` 、 ``degauss = 0.01`` です。解析スクリプトは、スメアリングを使った出力では "
@@ -729,12 +711,66 @@ msgstr ""
 "output with smearing, the analysis script uses :math:`(F+E)/2` as the "
 "total energy (see the note to :numref:`tab-gan-conditions`)."
 
-#: ../../gan_surface/reproduction.rst:273
+#: ../../gan_surface/reproduction.rst:264
 msgid "1件の計算時間は、32 MPIプロセスで15〜31分でした（BFGSで13〜26ステップ）。"
 msgstr ""
 "Each calculation took 15–31 minutes on 32 MPI processes (13–26 BFGS "
 "steps)."
 
+#: ../../gan_surface/reproduction.rst:267
+msgid "4. 出力のダウンロードと解析"
+msgstr "4. Downloading and Analyzing the Output"
+
+#: ../../gan_surface/reproduction.rst:269
+msgid ""
+"手順1・2の各Jobの出力ファイルを「一括ダウンロード」でZIPとして取得します。\\ これらのZIPと、手順3の出力として配布した "
+"``gan_slabs.zip`` を1つのフォルダ（例えば ``downloads`` "
+"）に集め、そのフォルダを指定して解析スクリプトを実行します。"
+msgstr ""
+"Use \"Batch Download\" to get the output files of each Job from steps 1 "
+"and 2 as a ZIP archive. \\ Put these ZIP archives and ``gan_slabs.zip``, "
+"provided as the output of step 3, in one folder, such as ``downloads``, "
+"and pass that folder to the analysis script."
+
+#: ../../gan_surface/reproduction.rst:272
+msgid "$ python analyze_gan_surface.py downloads/ --figures figures/"
+msgstr "$ python analyze_gan_surface.py downloads/ --figures figures/"
+
+#: ../../gan_surface/reproduction.rst:276
+msgid ""
+"スクリプトは、吸着エネルギー、H₂の振動数と回転定数、分圧、相境界の温度を表示し、記事の4つの図（ ``models.png`` 、 "
+"``delta_g.png`` 、 ``phase_diagram.png`` 、 ``adatom_site.png`` ）を "
+"``figures/`` に書き出します。\\ 表示された値は、記事の :numref:`tab-gan-eads` 、 :numref"
+":`tab-gan-h2` と、本文の境界の温度に対応します。"
+msgstr ""
+"The script prints the adsorption energy, the H₂ vibrational frequency and"
+" rotational constant, the partial pressures, and the phase boundary "
+"temperatures. It writes the four figures from the article "
+"(``models.png``, ``delta_g.png``, ``phase_diagram.png``, and "
+"``adatom_site.png``) to ``figures/``. \\ The printed values correspond to"
+" :numref:`tab-gan-eads` and :numref:`tab-gan-h2` in the article and to "
+"the boundary temperatures in the text."
+
+#: ../../gan_surface/reproduction.rst:279
+msgid "記事の数値と図は、「記事の計算の出力」の3つのZIPを1つのフォルダ（例えば ``data`` ）に集めて、同じように実行すると得られます。"
+msgstr ""
+"You can obtain the numbers and figures in the article by putting the "
+"three ZIP archives from \"Output from the Calculations in This Article\" "
+"in one folder, such as ``data``, and running the script in the same way."
+
+#: ../../gan_surface/reproduction.rst:281
+msgid "$ python analyze_gan_surface.py data/ --figures figures/"
+msgstr "$ python analyze_gan_surface.py data/ --figures figures/"
+
 #~ msgid "「擬ポテンシャル」"
 #~ msgstr "\"Pseudopotential\""
+
+#~ msgid "解析の実行"
+#~ msgstr "Running the Analysis"
+
+#~ msgid "ダウンロードしたZIPを1つのフォルダに集め、そのフォルダを渡します。"
+#~ msgstr ""
+#~ "Put the downloaded ZIP archives in "
+#~ "one folder and pass that folder to"
+#~ " the script."
 
