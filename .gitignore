@@ -28,3 +28,6 @@ Figure/Li3PO4/quloud_sevennet_chgnet_vacancy_paths.png
 li3po4/md-trajectory-energy.rst
 li3po4/nnp-input-energy-error.rst
 li3po4/structure-energy.rst
+
+# Compiled translation catalogs (Sphinx builds them from the .po files).
+*.mo
