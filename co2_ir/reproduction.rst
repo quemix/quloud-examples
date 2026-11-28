@@ -49,7 +49,7 @@ Quloudの「ファイルアップロード」でMaterialとして登録する構
    * - :download:`co2_static_shift.zip <structures/co2_static_shift.zip>`
      - 分子全体を :math:`x` 方向に格子間隔の1/8ずつ平行移動させた9個の構造（数値誤差の確認用）
 
-静的計算の構造のファイル名は ``co2_<モード>_<変位>.cif`` です。\
+静的計算の構造のファイル名は ``co2_<mode>_<displacement>.cif`` です。\
 変位 :math:`u` は酸素原子の変位（bohr）で、逆対称伸縮（ ``nu3`` ）と変角（ ``nu2`` ）では、重心が動かないよう炭素原子を :math:`-2m_\mathrm{O}u/m_\mathrm{C}` だけ動かしています。\
 基準構造（ ``ref`` ）は、最適化構造の炭素原子をセルの中心に、2つの酸素原子をその両側に対称に置き直したものです。
 

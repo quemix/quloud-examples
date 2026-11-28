@@ -1,7 +1,8 @@
 """Analyze the CO2 IR example from RSDFT jobs downloaded from Quloud.
 
-Pass the ZIP files downloaded from the job pages of Quloud ("一括ダウンロード"
-of the output files), folders holding them, or their extracted contents. Each
+Pass the ZIP files downloaded from the job pages of Quloud ("Batch Download"
+of the output files; "一括ダウンロード" in the Japanese interface), folders holding
+them, or their extracted contents. Each
 job is recognized from its output files, so the file names do not matter:
 
 * MD (CPMD or BOMD): TRAJECTORY.cif, info.dat and DIPOLE.dat. DIPOLE.dat is

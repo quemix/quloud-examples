@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 16:13+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../co2_ir/index.rst:2
+msgid "CO₂の赤外スペクトル"
+msgstr "Infrared Spectrum of CO₂"
+
+#: ../../co2_ir/index.rst:4
+msgid "第一原理分子動力学で得たCO₂分子の運動からスペクトルを求め、計算手法による違いと実験値を比較します。"
+msgstr ""
+"We obtain the infrared spectrum from the motion of a CO₂ molecule in "
+"first-principles molecular dynamics simulations, then compare the results"
+" across methods and with experimental values."
+
+#: ../../co2_ir/index.rst:8
+msgid ":doc:`計算結果を読む <ir_spectrum>`"
+msgstr ":doc:`Interpreting the Calculation Results <ir_spectrum>`"
+
+#: ../../co2_ir/index.rst:9
+msgid ":doc:`計算条件と再現手順 <reproduction>`"
+msgstr ":doc:`Calculation Conditions and Reproduction Procedure <reproduction>`"
+
+#: ../../co2_ir/index.rst:13
+msgid "CPMDで求めた双極子モーメントと振動座標のパワースペクトル"
+msgstr "CPMD power spectra of the dipole moment and vibrational coordinates"
+
+#: ../../co2_ir/index.rst:17
+msgid ""
+"CPMDで求めたパワースペクトルでは、1200〜1300 cm⁻¹付近に対称伸縮振動のピークが\\ "
+"振動座標（右）に現れますが、双極子モーメント（左）には対応するピークが見られず、\\ 対称伸縮振動が赤外不活性であることが分かります。"
+msgstr ""
+"In the CPMD power spectra, the symmetric stretching mode produces a peak "
+"near 1200–1300 cm⁻¹ in the vibrational coordinate (right), \\ but the "
+"dipole moment (left) shows no corresponding peak. \\ This shows that the "
+"symmetric stretching mode is IR inactive."
+
