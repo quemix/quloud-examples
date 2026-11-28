@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 16:30+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -314,8 +314,8 @@ msgstr ""
 msgid "静的な計算から求めた調和振動数（cm⁻¹）"
 msgstr "Harmonic frequencies from static calculations (cm⁻¹)"
 
-#: ../../co2_ir/ir_spectrum.rst:107 ../../co2_ir/ir_spectrum.rst:223
-#: ../../co2_ir/ir_spectrum.rst:324
+#: ../../co2_ir/ir_spectrum.rst:107 ../../co2_ir/ir_spectrum.rst:225
+#: ../../co2_ir/ir_spectrum.rst:326
 msgid "モード"
 msgstr "Mode"
 
@@ -327,22 +327,22 @@ msgstr "Fit up to fourth order (:math:`|u|\\le` 0.06 bohr)"
 msgid "2次式のフィット（ :math:`|u|\\le` 0.02 bohr）"
 msgstr "Quadratic fit (:math:`|u|\\le` 0.02 bohr)"
 
-#: ../../co2_ir/ir_spectrum.rst:110 ../../co2_ir/ir_spectrum.rst:229
-#: ../../co2_ir/ir_spectrum.rst:342
+#: ../../co2_ir/ir_spectrum.rst:110 ../../co2_ir/ir_spectrum.rst:231
+#: ../../co2_ir/ir_spectrum.rst:344
 msgid "ν₁ 対称伸縮"
 msgstr "ν₁ Symmetric stretching"
 
 #: ../../co2_ir/ir_spectrum.rst:111 ../../co2_ir/ir_spectrum.rst:112
-#: ../../co2_ir/ir_spectrum.rst:232
+#: ../../co2_ir/ir_spectrum.rst:234
 msgid "1311"
 msgstr "1311"
 
-#: ../../co2_ir/ir_spectrum.rst:113 ../../co2_ir/ir_spectrum.rst:235
-#: ../../co2_ir/ir_spectrum.rst:336
+#: ../../co2_ir/ir_spectrum.rst:113 ../../co2_ir/ir_spectrum.rst:237
+#: ../../co2_ir/ir_spectrum.rst:338
 msgid "ν₂ 変角"
 msgstr "ν₂ Bending"
 
-#: ../../co2_ir/ir_spectrum.rst:114 ../../co2_ir/ir_spectrum.rst:238
+#: ../../co2_ir/ir_spectrum.rst:114 ../../co2_ir/ir_spectrum.rst:240
 msgid "637"
 msgstr "637"
 
@@ -350,12 +350,12 @@ msgstr "637"
 msgid "644"
 msgstr "644"
 
-#: ../../co2_ir/ir_spectrum.rst:116 ../../co2_ir/ir_spectrum.rst:241
-#: ../../co2_ir/ir_spectrum.rst:330
+#: ../../co2_ir/ir_spectrum.rst:116 ../../co2_ir/ir_spectrum.rst:243
+#: ../../co2_ir/ir_spectrum.rst:332
 msgid "ν₃ 逆対称伸縮"
 msgstr "ν₃ Antisymmetric stretching"
 
-#: ../../co2_ir/ir_spectrum.rst:117 ../../co2_ir/ir_spectrum.rst:244
+#: ../../co2_ir/ir_spectrum.rst:117 ../../co2_ir/ir_spectrum.rst:246
 msgid "2330"
 msgstr "2330"
 
@@ -366,12 +366,12 @@ msgstr "2337"
 #: ../../co2_ir/ir_spectrum.rst:120
 msgid ""
 ":math:`u` は酸素原子の変位で、重心が動かないように炭素原子も動かしています。\\ 変角振動とν₃では、 :math:`u` "
-"の正負でエネルギーが等しいことを使っています。"
+"の正負でエネルギーが等しいので、正の変位だけを計算しています。"
 msgstr ""
 ":math:`u` is the displacement of the oxygen atoms. We also moved the "
 "carbon atom to keep the center of mass fixed. \\ For the bending mode and"
-" ν₃, we used the fact that the energy is the same for positive and "
-"negative values of :math:`u` of equal magnitude."
+" ν₃, the energy is the same for positive and negative :math:`u`, so we "
+"calculated only positive displacements."
 
 #: ../../co2_ir/ir_spectrum.rst:125
 msgid ""
@@ -465,18 +465,18 @@ msgstr ""
 " velocities put different amounts of energy into bending along :math:`x` "
 "and :math:`y` (\\ :numref:`Section {number} <sec-co2-intensity>`\\ )."
 
-#: ../../co2_ir/ir_spectrum.rst:156
+#: ../../co2_ir/ir_spectrum.rst:158
 msgid "自己相関関数"
 msgstr "Autocorrelation Function"
 
-#: ../../co2_ir/ir_spectrum.rst:158
+#: ../../co2_ir/ir_spectrum.rst:160
 msgid "双極子の時間変化から振動数成分を取り出すため、各成分の自己相関関数のフーリエ変換（パワースペクトル）を計算します。"
 msgstr ""
 "To extract the frequency components of the time-varying dipole moment, we"
 " compute the Fourier transform of the autocorrelation function of each "
 "component (the power spectrum)."
 
-#: ../../co2_ir/ir_spectrum.rst:160
+#: ../../co2_ir/ir_spectrum.rst:162
 #, python-brace-format
 msgid ""
 "C_\\alpha(\\omega) = \\int_{-T}^{T} w(\\tau)\\,\n"
@@ -489,7 +489,7 @@ msgstr ""
 "\\delta\\mu_\\alpha(t+\\tau)\\,\\delta\\mu_\\alpha(t)\\right\\rangle_t "
 "\\cos(\\omega\\tau)\\,d\\tau"
 
-#: ../../co2_ir/ir_spectrum.rst:166
+#: ../../co2_ir/ir_spectrum.rst:168
 msgid ""
 "ここで :math:`\\langle\\cdots\\rangle_t` は時刻 :math:`t` についての平均、 :math:`T` = "
 "800 fsは計算時間、 :math:`w(\\tau)` "
@@ -503,7 +503,7 @@ msgstr ""
 "The finite duration gives an approximate wavenumber resolution of "
 ":math:`1/(cT)\\approx` 42 cm⁻¹."
 
-#: ../../co2_ir/ir_spectrum.rst:169
+#: ../../co2_ir/ir_spectrum.rst:171
 #, python-brace-format
 msgid ""
 "平衡状態の古典系では、揺動散逸定理により、赤外吸収係数は :math:`\\omega^2 C(\\omega)` に比例します [6]_ 。\\"
@@ -518,7 +518,7 @@ msgstr ""
 "we first locate the peaks in :math:`C(\\omega)`. \\ We discuss peak "
 "heights in :numref:`Section {number} <sec-co2-intensity>`."
 
-#: ../../co2_ir/ir_spectrum.rst:173
+#: ../../co2_ir/ir_spectrum.rst:175
 msgid ""
 "比較のため、振動座標の時間発展についても、同じようにパワースペクトルを計算しました。\\ "
 "対称伸縮は2つのC–O結合長の平均、逆対称伸縮は2つの結合長の差の半分、変角は2つの酸素原子の中点から炭素原子までの変位の :math:`x` 、"
@@ -532,11 +532,11 @@ msgstr ""
 "displacement from the midpoint of the two oxygen atoms to the carbon "
 "atom."
 
-#: ../../co2_ir/ir_spectrum.rst:180
+#: ../../co2_ir/ir_spectrum.rst:182
 #, python-brace-format
 msgid ""
 "CPMDの結果。左：双極子モーメントの各成分のパワースペクトル :math:`C_\\alpha(\\omega)` （式 "
-":eq:`co2-power` ）。右：原子の座標から求めた振動の座標のパワースペクトル。右の図は、300〜4000 "
+":eq:`co2-power` ）。右：原子の座標から求めた振動座標のパワースペクトル。右の図は、300〜4000 "
 "cm⁻¹での最大値が1になるように、曲線ごとに規格化しています。そのため、曲線の高さからモードの間の振動の大きさは比べられません（\\ "
 ":numref:`{number}節 <sec-co2-shifted-start>`\\ "
 "）。縦軸はどちらも対数です。縦の点線は、静的な計算から求めた調和振動数（ :numref:`tab-co2-harmonic` "
@@ -553,19 +553,19 @@ msgstr ""
 "frequencies from the static calculations (the fits up to fourth order in "
 ":numref:`tab-co2-harmonic`, ordered ν₂, ν₁, and ν₃ from left to right)."
 
-#: ../../co2_ir/ir_spectrum.rst:186
+#: ../../co2_ir/ir_spectrum.rst:188
 msgid "BOMDの結果。図の作り方と軸の意味は :numref:`fig-co2-spectra` と同じです。"
 msgstr ""
 "BOMD results. The spectra are plotted as in :numref:`fig-co2-spectra` and"
 " the axes have the same meanings."
 
-#: ../../co2_ir/ir_spectrum.rst:188
+#: ../../co2_ir/ir_spectrum.rst:190
 msgid ":numref:`fig-co2-spectra` と :numref:`fig-co2-spectra-bomd` から、次のことが読み取れます。"
 msgstr ""
 "The spectra in :numref:`fig-co2-spectra` and :numref:`fig-co2-spectra-"
 "bomd` show the following features."
 
-#: ../../co2_ir/ir_spectrum.rst:190
+#: ../../co2_ir/ir_spectrum.rst:192
 msgid ""
 "双極子の :math:`x` 、 :math:`y` 成分には640–670 cm⁻¹付近、 :math:`z` 成分には2200–2300 "
 "cm⁻¹付近にピークがあります。右の図で同じ位置にピークを持つのは、変角振動と逆対称伸縮振動です。"
@@ -575,7 +575,7 @@ msgstr ""
 "cm⁻¹. In the right-hand panels, the bending and antisymmetric stretching "
 "modes have peaks at the same positions."
 
-#: ../../co2_ir/ir_spectrum.rst:191
+#: ../../co2_ir/ir_spectrum.rst:193
 msgid ""
 "双極子には、1200–1300 cm⁻¹付近にピークは見当たりません。 :math:`z` "
 "成分の裾がこの付近にかかっていますが、値は主ピークの1万分の1以下です。"
@@ -584,7 +584,7 @@ msgstr ""
 ":math:`z` component extends into this range, but its value there is at "
 "most one ten-thousandth of the main peak height."
 
-#: ../../co2_ir/ir_spectrum.rst:192
+#: ../../co2_ir/ir_spectrum.rst:194
 msgid ""
 "ところが、右の図を見ると、対称伸縮振動は1200–1300 "
 "cm⁻¹付近にピークを持ちます。このピークは、原子が確かにこの振動数で振動していることを示しています。"
@@ -593,7 +593,7 @@ msgstr ""
 "1200–1300 cm⁻¹. This peak confirms that the atoms vibrate at this "
 "frequency."
 
-#: ../../co2_ir/ir_spectrum.rst:194
+#: ../../co2_ir/ir_spectrum.rst:196
 msgid ""
 "つまり、\\ **対称伸縮振動は、原子が振動していても双極子には現れない**\\ "
 "、すなわち赤外不活性であることが、MD計算の結果から直接確かめられました。"
@@ -602,7 +602,7 @@ msgstr ""
 "mode leaves no signal in the dipole moment even when the atoms vibrate** "
 "\\ and is therefore IR inactive."
 
-#: ../../co2_ir/ir_spectrum.rst:196
+#: ../../co2_ir/ir_spectrum.rst:198
 #, python-brace-format
 msgid ""
 "ただし、この計算では対称伸縮振動の振幅が0.5 mÅ以下と小さく、右の図では低波数側にゆっくりした変化の成分も見えています。\\ "
@@ -614,7 +614,7 @@ msgstr ""
 " symmetric stretching mode is strongly excited in :numref:`Section "
 "{number} <sec-co2-shifted-start>`."
 
-#: ../../co2_ir/ir_spectrum.rst:199
+#: ../../co2_ir/ir_spectrum.rst:201
 msgid ""
 "なお、CPMD の双極子スペクトルの :math:`x` 成分にも2195 cm⁻¹にピークが見られます（\\ :math:`z` "
 "成分の約200分の1）。\\ これは、計算の間に分子軸が :math:`z` 軸から最大13°傾くため、逆対称伸縮振動による双極子の一部が "
@@ -641,11 +641,11 @@ msgstr ""
 "peak near 2200 cm⁻¹ in the :math:`x` component is barely visible. \\ We "
 "did not examine the cause of the tilt in detail."
 
-#: ../../co2_ir/ir_spectrum.rst:210
+#: ../../co2_ir/ir_spectrum.rst:212
 msgid "各計算手法および実験との比較"
 msgstr "Comparison Across Calculation Methods and with Experiment"
 
-#: ../../co2_ir/ir_spectrum.rst:212
+#: ../../co2_ir/ir_spectrum.rst:214
 msgid ""
 ":numref:`fig-co2-spectra` と :numref:`fig-co2-spectra-bomd` "
 "のピーク位置から読み取ったCPMDとBOMDの振動数を、\\ :numref:`tab-co2-harmonic` "
@@ -656,92 +656,92 @@ msgstr ""
 "frequencies from the static calculations in \\ :numref:`tab-co2-harmonic`"
 " and with the experimental values (\\ :numref:`tab-co2-freq`\\ )."
 
-#: ../../co2_ir/ir_spectrum.rst:214
+#: ../../co2_ir/ir_spectrum.rst:216
 msgid ""
-"BOMDでも、双極子にはν₂とν₃のピークだけが現れ、ν₁は原子の運動のスペクトルにだけ現れます。\\ どのピークも CPMD（\\ "
-":numref:`fig-co2-spectra`\\ ） より高い波数にずれています。\\ 対称伸縮のスペクトルは、CPMD "
+"BOMDでも、双極子にはν₂とν₃のピークだけが現れ、ν₁は振動座標のスペクトルにだけ現れます。\\ どのピークも CPMD（\\ :numref"
+":`fig-co2-spectra`\\ ） より高い波数にずれています。\\ 対称伸縮のスペクトルは、CPMD "
 "で見えていた低波数側のゆっくりした変化の成分が、BOMD ではほとんどなく、1309 cm⁻¹のピークがはっきりしています。"
 msgstr ""
 "In BOMD too, the dipole spectrum shows only ν₂ and ν₃, whereas ν₁ appears"
-" only in the spectrum of the atomic motion. \\ All the BOMD peaks lie at "
-"higher wavenumbers than their CPMD counterparts (\\ :numref:`fig-"
-"co2-spectra`\\ ). \\ In the symmetric stretching spectrum, the slowly "
-"varying low-wavenumber contribution visible in CPMD is almost absent in "
-"BOMD, and the peak at 1309 cm⁻¹ is clear."
+" only in the spectra of the vibrational coordinates. \\ All the BOMD "
+"peaks lie at higher wavenumbers than their CPMD counterparts (\\ :numref"
+":`fig-co2-spectra`\\ ). \\ In the symmetric stretching spectrum, the "
+"slowly varying low-wavenumber contribution visible in CPMD is almost "
+"absent in BOMD, and the peak at 1309 cm⁻¹ is clear."
 
-#: ../../co2_ir/ir_spectrum.rst:218
+#: ../../co2_ir/ir_spectrum.rst:220
 msgid "CO₂の振動数（cm⁻¹）"
 msgstr "Vibrational frequencies of CO₂ (cm⁻¹)"
 
-#: ../../co2_ir/ir_spectrum.rst:224
+#: ../../co2_ir/ir_spectrum.rst:226
 msgid "CPMDのピーク位置"
 msgstr "CPMD peak position"
 
-#: ../../co2_ir/ir_spectrum.rst:225
+#: ../../co2_ir/ir_spectrum.rst:227
 msgid "BOMDのピーク位置"
 msgstr "BOMD peak position"
 
-#: ../../co2_ir/ir_spectrum.rst:226
+#: ../../co2_ir/ir_spectrum.rst:228
 msgid "静的計算による調和振動数（\\ :numref:`tab-co2-harmonic`\\ ）"
 msgstr "Static harmonic frequency (\\ :numref:`tab-co2-harmonic`\\ )"
 
-#: ../../co2_ir/ir_spectrum.rst:227
+#: ../../co2_ir/ir_spectrum.rst:229
 msgid "実験の基本振動数 [7]_"
 msgstr "Experimental fundamental frequency [7]_"
 
-#: ../../co2_ir/ir_spectrum.rst:228
+#: ../../co2_ir/ir_spectrum.rst:230
 msgid "実験の調和振動数 [7]_"
 msgstr "Experimental harmonic frequency [7]_"
 
-#: ../../co2_ir/ir_spectrum.rst:230
+#: ../../co2_ir/ir_spectrum.rst:232
 msgid "1253†"
 msgstr "1253†"
 
-#: ../../co2_ir/ir_spectrum.rst:231
+#: ../../co2_ir/ir_spectrum.rst:233
 msgid "1309†"
 msgstr "1309†"
 
-#: ../../co2_ir/ir_spectrum.rst:233
+#: ../../co2_ir/ir_spectrum.rst:235
 msgid "1333\\*"
 msgstr "1333\\*"
 
-#: ../../co2_ir/ir_spectrum.rst:234
+#: ../../co2_ir/ir_spectrum.rst:236
 msgid "1351"
 msgstr "1351"
 
-#: ../../co2_ir/ir_spectrum.rst:236
+#: ../../co2_ir/ir_spectrum.rst:238
 msgid "638（ :math:`x` ）、646（ :math:`y` ）"
 msgstr "638 (:math:`x`), 646 (:math:`y`)"
 
-#: ../../co2_ir/ir_spectrum.rst:237
+#: ../../co2_ir/ir_spectrum.rst:239
 msgid "660（ :math:`x` ）、667（ :math:`y` ）"
 msgstr "660 (:math:`x`), 667 (:math:`y`)"
 
-#: ../../co2_ir/ir_spectrum.rst:239
+#: ../../co2_ir/ir_spectrum.rst:241
 msgid "667"
 msgstr "667"
 
-#: ../../co2_ir/ir_spectrum.rst:240
+#: ../../co2_ir/ir_spectrum.rst:242
 msgid "672"
 msgstr "672"
 
-#: ../../co2_ir/ir_spectrum.rst:242
+#: ../../co2_ir/ir_spectrum.rst:244
 msgid "2198"
 msgstr "2198"
 
-#: ../../co2_ir/ir_spectrum.rst:243
+#: ../../co2_ir/ir_spectrum.rst:245
 msgid "2348"
 msgstr "2348"
 
-#: ../../co2_ir/ir_spectrum.rst:245
+#: ../../co2_ir/ir_spectrum.rst:247
 msgid "2349"
 msgstr "2349"
 
-#: ../../co2_ir/ir_spectrum.rst:246
+#: ../../co2_ir/ir_spectrum.rst:248
 msgid "2396"
 msgstr "2396"
 
-#: ../../co2_ir/ir_spectrum.rst:248
+#: ../../co2_ir/ir_spectrum.rst:250
 msgid ""
 "† 双極子にはピークがないため、原子の座標から求めた対称伸縮のスペクトル（ :numref:`fig-co2-spectra` と :numref"
 ":`fig-co2-spectra-bomd` の右）のピークの位置です。BOMDでも、双極子のスペクトルにν₁のピークは現れませんでした。"
@@ -752,7 +752,7 @@ msgstr ""
 ":`fig-co2-spectra-bomd`). The ν₁ peak was absent from the BOMD dipole "
 "spectrum as well."
 
-#: ../../co2_ir/ir_spectrum.rst:250
+#: ../../co2_ir/ir_spectrum.rst:252
 msgid ""
 "\\* ν₁は2ν₂とほぼ同じエネルギーにあるため、両者が混ざり合い（フェルミ共鳴 [8]_ ）、ラマンスペクトルでは1285 cm⁻¹と1388"
 " cm⁻¹の2本に分かれて観測されます。1333 cm⁻¹は、混ざり合いがない場合の推定値です。"
@@ -762,7 +762,7 @@ msgstr ""
 "cm⁻¹ in the Raman spectrum. The value 1333 cm⁻¹ is the estimate without "
 "mixing."
 
-#: ../../co2_ir/ir_spectrum.rst:252
+#: ../../co2_ir/ir_spectrum.rst:254
 msgid ""
 "MDのピークの位置は、計算時間で決まる分解能（約42 cm⁻¹）の精度で読み取った値です。\\ BOMDの時間刻み0.5 "
 "fsでは、時間積分の誤差のためにν₃が約0.2 %高めに出ますが、分解能よりずっと小さい差です。"
@@ -772,11 +772,11 @@ msgstr ""
 "error shifts ν₃ upward by about 0.2 %, but this shift is much smaller "
 "than the resolution."
 
-#: ../../co2_ir/ir_spectrum.rst:255
+#: ../../co2_ir/ir_spectrum.rst:257
 msgid "この表から、次のことが読み取れます。"
 msgstr "The table shows the following trends."
 
-#: ../../co2_ir/ir_spectrum.rst:257
+#: ../../co2_ir/ir_spectrum.rst:259
 msgid ""
 "**CPMDの振動数は、すべてのモードでBOMDより低くなっています。** 低下の割合は、ν₁で4.3 %、ν₂で約3 %、ν₃で6.4 "
 "%です。2つの計算は初期条件が同じで、違いは電子の扱いと時間刻みです。時間刻みによる差は上で述べたとおり小さい（ν₃で約0.2 "
@@ -793,7 +793,7 @@ msgstr ""
 "motion of the atoms, making the atoms behave as though they were heavier."
 " This effect is known to lower the frequencies [5]_."
 
-#: ../../co2_ir/ir_spectrum.rst:258
+#: ../../co2_ir/ir_spectrum.rst:260
 msgid ""
 "**BOMDの振動数は、実験の調和振動数より0.7〜3.1 %低くなっています。** "
 "原子核を古典的に扱う低温のMDで得られる振動数は、ほぼ調和振動数に相当します。そのため、非調和性を含む実験の基本振動数ではなく、実験から求めた調和振動数（表の右端の列）と比べるのが適切です。BOMDのν₃（2348"
@@ -815,7 +815,7 @@ msgstr ""
 "2.0 % for ν₃) reflect the error due to the calculation conditions used "
 "here, including PBE, the pseudopotentials, and the real-space grid."
 
-#: ../../co2_ir/ir_spectrum.rst:259
+#: ../../co2_ir/ir_spectrum.rst:261
 msgid ""
 "**静的計算は、ν₁とν₃ではBOMDとほぼ一致しています。** 変角振動ν₂だけは、静的計算がBOMDより約4 %低くなっています。 "
 ":numref:`tab-co2-harmonic` "
@@ -827,7 +827,7 @@ msgstr ""
 "bending frequency is uncertain because the energy varies with the "
 "positions of the atoms relative to the real-space grid."
 
-#: ../../co2_ir/ir_spectrum.rst:261
+#: ../../co2_ir/ir_spectrum.rst:263
 msgid ""
 "CPMDの結果だけを静的計算と比べると、変角振動の振動数はほぼ一致するので、仮想質量の影響は伸縮振動だけに現れるように見えます。\\ "
 "BOMDと直接比べると、実際にはすべてのモードの振動数が下がっていたことが分かります。"
@@ -837,11 +837,11 @@ msgstr ""
 "stretching modes. \\ A direct comparison with BOMD shows that CPMD in "
 "fact lowers the frequencies of all the modes."
 
-#: ../../co2_ir/ir_spectrum.rst:267
+#: ../../co2_ir/ir_spectrum.rst:269
 msgid "吸収強度"
 msgstr "Absorption Intensity"
 
-#: ../../co2_ir/ir_spectrum.rst:294
+#: ../../co2_ir/ir_spectrum.rst:296
 msgid ""
 ":numref:`fig-co2-spectra` および :numref:`fig-co2-spectra-bomd` "
 "の双極子スペクトルの強度は、そのままでは実際の赤外吸収強度に対応しません。\\ 各ピークの面積は、その成分の双極子の揺らぎの分散に比例します。\\"
@@ -861,7 +861,7 @@ msgstr ""
 "of this derivative and the mean square of the normal coordinate "
 ":math:`\\langle Q^2\\rangle` for the mode."
 
-#: ../../co2_ir/ir_spectrum.rst:299
+#: ../../co2_ir/ir_spectrum.rst:301
 msgid ""
 "今回の計算は、孤立した分子1個の短いNVE計算なので、各モードの振幅はランダムに与えた初速度によるエネルギーの配分に依存します。\\ 実際、 "
 ":math:`x` 方向と :math:`y` 方向の変角振動は、振幅が3.7倍違い、 :math:`C_x` と :math:`C_y` "
@@ -879,7 +879,7 @@ msgstr ""
 "proportional to IR intensity. \\ The present calculation, however, does "
 "not meet this condition."
 
-#: ../../co2_ir/ir_spectrum.rst:307
+#: ../../co2_ir/ir_spectrum.rst:309
 msgid ""
 "そこで、振幅によらない量として、双極子の変化率 :math:`\\partial\\mu/\\partial Q` "
 "をMDシミュレーションの軌跡から直接求めます。\\ 各時刻の原子座標から質量で重みをつけた基準座標 :math:`Q` "
@@ -893,7 +893,7 @@ msgstr ""
 "was tilted only slightly. \\ The IR intensity (the integrated intensity "
 "of the absorption band) is given by"
 
-#: ../../co2_ir/ir_spectrum.rst:312
+#: ../../co2_ir/ir_spectrum.rst:314
 msgid ""
 "A = \\frac{N_\\mathrm{A}\\pi}{3c^2}\\left(\\frac{\\partial\\mu}{\\partial"
 " Q}\\right)^2\n"
@@ -905,83 +905,83 @@ msgstr ""
 "  = 42.256 \\left(\\frac{\\partial\\mu}{\\partial Q}\\right)^2\\ "
 "\\mathrm{km/mol}"
 
-#: ../../co2_ir/ir_spectrum.rst:317
+#: ../../co2_ir/ir_spectrum.rst:319
 msgid "で計算できます（\\ :math:`\\partial\\mu/\\partial Q` の単位はD Å⁻¹ amu⁻¹ᐟ²）。"
 msgstr "with \\ :math:`\\partial\\mu/\\partial Q` in D Å⁻¹ amu⁻¹ᐟ²."
 
-#: ../../co2_ir/ir_spectrum.rst:319
+#: ../../co2_ir/ir_spectrum.rst:321
 msgid "双極子の変化率と赤外強度"
 msgstr "Dipole derivatives and IR intensities"
 
-#: ../../co2_ir/ir_spectrum.rst:325
+#: ../../co2_ir/ir_spectrum.rst:327
 msgid ":math:`\\partial\\mu/\\partial Q` （D Å⁻¹ amu⁻¹ᐟ²）、CPMD"
 msgstr ":math:`\\partial\\mu/\\partial Q` (D Å⁻¹ amu⁻¹ᐟ²), CPMD"
 
-#: ../../co2_ir/ir_spectrum.rst:326
+#: ../../co2_ir/ir_spectrum.rst:328
 msgid ":math:`\\partial\\mu/\\partial Q` （D Å⁻¹ amu⁻¹ᐟ²）、BOMD"
 msgstr ":math:`\\partial\\mu/\\partial Q` (D Å⁻¹ amu⁻¹ᐟ²), BOMD"
 
-#: ../../co2_ir/ir_spectrum.rst:327
+#: ../../co2_ir/ir_spectrum.rst:329
 msgid "赤外強度（km/mol）、CPMD"
 msgstr "IR intensity (km/mol), CPMD"
 
-#: ../../co2_ir/ir_spectrum.rst:328
+#: ../../co2_ir/ir_spectrum.rst:330
 msgid "赤外強度（km/mol）、BOMD"
 msgstr "IR intensity (km/mol), BOMD"
 
-#: ../../co2_ir/ir_spectrum.rst:329
+#: ../../co2_ir/ir_spectrum.rst:331
 msgid "実験値（km/mol） [7]_"
 msgstr "Experimental value (km/mol) [7]_"
 
-#: ../../co2_ir/ir_spectrum.rst:331
+#: ../../co2_ir/ir_spectrum.rst:333
 msgid "−3.88"
 msgstr "−3.88"
 
-#: ../../co2_ir/ir_spectrum.rst:332
+#: ../../co2_ir/ir_spectrum.rst:334
 msgid "−3.63"
 msgstr "−3.63"
 
-#: ../../co2_ir/ir_spectrum.rst:333
+#: ../../co2_ir/ir_spectrum.rst:335
 msgid "636"
 msgstr "636"
 
-#: ../../co2_ir/ir_spectrum.rst:334
+#: ../../co2_ir/ir_spectrum.rst:336
 msgid "556"
 msgstr "556"
 
-#: ../../co2_ir/ir_spectrum.rst:335
+#: ../../co2_ir/ir_spectrum.rst:337
 msgid "665"
 msgstr "665"
 
-#: ../../co2_ir/ir_spectrum.rst:337 ../../co2_ir/ir_spectrum.rst:338
+#: ../../co2_ir/ir_spectrum.rst:339 ../../co2_ir/ir_spectrum.rst:340
 msgid "−0.72（ :math:`x` 、 :math:`y` とも）"
 msgstr "−0.72 (both :math:`x` and :math:`y`)"
 
-#: ../../co2_ir/ir_spectrum.rst:339 ../../co2_ir/ir_spectrum.rst:340
+#: ../../co2_ir/ir_spectrum.rst:341 ../../co2_ir/ir_spectrum.rst:342
 msgid "44（2成分の合計）"
 msgstr "44 (sum of both components)"
 
-#: ../../co2_ir/ir_spectrum.rst:341
+#: ../../co2_ir/ir_spectrum.rst:343
 msgid "54"
 msgstr "54"
 
-#: ../../co2_ir/ir_spectrum.rst:343
+#: ../../co2_ir/ir_spectrum.rst:345
 msgid "0.005"
 msgstr "0.005"
 
-#: ../../co2_ir/ir_spectrum.rst:344
+#: ../../co2_ir/ir_spectrum.rst:346
 msgid "0.004"
 msgstr "0.004"
 
-#: ../../co2_ir/ir_spectrum.rst:345 ../../co2_ir/ir_spectrum.rst:346
+#: ../../co2_ir/ir_spectrum.rst:347 ../../co2_ir/ir_spectrum.rst:348
 msgid "0.0"
 msgstr "0.0"
 
-#: ../../co2_ir/ir_spectrum.rst:347
+#: ../../co2_ir/ir_spectrum.rst:349
 msgid "（赤外不活性）"
 msgstr "(IR inactive)"
 
-#: ../../co2_ir/ir_spectrum.rst:349
+#: ../../co2_ir/ir_spectrum.rst:351
 #, python-brace-format
 msgid ""
 ":math:`x` 方向と :math:`y` 方向の変角振動は、振幅が大きく違っていても、 "
@@ -999,7 +999,7 @@ msgstr ""
 " 22 km/mol × 2 for ν₂, and BOMD gives 553 km/mol for ν₃ and 22 km/mol × 2"
 " for ν₂)."
 
-#: ../../co2_ir/ir_spectrum.rst:352
+#: ../../co2_ir/ir_spectrum.rst:354
 msgid ""
 "CPMDとBOMDを比べると、変角振動の :math:`\\partial\\mu/\\partial Q` "
 "は一致しますが、ν₃ではCPMDの変化率の絶対値が7 %大きく、赤外強度は14 %大きくなっています。\\ "
@@ -1019,29 +1019,30 @@ msgstr ""
 "absorption strength, whereas the peak heights of "
 ":math:`C_\\alpha(\\omega)` are unsuitable."
 
-#: ../../co2_ir/ir_spectrum.rst:360
+#: ../../co2_ir/ir_spectrum.rst:362
 msgid "構造をずらして始めると"
 msgstr "Starting from a Displaced Structure"
 
-#: ../../co2_ir/ir_spectrum.rst:362
+#: ../../co2_ir/ir_spectrum.rst:364
 msgid ""
 "ここまでの計算では、最適化した構造から計算を始めたので、対称伸縮振動はほとんど励起されていませんでした。\\ :numref:`fig-"
 "co2-spectra` と :numref:`fig-co2-spectra-bomd` "
 "の右の図では、曲線ごとに規格化しているので他のモードと同じ高さに見えますが、対称伸縮の振幅は0.001 Å程度以下です。\\ "
-"振動の座標の運動エネルギーを温度に換算すると、対称伸縮はCPMDで0.2 K、BOMDで0.6 Kで、逆対称伸縮（10〜14 K）や "
+"基準座標の運動エネルギーを温度に換算すると、対称伸縮はCPMDで0.2 K、BOMDで0.6 Kで、逆対称伸縮（10〜14 K）や "
 ":math:`x` 方向の変角（6〜7 K）の数十分の一しかありません。\\ そこで、両方のC–O結合を1.150 "
 "Åに縮めた構造から、同じ条件でCPMDとBOMDを計算しました。\\ 平衡長より0.0145 "
 "Å短いので、計算開始とともに対称伸縮振動が大きく振動し始めます（\\ :numref:`fig-co2-energy-flow` の上）。\\ "
-"初速度は前の計算と同じで、解放されたエネルギーのため、平均温度は約4 KからCPMDで43 K、BOMDで49 Kに上がりました。"
+"初速度は前の計算と同じで、解放されたエネルギーのため、平均温度は、最適化構造から始めた計算の約4 Kから、CPMDで43 K、BOMDで49 "
+"Kに上がりました。"
 msgstr ""
 "In the calculations so far, the symmetric stretching mode was barely "
 "excited because we started from the optimized structure. \\ :numref:`fig-"
 "co2-spectra` and :numref:`fig-co2-spectra-bomd` make its peak look as "
 "high as those of the other modes because the curves in the right-hand "
 "panels are normalized separately, but the symmetric stretching amplitude "
-"is only about 0.001 Å or less. \\ Expressed as a temperature, the kinetic"
-" energy of the symmetric stretching coordinate is 0.2 K in CPMD and 0.6 K"
-" in BOMD, tens of times smaller than the corresponding values for "
+"is only about 0.001 Å or less. \\ Converting the kinetic energy of each "
+"normal coordinate to a temperature gives 0.2 K for symmetric stretching "
+"in CPMD and 0.6 K in BOMD, tens of times smaller than the values for "
 "antisymmetric stretching (10–14 K) and bending along :math:`x` (6–7 K). "
 "\\ We therefore ran CPMD and BOMD under the same conditions starting from"
 " a structure with both C–O bonds shortened to 1.150 Å. \\ Because the "
@@ -1049,9 +1050,10 @@ msgstr ""
 "mode begins to oscillate with a large amplitude as soon as the "
 "calculation starts (top panel of \\ :numref:`fig-co2-energy-flow`). \\ We"
 " used the same initial velocities as before. The energy released raised "
-"the average temperature from about 4 K to 43 K in CPMD and 49 K in BOMD."
+"the average temperature from about 4 K in the runs starting from the "
+"optimized structure to 43 K in CPMD and 49 K in BOMD."
 
-#: ../../co2_ir/ir_spectrum.rst:373
+#: ../../co2_ir/ir_spectrum.rst:375
 msgid ""
 "上：2つのC–O結合長の平均。下：2つの酸素原子を結ぶ直線からの炭素原子のずれの大きさ（ :math:`x` 、 :math:`y` "
 "成分を合わせたもの）。青は最適化構造から始めたCPMD、橙と緑はC–O 1.150 Åから始めたCPMDとBOMDです。"
@@ -1063,11 +1065,11 @@ msgstr ""
 "denote CPMD and BOMD, respectively, starting at a C–O bond length of "
 "1.150 Å."
 
-#: ../../co2_ir/ir_spectrum.rst:376
+#: ../../co2_ir/ir_spectrum.rst:378
 msgid "差音と結合音"
 msgstr "Difference Bands and Combination Bands"
 
-#: ../../co2_ir/ir_spectrum.rst:378
+#: ../../co2_ir/ir_spectrum.rst:380
 msgid ""
 "これらの計算の双極子の :math:`z` 成分のスペクトルを、最適化構造から始めた計算と比べたのが :numref:`fig-"
 "co2-sidebands` です。"
@@ -1076,7 +1078,7 @@ msgstr ""
 " and in the runs starting from the optimized structure are compared in "
 ":numref:`fig-co2-sidebands`."
 
-#: ../../co2_ir/ir_spectrum.rst:384
+#: ../../co2_ir/ir_spectrum.rst:386
 msgid ""
 "双極子の :math:`z` 成分のパワースペクトル（縦軸は対数）。上はCPMD、下はBOMDです。青は最適化構造（C–O 1.1645 "
 "Å）から、橙はC–O 1.150 Åから始めた計算です。"
@@ -1086,7 +1088,7 @@ msgstr ""
 "panel BOMD. Blue denotes runs starting from the optimized structure (C–O "
 "1.1645 Å) and orange denotes runs starting at C–O 1.150 Å."
 
-#: ../../co2_ir/ir_spectrum.rst:386
+#: ../../co2_ir/ir_spectrum.rst:388
 msgid ""
 "CPMDでは、主ピーク（2185 cm⁻¹）の両側の985 cm⁻¹と3410 cm⁻¹に、新しく弱いピークが現れました。\\ "
 "この計算での対称伸縮振動の振動数は1218 cm⁻¹なので、ν₃−ν₁ = 967 cm⁻¹とν₃+ν₁ = 3403 "
@@ -1094,7 +1096,7 @@ msgid ""
 "cm⁻¹）の両側の1022 cm⁻¹と3656 cm⁻¹に弱いピークが現れ、BOMDのν₁（1319 cm⁻¹）から求めたν₃−ν₁ = 1020"
 " cm⁻¹、ν₃+ν₁ = 3658 cm⁻¹と一致します。\\ "
 "ピークの位置は、CPMDによる振動数の低下の分だけずれていますが、現象は同じです。\\ "
-"一方、ν₁そのものには、振幅を30倍にしても、どちらの計算でもピークが現れません。"
+"一方、ν₁の振動数そのものには、対称伸縮の振幅を30倍にしても、どちらの計算でも双極子のピークが現れません。"
 msgstr ""
 "In CPMD, new weak peaks appeared at 985 cm⁻¹ and 3410 cm⁻¹ on either side"
 " of the main peak (2185 cm⁻¹). \\ The symmetric stretching frequency in "
@@ -1105,10 +1107,11 @@ msgstr ""
 "(2339 cm⁻¹). They agree with ν₃−ν₁ = 1020 cm⁻¹ and ν₃+ν₁ = 3658 cm⁻¹, "
 "calculated using the BOMD ν₁ of 1319 cm⁻¹. \\ The lower CPMD frequencies "
 "shift the peak positions, but the phenomenon is the same. \\ In contrast,"
-" neither calculation shows a peak at ν₁ itself, even after increasing its"
-" amplitude by a factor of 30."
+" at the frequency of ν₁ itself, neither calculation shows a peak in the "
+"dipole moment, even with the symmetric stretching amplitude increased by "
+"a factor of 30."
 
-#: ../../co2_ir/ir_spectrum.rst:393
+#: ../../co2_ir/ir_spectrum.rst:395
 msgid ""
 "ピークの高さは、CPMDでは主ピークの約700分の1、BOMDでは約360分の1（差音）と約500分の1（結合音）です。\\ "
 "和と差の振動数が生じる仕組みは2つ考えられます。"
@@ -1117,7 +1120,7 @@ msgstr ""
 "1/360 (difference band) and 1/500 (combination band) in BOMD. \\ Two "
 "mechanisms can give rise to the sum and difference frequencies."
 
-#: ../../co2_ir/ir_spectrum.rst:396
+#: ../../co2_ir/ir_spectrum.rst:398
 msgid ""
 "**原子の運動そのものが変調される（力学的な非調和性）。** "
 "C–O結合が縮んでいるときと伸びているときでは、逆対称伸縮振動のばね定数が異なります。ポテンシャルに :math:`Q_1 Q_3^2` "
@@ -1131,7 +1134,7 @@ msgstr ""
 "stretching coordinate :math:`Q_3` are modulated with the period of ν₁, "
 "producing ν₃±ν₁ components in :math:`Q_3` itself."
 
-#: ../../co2_ir/ir_spectrum.rst:397
+#: ../../co2_ir/ir_spectrum.rst:399
 msgid ""
 "**双極子の変化率が結合長で変わる（電気的な非調和性）。** 双極子 :math:`\\mu_z` に :math:`Q_1 Q_3` "
 "に比例する項があると、 :math:`\\cos\\omega_1 t\\cos\\omega_3 t` から和と差の振動数が生じます。 "
@@ -1146,7 +1149,7 @@ msgstr ""
 "antisymmetric, respectively, so their product is antisymmetric and can "
 "contribute to the dipole component along :math:`z`."
 
-#: ../../co2_ir/ir_spectrum.rst:399
+#: ../../co2_ir/ir_spectrum.rst:401
 msgid ""
 "どちらが効いているかを調べるため、CPMDの計算で、原子の座標から求めた :math:`Q_3` のスペクトルを見ると、984 cm⁻¹と3411"
 " cm⁻¹に、それぞれ主ピークの約440分の1と約1400分の1のピークがありました。\\ "
@@ -1171,7 +1174,7 @@ msgstr ""
 "leaves about 15 % of the dipole fluctuations unexplained, so this "
 "decomposition gives only a rough estimate."
 
-#: ../../co2_ir/ir_spectrum.rst:405
+#: ../../co2_ir/ir_spectrum.rst:407
 msgid ""
 "実際のCO₂でも、ν₃に関係する差音・結合音は観測されています。\\ 例えば、CO₂レーザーが発振する約960 cm⁻¹と約1060 "
 "cm⁻¹の光は、ν₃の励起状態から、ν₁と2ν₂が混ざった準位への遷移によるものです。\\ "
@@ -1184,21 +1187,23 @@ msgstr ""
 "in classical MD are distinct from quantum-mechanical transitions between "
 "levels, both arise from the same anharmonicity."
 
-#: ../../co2_ir/ir_spectrum.rst:410
+#: ../../co2_ir/ir_spectrum.rst:412
 msgid "対称伸縮から変角へのエネルギーの移動"
 msgstr "Energy Transfer from Symmetric Stretching to Bending"
 
-#: ../../co2_ir/ir_spectrum.rst:412
+#: ../../co2_ir/ir_spectrum.rst:414
 msgid ""
 "これらの計算では、もう一つ興味深いことが起きていました。\\ :numref:`fig-co2-energy-flow` "
-"に、C–O結合長の平均（対称伸縮）と、炭素原子の分子軸からのずれ（変角）の時間変化を示します。"
+"のC–O結合長の平均（対称伸縮）と、炭素原子の分子軸からのずれ（変角）について、100 fsの区間ごとの振幅を :numref:`tab-co2"
+"-energy-flow` にまとめます。"
 msgstr ""
 "These calculations showed another noteworthy feature. \\ :numref:`fig-co2"
-"-energy-flow` shows how the mean C–O bond length (symmetric stretching) "
-"and the displacement of the carbon atom from the molecular axis (bending)"
-" vary over time."
+"-energy-flow` shows the mean C–O bond length (symmetric stretching) and "
+"the displacement of the carbon atom from the molecular axis (bending), "
+"and :numref:`tab-co2-energy-flow` summarizes their amplitudes in 100 fs "
+"intervals."
 
-#: ../../co2_ir/ir_spectrum.rst:415
+#: ../../co2_ir/ir_spectrum.rst:417
 msgid "100 fsごとの振幅（1.150 Åから始めた計算、単位は10⁻³ Å）。対称伸縮は結合長平均の振幅、変角は炭素原子のずれの最大値"
 msgstr ""
 "Amplitudes in 100 fs intervals for the runs starting at 1.150 Å, in units"
@@ -1206,123 +1211,123 @@ msgstr ""
 "the mean bond length. For bending, it gives the maximum displacement of "
 "the carbon atom from the O–O line."
 
-#: ../../co2_ir/ir_spectrum.rst:420
+#: ../../co2_ir/ir_spectrum.rst:422
 msgid "時間（fs）"
 msgstr "Time (fs)"
 
-#: ../../co2_ir/ir_spectrum.rst:421
+#: ../../co2_ir/ir_spectrum.rst:423
 msgid "CPMD、対称伸縮"
 msgstr "CPMD, symmetric stretching"
 
-#: ../../co2_ir/ir_spectrum.rst:422
+#: ../../co2_ir/ir_spectrum.rst:424
 msgid "CPMD、変角"
 msgstr "CPMD, bending"
 
-#: ../../co2_ir/ir_spectrum.rst:423
+#: ../../co2_ir/ir_spectrum.rst:425
 msgid "BOMD、対称伸縮"
 msgstr "BOMD, symmetric stretching"
 
-#: ../../co2_ir/ir_spectrum.rst:424
+#: ../../co2_ir/ir_spectrum.rst:426
 msgid "BOMD、変角"
 msgstr "BOMD, bending"
 
-#: ../../co2_ir/ir_spectrum.rst:425
+#: ../../co2_ir/ir_spectrum.rst:427
 msgid "0〜100"
 msgstr "0–100"
 
-#: ../../co2_ir/ir_spectrum.rst:426 ../../co2_ir/ir_spectrum.rst:428
+#: ../../co2_ir/ir_spectrum.rst:428 ../../co2_ir/ir_spectrum.rst:430
 msgid "15.1"
 msgstr "15.1"
 
-#: ../../co2_ir/ir_spectrum.rst:427
+#: ../../co2_ir/ir_spectrum.rst:429
 msgid "12.2"
 msgstr "12.2"
 
-#: ../../co2_ir/ir_spectrum.rst:429
+#: ../../co2_ir/ir_spectrum.rst:431
 msgid "11.4"
 msgstr "11.4"
 
-#: ../../co2_ir/ir_spectrum.rst:430
+#: ../../co2_ir/ir_spectrum.rst:432
 msgid "200〜300"
 msgstr "200–300"
 
-#: ../../co2_ir/ir_spectrum.rst:431
+#: ../../co2_ir/ir_spectrum.rst:433
 msgid "14.5"
 msgstr "14.5"
 
-#: ../../co2_ir/ir_spectrum.rst:432
+#: ../../co2_ir/ir_spectrum.rst:434
 msgid "24.4"
 msgstr "24.4"
 
-#: ../../co2_ir/ir_spectrum.rst:433
+#: ../../co2_ir/ir_spectrum.rst:435
 msgid "14.7"
 msgstr "14.7"
 
-#: ../../co2_ir/ir_spectrum.rst:434
+#: ../../co2_ir/ir_spectrum.rst:436
 msgid "22.0"
 msgstr "22.0"
 
-#: ../../co2_ir/ir_spectrum.rst:435
+#: ../../co2_ir/ir_spectrum.rst:437
 msgid "400〜500"
 msgstr "400–500"
 
-#: ../../co2_ir/ir_spectrum.rst:436
+#: ../../co2_ir/ir_spectrum.rst:438
 msgid "11.9"
 msgstr "11.9"
 
-#: ../../co2_ir/ir_spectrum.rst:437
+#: ../../co2_ir/ir_spectrum.rst:439
 msgid "46.8"
 msgstr "46.8"
 
-#: ../../co2_ir/ir_spectrum.rst:438
+#: ../../co2_ir/ir_spectrum.rst:440
 msgid "13.2"
 msgstr "13.2"
 
-#: ../../co2_ir/ir_spectrum.rst:439
+#: ../../co2_ir/ir_spectrum.rst:441
 msgid "35.0"
 msgstr "35.0"
 
-#: ../../co2_ir/ir_spectrum.rst:440
+#: ../../co2_ir/ir_spectrum.rst:442
 msgid "600〜700"
 msgstr "600–700"
 
-#: ../../co2_ir/ir_spectrum.rst:441
+#: ../../co2_ir/ir_spectrum.rst:443
 msgid "5.0"
 msgstr "5.0"
 
-#: ../../co2_ir/ir_spectrum.rst:442
+#: ../../co2_ir/ir_spectrum.rst:444
 msgid "60.2"
 msgstr "60.2"
 
-#: ../../co2_ir/ir_spectrum.rst:443
+#: ../../co2_ir/ir_spectrum.rst:445
 msgid "12.6"
 msgstr "12.6"
 
-#: ../../co2_ir/ir_spectrum.rst:444
+#: ../../co2_ir/ir_spectrum.rst:446
 msgid "36.3"
 msgstr "36.3"
 
-#: ../../co2_ir/ir_spectrum.rst:445
+#: ../../co2_ir/ir_spectrum.rst:447
 msgid "700〜800"
 msgstr "700–800"
 
-#: ../../co2_ir/ir_spectrum.rst:446
+#: ../../co2_ir/ir_spectrum.rst:448
 msgid "5.1"
 msgstr "5.1"
 
-#: ../../co2_ir/ir_spectrum.rst:447
+#: ../../co2_ir/ir_spectrum.rst:449
 msgid "60.1"
 msgstr "60.1"
 
-#: ../../co2_ir/ir_spectrum.rst:448
+#: ../../co2_ir/ir_spectrum.rst:450
 msgid "13.6"
 msgstr "13.6"
 
-#: ../../co2_ir/ir_spectrum.rst:449
+#: ../../co2_ir/ir_spectrum.rst:451
 msgid "32.8"
 msgstr "32.8"
 
-#: ../../co2_ir/ir_spectrum.rst:451
+#: ../../co2_ir/ir_spectrum.rst:453
 msgid ""
 "CPMDでは、対称伸縮振動の振幅は600 fsまでに3分の1に減り、その間に変角振動の振幅は5倍に増えています。\\ "
 "対称伸縮振動のエネルギーが、変角振動に移っていったのです。\\ 最適化構造から始めた計算（青）では、変角振動の振幅はほぼ一定でした。"
@@ -1333,7 +1338,7 @@ msgstr ""
 "to the bending mode. \\ The bending amplitude was nearly constant in the "
 "run starting from the optimized structure (blue)."
 
-#: ../../co2_ir/ir_spectrum.rst:455
+#: ../../co2_ir/ir_spectrum.rst:457
 msgid ""
 "BOMDでも変角振動の振幅は増えますが、500 fsごろに約3倍になったところで頭打ちになり、その後は減り始めます。\\ "
 "対称伸縮振動の振幅も、2割ほど減ったところで増加に転じます。\\ "
@@ -1345,32 +1350,33 @@ msgstr ""
 "by about 20 %. \\ Energy appears to move back and forth between the two "
 "modes, with no one-way transfer."
 
-#: ../../co2_ir/ir_spectrum.rst:459
+#: ../../co2_ir/ir_spectrum.rst:461
 msgid ""
 "CPMDの振動数は、ν₁が1218 cm⁻¹、ν₂が約610 cm⁻¹で、ν₁ ≈ 2ν₂の関係がほぼ成り立っています。\\ 変角の座標の2乗 "
 ":math:`Q_2^2` は2ν₂の振動数で変化するので、ポテンシャルに :math:`Q_1 Q_2^2` "
-"の項（非調和項）があると、ν₁の振動と共鳴してエネルギーを効率よくやり取りできます。\\ "
-"これは、表の脚注で触れたフェルミ共鳴と同じ組み合わせです。\\ "
+"の項（非調和項）があると、ν₁の振動と共鳴してエネルギーを効率よくやり取りできます。\\ これは、 :numref:`tab-co2-freq` "
+"の脚注（\\*）で触れたフェルミ共鳴と同じ組み合わせです。\\ "
 "フェルミは、この非調和項による2つの準位の混ざり合いで、CO₂のラマンスペクトルが2本に分かれることを説明しました [8]_ 。\\ "
-"ここで見ているのは、同じ結合の古典力学版です。"
+"ここで見ているのは、同じ非調和項によるモード間のエネルギーのやり取りを、古典力学で追ったものです。"
 msgstr ""
 "The CPMD frequencies are 1218 cm⁻¹ for ν₁ and about 610 cm⁻¹ for ν₂, so "
 "ν₁ ≈ 2ν₂. \\ The squared bending coordinate :math:`Q_2^2` varies at "
 "frequency 2ν₂. If the potential contains a :math:`Q_1 Q_2^2` term (an "
 "anharmonic term), this variation can resonate with the oscillation at ν₁ "
 "and allow efficient energy exchange. \\ This is the same pairing of modes"
-" as in the Fermi resonance mentioned in the table footnote. \\ Fermi "
-"explained the two lines in the CO₂ Raman spectrum by the mixing of two "
-"levels through this anharmonic term [8]_. \\ Here we see the classical "
-"counterpart of the same coupling."
+" as in the Fermi resonance mentioned in the footnote (\\*) to :numref"
+":`tab-co2-freq`. \\ Fermi explained the two lines in the CO₂ Raman "
+"spectrum by the mixing of two levels through this anharmonic term [8]_. "
+"\\ What we see here is the exchange of energy between modes through the "
+"same anharmonic term, followed with classical mechanics."
 
-#: ../../co2_ir/ir_spectrum.rst:465
+#: ../../co2_ir/ir_spectrum.rst:467
 msgid "実際のCO₂でも、ν₁（混ざり合いがない場合の推定値1333 cm⁻¹）と2ν₂（2×667 cm⁻¹）はほぼ等しくなっています。"
 msgstr ""
 "In actual CO₂, ν₁ (estimated at 1333 cm⁻¹ in the absence of mixing) and "
 "2ν₂ (2×667 cm⁻¹) are also nearly equal."
 
-#: ../../co2_ir/ir_spectrum.rst:467
+#: ../../co2_ir/ir_spectrum.rst:469
 msgid ""
 "BOMDでは、ν₁が1319 cm⁻¹、ν₂が約651 cm⁻¹で、2ν₂はν₁より約15 cm⁻¹低くなっています。\\ この差は分解能（約42"
 " cm⁻¹）より小さいので目安ですが、共鳴から少しずれているとエネルギーは行き来するだけになるので、BOMDの振る舞いと整合します。\\ "
@@ -1391,11 +1397,11 @@ msgstr ""
 "and amount of transfer seen in CPMD cannot be taken as properties of the "
 "actual molecule."
 
-#: ../../co2_ir/ir_spectrum.rst:473
+#: ../../co2_ir/ir_spectrum.rst:475
 msgid "この数値実験から分かること"
 msgstr "What the Numerical Experiment Shows"
 
-#: ../../co2_ir/ir_spectrum.rst:475
+#: ../../co2_ir/ir_spectrum.rst:477
 msgid "外部電場をかけない第一原理MDでも、双極子モーメントの揺らぎから、赤外活性な振動（変角ν₂と逆対称伸縮ν₃）の振動数を取り出せました。"
 msgstr ""
 "Even without an applied external electric field, we obtained the "
@@ -1403,13 +1409,13 @@ msgstr ""
 "stretching ν₃) from fluctuations in the dipole moment in first-principles"
 " MD."
 
-#: ../../co2_ir/ir_spectrum.rst:476
+#: ../../co2_ir/ir_spectrum.rst:478
 msgid "対称伸縮振動ν₁は、原子が振動していても双極子には現れず、赤外不活性であることを直接確かめられました。"
 msgstr ""
 "We directly confirmed that symmetric stretching ν₁ is IR inactive. It "
 "produces no dipole signal even when the atoms vibrate."
 
-#: ../../co2_ir/ir_spectrum.rst:477
+#: ../../co2_ir/ir_spectrum.rst:479
 msgid ""
 "CPMDでは、同じ初期条件のBOMDより、すべてのモードの振動数が3〜6 %低く出ました。BOMDの振動数は実験の調和振動数より0.7〜3.1 "
 "%低く、これがPBEと今回の計算条件による誤差です。実験と比べるときは、両者を分けて考える必要があります。"
@@ -1420,7 +1426,21 @@ msgstr ""
 "calculation conditions used here. A comparison with experiment must "
 "distinguish these two shifts."
 
-#: ../../co2_ir/ir_spectrum.rst:478
+#: ../../co2_ir/ir_spectrum.rst:480
+msgid ""
+"双極子のパワースペクトルのピークの高さは、各モードに入ったエネルギーで変わるので、赤外強度を表しません。振幅によらない双極子の変化率 "
+":math:`\\partial\\mu/\\partial Q` "
+"をMDの軌跡から求めると、BOMDの赤外強度はν₃、ν₂とも実験値より小さめでしたが、両者の比（約13）は実験（約12）に近い値でした。"
+msgstr ""
+"The peak heights in the power spectra of the dipole moment change with "
+"the energy that goes into each mode, so they do not represent IR "
+"intensities. When we obtained the amplitude-independent dipole derivative"
+" :math:`\\partial\\mu/\\partial Q` from the MD trajectory, the BOMD IR "
+"intensities for both ν₃ and ν₂ were somewhat lower than the experimental "
+"values, but their ratio (about 13) was close to the experimental ratio "
+"(about 12)."
+
+#: ../../co2_ir/ir_spectrum.rst:481
 msgid "対称伸縮振動を大きく励起すると、CPMDでもBOMDでも、差音・結合音が双極子に現れました。フェルミ共鳴によるエネルギーの移動も見えましたが、その大きさはCPMDとBOMDで大きく異なりました。"
 msgstr ""
 "Strong excitation of the symmetric stretching mode produced difference "
@@ -1428,7 +1448,7 @@ msgstr ""
 " We also saw energy transfer due to Fermi resonance, but the amount "
 "transferred differed substantially between CPMD and BOMD."
 
-#: ../../co2_ir/ir_spectrum.rst:480
+#: ../../co2_ir/ir_spectrum.rst:483
 msgid ""
 "今回の計算は、原子核を古典的に扱った、3原子の分子1個・800 fsの計算です。\\ "
 "零点振動などの量子効果は含まれず、熱平衡の統計平均でもありません。\\ 得られた振動数や強度は、この条件での計算結果として読んでください。"
@@ -1439,58 +1459,58 @@ msgstr ""
 "equilibrium. \\ Interpret the frequencies and intensities as results "
 "under these specific conditions."
 
-#: ../../co2_ir/ir_spectrum.rst:485
+#: ../../co2_ir/ir_spectrum.rst:488
 msgid "参考文献"
 msgstr "References"
 
-#: ../../co2_ir/ir_spectrum.rst:487
-msgid ""
-"J\\.-I. Iwata, D. Takahashi, A. Oshiyama, T. Boku, K. Shiraishi, S. "
-"Okada, and K. Yabana, \"A massively-parallel electronic-structure "
-"calculations based on real-space density functional theory,\" *Journal of"
-" Computational Physics* **229**, 2339–2363 (2010). "
-"https://doi.org/10.1016/j.jcp.2009.11.038"
-msgstr ""
-"J\\.-I. Iwata, D. Takahashi, A. Oshiyama, T. Boku, K. Shiraishi, S. "
-"Okada, and K. Yabana, \"A massively-parallel electronic-structure "
-"calculations based on real-space density functional theory,\" *Journal of"
-" Computational Physics* **229**, 2339–2363 (2010). "
-"https://doi.org/10.1016/j.jcp.2009.11.038"
-
-#: ../../co2_ir/ir_spectrum.rst:488
-msgid ""
-"R\\. Car and M. Parrinello, \"Unified Approach for Molecular Dynamics and"
-" Density-Functional Theory,\" *Physical Review Letters* **55**, 2471 "
-"(1985). https://doi.org/10.1103/PhysRevLett.55.2471"
-msgstr ""
-"R\\. Car and M. Parrinello, \"Unified Approach for Molecular Dynamics and"
-" Density-Functional Theory,\" *Physical Review Letters* **55**, 2471 "
-"(1985). https://doi.org/10.1103/PhysRevLett.55.2471"
-
-#: ../../co2_ir/ir_spectrum.rst:489
-msgid ""
-"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
-"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
-"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
-msgstr ""
-"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
-"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
-"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
-
 #: ../../co2_ir/ir_spectrum.rst:490
 msgid ""
-"M\\. Fuchs and M. Scheffler, \"Ab initio pseudopotentials for electronic "
-"structure calculations of poly-atomic systems using density-functional "
-"theory,\" *Computer Physics Communications* **119**, 67–98 (1999). "
-"https://doi.org/10.1016/S0010-4655(98)00201-X"
+"J\\.-I. Iwata, D. Takahashi, A. Oshiyama, T. Boku, K. Shiraishi, S. "
+"Okada, and K. Yabana, \"A massively-parallel electronic-structure "
+"calculations based on real-space density functional theory,\" *Journal of"
+" Computational Physics* **229**, 2339–2363 (2010). "
+"https://doi.org/10.1016/j.jcp.2009.11.038"
 msgstr ""
-"M\\. Fuchs and M. Scheffler, \"Ab initio pseudopotentials for electronic "
-"structure calculations of poly-atomic systems using density-functional "
-"theory,\" *Computer Physics Communications* **119**, 67–98 (1999). "
-"https://doi.org/10.1016/S0010-4655(98)00201-X"
+"J\\.-I. Iwata, D. Takahashi, A. Oshiyama, T. Boku, K. Shiraishi, S. "
+"Okada, and K. Yabana, \"A massively-parallel electronic-structure "
+"calculations based on real-space density functional theory,\" *Journal of"
+" Computational Physics* **229**, 2339–2363 (2010). "
+"https://doi.org/10.1016/j.jcp.2009.11.038"
 
 #: ../../co2_ir/ir_spectrum.rst:491
 msgid ""
+"R\\. Car and M. Parrinello, \"Unified Approach for Molecular Dynamics and"
+" Density-Functional Theory,\" *Physical Review Letters* **55**, 2471 "
+"(1985). https://doi.org/10.1103/PhysRevLett.55.2471"
+msgstr ""
+"R\\. Car and M. Parrinello, \"Unified Approach for Molecular Dynamics and"
+" Density-Functional Theory,\" *Physical Review Letters* **55**, 2471 "
+"(1985). https://doi.org/10.1103/PhysRevLett.55.2471"
+
+#: ../../co2_ir/ir_spectrum.rst:492
+msgid ""
+"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
+"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
+"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
+msgstr ""
+"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
+"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
+"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
+
+#: ../../co2_ir/ir_spectrum.rst:493
+msgid ""
+"M\\. Fuchs and M. Scheffler, \"Ab initio pseudopotentials for electronic "
+"structure calculations of poly-atomic systems using density-functional "
+"theory,\" *Computer Physics Communications* **119**, 67–98 (1999). "
+"https://doi.org/10.1016/S0010-4655(98)00201-X"
+msgstr ""
+"M\\. Fuchs and M. Scheffler, \"Ab initio pseudopotentials for electronic "
+"structure calculations of poly-atomic systems using density-functional "
+"theory,\" *Computer Physics Communications* **119**, 67–98 (1999). "
+"https://doi.org/10.1016/S0010-4655(98)00201-X"
+
+#: ../../co2_ir/ir_spectrum.rst:494
+msgid ""
 "P\\. Tangney and S. Scandolo, \"How well do Car–Parrinello simulations "
 "reproduce the Born–Oppenheimer surface? Theory and examples,\" *The "
 "Journal of Chemical Physics* **116**, 14–24 (2002). "
@@ -1501,7 +1521,7 @@ msgstr ""
 "Journal of Chemical Physics* **116**, 14–24 (2002). "
 "https://doi.org/10.1063/1.1423940"
 
-#: ../../co2_ir/ir_spectrum.rst:492
+#: ../../co2_ir/ir_spectrum.rst:495
 msgid ""
 "P\\. L. Silvestrelli, M. Bernasconi, and M. Parrinello, \"Ab initio "
 "infrared spectrum of liquid water,\" *Chemical Physics Letters* **277**, "
@@ -1511,7 +1531,7 @@ msgstr ""
 "infrared spectrum of liquid water,\" *Chemical Physics Letters* **277**, "
 "478–482 (1997). https://doi.org/10.1016/S0009-2614(97)00930-5"
 
-#: ../../co2_ir/ir_spectrum.rst:493
+#: ../../co2_ir/ir_spectrum.rst:496
 msgid ""
 "NIST Computational Chemistry Comparison and Benchmark Database (CCCBDB), "
 "\"Experimental data for CO2.\" "
@@ -1530,7 +1550,7 @@ msgstr ""
 "G. Zerbi eds., *Vibrational Intensities in Infrared and Raman "
 "Spectroscopy*, 1982)"
 
-#: ../../co2_ir/ir_spectrum.rst:494
+#: ../../co2_ir/ir_spectrum.rst:497
 msgid ""
 "E\\. Fermi, \"Über den Ramaneffekt des Kohlendioxyds,\" *Zeitschrift für "
 "Physik* **71**, 250–259 (1931). https://doi.org/10.1007/BF01341712"
@@ -1538,7 +1558,7 @@ msgstr ""
 "E\\. Fermi, \"Über den Ramaneffekt des Kohlendioxyds,\" *Zeitschrift für "
 "Physik* **71**, 250–259 (1931). https://doi.org/10.1007/BF01341712"
 
-#: ../../co2_ir/ir_spectrum.rst:495
+#: ../../co2_ir/ir_spectrum.rst:498
 msgid ""
 "R\\. D. King-Smith and D. Vanderbilt, \"Theory of polarization of "
 "crystalline solids,\" *Physical Review B* **47**, 1651 (1993). "
@@ -1548,7 +1568,7 @@ msgstr ""
 "crystalline solids,\" *Physical Review B* **47**, 1651 (1993). "
 "https://doi.org/10.1103/PhysRevB.47.1651"
 
-#: ../../co2_ir/ir_spectrum.rst:496
+#: ../../co2_ir/ir_spectrum.rst:499
 msgid ""
 "R\\. Resta, \"Macroscopic polarization in crystalline dielectrics: the "
 "geometric phase approach,\" *Reviews of Modern Physics* **66**, 899 "

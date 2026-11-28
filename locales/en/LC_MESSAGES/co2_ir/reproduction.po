@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 16:19+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -37,11 +37,23 @@ msgstr ""
 "online manual <https://manual.quloud-platform.quemix.com/>`__ (Ver.7.0, "
 "in Japanese)."
 
-#: ../../co2_ir/reproduction.rst:9
+#: ../../co2_ir/reproduction.rst:8
+msgid ""
+"再現に必要なJobは、構造最適化が1つ、調和振動数を求める静的計算が13個（数値誤差も確かめる場合はさらに22個）、分子動力学が4つ（CPMDとBOMDを、2つの開始構造から）です。\\"
+" どの計算にも配布する構造ファイルを使うので、各Jobは他のJobの結果を待たずに実行できます。"
+msgstr ""
+"Reproducing the results requires 1 Job for geometry optimization, 13 Jobs"
+" for the static calculations of harmonic frequencies (22 more if you also"
+" check the numerical errors), and 4 Jobs for molecular dynamics (CPMD and"
+" BOMD from each of two starting structures). \\ Every calculation uses "
+"the downloadable structure files, so each Job can run without waiting for"
+" the results of other Jobs."
+
+#: ../../co2_ir/reproduction.rst:12
 msgid "計算環境"
 msgstr "Computing Environment"
 
-#: ../../co2_ir/reproduction.rst:11
+#: ../../co2_ir/reproduction.rst:14
 msgid ""
 "記事の計算は、2026年10月に、Quloudで使われているRSDFT（2026年4月版）とQuloudのジョブと同じ実行スクリプトをDockerに入れ、Quloudの外で実行したものです。\\"
 " CPMD、構造最適化、調和振動数の静的計算はWSL2（Intel Core Ultra 5 225U、MPI 4並列）で行いました。\\ "
@@ -60,23 +72,27 @@ msgstr ""
 "BOMD test, we verified that the two environments agreed in the changes in"
 " conserved quantities and the numbers of SCF iterations."
 
-#: ../../co2_ir/reproduction.rst:16
+#: ../../co2_ir/reproduction.rst:19
 msgid "計算の条件は、以下の「Quloudでの計算手順」で示す画面の設定と同じです。\\ ただし、次の2点が異なります。"
 msgstr ""
 "The calculations used the same settings as those shown under "
 "\"Calculation Procedure in Quloud\" below, \\ with the following two "
 "differences."
 
-#: ../../co2_ir/reproduction.rst:19
+#: ../../co2_ir/reproduction.rst:22
+#, python-brace-format
 msgid ""
 "双極子を出力する ``MDDIPOLE`` に加えて、座標を毎ステップ別のファイルに書き出す ``ALLTRAJ 1`` "
-"も指定しました。解析には使っていません。"
+"も指定しました。記事の数値の解析には使わず、座標の精度の確認だけに使いました（\\ :numref:`{number}節 <sec-co2"
+"-repro-notes>`\\ ）。"
 msgstr ""
 "In addition to ``MDDIPOLE`` for dipole output, we specified ``ALLTRAJ 1``"
 " to write the coordinates from every step to a separate file. We did not "
-"use that file for the analysis."
+"use these coordinates to analyze the numbers in the article, only to "
+"check the precision of the coordinates (\\ :numref:`Section {number} "
+"<sec-co2-repro-notes>`\\ )."
 
-#: ../../co2_ir/reproduction.rst:20
+#: ../../co2_ir/reproduction.rst:23
 msgid ""
 "Quloudの画面から作る入力ファイルには、スメアリングの種類を指定する ``MPVER 0`` 、 ``KINTEG 0`` "
 "が書き込まれますが、記事の計算ではRSDFTの既定値（ ``KINTEG 1`` ）を使いました。CO₂のHOMO–LUMOギャップ（8.0 "
@@ -88,22 +104,22 @@ msgstr ""
 "(8.0 eV) is much larger than the electronic temperature (0.03 eV). With "
 "either method, the occupations are 0 or 2, so the results are unchanged."
 
-#: ../../co2_ir/reproduction.rst:22
+#: ../../co2_ir/reproduction.rst:25
 msgid "各計算の所要時間は、構造最適化が数分、静的計算が1点あたり1分程度、CPMDが1本あたり約1時間（WSL2）、BOMDが1本あたり45〜50分（EC2）でした。"
 msgstr ""
 "Geometry optimization took several minutes, static calculations took "
 "about 1 minute per point, CPMD took about 1 hour per run (WSL2), and BOMD"
 " took 45–50 minutes per run (EC2)."
 
-#: ../../co2_ir/reproduction.rst:25
+#: ../../co2_ir/reproduction.rst:28
 msgid "配布ファイル"
 msgstr "Downloadable Files"
 
-#: ../../co2_ir/reproduction.rst:28
+#: ../../co2_ir/reproduction.rst:31
 msgid "構造ファイル"
 msgstr "Structure Files"
 
-#: ../../co2_ir/reproduction.rst:30
+#: ../../co2_ir/reproduction.rst:33
 msgid ""
 "Quloudの「ファイルアップロード」でMaterialとして登録する構造です。\\ いずれも1辺10.6 Åの立方体セルの中に、 "
 ":math:`z` 軸に沿ったCO₂分子を1個置いたCIFファイルです。"
@@ -112,37 +128,37 @@ msgstr ""
 "Upload\" in Quloud. \\ Each CIF file contains a single CO₂ molecule "
 "aligned with the :math:`z` axis in a cubic cell 10.6 Å on a side."
 
-#: ../../co2_ir/reproduction.rst:37 ../../co2_ir/reproduction.rst:74
+#: ../../co2_ir/reproduction.rst:40 ../../co2_ir/reproduction.rst:79
 msgid "ファイル"
 msgstr "File"
 
-#: ../../co2_ir/reproduction.rst:38 ../../co2_ir/reproduction.rst:75
+#: ../../co2_ir/reproduction.rst:41 ../../co2_ir/reproduction.rst:80
 msgid "内容"
 msgstr "Contents"
 
-#: ../../co2_ir/reproduction.rst:39
+#: ../../co2_ir/reproduction.rst:42
 msgid ":download:`co2_initial.cif <structures/co2_initial.cif>`"
 msgstr ":download:`co2_initial.cif <structures/co2_initial.cif>`"
 
-#: ../../co2_ir/reproduction.rst:40
+#: ../../co2_ir/reproduction.rst:43
 msgid "構造最適化の初期構造（C–O 1.16 Å）"
 msgstr "Initial structure for geometry optimization (C–O 1.16 Å)"
 
-#: ../../co2_ir/reproduction.rst:41
+#: ../../co2_ir/reproduction.rst:44
 msgid ":download:`co2_start_optimized.cif <structures/co2_start_optimized.cif>`"
 msgstr ":download:`co2_start_optimized.cif <structures/co2_start_optimized.cif>`"
 
-#: ../../co2_ir/reproduction.rst:42
+#: ../../co2_ir/reproduction.rst:45
 msgid "構造最適化の結果（C–O 1.1645 Å）。最適化構造から始めるMDに使います"
 msgstr ""
 "Result of geometry optimization (C–O 1.1645 Å), used for MD starting from"
 " the optimized structure"
 
-#: ../../co2_ir/reproduction.rst:43
+#: ../../co2_ir/reproduction.rst:46
 msgid ":download:`co2_start_1150.cif <structures/co2_start_1150.cif>`"
 msgstr ":download:`co2_start_1150.cif <structures/co2_start_1150.cif>`"
 
-#: ../../co2_ir/reproduction.rst:44
+#: ../../co2_ir/reproduction.rst:47
 #, python-brace-format
 msgid ""
 "両方のC–O結合を1.150 Åに縮めた構造。 :numref:`{number}節 <sec-co2-shifted-start>` "
@@ -151,39 +167,39 @@ msgstr ""
 "Structure with both C–O bonds shortened to 1.150 Å, used for the MD runs "
 "in :numref:`Section {number} <sec-co2-shifted-start>`"
 
-#: ../../co2_ir/reproduction.rst:45
+#: ../../co2_ir/reproduction.rst:48
 msgid ":download:`co2_static_standard.zip <structures/co2_static_standard.zip>`"
 msgstr ":download:`co2_static_standard.zip <structures/co2_static_standard.zip>`"
 
-#: ../../co2_ir/reproduction.rst:46
+#: ../../co2_ir/reproduction.rst:49
 msgid "調和振動数を求める静的計算の13個の構造（基準構造と、各モードに沿って0.02〜0.06 bohr動かした構造）"
 msgstr ""
 "13 structures for the static calculations of harmonic frequencies (the "
 "reference structure and structures displaced by 0.02–0.06 bohr along each"
 " mode)"
 
-#: ../../co2_ir/reproduction.rst:47
+#: ../../co2_ir/reproduction.rst:50
 msgid ":download:`co2_static_small.zip <structures/co2_static_small.zip>`"
 msgstr ":download:`co2_static_small.zip <structures/co2_static_small.zip>`"
 
-#: ../../co2_ir/reproduction.rst:48
+#: ../../co2_ir/reproduction.rst:51
 msgid "変位を0.0025〜0.01 bohrにした13個の構造（数値誤差の確認用）"
 msgstr ""
 "13 structures with displacements of 0.0025–0.01 bohr (for checking "
 "numerical error)"
 
-#: ../../co2_ir/reproduction.rst:49
+#: ../../co2_ir/reproduction.rst:52
 msgid ":download:`co2_static_shift.zip <structures/co2_static_shift.zip>`"
 msgstr ":download:`co2_static_shift.zip <structures/co2_static_shift.zip>`"
 
-#: ../../co2_ir/reproduction.rst:50
+#: ../../co2_ir/reproduction.rst:53
 msgid "分子全体を :math:`x` 方向に格子間隔の1/8ずつ平行移動させた9個の構造（数値誤差の確認用）"
 msgstr ""
 "9 structures generated by translating the whole molecule in the :math:`x`"
 " direction in increments of 1/8 of the grid spacing (for checking "
 "numerical error)"
 
-#: ../../co2_ir/reproduction.rst:52
+#: ../../co2_ir/reproduction.rst:55
 #, python-brace-format
 msgid ""
 "静的計算の構造のファイル名は ``co2_<mode>_<displacement>.cif`` です。\\ 変位 :math:`u` "
@@ -200,11 +216,11 @@ msgstr ""
 "carbon atom of the optimized structure at the center of the cell and "
 "placed the two oxygen atoms symmetrically on either side."
 
-#: ../../co2_ir/reproduction.rst:57
+#: ../../co2_ir/reproduction.rst:60
 msgid "スクリプト"
 msgstr "Script"
 
-#: ../../co2_ir/reproduction.rst:59
+#: ../../co2_ir/reproduction.rst:62
 msgid ""
 ":download:`analyze_co2_ir.py <scripts/analyze_co2_ir.py>` : "
 "Quloudからダウンロードした出力ファイルのZIPを読み、記事中の数値を表示して、図を作成します。"
@@ -213,7 +229,7 @@ msgstr ""
 "files downloaded from Quloud, prints the numerical results reported in "
 "the article, and generates the figures."
 
-#: ../../co2_ir/reproduction.rst:60
+#: ../../co2_ir/reproduction.rst:63
 msgid ""
 ":download:`make_static_structures.py <scripts/make_static_structures.py>`"
 " : 上の静的計算の構造ファイルを作ったスクリプトです。変位の定義を確かめたり、別の変位を試したりするときに使います。"
@@ -222,15 +238,15 @@ msgstr ""
 " generated the structure files above for the static calculations. Use it "
 "to check how the displacements are defined or to try other displacements."
 
-#: ../../co2_ir/reproduction.rst:62
+#: ../../co2_ir/reproduction.rst:65
 msgid "スクリプトはPython 3、NumPy、Matplotlibで動作します。"
 msgstr "The scripts run with Python 3, NumPy, and Matplotlib."
 
-#: ../../co2_ir/reproduction.rst:65
+#: ../../co2_ir/reproduction.rst:70
 msgid "記事の計算の出力"
 msgstr "Output from the Calculations in This Article"
 
-#: ../../co2_ir/reproduction.rst:67
+#: ../../co2_ir/reproduction.rst:72
 msgid ""
 "記事の計算の出力ファイルを、Quloudの「一括ダウンロード」で得られるZIPと同じファイル名・構成にまとめたものです。\\ "
 "解析に使うファイルだけを入れています。"
@@ -239,39 +255,39 @@ msgstr ""
 "file names and archive structure as ZIP files from \"Batch Download\" in "
 "Quloud. \\ The archives contain only the files used in the analysis."
 
-#: ../../co2_ir/reproduction.rst:76
+#: ../../co2_ir/reproduction.rst:81
 msgid ":download:`cpmd_start_optimized.zip <data/cpmd_start_optimized.zip>`"
 msgstr ":download:`cpmd_start_optimized.zip <data/cpmd_start_optimized.zip>`"
 
-#: ../../co2_ir/reproduction.rst:77
+#: ../../co2_ir/reproduction.rst:82
 msgid "最適化構造から始めたCPMD"
 msgstr "CPMD starting from the optimized structure"
 
-#: ../../co2_ir/reproduction.rst:78
+#: ../../co2_ir/reproduction.rst:83
 msgid ":download:`cpmd_start_1150.zip <data/cpmd_start_1150.zip>`"
 msgstr ":download:`cpmd_start_1150.zip <data/cpmd_start_1150.zip>`"
 
-#: ../../co2_ir/reproduction.rst:79
+#: ../../co2_ir/reproduction.rst:84
 msgid "C–O 1.150 Åから始めたCPMD"
 msgstr "CPMD starting at C–O 1.150 Å"
 
-#: ../../co2_ir/reproduction.rst:80
+#: ../../co2_ir/reproduction.rst:85
 msgid ":download:`bomd_start_optimized.zip <data/bomd_start_optimized.zip>`"
 msgstr ":download:`bomd_start_optimized.zip <data/bomd_start_optimized.zip>`"
 
-#: ../../co2_ir/reproduction.rst:81
+#: ../../co2_ir/reproduction.rst:86
 msgid "最適化構造から始めたBOMD"
 msgstr "BOMD starting from the optimized structure"
 
-#: ../../co2_ir/reproduction.rst:82
+#: ../../co2_ir/reproduction.rst:87
 msgid ":download:`bomd_start_1150.zip <data/bomd_start_1150.zip>`"
 msgstr ":download:`bomd_start_1150.zip <data/bomd_start_1150.zip>`"
 
-#: ../../co2_ir/reproduction.rst:83
+#: ../../co2_ir/reproduction.rst:88
 msgid "C–O 1.150 Åから始めたBOMD"
 msgstr "BOMD starting at C–O 1.150 Å"
 
-#: ../../co2_ir/reproduction.rst:84
+#: ../../co2_ir/reproduction.rst:89
 msgid ""
 ":download:`static_standard.zip <data/static_standard.zip>` 、 "
 ":download:`static_small.zip <data/static_small.zip>` 、 "
@@ -281,13 +297,13 @@ msgstr ""
 ":download:`static_small.zip <data/static_small.zip>`, "
 ":download:`static_shift.zip <data/static_shift.zip>`"
 
-#: ../../co2_ir/reproduction.rst:85
+#: ../../co2_ir/reproduction.rst:90
 msgid "静的計算。上の構造ファイルの3つのセットに対応し、1つのZIPに、ジョブごとのフォルダをまとめています"
 msgstr ""
 "Static calculations corresponding to the three sets of structure files "
 "above. Each ZIP archive contains a folder for each Job."
 
-#: ../../co2_ir/reproduction.rst:87
+#: ../../co2_ir/reproduction.rst:92
 msgid ""
 "MDのZIPには ``TRAJECTORY.cif`` （毎ステップの原子配置）、 ``DIPOLE.dat`` "
 "（毎ステップの双極子モーメント）、 ``info.dat`` （毎ステップのエネルギーと温度）、 ``rsdft.json`` 、 "
@@ -300,105 +316,107 @@ msgstr ""
 "folders for the static calculations contain ``rsdft.json`` (total energy)"
 " and ``rsdft.atom``."
 
-#: ../../co2_ir/reproduction.rst:90
+#: ../../co2_ir/reproduction.rst:95
 msgid "Quloudでの計算手順"
 msgstr "Calculation Procedure in Quloud"
 
-#: ../../co2_ir/reproduction.rst:93
+#: ../../co2_ir/reproduction.rst:98
 msgid "共通の設定"
 msgstr "Common Settings"
 
-#: ../../co2_ir/reproduction.rst:95
+#: ../../co2_ir/reproduction.rst:100
 msgid "すべての計算で、計算ソフトにRSDFTを選び、入力項目を次のように設定します。\\ 表にない項目は既定値のままです。"
 msgstr ""
 "For all calculations, select RSDFT as the calculation software and set "
 "the input fields as shown below. \\ Leave the other fields at their "
 "defaults."
 
-#: ../../co2_ir/reproduction.rst:102 ../../co2_ir/reproduction.rst:182
+#: ../../co2_ir/reproduction.rst:107 ../../co2_ir/reproduction.rst:187
 msgid "入力項目"
 msgstr "Input field"
 
-#: ../../co2_ir/reproduction.rst:103
+#: ../../co2_ir/reproduction.rst:108
 msgid "設定値"
 msgstr "Value"
 
-#: ../../co2_ir/reproduction.rst:104
+#: ../../co2_ir/reproduction.rst:109
 msgid "既定値との違い"
 msgstr "Difference from default"
 
-#: ../../co2_ir/reproduction.rst:105
+#: ../../co2_ir/reproduction.rst:110
 msgid "交換相関汎関数"
 msgstr "Exchange-Correlation Functional"
 
-#: ../../co2_ir/reproduction.rst:106
+#: ../../co2_ir/reproduction.rst:111
 msgid "GGA-PBE (PBE96)"
 msgstr "GGA-PBE (PBE96)"
 
-#: ../../co2_ir/reproduction.rst:107 ../../co2_ir/reproduction.rst:110
-#: ../../co2_ir/reproduction.rst:119 ../../co2_ir/reproduction.rst:122
+#: ../../co2_ir/reproduction.rst:112 ../../co2_ir/reproduction.rst:115
+#: ../../co2_ir/reproduction.rst:124 ../../co2_ir/reproduction.rst:127
 msgid "既定値"
 msgstr "Default"
 
-#: ../../co2_ir/reproduction.rst:108
+#: ../../co2_ir/reproduction.rst:113
 msgid "擬ポテンシャルセット"
 msgstr "Pseudopotential Set"
 
-#: ../../co2_ir/reproduction.rst:109
+#: ../../co2_ir/reproduction.rst:114
 msgid "FHI"
 msgstr "FHI"
 
-#: ../../co2_ir/reproduction.rst:111
+#: ../../co2_ir/reproduction.rst:116
 msgid "k グリッド（a、b、c 軸）"
 msgstr "k-grid (a-, b-, c-axis)"
 
-#: ../../co2_ir/reproduction.rst:112
+#: ../../co2_ir/reproduction.rst:117
 msgid "1、1、1"
 msgstr "1, 1, 1"
 
-#: ../../co2_ir/reproduction.rst:113
+#: ../../co2_ir/reproduction.rst:118
 msgid "変更（Γ点のみ）"
 msgstr "Changed (Γ point only)"
 
-#: ../../co2_ir/reproduction.rst:114
+#: ../../co2_ir/reproduction.rst:119
 msgid "r グリッド（a、b、c 軸）"
 msgstr "r-grid (a-, b-, c-axis)"
 
-#: ../../co2_ir/reproduction.rst:115
+#: ../../co2_ir/reproduction.rst:120
 msgid "64、64、64"
 msgstr "64, 64, 64"
 
-#: ../../co2_ir/reproduction.rst:116
+#: ../../co2_ir/reproduction.rst:121
 msgid "変更（格子間隔0.313 bohr = 0.166 Å）"
 msgstr "Changed (grid spacing 0.313 bohr = 0.166 Å)"
 
-#: ../../co2_ir/reproduction.rst:117
+#: ../../co2_ir/reproduction.rst:122
 msgid "電子温度 (EKBT)"
 msgstr "Electronic Temperature (EKBT)"
 
-#: ../../co2_ir/reproduction.rst:118
+#: ../../co2_ir/reproduction.rst:123
 msgid "0.03 eV"
 msgstr "0.03 eV"
 
-#: ../../co2_ir/reproduction.rst:120
+#: ../../co2_ir/reproduction.rst:125
 msgid "SCF 収束閾値（ポテンシャル）"
 msgstr "SCF Convergence Threshold (Potential)"
 
-#: ../../co2_ir/reproduction.rst:121
+#: ../../co2_ir/reproduction.rst:126
 msgid "1e-15"
 msgstr "1e-15"
 
-#: ../../co2_ir/reproduction.rst:124
+#: ../../co2_ir/reproduction.rst:129
+#, python-brace-format
 msgid ""
 "Jobを実行するときは、「インスタンス選択」のCPU区分で **4 vCPUか8 vCPU** を選んでください。\\ 16 "
-"vCPU以上では、計算が「Error: Too many threads」で止まります（「計算と数値を扱う上での注意」を参照）。"
+"vCPU以上では、計算が「Error: Too many threads」で止まります（\\ :numref:`{number}節 <sec-"
+"co2-repro-notes>`\\ ）。"
 msgstr ""
 "When running a Job, choose **4 vCPU or 8 vCPU** in the CPU tier of "
 "\"Select Instance\". \\ With 16 vCPU or more, the calculation stops with "
-"\"Error: Too many threads\" (see \"Notes on Calculations and Numerical "
-"Results\")."
+"\"Error: Too many threads\" (\\ :numref:`Section {number} <sec-co2-repro-"
+"notes>`\\ )."
 
-#: ../../co2_ir/reproduction.rst:127
+#: ../../co2_ir/reproduction.rst:132
 msgid ""
 "Materialの登録とJobの作成・実行の操作は、マニュアルの `原子構造の登録 <https://manual.quloud-"
 "platform.quemix.com/source/jobs_and_models_atom.html>`__ 、 `計算 Job の登録 "
@@ -414,11 +432,11 @@ msgstr ""
 "platform.quemix.com/source/calculation.html>`__, and `running a Job "
 "<https://manual.quloud-platform.quemix.com/source/runjob.html>`__."
 
-#: ../../co2_ir/reproduction.rst:130
+#: ../../co2_ir/reproduction.rst:135
 msgid "1. 構造最適化"
 msgstr "1. Geometry Optimization"
 
-#: ../../co2_ir/reproduction.rst:132
+#: ../../co2_ir/reproduction.rst:137
 msgid ""
 "``co2_initial.cif`` を登録したMaterialで、計算機能「構造最適化」のJobを作ります。\\ 力の収束閾値（0.0257 "
 "eV/Å）と最適化最大ステップ数（100）は既定値のままです。\\ 最適化後の構造は、出力ファイルの ``rsdft.atom.out.cif``"
@@ -430,74 +448,74 @@ msgstr ""
 "The optimized structure is written to the output file "
 "``rsdft.atom.out.cif``."
 
-#: ../../co2_ir/reproduction.rst:136
+#: ../../co2_ir/reproduction.rst:141
 msgid "格子間隔を変えて最適化したC–O結合長は次のとおりです。r グリッド64と72で結合長が0.0001 Åまで一致したので、64を使いました。"
 msgstr ""
 "The table below lists the optimized C–O bond lengths for different grid "
 "spacings. The bond lengths for r-grids of 64 and 72 agreed to 0.0001 Å, "
 "so we used 64."
 
-#: ../../co2_ir/reproduction.rst:142
+#: ../../co2_ir/reproduction.rst:147
 msgid "r グリッド"
 msgstr "r-grid"
 
-#: ../../co2_ir/reproduction.rst:143
+#: ../../co2_ir/reproduction.rst:148
 msgid "格子間隔（bohr）"
 msgstr "Grid spacing (bohr)"
 
-#: ../../co2_ir/reproduction.rst:144
+#: ../../co2_ir/reproduction.rst:149
 msgid "C–O結合長（Å）"
 msgstr "C–O bond length (Å)"
 
-#: ../../co2_ir/reproduction.rst:145
+#: ../../co2_ir/reproduction.rst:150
 msgid "48"
 msgstr "48"
 
-#: ../../co2_ir/reproduction.rst:146
+#: ../../co2_ir/reproduction.rst:151
 msgid "0.417"
 msgstr "0.417"
 
-#: ../../co2_ir/reproduction.rst:147
+#: ../../co2_ir/reproduction.rst:152
 msgid "1.1654"
 msgstr "1.1654"
 
-#: ../../co2_ir/reproduction.rst:148
+#: ../../co2_ir/reproduction.rst:153
 msgid "56"
 msgstr "56"
 
-#: ../../co2_ir/reproduction.rst:149
+#: ../../co2_ir/reproduction.rst:154
 msgid "0.358"
 msgstr "0.358"
 
-#: ../../co2_ir/reproduction.rst:150
+#: ../../co2_ir/reproduction.rst:155
 msgid "1.1596"
 msgstr "1.1596"
 
-#: ../../co2_ir/reproduction.rst:151
+#: ../../co2_ir/reproduction.rst:156
 msgid "64"
 msgstr "64"
 
-#: ../../co2_ir/reproduction.rst:152
+#: ../../co2_ir/reproduction.rst:157
 msgid "0.313"
 msgstr "0.313"
 
-#: ../../co2_ir/reproduction.rst:153 ../../co2_ir/reproduction.rst:156
+#: ../../co2_ir/reproduction.rst:158 ../../co2_ir/reproduction.rst:161
 msgid "1.1645"
 msgstr "1.1645"
 
-#: ../../co2_ir/reproduction.rst:154
+#: ../../co2_ir/reproduction.rst:159
 msgid "72"
 msgstr "72"
 
-#: ../../co2_ir/reproduction.rst:155
+#: ../../co2_ir/reproduction.rst:160
 msgid "0.278"
 msgstr "0.278"
 
-#: ../../co2_ir/reproduction.rst:159
+#: ../../co2_ir/reproduction.rst:164
 msgid "2. 調和振動数の静的計算"
 msgstr "2. Static Calculation of Harmonic Frequencies"
 
-#: ../../co2_ir/reproduction.rst:161
+#: ../../co2_ir/reproduction.rst:166
 msgid ""
 "``co2_static_standard.zip`` "
 "の13個の構造をそれぞれMaterialとして登録し、計算機能「自己無撞着電子状態計算（SCF）」のJobを作って実行します。\\ "
@@ -510,13 +528,13 @@ msgstr ""
 "``co2_static_small.zip`` (13 structures) and ``co2_static_shift.zip`` (9 "
 "structures)."
 
-#: ../../co2_ir/reproduction.rst:164
+#: ../../co2_ir/reproduction.rst:169
 msgid "解析スクリプトは、各Jobの全エネルギーを2次・4次の多項式でフィットして、調和振動数を求めます。"
 msgstr ""
 "The analysis script fits quadratic and fourth-order polynomials to the "
 "total energies from the Jobs to obtain harmonic frequencies."
 
-#: ../../co2_ir/reproduction.rst:166
+#: ../../co2_ir/reproduction.rst:171
 msgid ""
 "4次フィット： :math:`|u|\\le 0.06` bohrの全点を :math:`E = ku^2/2 + c_3u^3 + "
 "c_4u^4` でフィットします。"
@@ -524,125 +542,126 @@ msgstr ""
 "The fourth-order fit uses all points with :math:`|u|\\le 0.06` bohr and "
 "the expression :math:`E = ku^2/2 + c_3u^3 + c_4u^4`."
 
-#: ../../co2_ir/reproduction.rst:167
+#: ../../co2_ir/reproduction.rst:172
 msgid "2次フィット： :math:`|u|\\le 0.02` bohrの点だけを :math:`E = ku^2/2` でフィットします。"
 msgstr ""
 "The quadratic fit uses only points with :math:`|u|\\le 0.02` bohr and the"
 " expression :math:`E = ku^2/2`."
 
-#: ../../co2_ir/reproduction.rst:169
+#: ../../co2_ir/reproduction.rst:174
 msgid "調和振動数は、得られた曲率 :math:`k` と各モードの有効質量から求めます。"
 msgstr ""
 "The harmonic frequencies follow from the fitted curvature :math:`k` and "
 "the effective mass of each mode."
 
-#: ../../co2_ir/reproduction.rst:172
+#: ../../co2_ir/reproduction.rst:177
 msgid "3. 分子動力学"
 msgstr "3. Molecular Dynamics"
 
-#: ../../co2_ir/reproduction.rst:174
+#: ../../co2_ir/reproduction.rst:179
 msgid ""
 "``co2_start_optimized.cif`` と ``co2_start_1150.cif`` "
-"を登録したMaterialで、計算機能「第一原理分子動力学」のJobを作ります。\\ "
+"を登録したMaterialのそれぞれで、計算機能「第一原理分子動力学」のJobをCPMDとBOMDの2つずつ、合わせて4つ作ります。\\ "
 "最適化構造から始める計算には、1.の結果の最終構造を「Materialとして保存」したものを使うこともできます。\\ "
 "入力項目は、共通の設定に加えて次のようにします。"
 msgstr ""
-"Create \"First-Principles MD\" Jobs for the Materials registered from "
-"``co2_start_optimized.cif`` and ``co2_start_1150.cif``. \\ For runs "
-"starting from the optimized structure, you can also use \"Save as "
-"Material\" on the final structure from step 1. \\ In addition to the "
-"common settings, set the following input fields."
+"For each of the Materials registered from ``co2_start_optimized.cif`` and"
+" ``co2_start_1150.cif``, create two \"First-Principles MD\" Jobs, one for"
+" CPMD and one for BOMD, for a total of 4 Jobs. \\ For runs starting from "
+"the optimized structure, you can also use \"Save as Material\" on the "
+"final structure from step 1. \\ In addition to the common settings, set "
+"the following input fields."
 
-#: ../../co2_ir/reproduction.rst:183
+#: ../../co2_ir/reproduction.rst:188
 msgid "CPMD"
 msgstr "CPMD"
 
-#: ../../co2_ir/reproduction.rst:184
+#: ../../co2_ir/reproduction.rst:189
 msgid "BOMD"
 msgstr "BOMD"
 
-#: ../../co2_ir/reproduction.rst:185
+#: ../../co2_ir/reproduction.rst:190
 msgid "MD法"
 msgstr "MD Method"
 
-#: ../../co2_ir/reproduction.rst:186
+#: ../../co2_ir/reproduction.rst:191
 msgid "CPMD (Car-Parrinello)"
 msgstr "CPMD (Car-Parrinello)"
 
-#: ../../co2_ir/reproduction.rst:187
+#: ../../co2_ir/reproduction.rst:192
 msgid "BOMD (Born-Oppenheimer)"
 msgstr "BOMD (Born-Oppenheimer)"
 
-#: ../../co2_ir/reproduction.rst:188
+#: ../../co2_ir/reproduction.rst:193
 msgid "仮想電子質量"
 msgstr "Fictitious Electron Mass"
 
-#: ../../co2_ir/reproduction.rst:189
+#: ../../co2_ir/reproduction.rst:194
 msgid "400（既定値）"
 msgstr "400 (default)"
 
-#: ../../co2_ir/reproduction.rst:190
+#: ../../co2_ir/reproduction.rst:195
 msgid "—"
 msgstr "—"
 
-#: ../../co2_ir/reproduction.rst:191
+#: ../../co2_ir/reproduction.rst:196
 msgid "タイムステップ"
 msgstr "Timestep"
 
-#: ../../co2_ir/reproduction.rst:192
+#: ../../co2_ir/reproduction.rst:197
 msgid "0.05 fs"
 msgstr "0.05 fs"
 
-#: ../../co2_ir/reproduction.rst:193
+#: ../../co2_ir/reproduction.rst:198
 msgid "0.5 fs"
 msgstr "0.5 fs"
 
-#: ../../co2_ir/reproduction.rst:194
+#: ../../co2_ir/reproduction.rst:199
 msgid "ステップ数"
 msgstr "Number of Steps"
 
-#: ../../co2_ir/reproduction.rst:195
+#: ../../co2_ir/reproduction.rst:200
 msgid "16000"
 msgstr "16000"
 
-#: ../../co2_ir/reproduction.rst:196
+#: ../../co2_ir/reproduction.rst:201
 msgid "1600"
 msgstr "1600"
 
-#: ../../co2_ir/reproduction.rst:197
+#: ../../co2_ir/reproduction.rst:202
 msgid "温度"
 msgstr "Temperature"
 
-#: ../../co2_ir/reproduction.rst:198 ../../co2_ir/reproduction.rst:199
+#: ../../co2_ir/reproduction.rst:203 ../../co2_ir/reproduction.rst:204
 msgid "10 K"
 msgstr "10 K"
 
-#: ../../co2_ir/reproduction.rst:200
+#: ../../co2_ir/reproduction.rst:205
 msgid "アンサンブル"
 msgstr "Ensemble"
 
-#: ../../co2_ir/reproduction.rst:201 ../../co2_ir/reproduction.rst:202
+#: ../../co2_ir/reproduction.rst:206 ../../co2_ir/reproduction.rst:207
 msgid "NVE（ミクロカノニカル）"
 msgstr "NVE (microcanonical)"
 
-#: ../../co2_ir/reproduction.rst:204
+#: ../../co2_ir/reproduction.rst:209
 msgid "アンサンブルをNVEにすると、熱浴を使わずに全エネルギーを保存するMDになります。\\ 温度は、初速度を与えるときの温度です。"
 msgstr ""
 "Setting \"Ensemble\" to \"NVE (microcanonical)\" runs MD without a heat "
 "bath and conserves the total energy. \\ \"Temperature\" is the "
 "temperature used to assign the initial velocities."
 
-#: ../../co2_ir/reproduction.rst:207
+#: ../../co2_ir/reproduction.rst:212
 msgid "**Jobを登録したら、実行する前に入力ファイル** ``rsdft.in`` **に次の1行を書き加えます。**"
 msgstr ""
 "**After registering the Job, edit the input file** ``rsdft.in`` **and add"
 " the following line before running the Job.**"
 
-#: ../../co2_ir/reproduction.rst:209
+#: ../../co2_ir/reproduction.rst:214
 msgid "MDDIPOLE /"
 msgstr "MDDIPOLE /"
 
-#: ../../co2_ir/reproduction.rst:213
+#: ../../co2_ir/reproduction.rst:218
 msgid ""
 "これは、毎ステップの双極子モーメントを ``DIPOLE.dat`` に書き出す指定で、現在の入力画面には対応する項目がありません。\\ "
 "Status が「Registered」のJobは、Job詳細画面の「ファイル」で入力ファイルを直接編集できます（マニュアルの `Job の詳細 "
@@ -657,59 +676,59 @@ msgstr ""
 "the manual). \\ After you add this line, ``rsdft.in`` contains the "
 "following MD keywords."
 
-#: ../../co2_ir/reproduction.rst:221
+#: ../../co2_ir/reproduction.rst:226
 msgid "キーワード"
 msgstr "Keyword"
 
-#: ../../co2_ir/reproduction.rst:222
+#: ../../co2_ir/reproduction.rst:227
 msgid "意味"
 msgstr "Meaning"
 
-#: ../../co2_ir/reproduction.rst:223
+#: ../../co2_ir/reproduction.rst:228
 msgid "``SWOPT 3``"
 msgstr "``SWOPT 3``"
 
-#: ../../co2_ir/reproduction.rst:224
+#: ../../co2_ir/reproduction.rst:229
 msgid "分子動力学を行う"
 msgstr "Run molecular dynamics"
 
-#: ../../co2_ir/reproduction.rst:225
+#: ../../co2_ir/reproduction.rst:230
 msgid "``CPMD`` 、 ``MDEMASS 400.0``"
 msgstr "``CPMD``, ``MDEMASS 400.0``"
 
-#: ../../co2_ir/reproduction.rst:226
+#: ../../co2_ir/reproduction.rst:231
 msgid "Car–Parrinello法を使い、電子の仮想質量を400 a.u.とする（CPMDのみ）"
 msgstr ""
 "Use the Car–Parrinello method with a fictitious electron mass of 400 a.u."
 " (CPMD only)"
 
-#: ../../co2_ir/reproduction.rst:227
+#: ../../co2_ir/reproduction.rst:232
 msgid "``MDDT`` 、 ``MDSTEP``"
 msgstr "``MDDT``, ``MDSTEP``"
 
-#: ../../co2_ir/reproduction.rst:228
+#: ../../co2_ir/reproduction.rst:233
 msgid "時間刻み（fs）とステップ数"
 msgstr "Time step (fs) and number of steps"
 
-#: ../../co2_ir/reproduction.rst:229
+#: ../../co2_ir/reproduction.rst:234
 msgid "``MDTEMP 10.0``"
 msgstr "``MDTEMP 10.0``"
 
-#: ../../co2_ir/reproduction.rst:230
+#: ../../co2_ir/reproduction.rst:235
 msgid "初速度を与える温度（K）"
 msgstr "Temperature (K) used to assign the initial velocities"
 
-#: ../../co2_ir/reproduction.rst:231
+#: ../../co2_ir/reproduction.rst:236
 msgid "``MDDIPOLE``"
 msgstr "``MDDIPOLE``"
 
-#: ../../co2_ir/reproduction.rst:232
+#: ../../co2_ir/reproduction.rst:237
 msgid "毎ステップ双極子モーメントを ``DIPOLE.dat`` に出力する（書き加えた行）"
 msgstr ""
 "Write the dipole moment to ``DIPOLE.dat`` at each step (the line you "
 "added)"
 
-#: ../../co2_ir/reproduction.rst:234
+#: ../../co2_ir/reproduction.rst:239
 msgid ""
 "NVEでは、熱浴のキーワード（ ``MDNHC`` など）は書き込まれません。\\ "
 "BOMDでは、各ステップで前のステップの波動関数を初期値にしてSCFを収束させます（反復の上限は「SCF 最大反復回数」）。\\ "
@@ -724,11 +743,11 @@ msgstr ""
 "``dfzi.json`` and their Kramers–Kronig transforms to files such as "
 "``dfxr.json`` after the MD run ends."
 
-#: ../../co2_ir/reproduction.rst:239
+#: ../../co2_ir/reproduction.rst:244
 msgid "4. 出力のダウンロードと解析"
 msgstr "4. Downloading and Analyzing the Output"
 
-#: ../../co2_ir/reproduction.rst:241
+#: ../../co2_ir/reproduction.rst:246
 msgid ""
 "各Jobの詳細画面の「ファイル」で「出力ファイル」に切り替え、「一括ダウンロード」でZIPを取得します。\\ "
 "ダウンロードしたZIPを1つのフォルダ（例えば ``downloads`` ）に集め、そのフォルダを指定して解析スクリプトを実行します。"
@@ -738,17 +757,17 @@ msgstr ""
 "downloaded ZIP files in a single folder (for example, ``downloads``) and "
 "run the analysis script with that folder as its argument."
 
-#: ../../co2_ir/reproduction.rst:244
+#: ../../co2_ir/reproduction.rst:249
 msgid "python analyze_co2_ir.py downloads"
 msgstr "python analyze_co2_ir.py downloads"
 
-#: ../../co2_ir/reproduction.rst:248
+#: ../../co2_ir/reproduction.rst:253
 msgid "スクリプトは、フォルダの中のZIPを1つずつ開き、出力ファイルの内容から計算の種類を判定します。"
 msgstr ""
 "The script opens each ZIP file in the folder and uses its contents to "
 "identify the type of calculation."
 
-#: ../../co2_ir/reproduction.rst:250
+#: ../../co2_ir/reproduction.rst:255
 msgid ""
 "``TRAJECTORY.cif`` 、 ``info.dat`` 、 ``DIPOLE.dat`` があればMDです。 ``info.dat``"
 " の列数からCPMDかBOMDかを、 ``TRAJECTORY.cif`` の最初のフレームのC–O結合長から開始構造を判定します。 "
@@ -761,7 +780,7 @@ msgstr ""
 "``DIPOLE.dat`` is missing, the script assumes ``MDDIPOLE`` was omitted "
 "and skips the run."
 
-#: ../../co2_ir/reproduction.rst:251
+#: ../../co2_ir/reproduction.rst:256
 msgid ""
 "それ以外は静的計算です。 ``rsdft.atom`` の原子配置を基準構造と比べて、モードと変位を判定し、 ``rsdft.json`` "
 "から全エネルギーを読みます。"
@@ -771,33 +790,7 @@ msgstr ""
 "structure to identify the mode and displacement, then reads the total "
 "energy from ``rsdft.json``."
 
-#: ../../co2_ir/reproduction.rst:253
-msgid ""
-"ZIPの名前は判定に使わないので、ダウンロードしたままの名前で構いません。\\ 展開したフォルダを指定することもできます。\\ "
-"判定の結果を最初に表示し、続いて記事中の数値を表示して、図を ``figures`` フォルダに書き出します（ ``--figures`` "
-"で変更できます）。\\ 一部の計算だけを行った場合は、そのJobから求められる数値と図だけを出力します。"
-msgstr ""
-"The script identifies the calculation without using the ZIP file names, "
-"so you can keep the names as downloaded. \\ You can also specify a folder"
-" containing extracted files. \\ The script first reports which "
-"calculations it found, then prints the numbers in the article and writes "
-"the figures to the ``figures`` folder. The ``--figures`` option changes "
-"the output folder. \\ If you ran only some of the calculations, the "
-"script outputs only the numbers and figures it can generate from those "
-"Jobs."
-
 #: ../../co2_ir/reproduction.rst:258
-msgid "記事の数値と図は、上の「記事の計算の出力」のZIPを1つのフォルダに集めて、同じように実行すると得られます。"
-msgstr ""
-"You can obtain the numbers and figures in the article by collecting the "
-"ZIP files from \"Output from the Calculations in This Article\" above in "
-"one folder and running the script the same way."
-
-#: ../../co2_ir/reproduction.rst:260
-msgid "python analyze_co2_ir.py data"
-msgstr "python analyze_co2_ir.py data"
-
-#: ../../co2_ir/reproduction.rst:264
 msgid ""
 "出力の ``rsdft.atom`` は、RSDFTが分率座標を小数6桁で書き直したもので、MDでは最後のステップの構造になっています。\\ "
 "そのため、スクリプトはMDの開始構造を ``TRAJECTORY.cif`` の最初のフレームから読みます。\\ "
@@ -812,11 +805,168 @@ msgstr ""
 "for the displacements, so the script rounds the displacements read from "
 "``rsdft.atom`` to that increment."
 
+#: ../../co2_ir/reproduction.rst:262
+msgid ""
+"ZIPの名前は判定に使わないので、ダウンロードしたままの名前で構いません。\\ 展開したフォルダを指定することもできます。\\ "
+"判定の結果を最初に表示し、続いて記事中の数値を表示して、図を ``figures`` フォルダに書き出します（ ``--figures`` "
+"で変更できます）。\\ 一部の計算だけを行った場合は、そのJobから求められる数値と図だけを出力します。"
+msgstr ""
+"The script identifies the calculation without using the ZIP file names, "
+"so you can keep the names as downloaded. \\ You can also specify a folder"
+" containing extracted files. \\ The script first reports which "
+"calculations it found, then prints the numbers in the article and writes "
+"the figures to the ``figures`` folder. The ``--figures`` option changes "
+"the output folder. \\ If you ran only some of the calculations, the "
+"script outputs only the numbers and figures it can generate from those "
+"Jobs."
+
+#: ../../co2_ir/reproduction.rst:267
+#, python-brace-format
+msgid ""
+"記事の数値と図は、\\ :numref:`{number}節 <sec-co2-repro-data>` "
+"のZIPを1つのフォルダに集めて、同じように実行すると得られます。"
+msgstr ""
+"You can obtain the numbers and figures in the article by collecting the "
+"ZIP files listed in \\ :numref:`Section {number} <sec-co2-repro-data>` in"
+" one folder and running the script the same way."
+
 #: ../../co2_ir/reproduction.rst:269
+msgid "python analyze_co2_ir.py data"
+msgstr "python analyze_co2_ir.py data"
+
+#: ../../co2_ir/reproduction.rst:273
+msgid ""
+"表示される数値と図は、記事の図表と次のように対応します。\\ MDの計算は、判定の結果に表示される名前で区別されます。\\ ``opt`` と "
+"``1150`` は開始構造（最適化構造とC–O 1.150 Å）を表し、 ``bo_`` "
+"が付いたものがBOMD、付いていないものがCPMDです。"
+msgstr ""
+"The numbers and figures that the script outputs correspond to the figures"
+" and tables in the article as follows. \\ The MD runs are distinguished "
+"by the names shown when the script reports which calculations it found. "
+"\\ ``opt`` and ``1150`` denote the starting structures (the optimized "
+"structure and C–O 1.150 Å). Names with ``bo_`` are BOMD runs, and names "
+"without it are CPMD runs."
+
+#: ../../co2_ir/reproduction.rst:282
+msgid "スクリプトの表示・図"
+msgstr "Script output or figure"
+
+#: ../../co2_ir/reproduction.rst:283
+msgid "記事の対応箇所"
+msgstr "Corresponding part of the article"
+
+#: ../../co2_ir/reproduction.rst:284
+msgid "``Harmonic wavenumbers from static PBE energies``"
+msgstr "``Harmonic wavenumbers from static PBE energies``"
+
+#: ../../co2_ir/reproduction.rst:285
+msgid ""
+":numref:`tab-co2-harmonic` と、その後の注の数値（ ``small set`` は変位ごとの振動数、 ``rigid "
+"shift`` は平行移動によるエネルギーの変化）"
+msgstr ""
+":numref:`tab-co2-harmonic` and the values in the note after it (``small "
+"set`` gives the frequencies for each displacement, and ``rigid shift`` "
+"gives the energy changes from translation)"
+
+#: ../../co2_ir/reproduction.rst:286
+msgid ""
+"各MDの ``motion sym`` 、 ``motion asym`` 、 ``motion bend_x`` 、 ``motion "
+"bend_y`` のピーク"
+msgstr ""
+"Peaks of ``motion sym``, ``motion asym``, ``motion bend_x``, and ``motion"
+" bend_y`` for each MD run"
+
+#: ../../co2_ir/reproduction.rst:287
+msgid ":numref:`tab-co2-freq` のピーク位置（ ``opt`` がCPMD、 ``bo_opt`` がBOMD）"
+msgstr ""
+"Peak positions in :numref:`tab-co2-freq` (``opt`` for CPMD and ``bo_opt``"
+" for BOMD)"
+
+#: ../../co2_ir/reproduction.rst:288
+msgid "各MDの ``axis tilt from z`` と、 ``C_xx`` の1900–2500 cm⁻¹の最大値"
+msgstr ""
+"``axis tilt from z`` and the maximum of ``C_xx`` over 1900–2500 cm⁻¹ for "
+"each MD run"
+
+#: ../../co2_ir/reproduction.rst:289
+#, python-brace-format
+msgid ""
+"分子軸の傾きと、双極子の :math:`x` 成分の2195 cm⁻¹のピーク（ :numref:`{number}節 <sec-"
+"co2-autocorrelation>` の最後の段落）"
+msgstr ""
+"Tilt of the molecular axis and the peak at 2195 cm⁻¹ in the :math:`x` "
+"component of the dipole moment (last paragraph of :numref:`Section "
+"{number} <sec-co2-autocorrelation>`)"
+
+#: ../../co2_ir/reproduction.rst:290
+msgid "各MDの ``nu3`` 、 ``nu1`` 、 ``nu2x`` 、 ``nu2y`` の ``dmu/dQ`` と ``A``"
+msgstr ""
+"``nu3``, ``nu1``, ``nu2x``, and ``nu2y`` values of ``dmu/dQ`` and ``A`` "
+"for each MD run"
+
+#: ../../co2_ir/reproduction.rst:291
+msgid ""
+":numref:`tab-co2-intensity` （ ``opt`` と ``bo_opt`` ）と、その後の段落の1.150 "
+"Åから始めた計算の値"
+msgstr ""
+":numref:`tab-co2-intensity` (``opt`` and ``bo_opt``) and the values for "
+"the runs starting at 1.150 Å in the paragraph after it"
+
+#: ../../co2_ir/reproduction.rst:292
+msgid "``C_zz side peaks`` 、 ``Origin of the nu3 -/+ nu1 sidebands``"
+msgstr "``C_zz side peaks`` and ``Origin of the nu3 -/+ nu1 sidebands``"
+
+#: ../../co2_ir/reproduction.rst:293
+#, python-brace-format
+msgid ":numref:`{number}節 <sec-co2-shifted-start>` の差音・結合音のピークの位置と高さの比"
+msgstr ""
+"Positions and relative heights of the difference-band and combination-"
+"band peaks in :numref:`Section {number} <sec-co2-shifted-start>`"
+
+#: ../../co2_ir/reproduction.rst:294
+msgid "``Symmetric-stretch and bend amplitudes per 100 fs``"
+msgstr "``Symmetric-stretch and bend amplitudes per 100 fs``"
+
+#: ../../co2_ir/reproduction.rst:295
+msgid ":numref:`tab-co2-energy-flow`"
+msgstr ":numref:`tab-co2-energy-flow`"
+
+#: ../../co2_ir/reproduction.rst:296
+msgid "``Kinetic energy of each normal coordinate as a temperature``"
+msgstr "``Kinetic energy of each normal coordinate as a temperature``"
+
+#: ../../co2_ir/reproduction.rst:297
+#, python-brace-format
+msgid ":numref:`{number}節 <sec-co2-shifted-start>` の冒頭の、基準座標の運動エネルギーの温度換算"
+msgstr ""
+"Kinetic energy of the normal coordinates expressed as a temperature, at "
+"the beginning of :numref:`Section {number} <sec-co2-shifted-start>`"
+
+#: ../../co2_ir/reproduction.rst:298
+msgid "``RSDFT-style Im chi peaks`` 、 ``rsdft_output.png``"
+msgstr "``RSDFT-style Im chi peaks`` and ``rsdft_output.png``"
+
+#: ../../co2_ir/reproduction.rst:299
+msgid "記事では使っていません（RSDFTが出力する ``dfzi.json`` などとの照合用）"
+msgstr ""
+"Not used in the article (for comparison with RSDFT output such as "
+"``dfzi.json``)"
+
+#: ../../co2_ir/reproduction.rst:300
+msgid "それ以外の図（ ``figures`` フォルダ）"
+msgstr "Other figures (in the ``figures`` folder)"
+
+#: ../../co2_ir/reproduction.rst:301
+msgid "記事の図と同じファイル名です（ :numref:`fig-co2-modes` 〜 :numref:`fig-co2-sidebands` ）"
+msgstr ""
+"Same file names as the figures in the article (:numref:`fig-co2-modes` to"
+" :numref:`fig-co2-sidebands`)"
+
+#: ../../co2_ir/reproduction.rst:306
 msgid "計算と数値を扱う上での注意"
 msgstr "Notes on Calculations and Numerical Results"
 
-#: ../../co2_ir/reproduction.rst:271
+#: ../../co2_ir/reproduction.rst:308
 #, python-brace-format
 msgid ""
 "**時間刻み。** 電子の仮想質量400 a.u.と時間刻み0.1 fsの組み合わせでは、電子の仮想運動エネルギーが急に増え、約3 "
@@ -832,7 +982,7 @@ msgstr ""
 "structure and :math:`1.3\\times10^{-5}` Ha for the run starting at 1.150 "
 "Å."
 
-#: ../../co2_ir/reproduction.rst:272
+#: ../../co2_ir/reproduction.rst:309
 #, python-brace-format
 msgid ""
 "**BOMDのSCFと保存量。** "
@@ -847,7 +997,7 @@ msgstr ""
 " structure and :math:`5.4\\times10^{-6}` Ha for the run starting at 1.150"
 " Å."
 
-#: ../../co2_ir/reproduction.rst:273
+#: ../../co2_ir/reproduction.rst:310
 msgid ""
 "**初速度。** "
 "RSDFTは、乱数の種を固定した擬似乱数で初速度を与えます。そのため4つのMDの初速度は同じで、MPIの並列数を変えても変わりませんでした。重心の運動は取り除かれますが、角運動量は取り除かれません。"
@@ -858,7 +1008,7 @@ msgstr ""
 " of MPI processes. RSDFT removes the center-of-mass motion but leaves the"
 " angular momentum in place."
 
-#: ../../co2_ir/reproduction.rst:274
+#: ../../co2_ir/reproduction.rst:311
 msgid ""
 "**並列数。** "
 "RSDFTは実空間格子を空間的に分割してMPIのプロセスに割り当てます。担当領域に原子の非局所擬ポテンシャルが1つも含まれないプロセスがあると、「Error:"
@@ -876,42 +1026,43 @@ msgstr ""
 "runs with 3, 16, and 32 processes failed. Quloud uses one MPI process per"
 " selected vCPU, so select 4 vCPU or 8 vCPU."
 
-#: ../../co2_ir/reproduction.rst:275
+#: ../../co2_ir/reproduction.rst:312
 msgid ""
 "**スペクトルの計算。** "
 "記事のパワースペクトルは、双極子から計算全体の平均値を引き、自己相関関数（偏りのある推定量）にHann窓の半分を掛けて余弦変換したものです。ピークの位置は、ゼロ埋めで細かくした波数の格子上の最大値で、分解能（約42"
-" cm⁻¹）より細かい桁に意味はありません。RSDFTが出力する ``dfzi.json`` などは、 ``analyze_co2_ir.py``"
-" の ``rsdft_style`` と同じ処理で、ピークの位置と高さが一致することを確認しました。"
+" cm⁻¹）より細かい桁に意味はありません。``analyze_co2_ir.py`` の ``rsdft_style`` "
+"は、RSDFTが出力する ``dfzi.json`` "
+"などと同じ処理をする関数で、ピークの位置と高さが一致することを確かめました。記事の図には使っていません。"
 msgstr ""
 "**Spectrum calculation.** To obtain the power spectra in the article, we "
 "subtracted the full-run mean from the dipole moment, multiplied the "
 "autocorrelation function (a biased estimator) by half of a Hann window, "
 "and took the cosine transform. Peak positions are the maxima on a "
 "wavenumber grid refined by zero padding. Digits finer than the resolution"
-" (about 42 cm⁻¹) have no significance. RSDFT generates outputs such as "
-"``dfzi.json`` with the same procedure as ``rsdft_style`` in "
-"``analyze_co2_ir.py``. We verified that the peak positions and heights "
-"agree."
+" (about 42 cm⁻¹) have no significance. ``rsdft_style`` in "
+"``analyze_co2_ir.py`` is a function that applies the same processing as "
+"RSDFT uses for outputs such as ``dfzi.json``, and we verified that the "
+"peak positions and heights agree. We did not use it for the figures in "
+"the article."
 
-#: ../../co2_ir/reproduction.rst:276
+#: ../../co2_ir/reproduction.rst:313
 msgid ""
 "**双極子の計算方法。** RSDFTは、計算の初めに原子の重心をセルの中心に移したと仮定し、すべての原子がセルの各面から5.6 "
-"bohrより離れている場合だけ、電子密度から双極子を求める式（ :doc:`ir_spectrum` "
-"の計算条件の節）を使います。この条件を満たさない場合は、原子の電荷（Bader電荷）を固定した点電荷の近似に切り替わり、MD中の電子密度の変化は双極子に反映されません。今回のセルでは、面に最も近い酸素原子でも4.1"
+"bohrより離れている場合だけ、電子密度から双極子を求める式（記事の式 :eq:`dipole-moment` "
+"）を使います。この条件を満たさない場合は、原子の電荷（Bader電荷）を固定した点電荷の近似に切り替わり、MD中の電子密度の変化は双極子に反映されません。今回のセルでは、面に最も近い酸素原子でも4.1"
 " Å（7.8 bohr）離れているので、条件を満たしています。"
 msgstr ""
 "**Dipole calculation.** RSDFT assumes that the atomic center of mass was "
 "shifted to the cell center at the start of the calculation. It uses the "
-"equation for the dipole moment from the electron density (see the section"
-" \"Systems and Calculation Conditions\" in :doc:`ir_spectrum`) only if "
-"every atom is more than 5.6 bohr from each face of the cell. If this "
-"condition fails, RSDFT switches to a point-charge approximation with "
-"fixed atomic charges (Bader charges), so changes in the electron density "
-"during MD do not appear in the dipole moment. This cell meets the "
-"condition because even the oxygen atom nearest a face is 4.1 Å (7.8 bohr)"
-" away."
+"expression that gives the dipole moment from the electron density "
+"(Equation :eq:`dipole-moment` in the article) only if every atom is more "
+"than 5.6 bohr from each face of the cell. If this condition fails, RSDFT "
+"switches to a point-charge approximation with fixed atomic charges (Bader"
+" charges), so changes in the electron density during MD do not appear in "
+"the dipole moment. This cell meets the condition because even the oxygen "
+"atom nearest a face is 4.1 Å (7.8 bohr) away."
 
-#: ../../co2_ir/reproduction.rst:277
+#: ../../co2_ir/reproduction.rst:314
 msgid ""
 "**原子の座標の精度。** ``TRAJECTORY.cif`` の分率座標は小数6桁（セルの1辺10.6 Åに対して約10⁻⁵ "
 "Å）です。記事の計算で ``ALLTRAJ 1`` "
@@ -923,7 +1074,7 @@ msgstr ""
 " shown when we compared them with results from the higher-precision "
 "coordinates written separately using ``ALLTRAJ 1``."
 
-#: ../../co2_ir/reproduction.rst:278
+#: ../../co2_ir/reproduction.rst:315
 msgid ""
 "**双極子の変化率。** 質量で重みをつけた基準座標は、 :math:`z` "
 "軸に沿った直線分子を仮定して原子の変位から求めています。分子軸が傾くとこの仮定が崩れるので、回帰には分子軸の傾きが小さい最初の400 "
