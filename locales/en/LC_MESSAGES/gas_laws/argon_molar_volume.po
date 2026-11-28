@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 17:06+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -49,106 +49,124 @@ msgstr "Systems and Calculation Conditions"
 
 #: ../../gas_laws/argon_molar_volume.rst:16
 msgid ""
-"Arは原子が一つずつ独立に動く単原子気体です。\\ 今回の原子は、近づきすぎると反発し、少し離れたところで弱く引き合うモデルに従います。\\ "
-"計算条件を :numref:`tab-argon-conditions` にまとめます。\\ 力場の数値パラメータ、入力構造、解析の手順は "
+"Arは原子が一つずつ独立に動く単原子気体です。\\ 原子間の力には、Quloudに登録されたArモデル（ ``argon_vrabec`` "
+"）を使います。\\ 近づきすぎると反発し、少し離れたところで弱く引き合う、Lennard-Jones（LJ）型のモデルです。\\ 計算条件を "
+":numref:`tab-argon-conditions` にまとめます。\\ 立方体のセルの一辺を27〜40 "
+"nmの6通りに変え、それぞれの圧力を求めます。\\ このうち一辺33.3879144 nmは、理想気体ならちょうど1 atm（1.01325 "
+"bar）になる体積です。\\ 各体積では、乱数のシード（乱数列を生成するための初期値）を変えた3つの計算を行い、結果を平均します。\\ "
+"シードを変えると、原子の初期配置と初期速度、温度制御に使う乱数が変わります。\\ 力場の数値パラメータ、入力構造、解析の手順は "
 ":doc:`reproduction` で確認できます。"
 msgstr ""
-"Ar is a monatomic gas whose atoms move individually. \\ In our model, the"
-" atoms repel one another at very short distances and attract one another "
-"weakly at somewhat larger distances. \\ The calculation conditions are "
-"summarized in :numref:`tab-argon-conditions`. \\ The numerical force "
-"field parameters, input structures, and analysis steps are available in "
-":doc:`reproduction`."
+"Ar is a monatomic gas whose atoms move individually. \\ For the forces "
+"between atoms, we use the Ar model registered in Quloud "
+"(``argon_vrabec``). \\ It is a Lennard-Jones (LJ) type model: atoms repel"
+" one another when they come too close and attract one another weakly at "
+"somewhat larger distances. \\ The calculation conditions are summarized "
+"in :numref:`tab-argon-conditions`. \\ We vary the side length of the "
+"cubic cell over six values from 27 to 40 nm and determine the pressure "
+"for each. \\ Of these, the cell with a side length of 33.3879144 nm has "
+"the volume at which an ideal gas would be at exactly 1 atm (1.01325 bar)."
+" \\ For each volume, we run three calculations with different random "
+"seeds (the initial values used to generate sequences of random numbers) "
+"and average the results. \\ Changing the seed changes the initial "
+"positions and velocities of the atoms and the random numbers used for "
+"temperature control. \\ The numerical force field parameters, input "
+"structures, and analysis steps are available in :doc:`reproduction`."
 
-#: ../../gas_laws/argon_molar_volume.rst:21
+#: ../../gas_laws/argon_molar_volume.rst:26
 msgid "Arの計算条件"
 msgstr "Calculation conditions for Ar"
 
-#: ../../gas_laws/argon_molar_volume.rst:27
+#: ../../gas_laws/argon_molar_volume.rst:32
 msgid "項目"
 msgstr "Item"
 
-#: ../../gas_laws/argon_molar_volume.rst:28
+#: ../../gas_laws/argon_molar_volume.rst:33
 msgid "条件"
 msgstr "Conditions"
 
-#: ../../gas_laws/argon_molar_volume.rst:29
+#: ../../gas_laws/argon_molar_volume.rst:34
 msgid "計算ソフトと環境"
 msgstr "Software and environment"
 
-#: ../../gas_laws/argon_molar_volume.rst:30
+#: ../../gas_laws/argon_molar_volume.rst:35
 msgid "GROMACS 2026.2。WSLローカルのDockerで実行"
 msgstr "GROMACS 2026.2, run locally in Docker on WSL"
 
-#: ../../gas_laws/argon_molar_volume.rst:31
+#: ../../gas_laws/argon_molar_volume.rst:36
 msgid "粒子数"
 msgstr "Number of particles"
 
-#: ../../gas_laws/argon_molar_volume.rst:32
+#: ../../gas_laws/argon_molar_volume.rst:37
 msgid "Ar 1,000原子"
 msgstr "1,000 Ar atoms"
 
-#: ../../gas_laws/argon_molar_volume.rst:33
+#: ../../gas_laws/argon_molar_volume.rst:38
 msgid "計算セル"
 msgstr "Simulation cell"
 
-#: ../../gas_laws/argon_molar_volume.rst:34
+#: ../../gas_laws/argon_molar_volume.rst:39
 msgid "立方体。一辺27、30、33、33.3879144、36、40 nm"
 msgstr "Cube with a side length of 27, 30, 33, 33.3879144, 36, or 40 nm"
 
-#: ../../gas_laws/argon_molar_volume.rst:35
+#: ../../gas_laws/argon_molar_volume.rst:40
 msgid "温度・境界条件"
 msgstr "Temperature and boundary conditions"
 
-#: ../../gas_laws/argon_molar_volume.rst:36
+#: ../../gas_laws/argon_molar_volume.rst:41
 msgid "273.15 K（0 ℃）、3方向周期境界"
 msgstr "273.15 K (0 °C), periodic boundary conditions in all three directions"
 
-#: ../../gas_laws/argon_molar_volume.rst:37
+#: ../../gas_laws/argon_molar_volume.rst:42
 msgid "計算方法"
 msgstr "Calculation method"
 
-#: ../../gas_laws/argon_molar_volume.rst:38
-msgid "NVT、時間刻み2 fs、V-rescaleによる温度制御"
-msgstr "NVT, 2 fs time step, temperature control with V-rescale"
+#: ../../gas_laws/argon_molar_volume.rst:43
+msgid "NVT（粒子数・体積・温度が一定）、時間刻み2 fs、V-rescaleによる温度制御"
+msgstr ""
+"NVT (constant number of particles, volume, and temperature), 2 fs time "
+"step, temperature control with V-rescale"
 
-#: ../../gas_laws/argon_molar_volume.rst:39
+#: ../../gas_laws/argon_molar_volume.rst:44
 msgid "測定区間"
 msgstr "Production period"
 
-#: ../../gas_laws/argon_molar_volume.rst:40
+#: ../../gas_laws/argon_molar_volume.rst:45
 msgid "全440 psのうち、最初の40 psを除いた400 ps。各体積3シード"
 msgstr ""
 "400 ps of the total 440 ps, excluding the first 40 ps. Three seeds per "
 "volume"
 
-#: ../../gas_laws/argon_molar_volume.rst:41
+#: ../../gas_laws/argon_molar_volume.rst:46
 msgid "相互作用"
 msgstr "Interactions"
 
-#: ../../gas_laws/argon_molar_volume.rst:42
+#: ../../gas_laws/argon_molar_volume.rst:47
 msgid "登録Arモデルargon_vrabec。LJカットオフ1.2 nm、長距離補正なし"
 msgstr ""
 "Registered Ar model argon_vrabec. LJ cutoff of 1.2 nm, no long-range "
 "correction"
 
-#: ../../gas_laws/argon_molar_volume.rst:44
+#: ../../gas_laws/argon_molar_volume.rst:49
 msgid ""
 "一辺33.3879144 nmのセルの計算結果を :numref:`fig-argon-snapshot` に示します。\\ "
 "セルには壁がありません。ある面から出た原子は反対側に現れます。\\ この周期境界条件によって、広く続く気体の一部分を表しています。\\ "
-"図ではセル中央の厚さ2 nmの部分を取り出し、見やすいように原子を大きく描いています。\\ 1原子あたりの体積の立方根は約3.34 "
-"nmで、相互作用の長さの目安であるσ＝0.33952 nmの約10倍です。"
+"図ではセル中央の厚さ2 nmの部分を取り出し、見やすいように原子を大きく描いています。\\ "
+"1原子あたりの体積の立方根、つまり原子の平均的な間隔は約3.34 nmで、相互作用の長さの目安であるσ＝0.33952 nmの約10倍です。\\ "
+"原子どうしの間隔が、相互作用を打ち切る距離（1.2 nm）よりも広い、希薄な気体です。"
 msgstr ""
-":numref:`fig-argon-snapshot` shows the results for the 33.3879144 nm "
-"cube. \\ The cell has no walls. An atom that leaves through one face "
-"reappears on the opposite side. \\ With these periodic boundary "
-"conditions, the cell represents a small portion of an extended gas. \\ "
-"The figure shows a 2 nm thick slice through the center of the cell, with "
-"the atoms enlarged for visibility. \\ The cube root of the volume per "
-"atom is about 3.34 nm, roughly 10 times the characteristic interaction "
-"length σ = 0.33952 nm."
+":numref:`fig-argon-snapshot` shows the results for the cell with a side "
+"length of 33.3879144 nm. \\ The cell has no walls. An atom that leaves "
+"through one face reappears on the opposite side. \\ With these periodic "
+"boundary conditions, the cell represents a small portion of an extended "
+"gas. \\ The figure shows a 2 nm thick slice through the center of the "
+"cell, with the atoms enlarged for visibility. \\ The cube root of the "
+"volume per atom, that is, the average spacing between atoms, is about "
+"3.34 nm, roughly 10 times the characteristic interaction length σ = "
+"0.33952 nm. \\ This is a dilute gas in which the atoms are farther apart "
+"than the distance at which the interactions are cut off (1.2 nm)."
 
-#: ../../gas_laws/argon_molar_volume.rst:55
+#: ../../gas_laws/argon_molar_volume.rst:61
 msgid ""
 "Ar 1,000原子の440 ps時点の座標から、セル中央の厚さ2 nmに含まれる原子だけをxy平面へ投影した図です。\\ "
 "軸の単位はnm、セルの一辺は約33.388 nmです。\\ 円の表示半径0.50 nmは、LJのσ/2＝0.16976 "
@@ -166,266 +184,313 @@ msgstr ""
 "periodic boundary are omitted. \\ The square marks the cell boundary and "
 "represents no physical wall."
 
-#: ../../gas_laws/argon_molar_volume.rst:63
+#: ../../gas_laws/argon_molar_volume.rst:69
 msgid "理想気体の予想"
 msgstr "Ideal Gas Predictions"
 
-#: ../../gas_laws/argon_molar_volume.rst:65
+#: ../../gas_laws/argon_molar_volume.rst:71
 msgid "計算結果と比べるため、まず理想気体の式を確認します。"
 msgstr ""
 "We first review the ideal gas equations for comparison with the "
 "calculation results."
 
-#: ../../gas_laws/argon_molar_volume.rst:67
+#: ../../gas_laws/argon_molar_volume.rst:73
 msgid "PV=nRT"
 msgstr "PV=nRT"
 
-#: ../../gas_laws/argon_molar_volume.rst:72
+#: ../../gas_laws/argon_molar_volume.rst:78
 msgid ":math:`n` が物質量（モル）です。両辺をこれで割ると、"
 msgstr ""
 "In this equation, :math:`n` is the amount of substance in moles. Dividing"
 " both sides by it gives"
 
-#: ../../gas_laws/argon_molar_volume.rst:74
+#: ../../gas_laws/argon_molar_volume.rst:80
 msgid "PV_m=RT"
 msgstr "PV_m=RT"
 
-#: ../../gas_laws/argon_molar_volume.rst:79
+#: ../../gas_laws/argon_molar_volume.rst:85
 msgid ""
 "ここで :math:`P` は圧力、:math:`T` は絶対温度、:math:`R` は気体定数です。\\ モル体積 :math:`V_m` "
 "は、体積を物質量で割った「1 molあたりの体積」です。\\ 温度を一定値、例えば 0 ℃（= 273.15 "
-"K）にそろえれば、右辺は定数なので、体積が小さくなれば圧力は高くなるはずです。"
+"K）にそろえれば、右辺は定数なので、圧力はモル体積に反比例し、体積が小さくなれば圧力は高くなるはずです。\\ "
+"以下では、MDで求めた圧力がこの関係からどれだけずれるかを調べます。"
 msgstr ""
 "Here, :math:`P` is pressure, :math:`T` is absolute temperature, and "
 ":math:`R` is the gas constant. \\ The molar volume :math:`V_m` is the "
 "volume divided by the amount of substance, or the volume per mole. \\ At "
 "a fixed temperature, such as 0 °C (= 273.15 K), the right-hand side is "
-"constant, so pressure should rise as volume decreases."
+"constant, so pressure is inversely proportional to molar volume and "
+"should rise as the volume decreases. \\ Below, we examine how far the MD "
+"pressures deviate from this relationship."
 
-#: ../../gas_laws/argon_molar_volume.rst:85
-msgid "計算結果"
-msgstr "Calculation Results"
-
-#: ../../gas_laws/argon_molar_volume.rst:88
-msgid "今回の各セルについての理論値（理想気体の予測値）と、MDの測定値を :numref:`tab-argon-pv` に示します。"
-msgstr ""
-":numref:`tab-argon-pv` compares the theoretical values (ideal gas "
-"predictions) with the MD measurements for each cell."
-
-#: ../../gas_laws/argon_molar_volume.rst:90
-msgid "273.15 Kにおける体積と圧力"
-msgstr "Volume and pressure at 273.15 K"
-
-#: ../../gas_laws/argon_molar_volume.rst:96
-msgid "一辺（nm）"
-msgstr "Side length (nm)"
-
-#: ../../gas_laws/argon_molar_volume.rst:97
-msgid "モル体積（L/mol）"
-msgstr "Molar volume (L/mol)"
-
-#: ../../gas_laws/argon_molar_volume.rst:98
-msgid "圧力（理想気体）（bar）"
-msgstr "Ideal gas pressure (bar)"
-
-#: ../../gas_laws/argon_molar_volume.rst:99
-msgid "圧力（MD平均±標準誤差）（bar）"
-msgstr "Pressure (MD mean ± standard error) (bar)"
-
-#: ../../gas_laws/argon_molar_volume.rst:100
-msgid "27"
-msgstr "27"
-
-#: ../../gas_laws/argon_molar_volume.rst:101
-msgid "11.8534"
-msgstr "11.8534"
-
-#: ../../gas_laws/argon_molar_volume.rst:102
-msgid "1.9160"
-msgstr "1.9160"
-
-#: ../../gas_laws/argon_molar_volume.rst:103
-msgid "1.91178 ± 0.00087"
-msgstr "1.91178 ± 0.00087"
-
-#: ../../gas_laws/argon_molar_volume.rst:104
-msgid "30"
-msgstr "30"
-
-#: ../../gas_laws/argon_molar_volume.rst:105
-msgid "16.2598"
-msgstr "16.2598"
-
-#: ../../gas_laws/argon_molar_volume.rst:106
-msgid "1.3968"
-msgstr "1.3968"
-
-#: ../../gas_laws/argon_molar_volume.rst:107
-msgid "1.39464 ± 0.00060"
-msgstr "1.39464 ± 0.00060"
-
-#: ../../gas_laws/argon_molar_volume.rst:108
-msgid "33"
-msgstr "33"
-
-#: ../../gas_laws/argon_molar_volume.rst:109
-msgid "21.6418"
-msgstr "21.6418"
-
-#: ../../gas_laws/argon_molar_volume.rst:110
-msgid "1.0494"
-msgstr "1.0494"
-
-#: ../../gas_laws/argon_molar_volume.rst:111
-msgid "1.04783 ± 0.00045"
-msgstr "1.04783 ± 0.00045"
-
-#: ../../gas_laws/argon_molar_volume.rst:112
-msgid "33.3879"
-msgstr "33.3879"
-
-#: ../../gas_laws/argon_molar_volume.rst:113
-msgid "22.4140"
-msgstr "22.4140"
-
-#: ../../gas_laws/argon_molar_volume.rst:114
-msgid "1.01325"
-msgstr "1.01325"
-
-#: ../../gas_laws/argon_molar_volume.rst:115
-msgid "1.01184 ± 0.00045"
-msgstr "1.01184 ± 0.00045"
-
-#: ../../gas_laws/argon_molar_volume.rst:116
-msgid "36"
-msgstr "36"
-
-#: ../../gas_laws/argon_molar_volume.rst:117
-msgid "28.0969"
-msgstr "28.0969"
-
-#: ../../gas_laws/argon_molar_volume.rst:118
-msgid "0.8083"
-msgstr "0.8083"
-
-#: ../../gas_laws/argon_molar_volume.rst:119
-msgid "0.80731 ± 0.00034"
-msgstr "0.80731 ± 0.00034"
-
-#: ../../gas_laws/argon_molar_volume.rst:120
-msgid "40"
-msgstr "40"
-
-#: ../../gas_laws/argon_molar_volume.rst:121
-msgid "38.5417"
-msgstr "38.5417"
-
-#: ../../gas_laws/argon_molar_volume.rst:122
-msgid "0.5893"
-msgstr "0.5893"
-
-#: ../../gas_laws/argon_molar_volume.rst:123
-msgid "0.58859 ± 0.00025"
-msgstr "0.58859 ± 0.00025"
-
-#: ../../gas_laws/argon_molar_volume.rst:125
-msgid ""
-"理想気体の列は :eq:`eq-gas-ideal` による値です。\\ MD平均の列は、\\ :numref:`fig-argon-"
-"pressure-time`\\ のような時系列からシードごとに時間平均を求め、3つのシードで平均した値です。\\ "
-"シードとは乱数列を生成するための初期値です。\\ 標準誤差は、時間相関を考慮したブロック平均とシード間のばらつきから求めています。\\ "
-"この誤差には、原子間相互作用のモデルや粒子数の有限性による偏りは含めていません。"
-msgstr ""
-"The ideal gas column gives values from Equation :eq:`eq-gas-ideal`. \\ "
-"For the MD mean, we first computed a time average for each seed using "
-"time series like the one in \\ :numref:`fig-argon-pressure-time`\\ . We "
-"then averaged those values across all three seeds. \\ A seed is the "
-"initial value used to generate a sequence of random numbers. \\ The "
-"standard error accounts for variation across seeds and uses block "
-"averaging to account for time correlations. \\ It excludes biases due to "
-"the model for interatomic interactions or the finite number of particles."
-
-#: ../../gas_laws/argon_molar_volume.rst:132
+#: ../../gas_laws/argon_molar_volume.rst:91
 msgid "圧力の時間変化"
 msgstr "Pressure over Time"
 
-#: ../../gas_laws/argon_molar_volume.rst:134
+#: ../../gas_laws/argon_molar_volume.rst:93
 msgid ""
-"圧力はどの時刻でも同じ値になるわけではありません。\\ 試験計算の圧力と温度の変化を :numref:`fig-argon-pressure-"
-"time` に示します。\\ この希薄な条件では、圧力の揺らぎの主な原因は温度、つまり運動エネルギーの揺らぎです。\\ 測定温度の標準偏差は約7 "
-"K（約2.6%）で、瞬間圧力の相対的な幅と同程度です。\\ そこで、最初の40 psを除いた測定区間について平均を取ります。"
+"MDの圧力は、どの時刻でも同じ値になるわけではありません。\\ 一辺33.3879144 nm、シード1101の計算の圧力と温度の変化を "
+":numref:`fig-argon-pressure-time` に示します。\\ "
+"この希薄な条件では、圧力の揺らぎの主な原因は温度、つまり運動エネルギーの揺らぎです。\\ 測定温度の標準偏差は約7 "
+"K（約2.6%）で、瞬間圧力の相対的な幅と同程度です。\\ そこで、揺らぎをならすために圧力を時間平均します。\\ 最初の40 "
+"psは平均から除き、残りの400 psを測定区間とします。"
 msgstr ""
-"The pressure varies over time. \\ The pressure and temperature from a "
-"test calculation are shown in :numref:`fig-argon-pressure-time`. \\ At "
-"this low density, pressure fluctuations mainly come from fluctuations in "
-"temperature, and thus in kinetic energy. \\ The measured temperature has "
-"a standard deviation of about 7 K (approximately 2.6%), comparable to the"
-" relative spread of the instantaneous pressure. \\ We therefore average "
-"over the production period, excluding the first 40 ps."
+"MD pressure does not take the same value at every moment. \\ The pressure"
+" and temperature over time for the calculation with a side length of "
+"33.3879144 nm and seed 1101 are shown in :numref:`fig-argon-pressure-"
+"time`. \\ At this low density, pressure fluctuations mainly come from "
+"fluctuations in temperature, and thus in kinetic energy. \\ The measured "
+"temperature has a standard deviation of about 7 K (approximately 2.6%), "
+"comparable to the relative spread of the instantaneous pressure. \\ We "
+"therefore average the pressure over time to smooth out the fluctuations. "
+"\\ We exclude the first 40 ps from the average and use the remaining 400 "
+"ps as the production period."
 
-#: ../../gas_laws/argon_molar_volume.rst:145
+#: ../../gas_laws/argon_molar_volume.rst:105
 msgid ""
 "一辺33.3879144 nm、シード1101の計算です。\\ 上段はEDRから0.1 ps間隔で抽出した圧力（薄線）と10 "
 "psの移動平均（青線）、\\ 下段は温度です。横軸は時間（ps）、縦軸はそれぞれbar、Kです。\\ 黄色の0〜40 "
-"psは平均から除いた区間です。\\ 破線は上段が独立に計算した理想気体の圧力、下段が273.15 Kです。"
+"psは平均から除いた区間です。\\ 破線は、上段が理想気体の式による圧力（1.01325 bar）、下段が設定温度の273.15 Kです。"
 msgstr ""
 "The cell is 33.3879144 nm on a side and the seed is 1101. \\ The top "
 "panel shows pressure sampled from the EDR every 0.1 ps (light line) and "
-"its 10 ps moving mean (blue line). \\ The bottom panel shows temperature."
-" The horizontal axis shows time (ps), and the vertical axes use bar and "
-"K, respectively. \\ The yellow region from 0 to 40 ps is excluded from "
-"the average. \\ The dashed lines mark the independently calculated ideal "
-"gas pressure above and 273.15 K below."
+"its 10 ps moving average (blue line), \\ and the bottom panel shows "
+"temperature. The horizontal axis shows time (ps), and the vertical axes "
+"use bar and K, respectively. \\ The yellow region from 0 to 40 ps is "
+"excluded from the average. \\ The dashed lines mark the pressure from the"
+" ideal gas equation (1.01325 bar) in the top panel and the set "
+"temperature of 273.15 K in the bottom panel."
 
-#: ../../gas_laws/argon_molar_volume.rst:151
+#: ../../gas_laws/argon_molar_volume.rst:111
+#, python-brace-format
 msgid ""
-"このシードでは、測定区間の平均圧力は1.01192 bar、ブロック平均による標準誤差は約0.00066 barでした。\\ ブロックを5〜80 "
-"psに変えたときの標準誤差を調べ、最大の値を採用しています。\\ "
+"このシードでは、測定区間の平均圧力は1.01192 bar、ブロック平均による標準誤差は約0.00066 barでした。\\ "
+"隣り合う時刻の圧力は互いに相関しているので、測定区間を同じ長さのブロックに分けてブロックごとに平均し、そのばらつきから標準誤差を求めます。\\ "
+"ブロックの長さを5〜80 psに変えて標準誤差を調べ、最大の値を採用しています（ :numref:`{number}. {name} <gas-"
+"reproduction-statistics>` ）。\\ "
 "これは今回の区間で見積もった統計精度であり、あらゆる系統誤差がなくなったことを意味しません。"
 msgstr ""
 "For this seed, the mean pressure over the production period was 1.01192 "
 "bar, with a standard error of about 0.00066 bar from block averaging. \\ "
-"We checked block lengths from 5 to 80 ps and took the largest standard "
-"error. \\ This estimate describes the statistical precision over the "
-"interval. Systematic errors may still be present."
+"Because pressures at neighboring times are correlated with one another, "
+"we divide the production period into blocks of equal length, average each"
+" block, and obtain the standard error from the spread of the block "
+"averages. \\ We examined the standard error for block lengths from 5 to "
+"80 ps and adopted the largest value (:numref:`{number}. {name} <gas-"
+"reproduction-statistics>`). \\ This is the statistical precision "
+"estimated for this interval and does not mean that all systematic errors "
+"have been eliminated."
+
+#: ../../gas_laws/argon_molar_volume.rst:117
+msgid "体積と圧力"
+msgstr "Volume and Pressure"
+
+#: ../../gas_laws/argon_molar_volume.rst:119
+msgid "1,000原子のセルの体積 :math:`V_{\\mathrm{box}}` は、次の式で1 molあたりの体積、つまりモル体積へ換算します。"
+msgstr ""
+"The volume of the 1,000-atom cell, :math:`V_{\\mathrm{box}}`, is "
+"converted to the volume per mole, that is, the molar volume, using the "
+"following equation."
+
+#: ../../gas_laws/argon_molar_volume.rst:121
+msgid ""
+"\\begin{aligned}\n"
+"V_m[\\mathrm{L/mol}]\n"
+"&=\\frac{N_A}{1000}V_{\\mathrm{box}}[\\mathrm{nm^3}]\\times10^{-24}\\\\\n"
+"&=0.000602214076\\,V_{\\mathrm{box}}[\\mathrm{nm^3}].\n"
+"\\end{aligned}"
+msgstr ""
+"\\begin{aligned}\n"
+"V_m[\\mathrm{L/mol}]\n"
+"&=\\frac{N_A}{1000}V_{\\mathrm{box}}[\\mathrm{nm^3}]\\times10^{-24}\\\\\n"
+"&=0.000602214076\\,V_{\\mathrm{box}}[\\mathrm{nm^3}].\n"
+"\\end{aligned}"
+
+#: ../../gas_laws/argon_molar_volume.rst:129
+msgid "6つの体積について、理想気体の圧力とMDの圧力を :numref:`tab-argon-pv` に示します。"
+msgstr ""
+":numref:`tab-argon-pv` shows the ideal gas pressure and the MD pressure "
+"for the six volumes."
+
+#: ../../gas_laws/argon_molar_volume.rst:131
+msgid "273.15 Kにおける体積と圧力"
+msgstr "Volume and pressure at 273.15 K"
+
+#: ../../gas_laws/argon_molar_volume.rst:137
+msgid "一辺（nm）"
+msgstr "Side length (nm)"
+
+#: ../../gas_laws/argon_molar_volume.rst:138
+msgid "モル体積（L/mol）"
+msgstr "Molar volume (L/mol)"
+
+#: ../../gas_laws/argon_molar_volume.rst:139
+msgid "圧力（理想気体）（bar）"
+msgstr "Ideal gas pressure (bar)"
+
+#: ../../gas_laws/argon_molar_volume.rst:140
+msgid "圧力（MD平均±標準誤差）（bar）"
+msgstr "Pressure (MD mean ± standard error) (bar)"
+
+#: ../../gas_laws/argon_molar_volume.rst:141
+msgid "27"
+msgstr "27"
+
+#: ../../gas_laws/argon_molar_volume.rst:142
+msgid "11.8534"
+msgstr "11.8534"
+
+#: ../../gas_laws/argon_molar_volume.rst:143
+msgid "1.9160"
+msgstr "1.9160"
+
+#: ../../gas_laws/argon_molar_volume.rst:144
+msgid "1.91178 ± 0.00087"
+msgstr "1.91178 ± 0.00087"
+
+#: ../../gas_laws/argon_molar_volume.rst:145
+msgid "30"
+msgstr "30"
+
+#: ../../gas_laws/argon_molar_volume.rst:146
+msgid "16.2598"
+msgstr "16.2598"
+
+#: ../../gas_laws/argon_molar_volume.rst:147
+msgid "1.3968"
+msgstr "1.3968"
+
+#: ../../gas_laws/argon_molar_volume.rst:148
+msgid "1.39464 ± 0.00060"
+msgstr "1.39464 ± 0.00060"
+
+#: ../../gas_laws/argon_molar_volume.rst:149
+msgid "33"
+msgstr "33"
+
+#: ../../gas_laws/argon_molar_volume.rst:150
+msgid "21.6418"
+msgstr "21.6418"
+
+#: ../../gas_laws/argon_molar_volume.rst:151
+msgid "1.0494"
+msgstr "1.0494"
+
+#: ../../gas_laws/argon_molar_volume.rst:152
+msgid "1.04783 ± 0.00045"
+msgstr "1.04783 ± 0.00045"
+
+#: ../../gas_laws/argon_molar_volume.rst:153
+msgid "33.3879"
+msgstr "33.3879"
+
+#: ../../gas_laws/argon_molar_volume.rst:154
+msgid "22.4140"
+msgstr "22.4140"
+
+#: ../../gas_laws/argon_molar_volume.rst:155
+msgid "1.01325"
+msgstr "1.01325"
 
 #: ../../gas_laws/argon_molar_volume.rst:156
-msgid "1気圧に対応するモル体積"
-msgstr "Molar Volume at 1 atm"
+msgid "1.01184 ± 0.00045"
+msgstr "1.01184 ± 0.00045"
+
+#: ../../gas_laws/argon_molar_volume.rst:157
+msgid "36"
+msgstr "36"
 
 #: ../../gas_laws/argon_molar_volume.rst:158
-msgid ""
-"各体積の測定値を :numref:`fig-argon-pv` に示します。\\ "
-"体積を小さくすると圧力が上がり、全体として理想気体の曲線に近い関係になっています。"
-msgstr ""
-":numref:`fig-argon-pv` shows the measurements at each volume. \\ Pressure"
-" rises as volume decreases, and the overall relationship closely follows "
-"the ideal gas curve."
+msgid "28.0969"
+msgstr "28.0969"
+
+#: ../../gas_laws/argon_molar_volume.rst:159
+msgid "0.8083"
+msgstr "0.8083"
+
+#: ../../gas_laws/argon_molar_volume.rst:160
+msgid "0.80731 ± 0.00034"
+msgstr "0.80731 ± 0.00034"
+
+#: ../../gas_laws/argon_molar_volume.rst:161
+msgid "40"
+msgstr "40"
+
+#: ../../gas_laws/argon_molar_volume.rst:162
+msgid "38.5417"
+msgstr "38.5417"
+
+#: ../../gas_laws/argon_molar_volume.rst:163
+msgid "0.5893"
+msgstr "0.5893"
+
+#: ../../gas_laws/argon_molar_volume.rst:164
+msgid "0.58859 ± 0.00025"
+msgstr "0.58859 ± 0.00025"
 
 #: ../../gas_laws/argon_molar_volume.rst:166
 msgid ""
-"上段の横軸は1 mol換算の体積（L/mol）、縦軸は圧力（bar）です。\\ 点と誤差棒は :numref:`tab-argon-pv` "
-"と同じMD平均と1標準誤差、黒線は式 :eq:`eq-gas-ideal` の予測です。\\ 水平破線は1 atm＝1.01325 "
-"bar、点線は一辺30、33、33.3879144、36 nmの測定値に対する近傍フィットです。\\ 誤差棒は点より小さい場合があります。\\ "
-"下段は逆モル体積（mol/L）と圧縮因子Z＝PVm/(RT)です。\\ "
-"黒線は理想気体、灰破線は全体の重心運動の除去だけを考えた予測、緑点線はさらに打ち切りLJの二体相互作用を加えた273.15 Kの予測です。\\ "
-"橙の×印は各体積の実測平均温度へ補正した予測です。パラメータをMD圧力に合わせて決めてはいません。"
+"理想気体の列は :eq:`eq-gas-ideal` による値です。\\ "
+"MD平均の列は、シードごとに測定区間の時間平均を求め、3つのシードで平均した値です。\\ "
+"標準誤差は、時間相関を考慮したブロック平均とシード間のばらつきから求めています。\\ "
+"この誤差には、原子間相互作用のモデルや粒子数の有限性による偏りは含めていません。\\ "
+"どの体積でも、MDの圧力は理想気体の値より0.11〜0.22%低く、体積が小さいほど差が大きい傾向があります。"
 msgstr ""
-"The top panel shows molar volume (L/mol) on the horizontal axis and "
-"pressure (bar) on the vertical axis. \\ The points and error bars show "
-"the MD means and one standard error, as in :numref:`tab-argon-pv`. The "
-"black curve is the prediction from Equation :eq:`eq-gas-ideal`. \\ The "
-"horizontal dashed line marks 1 atm = 1.01325 bar, and the dotted curve is"
-" the local fit to measurements for side lengths of 30, 33, 33.3879144, "
-"and 36 nm. \\ The error bars can be smaller than the markers. \\ The "
-"bottom panel shows inverse molar volume (mol/L) and the compressibility "
-"factor Z = PVm/(RT). \\ The black line is the ideal gas prediction. The "
-"gray dashed line accounts only for removal of the motion of the system’s "
-"center of mass, and the green dotted curve also accounts for truncated LJ"
-" pair interactions at 273.15 K. \\ The orange crosses mark predictions "
-"corrected to the measured mean temperature at each volume. We did not fit"
-" the parameters to the MD pressures."
+"The ideal gas column gives values from Equation :eq:`eq-gas-ideal`. \\ "
+"For the MD mean column, we computed the time average over the production "
+"period for each seed and then averaged over the three seeds. \\ The "
+"standard error is obtained from block averaging, which accounts for time "
+"correlations, and from the variation across seeds. \\ This error does not"
+" include biases due to the model for interatomic interactions or the "
+"finite number of particles. \\ At every volume, the MD pressure was "
+"0.11–0.22% below the ideal gas value, and the difference tends to be "
+"larger at smaller volumes."
 
-#: ../../gas_laws/argon_molar_volume.rst:174
+#: ../../gas_laws/argon_molar_volume.rst:173
+msgid "1気圧に対応するモル体積"
+msgstr "Molar Volume at 1 atm"
+
+#: ../../gas_laws/argon_molar_volume.rst:175
+msgid ""
+":numref:`fig-argon-pv` の上段に各体積の圧力を、下段に理想気体からのずれを示します。\\ "
+"上段では、体積を小さくすると圧力が上がり、全体として理想気体の曲線に近い関係になっています。\\ この上段の測定値から1 "
+"atmのモル体積を求め、下段で理想気体との差の原因を調べます。"
+msgstr ""
+"The top panel of :numref:`fig-argon-pv` shows the pressure at each "
+"volume, and the bottom panel shows the deviation from the ideal gas. \\ "
+"In the top panel, pressure rises as the volume decreases, and the overall"
+" relationship is close to the ideal gas curve. \\ We obtain the molar "
+"volume at 1 atm from the measurements in the top panel and examine the "
+"cause of the difference from the ideal gas in the bottom panel."
+
+#: ../../gas_laws/argon_molar_volume.rst:184
+msgid ""
+"上段の横軸はモル体積（L/mol）、縦軸は圧力（bar）です。\\ 点と誤差棒は :numref:`tab-argon-pv` "
+"と同じMD平均と1標準誤差で、誤差棒は点より小さい場合があります。\\ 黒線は式 :eq:`eq-gas-ideal` の予測、水平破線は1 "
+"atm＝1.01325 bar、点線は一辺30、33、33.3879144、36 nmの測定値に対する近傍フィットです。\\ "
+"下段の横軸は逆モル体積1/Vm（mol/L）、縦軸は圧縮因子Z＝PVm/(RT)で、理想気体ではZ＝1です。\\ "
+"黒線は理想気体、灰破線は全体の重心運動の除去だけを考えた予測、緑点線はさらに打ち切りLJの二体相互作用を加えた273.15 Kの予測です。\\ "
+"橙の×印は、緑点線の予測を各体積の実測平均温度へ補正した値です。いずれの予測も、パラメータをMD圧力に合わせて決めてはいません。"
+msgstr ""
+"In the top panel, the horizontal axis shows molar volume (L/mol) and the "
+"vertical axis shows pressure (bar). \\ The points and error bars show the"
+" same MD means and one standard error as in :numref:`tab-argon-pv`; the "
+"error bars can be smaller than the markers. \\ The black curve is the "
+"prediction from Equation :eq:`eq-gas-ideal`, the horizontal dashed line "
+"marks 1 atm = 1.01325 bar, and the dotted curve is the local fit to the "
+"measurements for side lengths of 30, 33, 33.3879144, and 36 nm. \\ In the"
+" bottom panel, the horizontal axis shows the inverse molar volume 1/Vm "
+"(mol/L) and the vertical axis shows the compressibility factor Z = "
+"PVm/(RT), which equals 1 for an ideal gas. \\ The black line is the ideal"
+" gas, the gray dashed line is the prediction that accounts only for "
+"removal of the motion of the system’s center of mass, and the green "
+"dotted curve is the prediction at 273.15 K that also includes truncated "
+"LJ pair interactions. \\ The orange crosses mark the predictions of the "
+"green dotted curve corrected to the measured mean temperature at each "
+"volume. None of the predictions has parameters fitted to the MD "
+"pressures."
+
+#: ../../gas_laws/argon_molar_volume.rst:191
 msgid ""
 "1 atmは1 barと少し違い、1.01325 barです。\\ この圧力付近の4体積の測定値に :math:`P=a/V_m+b` "
 "を当てはめ、係数を自由に決めました。\\ 22.4 Lという値はフィットに使っていません。\\ 得られた1 atmのモル体積は **22.383 "
@@ -440,11 +505,11 @@ msgstr ""
 "the fit. \\ The estimation method and covariance are in ``pv_fit.json`` "
 "in the downloadable data."
 
-#: ../../gas_laws/argon_molar_volume.rst:181
+#: ../../gas_laws/argon_molar_volume.rst:198
 msgid "一方、理想気体の予測は次の値です。"
 msgstr "The ideal gas prediction, by comparison, is"
 
-#: ../../gas_laws/argon_molar_volume.rst:183
+#: ../../gas_laws/argon_molar_volume.rst:200
 #, python-brace-format
 msgid ""
 "\\begin{aligned}\n"
@@ -457,70 +522,62 @@ msgstr ""
 "T&=273.15\\ \\mathrm{K},\\quad P=101325\\ \\mathrm{Pa}.\n"
 "\\end{aligned}"
 
-#: ../../gas_laws/argon_molar_volume.rst:190
+#: ../../gas_laws/argon_molar_volume.rst:207
 msgid ""
 "MDの推定は理想値より約0.14%小さく、どちらも有効数字3桁では約22.4 L/molになります。\\ "
-"この差は、主に二つの効果で説明できます。\\ "
-"一つは全体の重心運動を取り除く効果で、原子1,000個では運動による圧力が約0.10%小さくなります。\\ "
-"もう一つは今回の打ち切りLJモデルの引力で、理想気体に近い密度での独立な見積もりでは、圧力を約0.07%下げます。\\ "
-"平均温度が指定値より約0.07 K高かった効果（約+0.02%）も合わせると、約−0.15%の予測になります。\\ "
-"6体積の各測定値とこの予測との差は、いずれも統計標準誤差の0.5倍以内でした。\\ 見積もりの式と数値積分は "
+"この差の原因を、圧力の中身から考えます。\\ GROMACSは、原子の運動エネルギーによる部分と原子間力による部分から圧力を計算します [1]_ "
+"。\\ 温度を一定に保つと運動エネルギーの平均が決まるので、運動による部分は理想気体の式と同じ形になります。\\ "
+"理想気体からのずれは、主に次の二つの効果で説明できます。\\ "
+"一つは運動による部分の補正です。計算では全体の重心の運動を取り除いているので、運動の自由度が3つ減り、原子1,000個では圧力が約0.10%小さくなります。\\"
+" もう一つは原子間力による部分で、今回の打ち切りLJモデルの引力は、理想気体に近い密度での独立な見積もりでは、1 "
+"atm付近で約0.07%、今回の体積の範囲では約0.04〜0.13%だけ圧力を下げます。\\ 平均温度が指定値より約0.07 "
+"K高かった効果（約+0.02%）も合わせると、1 atm付近では約−0.15%の予測になります。\\ :numref:`fig-argon-pv`"
+" の下段のとおり、6体積の各測定値とこの予測との差は、いずれも統計標準誤差の0.5倍以内でした。\\ 見積もりの式と数値積分は "
 ":doc:`reproduction` にまとめています。\\ "
 "この一致は今回の有限個の粒子と相互作用モデルについての確認であり、実在Arの状態方程式を高精度に決めたという意味ではありません。"
 msgstr ""
-"The MD estimate is about 0.14% below the ideal value. Both round to about"
-" 22.4 L/mol to three significant figures. \\ Two effects account for most"
-" of the difference. \\ First, removing the motion of the system’s center "
-"of mass reduces the kinetic contribution to pressure by about 0.10% for "
-"1,000 atoms. \\ Second, an independent estimate for the truncated LJ "
-"model at densities close to those of an ideal gas gives a pressure "
-"reduction of about 0.07% from attraction. \\ Including the effect of the "
-"mean temperature being about 0.07 K above the target (about +0.02%) gives"
-" a predicted pressure deviation of about −0.15%. \\ At all six volumes, "
-"the measured pressure was within 0.5 statistical standard errors of the "
-"prediction. \\ The equations and numerical integration are described in "
+"The MD estimate is about 0.14% below the ideal value, and both are about "
+"22.4 L/mol to three significant figures. \\ To find the cause of this "
+"difference, we look at what makes up the pressure. \\ GROMACS calculates "
+"pressure from a part due to the kinetic energy of the atoms and a part "
+"due to interatomic forces [1]_. \\ At constant temperature, the mean "
+"kinetic energy is fixed, so the kinetic part has the same form as the "
+"ideal gas equation. \\ The deviation from the ideal gas can be explained "
+"mainly by the following two effects. \\ The first is a correction to the "
+"kinetic part. Because the calculation removes the motion of the system’s "
+"center of mass, the number of degrees of freedom of motion decreases by "
+"three, and for 1,000 atoms the pressure is about 0.10% lower. \\ The "
+"second is the part due to interatomic forces. According to an independent"
+" estimate at densities close to those of an ideal gas, the attraction in "
+"the truncated LJ model used here lowers the pressure by about 0.07% near "
+"1 atm and by about 0.04–0.13% over the range of volumes studied. \\ "
+"Including the effect of the mean temperature being about 0.07 K above the"
+" specified value (about +0.02%), the predicted deviation near 1 atm is "
+"about −0.15%. \\ :numref:`fig-argon-pv` shows in its bottom panel that, "
+"at all six volumes, the difference between each measurement and this "
+"prediction was within 0.5 statistical standard errors. \\ The equations "
+"and numerical integration for the estimate are described in "
 ":doc:`reproduction`. \\ This agreement is a check only for the finite "
-"number of particles and the interaction model used here. It does not "
-"establish a high-precision equation of state for real Ar."
+"number of particles and the interaction model used here. It does not mean"
+" that the equation of state of real Ar has been determined with high "
+"precision."
 
-#: ../../gas_laws/argon_molar_volume.rst:199
-msgid "原子1,000個のセルの体積は、次の式で1 molあたりへ換算しました。"
-msgstr "We converted the volume of the 1,000-atom cell to volume per mole using"
+#: ../../gas_laws/argon_molar_volume.rst:220
+msgid "この数値実験から分かること"
+msgstr "What the Numerical Experiment Shows"
 
-#: ../../gas_laws/argon_molar_volume.rst:201
+#: ../../gas_laws/argon_molar_volume.rst:222
 msgid ""
-"\\begin{aligned}\n"
-"V_m[\\mathrm{L/mol}]\n"
-"&=\\frac{N_A}{1000}V_{\\mathrm{box}}[\\mathrm{nm^3}]\\times10^{-24}\\\\\n"
-"&=0.000602214076\\,V_{\\mathrm{box}}[\\mathrm{nm^3}].\n"
-"\\end{aligned}"
+"原子1,000個のMDから求めた0 ℃・1 atmのモル体積は22.383 ± 0.012 L/molで、理想気体の22.414 "
+"L/molより約0.14%小さい値でした。\\ この差は、全体の重心運動の除去と、モデルの原子間の引力による圧力の低下で説明できました。"
 msgstr ""
-"\\begin{aligned}\n"
-"V_m[\\mathrm{L/mol}]\n"
-"&=\\frac{N_A}{1000}V_{\\mathrm{box}}[\\mathrm{nm^3}]\\times10^{-24}\\\\\n"
-"&=0.000602214076\\,V_{\\mathrm{box}}[\\mathrm{nm^3}].\n"
-"\\end{aligned}"
+"The molar volume at 0 °C and 1 atm obtained from MD with 1,000 atoms was "
+"22.383 ± 0.012 L/mol, about 0.14% smaller than the ideal gas value of "
+"22.414 L/mol. \\ This difference could be explained by the removal of the"
+" motion of the system’s center of mass and the reduction in pressure due "
+"to the attraction between atoms in the model."
 
-#: ../../gas_laws/argon_molar_volume.rst:210
-msgid "原子の運動と圧力"
-msgstr "Atomic Motion and Pressure"
-
-#: ../../gas_laws/argon_molar_volume.rst:212
-msgid ""
-"GROMACSは、原子の運動エネルギーと原子間力から圧力を計算します [1]_ 。\\ "
-"温度を一定に保つと運動エネルギーの平均が決まるので、運動による部分は理想気体の式と同じ形になります。\\ "
-"ここで調べたのは、原子間力による部分がどのくらい小さいかです。\\ 1 "
-"atm付近では約0.07%、今回の体積の範囲では約0.04〜0.13%だけ圧力を下げる寄与でした。"
-msgstr ""
-"GROMACS calculates pressure from the atoms’ kinetic energy and "
-"interatomic forces [1]_. \\ At constant temperature, the mean kinetic "
-"energy is fixed, so the kinetic contribution has the same form as in the "
-"ideal gas equation. \\ We examined how small the contribution from "
-"interatomic forces is. \\ These forces reduced the pressure by about "
-"0.07% near 1 atm and by about 0.04–0.13% over the range of volumes we "
-"examined."
-
-#: ../../gas_laws/argon_molar_volume.rst:217
+#: ../../gas_laws/argon_molar_volume.rst:225
 msgid ""
 "22.4 Lは、原子1個が占める決まった大きさではありません。\\ 温度と圧力を指定したときに、多数の粒子の運動から現れる体積です。\\ "
 "この数値実験では、その値に近い体積を、有限個のArの運動と圧力から求められました。\\ "
@@ -534,13 +591,13 @@ msgstr ""
 "equation from scratch nor establishes a high-precision equation of state "
 "for a real gas."
 
-#: ../../gas_laws/argon_molar_volume.rst:222
+#: ../../gas_laws/argon_molar_volume.rst:230
 msgid "次の :doc:`five_gases_avogadro` では、分子の質量を変えたときの速さと圧力を比較します。"
 msgstr ""
 "In the next part, :doc:`five_gases_avogadro`, we compare speeds and "
 "pressures as the molecular mass changes."
 
-#: ../../gas_laws/argon_molar_volume.rst:224
+#: ../../gas_laws/argon_molar_volume.rst:232
 msgid ""
 "GROMACS 2026.2, `Molecular dynamics, pressure and virial "
 "<https://manual.gromacs.org/2026.2/reference-manual/algorithms/molecular-"
@@ -549,4 +606,50 @@ msgstr ""
 "GROMACS 2026.2, `Molecular dynamics, pressure and virial "
 "<https://manual.gromacs.org/2026.2/reference-manual/algorithms/molecular-"
 "dynamics.html>`__"
+
+#~ msgid ""
+#~ "Arは原子が一つずつ独立に動く単原子気体です。\\ "
+#~ "今回の原子は、近づきすぎると反発し、少し離れたところで弱く引き合うモデルに従います。\\ 計算条件を :numref"
+#~ ":`tab-argon-conditions` にまとめます。\\ "
+#~ "力場の数値パラメータ、入力構造、解析の手順は :doc:`reproduction` で確認できます。"
+#~ msgstr ""
+#~ "Ar is a monatomic gas whose atoms"
+#~ " move individually. \\ In our model,"
+#~ " the atoms repel one another at "
+#~ "very short distances and attract one "
+#~ "another weakly at somewhat larger "
+#~ "distances. \\ The calculation conditions "
+#~ "are summarized in :numref:`tab-argon-"
+#~ "conditions`. \\ The numerical force "
+#~ "field parameters, input structures, and "
+#~ "analysis steps are available in "
+#~ ":doc:`reproduction`."
+
+#~ msgid "計算結果"
+#~ msgstr "Calculation Results"
+
+#~ msgid "原子1,000個のセルの体積は、次の式で1 molあたりへ換算しました。"
+#~ msgstr "We converted the volume of the 1,000-atom cell to volume per mole using"
+
+#~ msgid "原子の運動と圧力"
+#~ msgstr "Atomic Motion and Pressure"
+
+#~ msgid ""
+#~ "GROMACSは、原子の運動エネルギーと原子間力から圧力を計算します [1]_ 。\\ "
+#~ "温度を一定に保つと運動エネルギーの平均が決まるので、運動による部分は理想気体の式と同じ形になります。\\ "
+#~ "ここで調べたのは、原子間力による部分がどのくらい小さいかです。\\ 1 "
+#~ "atm付近では約0.07%、今回の体積の範囲では約0.04〜0.13%だけ圧力を下げる寄与でした。"
+#~ msgstr ""
+#~ "GROMACS calculates pressure from the "
+#~ "atoms’ kinetic energy and interatomic "
+#~ "forces [1]_. \\ At constant temperature,"
+#~ " the mean kinetic energy is fixed,"
+#~ " so the kinetic contribution has the"
+#~ " same form as in the ideal gas"
+#~ " equation. \\ We examined how small"
+#~ " the contribution from interatomic forces"
+#~ " is. \\ These forces reduced the "
+#~ "pressure by about 0.07% near 1 atm"
+#~ " and by about 0.04–0.13% over the "
+#~ "range of volumes we examined."
 

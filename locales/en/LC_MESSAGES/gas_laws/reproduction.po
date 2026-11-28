@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 17:14+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -24,6 +24,20 @@ msgid "計算条件と再現手順"
 msgstr "Calculation Conditions and Reproduction Procedure"
 
 #: ../../gas_laws/reproduction.rst:5
+msgid ""
+"このページでは、第1回（ :doc:`argon_molar_volume` ）と第2回（ :doc:`five_gases_avogadro` "
+"）の計算条件、Quloudで計算する手順、ダウンロードした出力から記事の数値と図を作る解析をまとめます。\\ "
+"後半には、記事の結論の範囲を決めた対照計算（統計誤差、温度制御、計算精度、時間刻み）の結果を載せます。"
+msgstr ""
+"This page summarizes the calculation conditions for Part 1 "
+"(:doc:`argon_molar_volume`) and Part 2 (:doc:`five_gases_avogadro`), the "
+"procedure for running the calculations in Quloud, and the analysis that "
+"produces the values and figures in the articles from the downloaded "
+"output. \\ The second half presents the results of the control "
+"calculations that set the scope of the articles’ conclusions (statistical"
+" error, temperature control, calculation precision, and time step)."
+
+#: ../../gas_laws/reproduction.rst:8
 msgid ""
 "この例題の数値は、WSL上のDockerでGROMACS 2026.2を実行して得たものです。\\ "
 "Quloudの画面から投入したジョブではありません。\\ Quloud用のCIF入力・トポロジー生成・ローカル実行ランナーを用いました。\\ "
@@ -42,7 +56,7 @@ msgstr ""
 "calculations through the Quloud interface and checking the output against"
 " the production environment remain unverified."
 
-#: ../../gas_laws/reproduction.rst:15
+#: ../../gas_laws/reproduction.rst:18
 msgid ""
 "第2回は分子の重心の速さと、5気体がいずれも約1 atmになる大まかな比較に範囲を絞っています。\\ "
 "気体ごとの1%未満の圧力差は数値条件によって動くため、物性の差とは解釈しません。\\ "
@@ -56,11 +70,11 @@ msgstr ""
 "and output retrieval in the Quloud interface. The steps below are "
 "provided for reference."
 
-#: ../../gas_laws/reproduction.rst:20
+#: ../../gas_laws/reproduction.rst:23
 msgid "入力とモデル"
 msgstr "Inputs and Models"
 
-#: ../../gas_laws/reproduction.rst:22
+#: ../../gas_laws/reproduction.rst:25
 msgid ""
 "計算セルは3方向周期境界の立方体です。Arは1,000原子、H₂・N₂・O₂は各2,000原子、\\ "
 "CO₂は3,000原子で、いずれも1,000分子に相当します。\\ "
@@ -78,61 +92,61 @@ msgstr ""
 " molecules, we checked the atom order, molecule count, masses, charges, "
 "and constraints against the actual TPR and the generated ITP."
 
-#: ../../gas_laws/reproduction.rst:28
+#: ../../gas_laws/reproduction.rst:31
 msgid "登録モデルのパラメータ"
 msgstr "Parameters of the registered models"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
 #: ../../gas_laws/analysis/precision_reference.csv:1
-#: ../../gas_laws/reproduction.rst:34 ../../gas_laws/reproduction.rst:316
+#: ../../gas_laws/reproduction.rst:37 ../../gas_laws/reproduction.rst:385
 msgid "気体"
 msgstr "Gas"
 
-#: ../../gas_laws/reproduction.rst:35
+#: ../../gas_laws/reproduction.rst:38
 msgid "質量（g/mol）"
 msgstr "Mass (g/mol)"
 
-#: ../../gas_laws/reproduction.rst:36
+#: ../../gas_laws/reproduction.rst:39
 msgid "LJのσ（nm）、ε（kJ/mol）"
 msgstr "LJ σ (nm), ε (kJ/mol)"
 
-#: ../../gas_laws/reproduction.rst:37
+#: ../../gas_laws/reproduction.rst:40
 msgid "分子内の条件、原子電荷（e）"
 msgstr "Intramolecular settings and atomic charges (e)"
 
 #: ../../gas_laws/analysis/precision_reference.csv:1
-#: ../../gas_laws/reproduction.rst:38 ../../gas_laws/reproduction.rst:341
-#: ../../gas_laws/reproduction.rst:346
+#: ../../gas_laws/reproduction.rst:41 ../../gas_laws/reproduction.rst:410
+#: ../../gas_laws/reproduction.rst:415
 msgid "Ar"
 msgstr "Ar"
 
-#: ../../gas_laws/reproduction.rst:39
+#: ../../gas_laws/reproduction.rst:42
 msgid "39.948"
 msgstr "39.948"
 
-#: ../../gas_laws/reproduction.rst:40
+#: ../../gas_laws/reproduction.rst:43
 msgid "0.33952、0.97105"
 msgstr "0.33952, 0.97105"
 
-#: ../../gas_laws/reproduction.rst:41
+#: ../../gas_laws/reproduction.rst:44
 msgid "1原子。電荷0"
 msgstr "One atom, charge 0"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
-#: ../../gas_laws/reproduction.rst:42 ../../gas_laws/reproduction.rst:321
-#: ../../gas_laws/reproduction.rst:326
+#: ../../gas_laws/reproduction.rst:45 ../../gas_laws/reproduction.rst:390
+#: ../../gas_laws/reproduction.rst:395
 msgid "H₂"
 msgstr "H₂"
 
-#: ../../gas_laws/reproduction.rst:43
+#: ../../gas_laws/reproduction.rst:46
 msgid "2.016"
 msgstr "2.016"
 
-#: ../../gas_laws/reproduction.rst:44
+#: ../../gas_laws/reproduction.rst:47
 msgid "各H：0.2918、0.0640152"
 msgstr "Each H: 0.2918, 0.0640152"
 
-#: ../../gas_laws/reproduction.rst:45
+#: ../../gas_laws/reproduction.rst:48
 msgid ""
 "H–H 0.07414 nm。結合の力定数292880 kJ/mol/nm²を持ち、h-bonds指定で拘束。各Hの質量1.008 "
 "g/mol、電荷0"
@@ -141,57 +155,57 @@ msgstr ""
 "kJ/mol/nm² and is constrained by the h-bonds setting. Each H has mass "
 "1.008 g/mol and charge 0"
 
-#: ../../gas_laws/reproduction.rst:46
+#: ../../gas_laws/reproduction.rst:49
 msgid "N₂"
 msgstr "N₂"
 
-#: ../../gas_laws/reproduction.rst:47
+#: ../../gas_laws/reproduction.rst:50
 msgid "28.014"
 msgstr "28.014"
 
-#: ../../gas_laws/reproduction.rst:48
+#: ../../gas_laws/reproduction.rst:51
 msgid "各N：0.3614、0.3334648"
 msgstr "Each N: 0.3614, 0.3334648"
 
-#: ../../gas_laws/reproduction.rst:49
+#: ../../gas_laws/reproduction.rst:52
 msgid "N–N 0.10977 nmを拘束。各Nの質量14.007、電荷0"
 msgstr ""
 "N–N distance constrained to 0.10977 nm. Each N has mass 14.007 and charge"
 " 0"
 
-#: ../../gas_laws/reproduction.rst:50
+#: ../../gas_laws/reproduction.rst:53
 msgid "O₂"
 msgstr "O₂"
 
-#: ../../gas_laws/reproduction.rst:51
+#: ../../gas_laws/reproduction.rst:54
 msgid "31.998"
 msgstr "31.998"
 
-#: ../../gas_laws/reproduction.rst:52
+#: ../../gas_laws/reproduction.rst:55
 msgid "各O：0.3297、0.4380648"
 msgstr "Each O: 0.3297, 0.4380648"
 
-#: ../../gas_laws/reproduction.rst:53
+#: ../../gas_laws/reproduction.rst:56
 msgid "O–O 0.12074 nmを拘束。各Oの質量15.999、電荷0"
 msgstr ""
 "O–O distance constrained to 0.12074 nm. Each O has mass 15.999 and charge"
 " 0"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
-#: ../../gas_laws/reproduction.rst:54 ../../gas_laws/reproduction.rst:331
-#: ../../gas_laws/reproduction.rst:336
+#: ../../gas_laws/reproduction.rst:57 ../../gas_laws/reproduction.rst:400
+#: ../../gas_laws/reproduction.rst:405
 msgid "CO₂"
 msgstr "CO₂"
 
-#: ../../gas_laws/reproduction.rst:55
+#: ../../gas_laws/reproduction.rst:58
 msgid "44.009"
 msgstr "44.009"
 
-#: ../../gas_laws/reproduction.rst:56
+#: ../../gas_laws/reproduction.rst:59
 msgid "C：0.2800、0.22449。O：0.3050、0.65684"
 msgstr "C: 0.2800, 0.22449. O: 0.3050, 0.65684"
 
-#: ../../gas_laws/reproduction.rst:57
+#: ../../gas_laws/reproduction.rst:60
 msgid ""
 "C–Oを0.116 nmで2本拘束。角度180°、力定数500 kJ/mol/rad²。C：12.011、+0.70 "
 "e。O：15.999、−0.35 e"
@@ -199,7 +213,7 @@ msgstr ""
 "Two C–O bonds constrained to 0.116 nm. Bond angle 180°, force constant "
 "500 kJ/mol/rad². C: 12.011, +0.70 e. O: 15.999, −0.35 e"
 
-#: ../../gas_laws/reproduction.rst:59
+#: ../../gas_laws/reproduction.rst:62
 msgid ""
 "Arには ``argon_vrabec`` [1]_ 、H₂・N₂・O₂には ``hydrogen_iff12_6`` 、\\ "
 "``nitrogen_iff12_6`` 、 ``oxygen_iff12_6`` [2]_ 、CO₂には ``co2_trappe`` [3]_"
@@ -210,7 +224,7 @@ msgstr ""
 " ``co2_trappe`` [3]_ for CO₂. \\ We use the Lorentz–Berthelot mixing rule"
 " for LJ parameters of different atom types."
 
-#: ../../gas_laws/reproduction.rst:65
+#: ../../gas_laws/reproduction.rst:68
 msgid ""
 "登録CO₂モデルは、文献の完全な剛体TraPPEモデルをそのまま実装したものではありません。\\ "
 "数値積分上の理由から角度に調和ポテンシャルを使っており、500 kJ/mol/rad²は文献値ではありません。\\ "
@@ -225,50 +239,227 @@ msgstr ""
 "these registered models. \\ In particular, the simulations do not "
 "reproduce the quantum effects of rotation and vibration in H₂."
 
-#: ../../gas_laws/reproduction.rst:72
+#: ../../gas_laws/reproduction.rst:75
+msgid "配布する構造と集計データ"
+msgstr "Downloadable Structures and Aggregated Data"
+
+#: ../../gas_laws/reproduction.rst:77
+msgid "構造のZIPには、Quloudの「ファイルアップロード」でMaterialとして登録するCIFが、各条件についてシード1101、2202、3303の3つずつ入っています。"
+msgstr ""
+"The structure ZIP archives contain the CIF files to register as Materials"
+" using \"File Upload\" in Quloud, three for each condition, with seeds "
+"1101, 2202, and 3303."
+
+#: ../../gas_laws/reproduction.rst:79
+msgid ""
+":download:`argon_pv.zip <structures/argon_pv.zip>` — 第1回の一辺27、30、33、36、40"
+" nmのAr（5体積×3シード）"
+msgstr ""
+":download:`argon_pv.zip <structures/argon_pv.zip>` — Ar for Part 1 with "
+"side lengths of 27, 30, 33, 36, and 40 nm (5 volumes × 3 seeds)"
+
+#: ../../gas_laws/reproduction.rst:80
+msgid ""
+":download:`Ar_1000molecules.zip <structures/Ar_1000molecules.zip>` — "
+"一辺33.3879144 nmのAr 1,000原子。第1回のP–V計算と第2回の5気体比較の両方に使います"
+msgstr ""
+":download:`Ar_1000molecules.zip <structures/Ar_1000molecules.zip>` — "
+"1,000 Ar atoms in a cell with a side length of 33.3879144 nm, used for "
+"both the P–V calculations in Part 1 and the five-gas comparison in Part 2"
+
+#: ../../gas_laws/reproduction.rst:81
+msgid ""
+":download:`H2_1000molecules.zip <structures/H2_1000molecules.zip>` — H₂ "
+"1,000分子"
+msgstr ""
+":download:`H2_1000molecules.zip <structures/H2_1000molecules.zip>` — "
+"1,000 H₂ molecules"
+
+#: ../../gas_laws/reproduction.rst:82
+msgid ""
+":download:`N2_1000molecules.zip <structures/N2_1000molecules.zip>` — N₂ "
+"1,000分子"
+msgstr ""
+":download:`N2_1000molecules.zip <structures/N2_1000molecules.zip>` — "
+"1,000 N₂ molecules"
+
+#: ../../gas_laws/reproduction.rst:83
+msgid ""
+":download:`O2_1000molecules.zip <structures/O2_1000molecules.zip>` — O₂ "
+"1,000分子"
+msgstr ""
+":download:`O2_1000molecules.zip <structures/O2_1000molecules.zip>` — "
+"1,000 O₂ molecules"
+
+#: ../../gas_laws/reproduction.rst:84
+msgid ""
+":download:`CO2_1000molecules.zip <structures/CO2_1000molecules.zip>` — "
+"CO₂ 1,000分子"
+msgstr ""
+":download:`CO2_1000molecules.zip <structures/CO2_1000molecules.zip>` — "
+"1,000 CO₂ molecules"
+
+#: ../../gas_laws/reproduction.rst:85
+msgid ":download:`analysis_csv.zip <data/analysis_csv.zip>` — 記事の抽出CSV・集計・座標・条件一覧"
+msgstr ""
+":download:`analysis_csv.zip <data/analysis_csv.zip>` — Extracted CSV "
+"files, summaries, coordinates, and calculation conditions for the example"
+
+#: ../../gas_laws/reproduction.rst:87
+msgid ""
+"集計データには、記事に採用した33計算の時系列CSV、各シードの集計、理想気体の予測、\\ P–Vフィットの共分散と推定値を含めています。\\ "
+"圧力図の倍精度参考15計算の集計は ``double_pressure_reference.csv`` 、\\ 各シードの条件と結果は "
+"``jobs.json`` にも含めています。\\ EDR・TRRなどの大きなバイナリは、この小容量の配布ZIPには含めていません。\\ "
+"原本と入力・ログ・モデル定義は計算実施者のローカル保管とし、採用出力のSHA-256を各 ``summary.json`` に記録しています。"
+msgstr ""
+"The downloadable data include time-series CSV files from the 33 "
+"calculations used in the article, summaries for each seed, ideal gas "
+"predictions, \\ and P–V fit estimates and covariance. \\ The summaries "
+"for the 15 double-precision reference calculations in the pressure figure"
+" are in ``double_pressure_reference.csv``, \\ and ``jobs.json`` also "
+"records the settings and results for each seed. \\ The small distribution"
+" ZIP excludes large binary files such as EDR and TRR. \\ The original "
+"outputs, inputs, logs, and model definitions are stored locally by the "
+"authors, and each ``summary.json`` records the SHA-256 hashes of the "
+"outputs used."
+
+#: ../../gas_laws/reproduction.rst:95
 msgid "Quloudでの設定（実画面では未確認）"
 msgstr "Quloud Settings (Unverified in the Interface)"
 
-#: ../../gas_laws/reproduction.rst:74
+#: ../../gas_laws/reproduction.rst:97
 msgid ""
-"以下はソースの読み取りで確認した編集経路です。実画面で操作確認した手順ではありません。\\ "
-"ローカルでは、この編集後に相当する入力をQuloud用ランナーで実行しています。"
+"以下はQuloudのソースから読み取った操作の経路です。実画面で操作を確かめた手順ではありません。\\ "
+"ローカルでは、この編集後に相当する入力をQuloud用ランナーで実行しています。\\ 画面の操作は `Quloudオンラインマニュアル "
+"<https://manual.quloud-platform.quemix.com/>`__ を参照してください。"
 msgstr ""
-"We identified the editing workflow below by reading the source code. The "
-"steps have yet to be verified in the interface. \\ We ran the equivalent "
-"of the edited inputs locally with the Quloud runner."
+"The steps below are the workflow we identified by reading the Quloud "
+"source code. They have not been verified in the interface. \\ Locally, we"
+" ran the equivalent of the edited inputs with the Quloud runner. \\ For "
+"operating the interface, see the `Quloud online manual <https://manual"
+".quloud-platform.quemix.com/>`__ (in Japanese)."
 
-#: ../../gas_laws/reproduction.rst:77
+#: ../../gas_laws/reproduction.rst:101
+msgid "構造のCIFを、Materialの「ファイルアップロード」で登録します。"
+msgstr "Register the structure CIF files using \"File Upload\" for Materials."
+
+#: ../../gas_laws/reproduction.rst:102
 msgid ""
-"`Quloudオンラインマニュアル <https://manual.quloud-platform.quemix.com/>`__\\ "
-"のMaterialのファイルアップロードでCIFを登録し、GROMACSの古典分子動力学を選びます。\\ 温度273.15 "
-"K、アンサンブルNVTにします。NPTは用いません。\\ ArのP–V計算では時間刻み2 "
-"fs、220,000ステップ、V-rescale、温度緩和時間0.1 psを使います。\\ "
-"計算開始前のRegistered状態で、Jobのファイル一覧から生成された ``nvt.mdp`` を開いて編集します。\\ "
-"画面のJob設定を変更するとMDPが再生成されるため、ファイルの追記は最後に行い、保存後に内容を確認します。\\ "
-"新しいMDPをアップロードする必要はありません。"
+"計算機能「古典分子動力学（GROMACS）」を選び、入力項目を :numref:`tab-gas-quloud-settings` "
+"のように設定します。NPTは用いません。"
 msgstr ""
-"As described in the `Quloud online manual <https://manual.quloud-"
-"platform.quemix.com/>`__ \\ (in Japanese), register the CIF using \"File "
-"Upload\" for the Material and select \"Classical Molecular Dynamics "
-"(GROMACS)\". \\ Set \"Temperature\" to 273.15 K and \"Ensemble\" to \"NVT"
-" (canonical)\". Do not use NPT. \\ For the Ar P–V calculations, set "
-"\"Timestep\" to 2 fs, \"Number of Steps\" to 220,000, \"Temperature "
-"Coupling Algorithm\" to \"V-rescale (recommended)\", and the relaxation "
-"time (\"Temperature Coupling Time Constant\") to 0.1 ps. \\ Before "
-"starting the calculation, while the Job status is \"Registered\", open "
-"and edit the generated ``nvt.mdp`` in the Job’s Files tab. \\ Changing "
-"the Job settings in the interface regenerates the MDP file, so make these"
-" edits last and check the contents after saving. \\ There is no need to "
-"upload a new MDP file."
+"Choose \"Classical Molecular Dynamics (GROMACS)\" and set the input "
+"fields as shown in :numref:`tab-gas-quloud-settings`. Do not use NPT."
 
-#: ../../gas_laws/reproduction.rst:85
-msgid "ArのP–V計算で追記・確認する出力設定は次のとおりです。\\ 同じキーがあれば行を置き換えてください。"
+#: ../../gas_laws/reproduction.rst:103
+msgid ""
+"計算開始前のRegistered状態で、Jobのファイル一覧から生成された ``nvt.mdp`` "
+"を開き、以下の行を追記します。同じキーがあれば行を置き換えてください。画面のJob設定を変更するとMDPが再生成されるため、ファイルの編集は最後に行い、保存後に内容を確かめます。新しいMDPをアップロードする必要はありません。"
 msgstr ""
-"Add or check the following output settings for the Ar P–V calculations. "
-"\\ Replace any existing lines with the same keys."
+"Before starting the calculation, while the Job status is \"Registered\", "
+"open the generated ``nvt.mdp`` in the Job’s file list and add the lines "
+"below. Replace any existing lines with the same keys. Changing the Job "
+"settings in the interface regenerates the MDP file, so edit the file last"
+" and check its contents after saving. There is no need to upload a new "
+"MDP file."
 
-#: ../../gas_laws/reproduction.rst:88
+#: ../../gas_laws/reproduction.rst:104
+#, python-brace-format
+msgid ""
+"計算が終わったら、Jobの「一括ダウンロード」で出力のZIPを取得し、 :numref:`{number}. {name} <gas-"
+"reproduction-analysis>` の解析にかけます。"
+msgstr ""
+"When the calculation finishes, get the output ZIP archive with \"Batch "
+"Download\" for the Job and analyze it as described in :numref:`{number}. "
+"{name} <gas-reproduction-analysis>`."
+
+#: ../../gas_laws/reproduction.rst:106
+msgid "画面で設定する入力項目"
+msgstr "Input fields set in the interface"
+
+#: ../../gas_laws/reproduction.rst:112
+msgid "入力項目"
+msgstr "Input field"
+
+#: ../../gas_laws/reproduction.rst:113
+msgid "第1回（ArのP–V計算）"
+msgstr "Part 1 (Ar P–V calculations)"
+
+#: ../../gas_laws/reproduction.rst:114
+msgid "第2回（5気体の比較）"
+msgstr "Part 2 (five-gas comparison)"
+
+#: ../../gas_laws/reproduction.rst:115
+msgid "温度"
+msgstr "Temperature"
+
+#: ../../gas_laws/reproduction.rst:116 ../../gas_laws/reproduction.rst:117
+msgid "273.15 K"
+msgstr "273.15 K"
+
+#: ../../gas_laws/reproduction.rst:118
+msgid "アンサンブル"
+msgstr "Ensemble"
+
+#: ../../gas_laws/reproduction.rst:119 ../../gas_laws/reproduction.rst:120
+msgid "NVT（カノニカル）"
+msgstr "NVT (canonical)"
+
+#: ../../gas_laws/reproduction.rst:121
+msgid "タイムステップ"
+msgstr "Timestep"
+
+#: ../../gas_laws/reproduction.rst:122
+msgid "2 fs"
+msgstr "2 fs"
+
+#: ../../gas_laws/reproduction.rst:123
+msgid "H₂：0.5 fs、ほかの4種：2 fs"
+msgstr "H₂: 0.5 fs; other four gases: 2 fs"
+
+#: ../../gas_laws/reproduction.rst:124
+msgid "ステップ数"
+msgstr "Number of Steps"
+
+#: ../../gas_laws/reproduction.rst:125
+msgid "220,000（440 ps）"
+msgstr "220,000 (440 ps)"
+
+#: ../../gas_laws/reproduction.rst:126
+msgid "H₂：880,000、ほかの4種：220,000（いずれも440 ps）"
+msgstr "H₂: 880,000; other four gases: 220,000 (440 ps in all cases)"
+
+#: ../../gas_laws/reproduction.rst:127
+msgid "温度制御アルゴリズム"
+msgstr "Temperature Coupling Algorithm"
+
+#: ../../gas_laws/reproduction.rst:128
+msgid "V-rescale（推奨）"
+msgstr "V-rescale (recommended)"
+
+#: ../../gas_laws/reproduction.rst:129
+msgid "MDPの編集で確率的動力学に置き換えます"
+msgstr "Replaced with stochastic dynamics by editing the MDP"
+
+#: ../../gas_laws/reproduction.rst:130
+msgid "温度緩和時間"
+msgstr "Temperature Coupling Time Constant"
+
+#: ../../gas_laws/reproduction.rst:131
+msgid "0.1 ps"
+msgstr "0.1 ps"
+
+#: ../../gas_laws/reproduction.rst:132
+msgid "MDPの ``tau-t`` で0.1 psにします"
+msgstr "Set to 0.1 ps with ``tau-t`` in the MDP"
+
+#: ../../gas_laws/reproduction.rst:134
+msgid "全計算で、次の出力設定を ``nvt.mdp`` に追記・確認します。"
+msgstr ""
+"For all calculations, add or check the following output settings in "
+"``nvt.mdp``."
+
+#: ../../gas_laws/reproduction.rst:136
 msgid ""
 "gen-seed = 1101\n"
 "ld-seed = 101101\n"
@@ -300,33 +491,33 @@ msgstr ""
 "rvdw = 1.2\n"
 "DispCorr = no"
 
-#: ../../gas_laws/reproduction.rst:105
+#: ../../gas_laws/reproduction.rst:153
 msgid ""
 "シード2202と3303では、 ``gen-seed`` と ``ld-seed`` "
 "をそれぞれ2202と102202、3303と103303にします。\\ 入力の ``coulombtype = PME`` "
-"は、電荷のないAr・H₂・N₂・O₂でコンテナが ``Cut-off`` に変更します。\\ "
-"正味電荷が0でも各原子に電荷を持つCO₂ではPMEが維持されます。\\ 比較に使うのはアップロード時のMDPだけでなく、実行後の "
-"``mdout.mdp`` とTPRの設定です。"
+"は、電荷のないAr・H₂・N₂・O₂では実行時にコンテナが ``Cut-off`` に変更します。\\ "
+"正味電荷が0でも各原子に電荷を持つCO₂ではPMEが維持されます。\\ 設定が反映されたかは、アップロード時のMDPだけでなく、実行後の "
+"``mdout.mdp`` とTPRの設定で確かめます。"
 msgstr ""
 "For seeds 2202 and 3303, set ``gen-seed`` and ``ld-seed`` to 2202 and "
 "102202, or to 3303 and 103303, respectively. \\ For Ar, H₂, N₂, and O₂, "
-"whose atoms carry no charge, the container changes the input setting "
-"``coulombtype = PME`` to ``Cut-off``. \\ For CO₂, the atoms carry charges"
-" even though the net charge is zero, so PME stays enabled. \\ The "
-"comparison uses the settings in the uploaded MDP as well as those in "
-"``mdout.mdp`` and the TPR after the run."
+"which have no charges, the container changes the input setting "
+"``coulombtype = PME`` to ``Cut-off`` at run time. \\ For CO₂, whose atoms"
+" carry charges even though the net charge is zero, PME is kept. \\ To "
+"confirm that the settings took effect, check not only the MDP at upload "
+"but also ``mdout.mdp`` and the TPR settings after the run."
 
-#: ../../gas_laws/reproduction.rst:110
+#: ../../gas_laws/reproduction.rst:158
 msgid ""
 "5気体の比較では、分子内運動と並進の熱の分配を整えるため、\\ "
-"RegisteredのJobで次も変更します。これはGROMACSの確率的動力学によるNVTです。"
+"RegisteredのJobで次も変更します。これはGROMACSの確率的動力学（SD）によるNVTです。"
 msgstr ""
-"To distribute thermal energy between intramolecular motion and "
-"translation in the five-gas comparison, \\ make the following additional "
-"edits while the Job is \"Registered\". This runs NVT with GROMACS "
-"stochastic dynamics."
+"For the five-gas comparison, to adjust the distribution of thermal energy"
+" between intramolecular motion and translation, \\ also make the "
+"following changes while the Job is \"Registered\". This is NVT with "
+"GROMACS stochastic dynamics (SD)."
 
-#: ../../gas_laws/reproduction.rst:113
+#: ../../gas_laws/reproduction.rst:161
 msgid ""
 "integrator = sd\n"
 "tcoupl = no\n"
@@ -342,24 +533,23 @@ msgstr ""
 "tau-t = 0.1\n"
 "pcoupl = no"
 
-#: ../../gas_laws/reproduction.rst:122
+#: ../../gas_laws/reproduction.rst:170
 msgid ""
 "``tcoupl = no`` でも、 ``sd`` 自体の摩擦と乱数が熱浴を表します。\\ "
-"今回の軌跡を使って実在気体の拡散係数や衝突時間を議論することはしません。\\ H₂は0.5 fs、880,000ステップにし、出力間隔は "
+"今回の軌跡を使って実在気体の拡散係数や衝突時間を議論することはしません。\\ H₂は時間刻みが0.5 fsなので、出力間隔を "
 "``nstcalcenergy = nstenergy = 200`` 、\\ ``nstxout = nstvout = nstxout-"
-"compressed = 2000`` 、 ``nstlog = 20000`` とします。\\ ほかの4気体は2 "
-"fs、220,000ステップです。\\ どちらも全体440 psのうち、40 psより後の400 psを測定区間にします。"
+"compressed = 2000`` 、 ``nstlog = 20000`` とします。\\ どの気体も全体440 psのうち、40 "
+"psより後の400 psを測定区間にします。"
 msgstr ""
 "Even with ``tcoupl = no``, the friction and random forces in ``sd`` "
 "itself represent a heat bath. \\ We do not use these trajectories to "
-"discuss diffusion coefficients or collision times for real gases. \\ For "
-"H₂, use a 0.5 fs time step and 880,000 steps, with output settings "
+"discuss diffusion coefficients or collision times of real gases. \\ "
+"Because the time step for H₂ is 0.5 fs, set the output intervals to "
 "``nstcalcenergy = nstenergy = 200``, \\ ``nstxout = nstvout = nstxout-"
-"compressed = 2000``, and ``nstlog = 20000``. \\ For the other four gases,"
-" use 2 fs and 220,000 steps. \\ In both cases the production period is "
-"the 400 ps after the first 40 ps of the 440 ps run."
+"compressed = 2000``, and ``nstlog = 20000``. \\ For every gas, the "
+"production period is the 400 ps after the first 40 ps of the 440 ps run."
 
-#: ../../gas_laws/reproduction.rst:131
+#: ../../gas_laws/reproduction.rst:178
 msgid ""
 "この記事の混合精度での比較を再現するときは、時間刻みをH₂は0.5 fs、ほかは2 fsにし、表の値より小さくしないでください。\\ "
 "拘束力による圧力の数値誤差は、刻みを小さくするだけでは改善せず、むしろ大きくなる条件があります。\\ "
@@ -373,13 +563,16 @@ msgstr ""
 "used here. They do not imply that the pressure has converged with respect"
 " to the time step."
 
-#: ../../gas_laws/reproduction.rst:135
-msgid "CO₂はCoulomb項のカットオフとPME格子間隔をともに5倍にしています [4]_ 。\\ LJ項のカットオフ1.2 nmは変えません。"
+#: ../../gas_laws/reproduction.rst:182
+msgid ""
+"CO₂はCoulomb項のカットオフとPME格子間隔をともに5倍（1.2 nmを6.0 nm、0.12 nmを0.6 nm）にしています [4]_"
+" 。\\ LJ項のカットオフ1.2 nmは変えません。"
 msgstr ""
-"For CO₂, we increased both the Coulomb cutoff and the PME grid spacing by"
-" a factor of five [4]_. \\ The LJ cutoff stays at 1.2 nm."
+"For CO₂, both the Coulomb cutoff and the PME grid spacing are increased "
+"by a factor of five (from 1.2 nm to 6.0 nm and from 0.12 nm to 0.6 nm) "
+"[4]_. \\ The LJ cutoff of 1.2 nm is unchanged."
 
-#: ../../gas_laws/reproduction.rst:138
+#: ../../gas_laws/reproduction.rst:185
 msgid ""
 "coulombtype = PME\n"
 "rlist = 6.0\n"
@@ -401,38 +594,337 @@ msgstr ""
 "lincs-order = 4\n"
 "lincs-iter = 1"
 
-#: ../../gas_laws/reproduction.rst:150
+#: ../../gas_laws/reproduction.rst:197
 msgid ""
-"この調整は数値誤差が0になることを意味しません。\\ 倍精度・LINCS次数8・反復2の参考条件で、元の1.2 nm／0.12 nm設定と、\\ "
-"4つの同一状態からそれぞれ10ステップ進める比較を行いました。\\ 圧力差は各短区間の平均で−0.00070〜−0.00082 "
-"bar、瞬間値では最大0.00083 barでした。\\ 一方向の差があり、参考値の統計標準誤差と同程度です。\\ 400 "
+"この調整は数値誤差が0になることを意味しません。\\ "
+"倍精度・LINCS次数8・反復2の参考条件で、同じ4つの状態からそれぞれ10ステップ進め、\\ この設定と元の1.2 nm／0.12 "
+"nm設定の圧力を比べました。\\ 圧力差は各短区間の平均で−0.00070〜−0.00082 bar、瞬間値では最大0.00083 "
+"barでした。\\ 一方向の差があり、参考値の統計標準誤差と同程度です。\\ 400 "
 "ps平均の系統誤差の上限を与える検証ではなく、長時間のPME収束確認は残っています。"
 msgstr ""
-"This adjustment does not eliminate numerical error. \\ In double "
-"precision with LINCS order 8 and two iterations, we compared the adjusted"
-" settings with the original 1.2 nm and 0.12 nm settings, \\ advancing "
-"each of the four starting states by 10 steps with both settings. \\ The "
-"mean pressure differences for the short intervals ranged from −0.00070 to"
-" −0.00082 bar, with a maximum instantaneous difference of 0.00083 bar. \\"
-" The differences had the same sign and were comparable in magnitude to "
-"the statistical standard error of the reference result. \\ This test "
-"gives no upper bound on the systematic error in the 400 ps average. PME "
-"convergence over longer runs remains to be checked."
+"This adjustment does not mean that the numerical error becomes zero. \\ "
+"Under the reference conditions of double precision with LINCS order 8 and"
+" two iterations, we advanced each of the same four states by 10 steps \\ "
+"and compared the pressures with these settings and with the original 1.2 "
+"nm/0.12 nm settings. \\ The pressure differences were −0.00070 to "
+"−0.00082 bar as averages over each short interval, with a maximum of "
+"0.00083 bar in instantaneous values. \\ The differences have a consistent"
+" sign and are comparable to the statistical standard error of the "
+"reference value. \\ This test does not give an upper bound on the "
+"systematic error of the 400 ps average, and confirmation of PME "
+"convergence over long runs remains to be done."
 
-#: ../../gas_laws/reproduction.rst:157
+#: ../../gas_laws/reproduction.rst:204
 msgid ""
 "全5種で記事の混合精度SDには ``lincs-order = 4`` 、 ``lincs-iter = 1`` を使います。\\ "
-"次に示す倍精度CO₂の参考値だけは次数8・反復2です。"
+"倍精度CO₂の参考値（ :numref:`tab-precision-reference` ）だけは次数8・反復2です。"
 msgstr ""
-"The mixed-precision SD simulations in the article use ``lincs-order = 4``"
-" and ``lincs-iter = 1`` for all five gases. \\ Only the double-precision "
-"CO₂ reference results shown next use order 8 and two iterations."
+"All five gases use ``lincs-order = 4`` and ``lincs-iter = 1`` in the "
+"mixed-precision SD runs for the articles. \\ Only the double-precision "
+"CO₂ reference values (:numref:`tab-precision-reference`) use order 8 and "
+"two iterations."
 
-#: ../../gas_laws/reproduction.rst:161
+#: ../../gas_laws/reproduction.rst:210
+msgid "出力と解析"
+msgstr "Output and Analysis"
+
+#: ../../gas_laws/reproduction.rst:212
+msgid ""
+"Jobの一括ダウンロードで得たZIPを一つのフォルダへ集め、次のスクリプトに渡します。\\ "
+"ZIPの名前は問いません。解析はファイルの内容から気体・分子数・質量・体積を読み取ります。\\ 必要な出力は ``nvt.edr`` 、 "
+"``nvt.tpr`` 、 ``nvt.trr`` 、 ``nvt.log`` です。\\ "
+"座標のみのXTCやQuloudJob.mdでは、ここで行う保存速度の解析を代替できません。\\ "
+"今回のNVTのEDRにはVolume項がないため、体積はTRRのセル行列の行列式から読みます。\\ "
+"全保存フレームでの一定性と、TPRおよびGROとの一致を確認しています。"
+msgstr ""
+"Collect the ZIP archives from \"Batch Download\" for each Job in a single"
+" folder and pass the folder to the script below. \\ The ZIP names can "
+"vary. The analysis reads the gas species, molecule count, mass, and "
+"volume from the file contents. \\ The required outputs are ``nvt.edr``, "
+"``nvt.tpr``, ``nvt.trr``, and ``nvt.log``. \\ Coordinate-only XTC files "
+"or QuloudJob.md cannot substitute for the saved velocities used in this "
+"analysis. \\ The EDR for these NVT simulations has no Volume entry, so we"
+" obtain the volume from the determinant of the TRR cell matrix. \\ We "
+"checked that it stayed constant in all saved frames and agreed with the "
+"TPR and GRO files."
+
+#: ../../gas_laws/reproduction.rst:219
+msgid ""
+":download:`analyze_gases.py <scripts/analyze_gases.py>` "
+"：EDRの抽出、TPRの分子ID・質量とTRRの速度による重心速度解析。"
+msgstr ""
+":download:`analyze_gases.py <scripts/analyze_gases.py>` extracts EDR data"
+" and analyzes center-of-mass velocities using molecule IDs and masses "
+"from the TPR and velocities from the TRR."
+
+#: ../../gas_laws/reproduction.rst:220
+msgid ":download:`theory.py <scripts/theory.py>` ：MDと独立した理想気体の予測。"
+msgstr ""
+":download:`theory.py <scripts/theory.py>` computes ideal gas predictions "
+"independently of the MD results."
+
+#: ../../gas_laws/reproduction.rst:221
+msgid ":download:`make_figures.py <scripts/make_figures.py>` ：抽出データから図と集計を生成。"
+msgstr ""
+":download:`make_figures.py <scripts/make_figures.py>` generates figures "
+"and summaries from the extracted data."
+
+#: ../../gas_laws/reproduction.rst:223
+msgid "3本のスクリプトを同じフォルダへ保存し、次のように実行します。"
+msgstr "Save the three scripts in the same folder and run them as follows."
+
+#: ../../gas_laws/reproduction.rst:225
+msgid ""
+"python analyze_gases.py downloaded_zips --out analysis\n"
+"python theory.py --out analysis\n"
+"python make_figures.py analysis --figures figures"
+msgstr ""
+"python analyze_gases.py downloaded_zips --out analysis\n"
+"python theory.py --out analysis\n"
+"python make_figures.py analysis --figures figures"
+
+#: ../../gas_laws/reproduction.rst:231
+msgid ""
+"Python 3、NumPy、Matplotlib、GROMACS 2026.2を使います。\\ ``gmx`` が別名なら ``--gmx "
+"gmx_mpi`` のように指定できます。\\ 全6図を出力ZIPから作る場合は、混合精度の本文用33計算に加え、\\ "
+"5気体×3シードの倍精度参考計算の出力も必要です（合計48計算）。\\ "
+"倍精度は標準Quloudから取得できた出力ではなく、今回のローカル検証用の結果です。\\ "
+"既存の図を再生成する場合は、配布済みの集計データを使えます。\\ ``analysis_csv.zip`` を展開して\\ ``python "
+"make_figures.py analysis --figures figures`` を実行します。この場合、GROMACSは必要ありません。"
+msgstr ""
+"The scripts use Python 3, NumPy, Matplotlib, and GROMACS 2026.2. \\ "
+"``gmx`` may have a different name; if so, specify it as in ``--gmx "
+"gmx_mpi``. \\ To produce all six figures from the output ZIP archives, "
+"you need, in addition to the 33 mixed-precision calculations for the main"
+" text, \\ the output of the double-precision reference calculations for 5"
+" gases × 3 seeds (48 calculations in total). \\ The double-precision "
+"results are from our local validation, not output obtained from standard "
+"Quloud. \\ To regenerate the existing figures, you can use the "
+"distributed aggregated data. \\ ``analysis_csv.zip`` contains them: "
+"extract it and run \\ ``python make_figures.py analysis --figures "
+"figures``. GROMACS is not needed in this case."
+
+#: ../../gas_laws/reproduction.rst:240
+msgid ""
+"``analyze_gases.py`` は、TRRから保存された速度を読み、分子ごとに\\ "
+":math:`\\boldsymbol{v}_{\\mathrm{COM}}=\\sum_i "
+"m_i\\boldsymbol{v}_i/\\sum_i m_i`\\ を計算します。位置の有限差分は使いません。\\ "
+"結合長の検査だけに周期境界の最小像を用いています。\\ ``theory.py`` "
+"は、SIで厳密に定義されたBoltzmann定数とAvogadro定数 [5]_ の積から気体定数を求めています。"
+msgstr ""
+"``analyze_gases.py`` reads the velocities saved in the TRR and computes "
+"\\ :math:`\\boldsymbol{v}_{\\mathrm{COM}}=\\sum_i "
+"m_i\\boldsymbol{v}_i/\\sum_i m_i`\\  for each molecule. It does not use "
+"finite differences of positions. \\ The minimum image under periodic "
+"boundaries is used only to check bond lengths. \\ ``theory.py`` obtains "
+"the gas constant from the product of the Boltzmann constant and the "
+"Avogadro constant [5]_, which are exactly defined in the SI."
+
+#: ../../gas_laws/reproduction.rst:246
+msgid ""
+"生データの ``energy_raw.csv`` と ``velocity_raw.csv`` 、ブロック長ごとの "
+"``block_scan.csv`` 、\\ 各計算の ``summary.json`` を出力します。\\ "
+"圧力の単位はbar、温度はK、エネルギーはGROMACSのkJ/mol表示です。\\ エネルギーは1分子あたりに割った値ではありません。\\ "
+"TRRの速度の単位nm/psを1,000倍してm/sへ換算しています。\\ ``velocity_raw.csv`` の "
+"``mean_com_speed_squared_m2_s2`` 列を測定区間で時間平均し、その平方根を記事の二乗平均平方根速度としています。\\"
+" 原子ごとの速さや、速さそのものの算術平均とは異なります。"
+msgstr ""
+"The script writes the raw series ``energy_raw.csv`` and "
+"``velocity_raw.csv``, ``block_scan.csv`` with results by block length, \\"
+" and a ``summary.json`` for each run. \\ Pressure is in bar, temperature "
+"in K, and energy in kJ/mol as reported by GROMACS. \\ Energy is not "
+"divided by the number of molecules. \\ We convert TRR velocities from "
+"nm/ps to m/s by multiplying by 1,000. \\ ``velocity_raw.csv`` records "
+"``mean_com_speed_squared_m2_s2``. We average that column over the "
+"production period and take the square root to obtain the reported root-"
+"mean-square speed. \\ It differs from the speed of an individual atom or "
+"the arithmetic mean of the speeds themselves."
+
+#: ../../gas_laws/reproduction.rst:257
+msgid "統計誤差と有限サイズ"
+msgstr "Statistical Error and Finite Size"
+
+#: ../../gas_laws/reproduction.rst:259
+msgid ""
+"圧力と速さの二乗について、測定区間を5、10、20、40、80 psのブロックに分け、\\ "
+"ブロック平均の標準偏差をブロック数の平方根で割った平均の標準誤差を求めます。\\ "
+"短い対照計算では、4ブロック以上を取れるブロック長だけを使います。\\ 各計算では、使ったブロック長の中で最大の標準誤差を採用します。\\ "
+"3シードをまとめた誤差は、シード間の標準誤差と、各シード内のブロック誤差を伝播した値の大きい方です。\\ "
+"図の誤差棒は1標準誤差で、95%信頼区間ではありません。\\ 3シードしかないので、小さな差の検出には向きません。"
+msgstr ""
+"For pressure and squared speed, we divide the production period into "
+"blocks of 5, 10, 20, 40, and 80 ps \\ and use block averaging: the "
+"standard error of the mean is the standard deviation of the block means "
+"divided by the square root of the number of blocks. \\ For shorter "
+"control runs we use only block lengths that yield at least four blocks. "
+"\\ For each run we take the largest standard error from the block lengths"
+" used. \\ For the combined three-seed result, the error is the larger of "
+"the standard error across seeds and the value obtained by propagating the"
+" within-seed block errors. \\ Error bars show one standard error, rather "
+"than 95% confidence intervals. \\ With only three seeds, this approach is"
+" unsuitable for detecting small differences."
+
+#: ../../gas_laws/reproduction.rst:267
+msgid ""
+"P–Vフィットは一辺30、33、33.3879144、36 nmの4点について :math:`P=a/V_m+b` "
+"の係数を両方自由に決めます。\\ 推定体積は :math:`a/(1.01325-b)` です。\\ "
+"同じシードを体積間で共有する相関を、同時刻のブロックとシード間の共分散で伝播します。\\ "
+"この誤差には、相互作用モデル、積分条件、有限サイズによる偏りは含めません。"
+msgstr ""
+"For the P–V fit, we fit both coefficients in :math:`P=a/V_m+b` freely to "
+"the four points at side lengths of 30, 33, 33.3879144, and 36 nm. \\ The "
+"estimated volume is :math:`a/(1.01325-b)`. \\ We propagate correlations "
+"from sharing the same seeds across volumes using covariance from "
+"synchronized blocks and across seeds. \\ The error excludes biases due to"
+" the interaction model, integration settings, and finite system size."
+
+#: ../../gas_laws/reproduction.rst:272
+msgid ""
+"全系の重心運動を除くと3自由度が失われ、単原子の理想系では圧力の期待値が\\ :math:`(N-1)/N` "
+"倍になります。1,000粒子では圧力の期待値が0.1%下がります。\\ この式は重心速度を厳密に0に保つ場合のものです。\\ "
+"確率的動力学では乱数によって除去の間にも重心速度が生じるため、実際の重心速度も保存速度から検査しています。\\ "
+"今回のSDのEDR平均温度は273.28〜273.43 Kで、出力をそのままCSVへ記録しています。\\ "
+"TPRで温度計算に使う自由度はArが2,997、二原子分子が4,997、CO₂が6,997です。\\ "
+"拘束だけを除いた自由度（それぞれ3,000、5,000、7,000）で同じ運動エネルギーを換算すると、各気体とも273.15 "
+"K付近になります。\\ この換算値と元の温度は ``temperature_dof.csv`` に分けて保存しています。"
+msgstr ""
+"Removing the center-of-mass motion of the entire system eliminates three "
+"degrees of freedom and scales the expected pressure of an ideal monatomic"
+" system by \\ :math:`(N-1)/N`. For 1,000 particles the expected pressure "
+"falls by 0.1%. \\ This expression applies when the center-of-mass "
+"velocity is held at exactly zero. \\ In stochastic dynamics, random "
+"forces generate a center-of-mass velocity even between center-of-mass "
+"removal steps, so we also checked the actual center-of-mass velocity "
+"using the saved velocities. \\ The mean EDR temperatures for these SD "
+"runs are 273.28–273.43 K, and we record the output values in the CSV as "
+"they are. \\ The degrees of freedom for temperature calculation in the "
+"TPR are 2,997 for Ar, 4,997 for the diatomic gases, and 6,997 for CO₂. \\"
+" Converting the same kinetic energy to temperature using degrees of "
+"freedom with only the constraints removed (3,000, 5,000, and 7,000, "
+"respectively) gives about 273.15 K for each gas. \\ We record the "
+"converted and original temperatures separately in "
+"``temperature_dof.csv``."
+
+#: ../../gas_laws/reproduction.rst:281
+msgid ""
+"この重心運動の扱いの違いは、第1回のAr（V-rescale、33.3879 nm、1.01184 bar）と第2回のAr（SD、1.01260 "
+"bar）の圧力の差にも関係します。\\ "
+"V-rescaleでは重心を除いた2,997自由度に温度を合わせるのに対し、SDでは重心除去の間にも乱数による全系の運動が生じます。\\ "
+"SDの保存速度では全系重心の速さが最大約27〜33 m/sあり、温度を3,000自由度で換算すると273.16 K付近になります。\\ "
+"第1回の単純な0.1%補正を、そのまま第2回へ当てはめることはできません。\\ "
+"分子数2,000のArも同じ数密度で比較し、分子数の影響を調べています（ :numref:`tab-gas-controls` ）。\\ "
+"文献値との細かい差をモデル固有の非理想性と呼ぶ前に、こうした影響を区別する必要があります。"
+msgstr ""
+"This difference in the treatment of center-of-mass motion also bears on "
+"the difference in pressure between Ar in Part 1 (V-rescale, 33.3879 nm, "
+"1.01184 bar) and Ar in Part 2 (SD, 1.01260 bar). \\ V-rescale controls "
+"the temperature using the 2,997 degrees of freedom that exclude the "
+"center of mass, whereas in SD, random forces generate motion of the whole"
+" system even between center-of-mass removal steps. \\ In the saved SD "
+"velocities, the speed of the center of mass of the whole system reaches "
+"up to about 27–33 m/s, and converting the temperature with 3,000 degrees "
+"of freedom gives about 273.16 K. \\ The simple 0.1% correction from Part "
+"1 cannot be applied directly to Part 2. \\ We also compared Ar with 2,000"
+" molecules at the same number density to examine the effect of the number"
+" of molecules (:numref:`tab-gas-controls`). \\ These effects need to be "
+"distinguished before attributing small differences from literature values"
+" to nonideality inherent in the model."
+
+#: ../../gas_laws/reproduction.rst:289
+msgid "Arの圧力の二体近似による予測"
+msgstr "Prediction of the Ar Pressure in the Two-Body Approximation"
+
+#: ../../gas_laws/reproduction.rst:291
+#, python-brace-format
+msgid ""
+"第1回の :numref:`fig-argon-pv` の下段に示した予測の求め方です。\\ ArのLJポテンシャルを "
+":math:`u(r)=4\\epsilon[(\\sigma/r)^{12}-(\\sigma/r)^6]` とし、\\ カットオフ "
+":math:`r_c=1.2` nmでポテンシャルをシフトした二体分布を使います。\\ 圧力に寄与する第二ビリアルの係数を次の数値積分で求めます。"
+msgstr ""
+"This section describes how the prediction shown in the bottom panel of "
+":numref:`fig-argon-pv` in Part 1 is obtained. \\ For the Ar LJ potential "
+"we use :math:`u(r)=4\\epsilon[(\\sigma/r)^{12}-(\\sigma/r)^6]`, \\ and we"
+" use the pair distribution for this potential shifted at the cutoff "
+":math:`r_c=1.2` nm. \\ We obtain the second virial coefficient for the "
+"pressure contribution by evaluating the following integral numerically."
+
+#: ../../gas_laws/reproduction.rst:296
+#, python-brace-format
+msgid ""
+"\\begin{aligned}\n"
+"B_{2,P}&=-\\frac{2\\pi N_A}{3RT}\n"
+"  \\int_0^{r_c}r^3 u'(r)g(r)\\,dr,\\\\\n"
+"g(r)&=\\exp\\!\\left[-\\frac{u(r)-u(r_c)}{RT}\\right].\n"
+"\\end{aligned}"
+msgstr ""
+"\\begin{aligned}\n"
+"B_{2,P}&=-\\frac{2\\pi N_A}{3RT}\n"
+"  \\int_0^{r_c}r^3 u'(r)g(r)\\,dr,\\\\\n"
+"g(r)&=\\exp\\!\\left[-\\frac{u(r)-u(r_c)}{RT}\\right].\n"
+"\\end{aligned}"
+
+#: ../../gas_laws/reproduction.rst:304
+msgid ""
+"式のエネルギーと気体定数は同じ単位系にそろえます。\\ ``theory.py`` "
+"はモデルのσ、ε、カットオフだけを入力とし、MD圧力を読みません。\\ 圧力用の係数は約−15.772 "
+"cm³/molで、積分点数を50,000から100,000へ増やした差は約10⁻⁹ cm³/molでした。\\ "
+"ポテンシャルをカットオフで0へシフトし、力をそこで打ち切ったモデルの係数です。\\ 打ち切りのないLJの第二ビリアルとは区別しています。"
+msgstr ""
+"We express the energy and gas constant in consistent units. \\ "
+"``theory.py`` takes only σ, ε, and the cutoff of the model as inputs and "
+"does not read MD pressures. \\ The resulting coefficient for the pressure"
+" is about −15.772 cm³/mol, and increasing the number of integration "
+"points from 50,000 to 100,000 changed it by about 10⁻⁹ cm³/mol. \\ It "
+"applies to the model in which the potential is shifted to zero at the "
+"cutoff and the force is truncated there. \\ It is distinct from the "
+"second virial coefficient of the untruncated LJ potential."
+
+#: ../../gas_laws/reproduction.rst:310
+#, python-brace-format
+msgid ""
+"希薄な二体近似と全体の重心運動の除去を組み合わせた予測は、\\ 各体積の実測平均温度を :math:`\\overline{T}` "
+"として、次の式です。"
+msgstr ""
+"The prediction combines the dilute-gas pair approximation and removal of "
+"the motion of the system’s center of mass. \\ With the measured mean "
+"temperature at each volume denoted by :math:`\\overline{T}`, the "
+"prediction is"
+
+#: ../../gas_laws/reproduction.rst:313
+msgid ""
+"\\begin{aligned}\n"
+"P_{\\mathrm{pred}}&=\\frac{RT}{V_m}\n"
+"   \\frac{N-1}{N}\\left(1+\\frac{B_{2,P}}{V_m}\\right)\n"
+"   \\frac{\\overline{T}}{T},\\\\\n"
+"T&=273.15\\ \\mathrm{K},\\quad N=1000.\n"
+"\\end{aligned}"
+msgstr ""
+"\\begin{aligned}\n"
+"P_{\\mathrm{pred}}&=\\frac{RT}{V_m}\n"
+"   \\frac{N-1}{N}\\left(1+\\frac{B_{2,P}}{V_m}\\right)\n"
+"   \\frac{\\overline{T}}{T},\\\\\n"
+"T&=273.15\\ \\mathrm{K},\\quad N=1000.\n"
+"\\end{aligned}"
+
+#: ../../gas_laws/reproduction.rst:322
+msgid ""
+"温度の小さな違いにはこの式の一次補正を使い、係数の温度微分や三体以上の項は含めていません。\\ ``argon_virial.json`` "
+"に係数と積分条件、``argon_deviations.csv`` に6体積の予測・測定・残差を保存しています。\\ "
+"圧力を自由フィットした係数とは独立した比較です。"
+msgstr ""
+"The equation applies a first-order correction for small temperature "
+"differences and excludes the temperature derivative of the coefficient "
+"and terms involving three or more particles. \\ ``argon_virial.json`` "
+"contains the coefficient and integration settings, and "
+"``argon_deviations.csv`` records the predictions, measurements, and "
+"residuals for the six volumes. \\ This comparison is independent of the "
+"coefficients fitted freely to the pressures."
+
+#: ../../gas_laws/reproduction.rst:327
 msgid "温度制御と計算精度による違い"
 msgstr "Effects of Temperature Control and Calculation Precision"
 
-#: ../../gas_laws/reproduction.rst:163
+#: ../../gas_laws/reproduction.rst:329
 msgid ""
 "V-rescaleでは全体の温度が約273 Kでも、CO₂の並進が過熱しました。\\ その結果を :numref:`tab-vrescale-"
 "reference` に示します。\\ 各試行の温度も含む数値は配布データの ``vrescale_reference.csv`` "
@@ -448,7 +940,7 @@ msgstr ""
 "these runs, including those that completed, from any comparison of small "
 "differences in gas properties."
 
-#: ../../gas_laws/reproduction.rst:169
+#: ../../gas_laws/reproduction.rst:335
 msgid "V-rescaleの試行結果（混合精度、40〜440 ps）"
 msgstr "V-rescale runs (mixed precision, 40–440 ps)"
 
@@ -661,7 +1153,7 @@ msgstr "Stopped by LINCS warning"
 msgid "—"
 msgstr "—"
 
-#: ../../gas_laws/reproduction.rst:176
+#: ../../gas_laws/reproduction.rst:342
 msgid ""
 "全体の温度制御だけでは、希薄な気体の並進と内部運動の温度が短時間でそろうとは限りません。\\ "
 "標準設定の適用範囲を考える際にも、この区別が必要です。\\ SDでは熱浴が各原子に直接作用するため、熱平衡の分布を作る方法として使っています。"
@@ -672,7 +1164,7 @@ msgstr ""
 "default settings apply. \\ In SD, the heat bath acts directly on each "
 "atom, so we use SD to generate a thermal equilibrium distribution."
 
-#: ../../gas_laws/reproduction.rst:180
+#: ../../gas_laws/reproduction.rst:346
 msgid ""
 "圧力の計算精度依存性を :numref:`tab-precision-reference` に示します。\\ "
 "比較の温度制御はどちらもSDで、各3シード・400 psの時間平均です。\\ "
@@ -686,7 +1178,7 @@ msgstr ""
 "differences in physical properties between gases. \\ The same applies to "
 "the source data in ``gas_summary.csv`` and ``precision_reference.csv``."
 
-#: ../../gas_laws/reproduction.rst:185
+#: ../../gas_laws/reproduction.rst:351
 msgid "混合精度と倍精度の参考比較（平均±1統計標準誤差）"
 msgstr ""
 "Reference comparison of mixed precision and double precision (mean ± 1 "
@@ -753,7 +1245,7 @@ msgid "+0.00560"
 msgstr "+0.00560"
 
 #: ../../gas_laws/analysis/precision_reference.csv:1
-#: ../../gas_laws/reproduction.rst:345
+#: ../../gas_laws/reproduction.rst:414
 msgid "1.01260 ± 0.00040"
 msgstr "1.01260 ± 0.00040"
 
@@ -777,7 +1269,7 @@ msgstr "1.00626 ± 0.00095"
 msgid "+0.01431"
 msgstr "+0.01431"
 
-#: ../../gas_laws/reproduction.rst:192
+#: ../../gas_laws/reproduction.rst:358
 msgid ""
 "CO₂では倍精度への変更とLINCS条件の変更が同時に入っています。\\ 同じ1 fs・シード1101・100 "
 "ps測定の倍精度対照で、次数4・反復1は1.02000 ± 0.00390 bar、\\ 次数8・反復2は1.00899 ± 0.00390 "
@@ -802,307 +1294,26 @@ msgstr ""
 "until we compare higher orders and iteration counts, other constraint "
 "solvers, and longer PME runs."
 
-#: ../../gas_laws/reproduction.rst:201
+#: ../../gas_laws/reproduction.rst:367
 msgid ""
-"初期のAr・O₂のSD混合精度6条件は、同じ出力先に対する実行キューの重複が疑われ、\\ "
-"各入力と出力を一対一に保証できないため解析から除外しました。\\ "
-"記録だけから実際の上書きの有無は確定できないため、正常終了の印があるものも採用していません。\\ "
-"Ar・O₂を各3シード、新しい出力先で一度ずつ再計算した結果が、今回の記事の値です。"
+"Ar・O₂の混合精度SDの値は、各3シードを新しい出力先で一度ずつ計算し直したものです。\\ "
+"最初に計算した6条件は、同じ出力先に対する実行キューの重複が疑われ、各入力と出力を一対一に保証できないため解析から除外しました。\\ "
+"記録だけからは実際の上書きの有無を確定できないため、正常終了の印があるものも採用していません。"
 msgstr ""
-"For the six initial mixed-precision SD runs of Ar and O₂, we suspected "
-"that duplicate queue entries shared output locations. \\ We excluded them"
-" because we could not guarantee a one-to-one match between inputs and "
-"outputs. \\ The records alone cannot establish whether any outputs were "
-"overwritten, so we excluded even those marked as completed successfully. "
-"\\ The values in the article come from rerunning Ar and O₂ once per seed "
-"for three seeds each, using new output locations."
+"The mixed-precision SD values for Ar and O₂ come from recalculating each "
+"of the three seeds once, using new output locations. \\ The six "
+"conditions calculated first were excluded from the analysis because "
+"duplicate entries in the run queue for the same output locations were "
+"suspected, and a one-to-one match between each input and output could not"
+" be guaranteed. \\ The records alone cannot establish whether any outputs"
+" were actually overwritten, so we did not adopt even those marked as "
+"completed successfully."
 
-#: ../../gas_laws/reproduction.rst:207
-msgid "配布する構造と集計データ"
-msgstr "Downloadable Structures and Aggregated Data"
-
-#: ../../gas_laws/reproduction.rst:209
-msgid ""
-"配布する構造は、各条件についてシード1101、2202、3303の3つを用意しています。\\ "
-"Arの固定体積の構造は、試験計算と5気体比較の両方に使います。"
-msgstr ""
-"The supplied structures include one for each of seeds 1101, 2202, and "
-"3303 at each condition. \\ The fixed-volume Ar structures are used both "
-"for the test runs and for the five-gas comparison."
-
-#: ../../gas_laws/reproduction.rst:212
-msgid ":download:`argon_pv.zip <structures/argon_pv.zip>` — Arの5体積×3シード"
-msgstr ""
-":download:`argon_pv.zip <structures/argon_pv.zip>` — Ar at five volumes "
-"with three seeds each"
-
-#: ../../gas_laws/reproduction.rst:213
-msgid ""
-":download:`Ar_1000molecules.zip <structures/Ar_1000molecules.zip>` — Ar "
-"1,000原子"
-msgstr ""
-":download:`Ar_1000molecules.zip <structures/Ar_1000molecules.zip>` — "
-"1,000 Ar atoms"
-
-#: ../../gas_laws/reproduction.rst:214
-msgid ""
-":download:`H2_1000molecules.zip <structures/H2_1000molecules.zip>` — H₂ "
-"1,000分子"
-msgstr ""
-":download:`H2_1000molecules.zip <structures/H2_1000molecules.zip>` — "
-"1,000 H₂ molecules"
-
-#: ../../gas_laws/reproduction.rst:215
-msgid ""
-":download:`N2_1000molecules.zip <structures/N2_1000molecules.zip>` — N₂ "
-"1,000分子"
-msgstr ""
-":download:`N2_1000molecules.zip <structures/N2_1000molecules.zip>` — "
-"1,000 N₂ molecules"
-
-#: ../../gas_laws/reproduction.rst:216
-msgid ""
-":download:`O2_1000molecules.zip <structures/O2_1000molecules.zip>` — O₂ "
-"1,000分子"
-msgstr ""
-":download:`O2_1000molecules.zip <structures/O2_1000molecules.zip>` — "
-"1,000 O₂ molecules"
-
-#: ../../gas_laws/reproduction.rst:217
-msgid ""
-":download:`CO2_1000molecules.zip <structures/CO2_1000molecules.zip>` — "
-"CO₂ 1,000分子"
-msgstr ""
-":download:`CO2_1000molecules.zip <structures/CO2_1000molecules.zip>` — "
-"1,000 CO₂ molecules"
-
-#: ../../gas_laws/reproduction.rst:218
-msgid ":download:`analysis_csv.zip <data/analysis_csv.zip>` — 記事の抽出CSV・集計・座標・条件一覧"
-msgstr ""
-":download:`analysis_csv.zip <data/analysis_csv.zip>` — Extracted CSV "
-"files, summaries, coordinates, and calculation conditions for the example"
-
-#: ../../gas_laws/reproduction.rst:220
-msgid ""
-"集計データには、記事に採用した33計算の時系列CSV、各シードの集計、理想気体の予測、\\ P–Vフィットの共分散と推定値を含めています。\\ "
-"圧力図の倍精度参考15計算の集計は ``double_pressure_reference.csv`` 、\\ 各シードの条件と結果は "
-"``jobs.json`` にも含めています。\\ EDR・TRRなどの大きなバイナリは、この小容量の配布ZIPには含めていません。\\ "
-"原本と入力・ログ・モデル定義は計算実施者のローカル保管とし、採用出力のSHA-256を各 ``summary.json`` に記録しています。"
-msgstr ""
-"The downloadable data include time-series CSV files from the 33 "
-"calculations used in the article, summaries for each seed, ideal gas "
-"predictions, \\ and P–V fit estimates and covariance. \\ The summaries "
-"for the 15 double-precision reference calculations in the pressure figure"
-" are in ``double_pressure_reference.csv``, \\ and ``jobs.json`` also "
-"records the settings and results for each seed. \\ The small distribution"
-" ZIP excludes large binary files such as EDR and TRR. \\ The original "
-"outputs, inputs, logs, and model definitions are stored locally by the "
-"authors, and each ``summary.json`` records the SHA-256 hashes of the "
-"outputs used."
-
-#: ../../gas_laws/reproduction.rst:228
-msgid "出力と解析"
-msgstr "Output and Analysis"
-
-#: ../../gas_laws/reproduction.rst:230
-msgid ""
-"Jobの一括ダウンロードで得たZIPを一つのフォルダへ集め、次のスクリプトに渡します。\\ "
-"ZIPの名前は問いません。解析はファイルの内容から気体・分子数・質量・体積を読み取ります。\\ 必要な出力は ``nvt.edr`` 、 "
-"``nvt.tpr`` 、 ``nvt.trr`` 、 ``nvt.log`` です。\\ "
-"座標のみのXTCやQuloudJob.mdでは、ここで行う保存速度の解析を代替できません。\\ "
-"今回のNVTのEDRにはVolume項がないため、体積はTRRのセル行列の行列式から読みます。\\ "
-"全保存フレームでの一定性と、TPRおよびGROとの一致を確認しています。"
-msgstr ""
-"Collect the ZIP archives from \"Batch Download\" for each Job in a single"
-" folder and pass the folder to the script below. \\ The ZIP names can "
-"vary. The analysis reads the gas species, molecule count, mass, and "
-"volume from the file contents. \\ The required outputs are ``nvt.edr``, "
-"``nvt.tpr``, ``nvt.trr``, and ``nvt.log``. \\ Coordinate-only XTC files "
-"or QuloudJob.md cannot substitute for the saved velocities used in this "
-"analysis. \\ The EDR for these NVT simulations has no Volume entry, so we"
-" obtain the volume from the determinant of the TRR cell matrix. \\ We "
-"checked that it stayed constant in all saved frames and agreed with the "
-"TPR and GRO files."
-
-#: ../../gas_laws/reproduction.rst:237
-msgid ""
-":download:`analyze_gases.py <scripts/analyze_gases.py>` "
-"：EDRの抽出、TPRの分子ID・質量とTRRの速度による重心速度解析。"
-msgstr ""
-":download:`analyze_gases.py <scripts/analyze_gases.py>` extracts EDR data"
-" and analyzes center-of-mass velocities using molecule IDs and masses "
-"from the TPR and velocities from the TRR."
-
-#: ../../gas_laws/reproduction.rst:238
-msgid ":download:`theory.py <scripts/theory.py>` ：MDと独立した理想気体の予測。"
-msgstr ""
-":download:`theory.py <scripts/theory.py>` computes ideal gas predictions "
-"independently of the MD results."
-
-#: ../../gas_laws/reproduction.rst:239
-msgid ":download:`make_figures.py <scripts/make_figures.py>` ：抽出データから図と集計を生成。"
-msgstr ""
-":download:`make_figures.py <scripts/make_figures.py>` generates figures "
-"and summaries from the extracted data."
-
-#: ../../gas_laws/reproduction.rst:241
-msgid ""
-"3本のスクリプトは同じフォルダへ保存してください。\\ 全6図を出力ZIPから作る場合は、混合精度の本文用33計算に加え、\\ "
-"5気体×3シードの倍精度参考計算の出力も必要です（合計48計算）。\\ "
-"倍精度は標準Quloudから取得できた出力ではなく、今回のローカル検証用の結果です。\\ "
-"既存の図を再生成する場合は、配布済みの集計データを使えます。"
-msgstr ""
-"Save the three scripts in the same folder. \\ To generate all six figures"
-" from the output ZIPs, you need the 33 mixed-precision calculations used "
-"in the article \\ and the double-precision reference outputs for five "
-"gases × three seeds (48 calculations in total). \\ These double-precision"
-" results came from our local validation runs, outside the standard Quloud"
-" environment. \\ You can use the supplied data summaries to regenerate "
-"the existing figures."
-
-#: ../../gas_laws/reproduction.rst:247
-msgid ""
-"python analyze_gases.py downloaded_zips --out analysis\n"
-"python theory.py --out analysis\n"
-"python make_figures.py analysis --figures figures"
-msgstr ""
-"python analyze_gases.py downloaded_zips --out analysis\n"
-"python theory.py --out analysis\n"
-"python make_figures.py analysis --figures figures"
-
-#: ../../gas_laws/reproduction.rst:253
-msgid ""
-"Python 3、NumPy、Matplotlib、GROMACS 2026.2を使います。\\ "
-"理論値は、SIで厳密に定義されたBoltzmann定数とAvogadro定数 [5]_ の積から気体定数を求めています。\\ ``gmx`` "
-"が別名なら ``--gmx gmx_mpi`` のように指定できます。\\ 配布済みのCSVから図だけを作り直す場合は、 "
-"``analysis_csv.zip`` を展開して\\ ``python make_figures.py analysis --figures "
-"figures`` を実行します。この場合、GROMACSは必要ありません。\\ TRRから保存された速度を読み、分子ごとに\\ "
-":math:`\\boldsymbol{v}_{\\mathrm{COM}}=\\sum_i "
-"m_i\\boldsymbol{v}_i/\\sum_i m_i`\\ を計算します。位置の有限差分は使いません。\\ "
-"結合長の検査だけに周期境界の最小像を用いています。"
-msgstr ""
-"The analysis uses Python 3, NumPy, Matplotlib, and GROMACS 2026.2. \\ For"
-" the theoretical values, we calculate the gas constant as the product of "
-"the Boltzmann and Avogadro constants [5]_, which are defined exactly in "
-"the SI. \\ ``gmx`` may be installed under a different name. In that case,"
-" specify it with an option such as ``--gmx gmx_mpi``. \\ To regenerate "
-"only the figures from the supplied CSV files, extract "
-"``analysis_csv.zip`` and run \\ ``python make_figures.py analysis "
-"--figures figures``. This requires no GROMACS installation. \\ We read "
-"the saved velocities from the TRR and calculate \\ "
-":math:`\\boldsymbol{v}_{\\mathrm{COM}}=\\sum_i "
-"m_i\\boldsymbol{v}_i/\\sum_i m_i` \\ for each molecule. The calculation "
-"uses no finite differences of positions. \\ We use the minimum image "
-"under periodic boundary conditions only to check bond lengths."
-
-#: ../../gas_laws/reproduction.rst:263
-msgid ""
-"生データの ``energy_raw.csv`` と ``velocity_raw.csv`` 、ブロック長ごとの "
-"``block_scan.csv`` 、\\ 各計算の ``summary.json`` を出力します。\\ "
-"圧力の単位はbar、温度はK、エネルギーはGROMACSのkJ/mol表示です。\\ エネルギーは1分子あたりに割った値ではありません。\\ "
-"TRRの速度の単位nm/psを1,000倍してm/sへ換算しています。\\ ``velocity_raw.csv`` の "
-"``mean_com_speed_squared_m2_s2`` 列を測定区間で時間平均し、その平方根を記事の二乗平均平方根速度としています。\\"
-" 原子ごとの速さや、速さそのものの算術平均とは異なります。"
-msgstr ""
-"The script writes the raw series ``energy_raw.csv`` and "
-"``velocity_raw.csv``, ``block_scan.csv`` with results by block length, \\"
-" and a ``summary.json`` for each run. \\ Pressure is in bar, temperature "
-"in K, and energy in kJ/mol as reported by GROMACS. \\ Energy is not "
-"divided by the number of molecules. \\ We convert TRR velocities from "
-"nm/ps to m/s by multiplying by 1,000. \\ ``velocity_raw.csv`` records "
-"``mean_com_speed_squared_m2_s2``. We average that column over the "
-"production period and take the square root to obtain the reported root-"
-"mean-square speed. \\ It differs from the speed of an individual atom or "
-"the arithmetic mean of the speeds themselves."
-
-#: ../../gas_laws/reproduction.rst:272
-msgid "統計誤差と有限サイズ"
-msgstr "Statistical Error and Finite Size"
-
-#: ../../gas_laws/reproduction.rst:274
-msgid ""
-"圧力と速さの二乗について、測定区間を5、10、20、40、80 psのブロックに分け、\\ "
-"ブロック平均の標準偏差をブロック数の平方根で割った平均の標準誤差を求めます。\\ "
-"短い対照計算では、4ブロック以上を取れるブロック長だけを使います。\\ 各計算では、使ったブロック長の中で最大の標準誤差を採用します。\\ "
-"3シードをまとめた誤差は、シード間の標準誤差と、各シード内のブロック誤差を伝播した値の大きい方です。\\ "
-"図の誤差棒は1標準誤差で、95%信頼区間ではありません。\\ 3シードしかないので、小さな差の検出には向きません。"
-msgstr ""
-"For pressure and squared speed, we divide the production period into "
-"blocks of 5, 10, 20, 40, and 80 ps \\ and use block averaging: the "
-"standard error of the mean is the standard deviation of the block means "
-"divided by the square root of the number of blocks. \\ For shorter "
-"control runs we use only block lengths that yield at least four blocks. "
-"\\ For each run we take the largest standard error from the block lengths"
-" used. \\ For the combined three-seed result, the error is the larger of "
-"the standard error across seeds and the value obtained by propagating the"
-" within-seed block errors. \\ Error bars show one standard error, rather "
-"than 95% confidence intervals. \\ With only three seeds, this approach is"
-" unsuitable for detecting small differences."
-
-#: ../../gas_laws/reproduction.rst:282
-msgid ""
-"P–Vフィットは一辺30、33、33.3879144、36 nmの4点について :math:`P=a/V_m+b` "
-"の係数を両方自由に決めます。\\ 推定体積は :math:`a/(1.01325-b)` です。\\ "
-"同じシードを体積間で共有する相関を、同時刻のブロックとシード間の共分散で伝播します。\\ "
-"この誤差には、相互作用モデル、積分条件、有限サイズによる偏りは含めません。"
-msgstr ""
-"For the P–V fit, we fit both coefficients in :math:`P=a/V_m+b` freely to "
-"the four points at side lengths of 30, 33, 33.3879144, and 36 nm. \\ The "
-"estimated volume is :math:`a/(1.01325-b)`. \\ We propagate correlations "
-"from sharing the same seeds across volumes using covariance from "
-"synchronized blocks and across seeds. \\ The error excludes biases due to"
-" the interaction model, integration settings, and finite system size."
-
-#: ../../gas_laws/reproduction.rst:287
-msgid ""
-"全系の重心運動を除くと3自由度が失われ、単原子の理想系では圧力の期待値が\\ :math:`(N-1)/N` "
-"倍になります。1,000粒子では圧力の期待値が0.1%下がります。\\ この式は重心速度を厳密に0に保つ場合のものです。\\ "
-"確率的動力学では乱数によって除去の間にも重心速度が生じるため、実際の重心速度も保存速度から検査しています。\\ "
-"今回のSDのEDR平均温度は273.28〜273.43 Kで、出力をそのままCSVへ記録しています。\\ "
-"TPRで温度計算に使う自由度はArが2,997、二原子分子が4,997、CO₂が6,997です。\\ "
-"拘束だけを除いた自由度（それぞれ3,000、5,000、7,000）で同じ運動エネルギーを換算すると、各気体とも273.15 "
-"K付近になります。\\ この換算値と元の温度は ``temperature_dof.csv`` に分けて保存しています。\\ "
-"第1回のAr（V-rescale、33.3879 nm、1.01184 bar）と第2回のAr（SD、1.01260 "
-"bar）の差にも関係します。\\ "
-"V-rescaleでは重心を除いた2,997自由度に温度を合わせるのに対し、SDでは重心除去の間にも乱数による全系の運動が生じます。\\ "
-"SDの保存速度では全系重心の速さが最大約27〜33 m/sあり、温度を3,000自由度で換算すると273.16 K付近になります。\\ "
-"第1回の単純な0.1%補正を、そのまま第2回へ当てはめることはできません。\\ "
-"分子数2,000のArも同じ数密度で比較し、分子数の影響を調べています。\\ "
-"文献値との細かい差をモデル固有の非理想性と呼ぶ前に、こうした影響を区別する必要があります。"
-msgstr ""
-"Removing the center-of-mass motion of the entire system eliminates three "
-"degrees of freedom and scales the expected pressure of an ideal monatomic"
-" system by \\ :math:`(N-1)/N`. For 1,000 particles the expected pressure "
-"falls by 0.1%. \\ This expression applies when the center-of-mass "
-"velocity is held at exactly zero. \\ In stochastic dynamics, random "
-"forces generate a center-of-mass velocity between center-of-mass removal "
-"steps, so we also checked the actual center-of-mass velocity using the "
-"saved velocities. \\ The mean EDR temperatures for these SD runs are "
-"273.28–273.43 K, and we record the outputs as reported in the CSV. \\ The"
-" degrees of freedom for temperature calculation in the TPR are 2,997 for "
-"Ar, 4,997 for the diatomic gases, and 6,997 for CO₂. \\ Converting the "
-"same kinetic energy to temperature using degrees of freedom with only the"
-" constraints removed (3,000, 5,000, and 7,000, respectively) gives about "
-"273.15 K for each gas. \\ We record the converted and original "
-"temperatures separately in ``temperature_dof.csv``. \\ This distinction "
-"also bears on the difference between Ar in Part 1 (V-rescale, 33.3879 nm,"
-" 1.01184 bar) and in Part 2 (SD, 1.01260 bar). \\ V-rescale controls "
-"temperature using 2,997 degrees of freedom with center-of-mass motion "
-"removed, whereas in SD, random forces generate motion of the whole system"
-" between center-of-mass removal steps. \\ In the saved SD velocities, the"
-" maximum speed of the system’s center of mass is about 27–33 m/s. With "
-"3,000 degrees of freedom, the converted temperature is about 273.16 K. \\"
-" The simple 0.1% correction from Part 1 cannot be applied directly to "
-"Part 2. \\ We also compared Ar with 2,000 particles at the same number "
-"density to examine the effect of particle count. \\ These effects need to"
-" be distinguished before attributing small differences from literature "
-"values to nonideality inherent in the model."
-
-#: ../../gas_laws/reproduction.rst:303
+#: ../../gas_laws/reproduction.rst:372
 msgid "倍精度の参考計算"
 msgstr "Double-Precision Reference Calculations"
 
-#: ../../gas_laws/reproduction.rst:305
+#: ../../gas_laws/reproduction.rst:374
 msgid ""
 "時間刻みと粒子数を変えた結果を :numref:`tab-gas-controls` に示します。\\ "
 "すべて倍精度の確率的動力学で、CO₂のLINCSは次数8・反復2です。\\ H₂・CO₂は同じ初期構造のシード1101を比べています。\\ "
@@ -1114,109 +1325,111 @@ msgstr ""
 "compare runs using the same initial structure from seed 1101. \\ For Ar, "
 "we combine the results from three seeds per condition."
 
-#: ../../gas_laws/reproduction.rst:310
+#: ../../gas_laws/reproduction.rst:379
 msgid "時間刻み・粒子数を変えた対照計算"
 msgstr "Control runs with different time steps and particle counts"
 
-#: ../../gas_laws/reproduction.rst:317
+#: ../../gas_laws/reproduction.rst:386
 msgid "分子数"
 msgstr "Number of molecules"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
-#: ../../gas_laws/reproduction.rst:318
+#: ../../gas_laws/reproduction.rst:387
 msgid "刻み（fs）"
 msgstr "Time step (fs)"
 
-#: ../../gas_laws/reproduction.rst:319
+#: ../../gas_laws/reproduction.rst:388
 msgid "測定（ps）"
 msgstr "Production period (ps)"
 
-#: ../../gas_laws/reproduction.rst:320
+#: ../../gas_laws/reproduction.rst:389
 msgid "圧力±1標準誤差（bar）"
 msgstr "Pressure ± 1 standard error (bar)"
 
-#: ../../gas_laws/reproduction.rst:322 ../../gas_laws/reproduction.rst:327
-#: ../../gas_laws/reproduction.rst:332 ../../gas_laws/reproduction.rst:337
-#: ../../gas_laws/reproduction.rst:342
+#: ../../gas_laws/reproduction.rst:391 ../../gas_laws/reproduction.rst:396
+#: ../../gas_laws/reproduction.rst:401 ../../gas_laws/reproduction.rst:406
+#: ../../gas_laws/reproduction.rst:411
 msgid "1,000"
 msgstr "1,000"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
-#: ../../gas_laws/reproduction.rst:323
+#: ../../gas_laws/reproduction.rst:392
 msgid "0.5"
 msgstr "0.5"
 
-#: ../../gas_laws/reproduction.rst:324 ../../gas_laws/reproduction.rst:334
-#: ../../gas_laws/reproduction.rst:344 ../../gas_laws/reproduction.rst:349
+#: ../../gas_laws/reproduction.rst:393 ../../gas_laws/reproduction.rst:403
+#: ../../gas_laws/reproduction.rst:413 ../../gas_laws/reproduction.rst:418
 msgid "400"
 msgstr "400"
 
-#: ../../gas_laws/reproduction.rst:325
+#: ../../gas_laws/reproduction.rst:394
 msgid "1.01431 ± 0.00057"
 msgstr "1.01431 ± 0.00057"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
-#: ../../gas_laws/reproduction.rst:328
+#: ../../gas_laws/reproduction.rst:397
 msgid "0.25"
 msgstr "0.25"
 
-#: ../../gas_laws/reproduction.rst:329 ../../gas_laws/reproduction.rst:339
+#: ../../gas_laws/reproduction.rst:398 ../../gas_laws/reproduction.rst:408
 msgid "100"
 msgstr "100"
 
-#: ../../gas_laws/reproduction.rst:330
+#: ../../gas_laws/reproduction.rst:399
 msgid "1.01504 ± 0.00105"
 msgstr "1.01504 ± 0.00105"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
-#: ../../gas_laws/reproduction.rst:333 ../../gas_laws/reproduction.rst:343
-#: ../../gas_laws/reproduction.rst:348
+#: ../../gas_laws/reproduction.rst:402 ../../gas_laws/reproduction.rst:412
+#: ../../gas_laws/reproduction.rst:417
 msgid "2"
 msgstr "2"
 
-#: ../../gas_laws/reproduction.rst:335
+#: ../../gas_laws/reproduction.rst:404
 msgid "1.00679 ± 0.00167"
 msgstr "1.00679 ± 0.00167"
 
 #: ../../gas_laws/analysis/mixed_timestep_controls.csv:1
-#: ../../gas_laws/reproduction.rst:338
+#: ../../gas_laws/reproduction.rst:407
 msgid "1"
 msgstr "1"
 
-#: ../../gas_laws/reproduction.rst:340
+#: ../../gas_laws/reproduction.rst:409
 msgid "1.00899 ± 0.00390"
 msgstr "1.00899 ± 0.00390"
 
-#: ../../gas_laws/reproduction.rst:347
+#: ../../gas_laws/reproduction.rst:416
 msgid "2,000"
 msgstr "2,000"
 
-#: ../../gas_laws/reproduction.rst:350
+#: ../../gas_laws/reproduction.rst:419
 msgid "1.01245 ± 0.00030"
 msgstr "1.01245 ± 0.00030"
 
-#: ../../gas_laws/reproduction.rst:352
+#: ../../gas_laws/reproduction.rst:421
 msgid ""
 "元データは配布ZIPの ``numerical_controls.csv`` と各計算の ``summary.json`` です。\\ "
 "この表の倍精度に限れば、時間刻みを半分にした結果や、Arの分子数を倍にした結果との差は、今回見積もった統計誤差と同程度以下でした。\\ "
-"この記事の本文で使った混合精度の圧力について、同じことが言えるわけではありません。\\ ただし、短い対照は測定区間が100 "
-"psで、時間刻みや有限サイズについて高精度な収束を保証するものではありません。"
+"ただし、短い対照は測定区間が100 psで、時間刻みや有限サイズについて高精度な収束を保証するものではありません。\\ "
+"また、この記事の本文で使った混合精度の圧力について、同じことが言えるわけではありません（ :numref:`tab-mixed-timestep`"
+" ）。"
 msgstr ""
 "The source data are in ``numerical_controls.csv`` and each run’s "
-"``summary.json`` in the ZIP. \\ For the double-precision runs in the "
-"table, halving the time step or doubling the number of Ar particles "
-"changed the results by amounts comparable to or smaller than the "
-"estimated statistical error. \\ The same conclusion does not necessarily "
-"hold for the mixed-precision pressures used in the article. \\ The "
-"shorter controls have a production period of only 100 ps and do not "
-"guarantee high-precision convergence with respect to the time step or "
-"system size."
+"``summary.json`` in the distributed ZIP archive. \\ For the double-"
+"precision runs in this table, the differences from the results with half "
+"the time step or with twice the number of Ar particles were comparable to"
+" or smaller than the statistical error estimated here. \\ However, the "
+"shorter controls have a production period of 100 ps and do not guarantee "
+"high-precision convergence with respect to the time step or system size. "
+"\\ Also, the same conclusion does not necessarily hold for the mixed-"
+"precision pressures used in the main text of the article (:numref:`tab-"
+"mixed-timestep`)."
 
-#: ../../gas_laws/reproduction.rst:358
+#: ../../gas_laws/reproduction.rst:427
 msgid "混合精度の時間刻み依存性"
 msgstr "Time-Step Dependence in Mixed Precision"
 
-#: ../../gas_laws/reproduction.rst:360
+#: ../../gas_laws/reproduction.rst:429
 msgid ""
 "混合精度で時間刻みを変えた結果を :numref:`tab-mixed-timestep` に示します。\\ "
 "すべてSD、シード1101、1,000分子、最初の40 psを除いた400 psの測定です。\\ "
@@ -1228,7 +1441,7 @@ msgstr ""
 "order 4 and one iteration. For CO₂, PME uses a cutoff of 6 nm and a grid "
 "spacing of 0.6 nm."
 
-#: ../../gas_laws/reproduction.rst:364
+#: ../../gas_laws/reproduction.rst:433
 msgid "混合精度で刻みを半分にした対照（平均±1統計標準誤差）"
 msgstr ""
 "Mixed-precision controls with half the time step (mean ± 1 statistical "
@@ -1270,20 +1483,25 @@ msgstr "1.08705 ± 0.00143"
 msgid "+7.28%"
 msgstr "+7.28%"
 
-#: ../../gas_laws/reproduction.rst:371
+#: ../../gas_laws/reproduction.rst:440
 msgid ""
 "H₂では0.5 fsから0.25 fsへ、CO₂では2 fsから1 fsへ変えると、圧力のずれは数%まで増えました。\\ "
-"今回の混合精度の圧力は、時間刻みについて収束した数値ではありません。\\ "
-"図の倍精度系列は、別の数値精度で得た参考結果を並べたもので、混合精度の刻み依存性を補正した値ではありません。"
+"今回の混合精度の圧力は、時間刻みについて収束した数値ではありません。\\ :numref:`fig-five-gas-pressure` "
+"の倍精度系列は、別の数値精度で得た参考結果を並べたもので、混合精度の刻み依存性を補正した値ではありません。"
 msgstr ""
-"Reducing the time step from 0.5 fs to 0.25 fs for H₂ and from 2 fs to 1 "
-"fs for CO₂ increased the pressure deviations to several percent. \\ The "
-"mixed-precision pressures here have not converged with respect to the "
-"time step. \\ The double-precision series in the figure provides a "
-"reference at a different numerical precision. It does not correct for the"
-" time-step dependence of the mixed-precision results."
+"Changing the time step from 0.5 fs to 0.25 fs for H₂ and from 2 fs to 1 "
+"fs for CO₂ increased the pressure deviation to several percent. \\ The "
+"mixed-precision pressures here are not values converged with respect to "
+"the time step. \\ :numref:`fig-five-gas-pressure` places the double-"
+"precision series alongside as reference results obtained at a different "
+"numerical precision; they are not values corrected for the time-step "
+"dependence of the mixed-precision results."
 
-#: ../../gas_laws/reproduction.rst:375
+#: ../../gas_laws/reproduction.rst:445
+msgid "時間相関と追加の対照"
+msgstr "Time Correlations and Additional Controls"
+
+#: ../../gas_laws/reproduction.rst:447
 msgid ""
 "測定区間の前半・後半の温度と圧力、結合長、CO₂の角度、全系の重心速度は\\ ``stability.csv`` に保存しています。\\ "
 "採用した5気体の各シードについて、前半と後半の平均圧力の差の絶対値は最大約0.0028 barでした。\\ ブロック長ごとの誤差は "
@@ -1301,100 +1519,7 @@ msgstr ""
 "conservation is not a pass criterion. \\ The temperature and energy time "
 "series are saved separately in ``energy_raw.csv``."
 
-#: ../../gas_laws/reproduction.rst:383
-msgid "Arのずれの独立予測"
-msgstr "Independent Prediction of the Deviation for Ar"
-
-#: ../../gas_laws/reproduction.rst:385
-#, python-brace-format
-msgid ""
-"ArのLJポテンシャルを :math:`u(r)=4\\epsilon[(\\sigma/r)^{12}-(\\sigma/r)^6]` "
-"とし、\\ カットオフ :math:`r_c=1.2` nmでポテンシャルをシフトした二体分布を使います。\\ "
-"圧力に寄与する第二ビリアルの係数を次の数値積分で求めます。"
-msgstr ""
-"We use :math:`u(r)=4\\epsilon[(\\sigma/r)^{12}-(\\sigma/r)^6]` for the Ar"
-" LJ potential \\ and use the pair distribution for this potential shifted"
-" at the cutoff :math:`r_c=1.2` nm. \\ We obtain the second virial "
-"coefficient for the pressure contribution by evaluating the following "
-"integral numerically."
-
-#: ../../gas_laws/reproduction.rst:389
-#, python-brace-format
-msgid ""
-"\\begin{aligned}\n"
-"B_{2,P}&=-\\frac{2\\pi N_A}{3RT}\n"
-"  \\int_0^{r_c}r^3 u'(r)g(r)\\,dr,\\\\\n"
-"g(r)&=\\exp\\!\\left[-\\frac{u(r)-u(r_c)}{RT}\\right].\n"
-"\\end{aligned}"
-msgstr ""
-"\\begin{aligned}\n"
-"B_{2,P}&=-\\frac{2\\pi N_A}{3RT}\n"
-"  \\int_0^{r_c}r^3 u'(r)g(r)\\,dr,\\\\\n"
-"g(r)&=\\exp\\!\\left[-\\frac{u(r)-u(r_c)}{RT}\\right].\n"
-"\\end{aligned}"
-
-#: ../../gas_laws/reproduction.rst:397
-msgid ""
-"式のエネルギーと気体定数は同じ単位系にそろえます。\\ ``theory.py`` "
-"はモデルのσ、ε、カットオフだけを入力とし、MD圧力を読みません。\\ 圧力用の係数は約−15.772 "
-"cm³/molで、積分点数を50,000から100,000へ増やした差は約10⁻⁹ cm³/molでした。\\ "
-"ポテンシャルをカットオフで0へシフトし、力をそこで打ち切ったモデルの係数です。\\ 打ち切りのないLJの第二ビリアルとは区別しています。"
-msgstr ""
-"We express the energy and gas constant in consistent units. \\ "
-"``theory.py`` takes only σ, ε, and the cutoff of the model as inputs and "
-"does not read MD pressures. \\ The resulting coefficient for the pressure"
-" is about −15.772 cm³/mol, and increasing the number of integration "
-"points from 50,000 to 100,000 changed it by about 10⁻⁹ cm³/mol. \\ It "
-"applies to the model in which the potential is shifted to zero at the "
-"cutoff and the force is truncated there. \\ It is distinct from the "
-"second virial coefficient of the untruncated LJ potential."
-
-#: ../../gas_laws/reproduction.rst:403
-#, python-brace-format
-msgid ""
-"希薄な二体近似と全体の重心運動の除去を組み合わせた予測は、\\ 各体積の実測平均温度を :math:`\\overline{T}` "
-"として、次の式です。"
-msgstr ""
-"The prediction combines the dilute-gas pair approximation and removal of "
-"the motion of the system’s center of mass. \\ With the measured mean "
-"temperature at each volume denoted by :math:`\\overline{T}`, the "
-"prediction is"
-
-#: ../../gas_laws/reproduction.rst:406
-msgid ""
-"\\begin{aligned}\n"
-"P_{\\mathrm{pred}}&=\\frac{RT}{V_m}\n"
-"   \\frac{N-1}{N}\\left(1+\\frac{B_{2,P}}{V_m}\\right)\n"
-"   \\frac{\\overline{T}}{T},\\\\\n"
-"T&=273.15\\ \\mathrm{K},\\quad N=1000.\n"
-"\\end{aligned}"
-msgstr ""
-"\\begin{aligned}\n"
-"P_{\\mathrm{pred}}&=\\frac{RT}{V_m}\n"
-"   \\frac{N-1}{N}\\left(1+\\frac{B_{2,P}}{V_m}\\right)\n"
-"   \\frac{\\overline{T}}{T},\\\\\n"
-"T&=273.15\\ \\mathrm{K},\\quad N=1000.\n"
-"\\end{aligned}"
-
-#: ../../gas_laws/reproduction.rst:415
-msgid ""
-"温度の小さな違いにはこの式の一次補正を使い、係数の温度微分や三体以上の項は含めていません。\\ ``argon_virial.json`` "
-"に係数と積分条件、``argon_deviations.csv`` に6体積の予測・測定・残差を保存しています。\\ "
-"圧力を自由フィットした係数とは独立した比較です。"
-msgstr ""
-"The equation applies a first-order correction for small temperature "
-"differences and excludes the temperature derivative of the coefficient "
-"and terms involving three or more particles. \\ ``argon_virial.json`` "
-"contains the coefficient and integration settings, and "
-"``argon_deviations.csv`` records the predictions, measurements, and "
-"residuals for the six volumes. \\ This comparison is independent of the "
-"coefficients fitted freely to the pressures."
-
-#: ../../gas_laws/reproduction.rst:420
-msgid "時間相関と追加の対照"
-msgstr "Time Correlations and Additional Controls"
-
-#: ../../gas_laws/reproduction.rst:422
+#: ../../gas_laws/reproduction.rst:454
 msgid ""
 "``autocorrelation.csv`` に圧力の積分自己相関時間を併記しています。\\ 標本間隔は0.1 "
 "psで、自己相関の隣接2項の和が初めて非正となる前までを積分しました。\\ 独立な標本なら積分時間は標本間隔の半分になる定義です。\\ "
@@ -1413,7 +1538,7 @@ msgstr ""
 "absent. \\ Note that the error estimate from 80 ps blocks is rough "
 "because there are only five such blocks."
 
-#: ../../gas_laws/reproduction.rst:429
+#: ../../gas_laws/reproduction.rst:461
 msgid ""
 "二原子分子の速さがそろって理論値より約0.07%低い理由の切り分けは未完了です。\\ "
 "速度の保存時刻と拘束・有限時間刻みの影響も含めた対照が必要で、熱浴の種類だけを原因と決めていません。"
@@ -1424,7 +1549,7 @@ msgstr ""
 " constraints and a finite time step. We have not attributed the "
 "discrepancy to the type of heat bath alone."
 
-#: ../../gas_laws/reproduction.rst:432
+#: ../../gas_laws/reproduction.rst:464
 msgid ""
 "Arのシード1101では、リスト更新を10ステップ、リスト半径1.3 nm、\\ ``verlet-buffer-tolerance = -1``"
 " に固定した440 psの対照も行いました。\\ ログでも0.1 nmのバッファを確認し、40〜440 psの平均圧力は1.01145 ± "
@@ -1440,7 +1565,7 @@ msgstr ""
 " \\ This check covers one condition and does not guarantee neighbor-list "
 "convergence for all other gases or densities."
 
-#: ../../gas_laws/reproduction.rst:438
+#: ../../gas_laws/reproduction.rst:470
 msgid ""
 "N₂の倍精度SDでは、熱浴の緩和時間を0.1 psから10 psへ弱めた対照を追加しました。\\ 全640 psのうち最初の240 "
 "psを除いた400 psで、圧力は1.01492 ± 0.00444 bar、\\ 重心rms速さは493.72 ± 1.11 m/sでした。\\"
@@ -1461,11 +1586,11 @@ msgstr ""
 " models are independent of heat-bath strength. \\ The conditions and "
 "values are also recorded in ``review_controls.csv``."
 
-#: ../../gas_laws/reproduction.rst:447
+#: ../../gas_laws/reproduction.rst:479
 msgid "参考文献"
 msgstr "References"
 
-#: ../../gas_laws/reproduction.rst:449
+#: ../../gas_laws/reproduction.rst:481
 msgid ""
 "J\\. Vrabec, J. Stoll and H. Hasse, A Set of Molecular Models for "
 "Symmetric Quadrupolar Fluids, J. Phys. Chem. B **105**, 12126–12133 "
@@ -1475,7 +1600,7 @@ msgstr ""
 "Symmetric Quadrupolar Fluids, J. Phys. Chem. B **105**, 12126–12133 "
 "(2001). https://doi.org/10.1021/jp012542o"
 
-#: ../../gas_laws/reproduction.rst:450
+#: ../../gas_laws/reproduction.rst:482
 msgid ""
 "S\\. Wang, K. Hou and H. Heinz, Accurate and Compatible Force Fields for "
 "Molecular Oxygen, Nitrogen, and Hydrogen to Simulate Gases, Electrolytes,"
@@ -1487,7 +1612,7 @@ msgstr ""
 " and Heterogeneous Interfaces, J. Chem. Theory Comput. **17**, 5198–5213 "
 "(2021). https://doi.org/10.1021/acs.jctc.0c01132"
 
-#: ../../gas_laws/reproduction.rst:451
+#: ../../gas_laws/reproduction.rst:483
 msgid ""
 "J\\. J. Potoff and J. I. Siepmann, Vapor–Liquid Equilibria of Mixtures "
 "Containing Alkanes, Carbon Dioxide, and Nitrogen, AIChE J. **47**, "
@@ -1497,7 +1622,7 @@ msgstr ""
 "Containing Alkanes, Carbon Dioxide, and Nitrogen, AIChE J. **47**, "
 "1676–1682 (2001). https://doi.org/10.1002/aic.690470719"
 
-#: ../../gas_laws/reproduction.rst:452
+#: ../../gas_laws/reproduction.rst:484
 msgid ""
 "GROMACS 2026.2, `MDP options, Ewald <https://manual.gromacs.org/2026.2"
 "/user-guide/mdp-options.html#ewald>`__ 、 `gmx energy "
@@ -1507,11 +1632,136 @@ msgstr ""
 "/user-guide/mdp-options.html#ewald>`__ and `gmx energy "
 "<https://manual.gromacs.org/2026.2/onlinehelp/gmx-energy.html>`__"
 
-#: ../../gas_laws/reproduction.rst:453
+#: ../../gas_laws/reproduction.rst:485
 msgid ""
 "BIPM, `The International System of Units: Defining constants "
 "<https://www.bipm.org/en/measurement-units/si-defining-constants>`__ 。"
 msgstr ""
 "BIPM, `The International System of Units: Defining constants "
 "<https://www.bipm.org/en/measurement-units/si-defining-constants>`__"
+
+#~ msgid ""
+#~ "以下はソースの読み取りで確認した編集経路です。実画面で操作確認した手順ではありません。\\ "
+#~ "ローカルでは、この編集後に相当する入力をQuloud用ランナーで実行しています。"
+#~ msgstr ""
+#~ "We identified the editing workflow below"
+#~ " by reading the source code. The "
+#~ "steps have yet to be verified in"
+#~ " the interface. \\ We ran the "
+#~ "equivalent of the edited inputs locally"
+#~ " with the Quloud runner."
+
+#~ msgid ""
+#~ "`Quloudオンラインマニュアル <https://manual.quloud-"
+#~ "platform.quemix.com/>`__\\ "
+#~ "のMaterialのファイルアップロードでCIFを登録し、GROMACSの古典分子動力学を選びます。\\ 温度273.15"
+#~ " K、アンサンブルNVTにします。NPTは用いません。\\ ArのP–V計算では時間刻み2 "
+#~ "fs、220,000ステップ、V-rescale、温度緩和時間0.1 psを使います。\\ "
+#~ "計算開始前のRegistered状態で、Jobのファイル一覧から生成された ``nvt.mdp`` "
+#~ "を開いて編集します。\\ "
+#~ "画面のJob設定を変更するとMDPが再生成されるため、ファイルの追記は最後に行い、保存後に内容を確認します。\\ "
+#~ "新しいMDPをアップロードする必要はありません。"
+#~ msgstr ""
+#~ "As described in the `Quloud online "
+#~ "manual <https://manual.quloud-platform.quemix.com/>`__ "
+#~ "\\ (in Japanese), register the CIF "
+#~ "using \"File Upload\" for the Material"
+#~ " and select \"Classical Molecular Dynamics"
+#~ " (GROMACS)\". \\ Set \"Temperature\" to "
+#~ "273.15 K and \"Ensemble\" to \"NVT "
+#~ "(canonical)\". Do not use NPT. \\ "
+#~ "For the Ar P–V calculations, set "
+#~ "\"Timestep\" to 2 fs, \"Number of "
+#~ "Steps\" to 220,000, \"Temperature Coupling "
+#~ "Algorithm\" to \"V-rescale (recommended)\", "
+#~ "and the relaxation time (\"Temperature "
+#~ "Coupling Time Constant\") to 0.1 ps. "
+#~ "\\ Before starting the calculation, "
+#~ "while the Job status is \"Registered\","
+#~ " open and edit the generated "
+#~ "``nvt.mdp`` in the Job’s Files tab. "
+#~ "\\ Changing the Job settings in "
+#~ "the interface regenerates the MDP file,"
+#~ " so make these edits last and "
+#~ "check the contents after saving. \\ "
+#~ "There is no need to upload a "
+#~ "new MDP file."
+
+#~ msgid "ArのP–V計算で追記・確認する出力設定は次のとおりです。\\ 同じキーがあれば行を置き換えてください。"
+#~ msgstr ""
+#~ "Add or check the following output "
+#~ "settings for the Ar P–V calculations."
+#~ " \\ Replace any existing lines with"
+#~ " the same keys."
+
+#~ msgid ""
+#~ "配布する構造は、各条件についてシード1101、2202、3303の3つを用意しています。\\ "
+#~ "Arの固定体積の構造は、試験計算と5気体比較の両方に使います。"
+#~ msgstr ""
+#~ "The supplied structures include one for"
+#~ " each of seeds 1101, 2202, and "
+#~ "3303 at each condition. \\ The "
+#~ "fixed-volume Ar structures are used "
+#~ "both for the test runs and for "
+#~ "the five-gas comparison."
+
+#~ msgid ""
+#~ "3本のスクリプトは同じフォルダへ保存してください。\\ 全6図を出力ZIPから作る場合は、混合精度の本文用33計算に加え、\\"
+#~ " 5気体×3シードの倍精度参考計算の出力も必要です（合計48計算）。\\ "
+#~ "倍精度は標準Quloudから取得できた出力ではなく、今回のローカル検証用の結果です。\\ "
+#~ "既存の図を再生成する場合は、配布済みの集計データを使えます。"
+#~ msgstr ""
+#~ "Save the three scripts in the same"
+#~ " folder. \\ To generate all six "
+#~ "figures from the output ZIPs, you "
+#~ "need the 33 mixed-precision calculations"
+#~ " used in the article \\ and the"
+#~ " double-precision reference outputs for "
+#~ "five gases × three seeds (48 "
+#~ "calculations in total). \\ These "
+#~ "double-precision results came from our "
+#~ "local validation runs, outside the "
+#~ "standard Quloud environment. \\ You can"
+#~ " use the supplied data summaries to"
+#~ " regenerate the existing figures."
+
+#~ msgid ""
+#~ "Python 3、NumPy、Matplotlib、GROMACS 2026.2を使います。\\ "
+#~ "理論値は、SIで厳密に定義されたBoltzmann定数とAvogadro定数 [5]_ "
+#~ "の積から気体定数を求めています。\\ ``gmx`` が別名なら ``--gmx "
+#~ "gmx_mpi`` のように指定できます。\\ 配布済みのCSVから図だけを作り直す場合は、 "
+#~ "``analysis_csv.zip`` を展開して\\ ``python "
+#~ "make_figures.py analysis --figures figures`` "
+#~ "を実行します。この場合、GROMACSは必要ありません。\\ TRRから保存された速度を読み、分子ごとに\\ "
+#~ ":math:`\\boldsymbol{v}_{\\mathrm{COM}}=\\sum_i "
+#~ "m_i\\boldsymbol{v}_i/\\sum_i m_i`\\ "
+#~ "を計算します。位置の有限差分は使いません。\\ 結合長の検査だけに周期境界の最小像を用いています。"
+#~ msgstr ""
+#~ "The analysis uses Python 3, NumPy, "
+#~ "Matplotlib, and GROMACS 2026.2. \\ For"
+#~ " the theoretical values, we calculate "
+#~ "the gas constant as the product of"
+#~ " the Boltzmann and Avogadro constants "
+#~ "[5]_, which are defined exactly in "
+#~ "the SI. \\ ``gmx`` may be "
+#~ "installed under a different name. In "
+#~ "that case, specify it with an "
+#~ "option such as ``--gmx gmx_mpi``. \\ "
+#~ "To regenerate only the figures from "
+#~ "the supplied CSV files, extract "
+#~ "``analysis_csv.zip`` and run \\ ``python "
+#~ "make_figures.py analysis --figures figures``. "
+#~ "This requires no GROMACS installation. "
+#~ "\\ We read the saved velocities "
+#~ "from the TRR and calculate \\ "
+#~ ":math:`\\boldsymbol{v}_{\\mathrm{COM}}=\\sum_i "
+#~ "m_i\\boldsymbol{v}_i/\\sum_i m_i` \\ for each"
+#~ " molecule. The calculation uses no "
+#~ "finite differences of positions. \\ We"
+#~ " use the minimum image under periodic"
+#~ " boundary conditions only to check "
+#~ "bond lengths."
+
+#~ msgid "Arのずれの独立予測"
+#~ msgstr "Independent Prediction of the Deviation for Ar"
 
