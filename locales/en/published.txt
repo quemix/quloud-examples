@@ -11,3 +11,6 @@ gan_surface/reproduction
 cu_lattice/index
 cu_lattice/lattice_constant
 cu_lattice/reproduction
+kpoints/index
+kpoints/kpoint_convergence
+kpoints/reproduction

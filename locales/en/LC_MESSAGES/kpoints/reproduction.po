@@ -1,0 +1,777 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../kpoints/reproduction.rst:3
+msgid "計算条件と再現手順"
+msgstr "Calculation Conditions and Reproduction Procedure"
+
+#: ../../kpoints/reproduction.rst:5
+msgid ""
+"このページでは、 :doc:`kpoint_convergence` "
+"の計算をQuloudで再現する手順と、Quloudからダウンロードした出力ファイルから記事の数値と図を作る解析スクリプトをまとめます。\\ "
+"画面の操作は `Quloudオンラインマニュアル <https://manual.quloud-platform.quemix.com/>`__ "
+"に沿って説明します。"
+msgstr ""
+"This page explains how to reproduce the calculations from "
+":doc:`kpoint_convergence` in Quloud and describes the analysis script "
+"that generates the article's numbers and figures from output files "
+"downloaded from Quloud. \\ The instructions for using the interface "
+"follow the `Quloud online manual <https://manual.quloud-"
+"platform.quemix.com/>`__ (in Japanese)."
+
+#: ../../kpoints/reproduction.rst:9
+msgid "計算環境"
+msgstr "Computing Environment"
+
+#: ../../kpoints/reproduction.rst:11
+msgid ""
+"記事の計算は、2026年11月に、Quloudで使われているQuantum ESPRESSO "
+"7.5とQuloudのジョブと同じ実行スクリプトをDockerに入れ、Quloudの外で実行したものです。\\ "
+"入力ファイルは、Quloud（Ver.7.0.2）が画面の設定値と構造ファイルから入力を作るプログラムに、以下の「Quloudでの計算手順」の設定値を渡して作りました。\\"
+" 計算はWSL2（Intel Core Ultra 5 225U、MPI 4並列）で行い、記事の計算時間はこの環境での値です。"
+msgstr ""
+"In November 2026, we ran the calculations outside Quloud in a Docker "
+"container with Quantum ESPRESSO 7.5 (the version used in Quloud) and the "
+"same execution script as Quloud Jobs. \\ To generate the input files, we "
+"passed the settings under “Calculation Procedure in Quloud” below to the "
+"Quloud (Ver. 7.0.2) program that builds inputs from interface settings "
+"and structure files. \\ We ran the calculations on WSL2 (Intel Core Ultra"
+" 5 225U, 4 MPI processes). The computation times in the article are for "
+"this environment."
+
+#: ../../kpoints/reproduction.rst:16
+msgid "配布ファイル"
+msgstr "Downloadable Files"
+
+#: ../../kpoints/reproduction.rst:19
+msgid "構造ファイル"
+msgstr "Structure Files"
+
+#: ../../kpoints/reproduction.rst:21
+#, python-brace-format
+msgid ""
+"Quloudの「ファイルアップロード」でMaterialとして登録する構造です。\\ "
+"いずれも原始胞のCIFファイルで、3辺の長さが立方晶の格子定数の :math:`1/\\sqrt{2}` 、辺のなす角が60°です。"
+msgstr ""
+"These are the structures to register as Materials using \"File Upload\" "
+"in Quloud. \\ Each CIF file describes a primitive cell with three edges "
+"each :math:`1/\\sqrt{2}` times the cubic lattice constant and angles of "
+"60° between them."
+
+#: ../../kpoints/reproduction.rst:28 ../../kpoints/reproduction.rst:62
+msgid "ファイル"
+msgstr "File"
+
+#: ../../kpoints/reproduction.rst:29 ../../kpoints/reproduction.rst:63
+msgid "内容"
+msgstr "Contents"
+
+#: ../../kpoints/reproduction.rst:30
+msgid ":download:`cu_fcc_a3.60.cif <structures/cu_fcc_a3.60.cif>`"
+msgstr ":download:`cu_fcc_a3.60.cif <structures/cu_fcc_a3.60.cif>`"
+
+#: ../../kpoints/reproduction.rst:31
+msgid "Cu、格子定数3.60 Å"
+msgstr "Cu, lattice constant 3.60 Å"
+
+#: ../../kpoints/reproduction.rst:32
+msgid ":download:`cu_fcc_a3.64.cif <structures/cu_fcc_a3.64.cif>`"
+msgstr ":download:`cu_fcc_a3.64.cif <structures/cu_fcc_a3.64.cif>`"
+
+#: ../../kpoints/reproduction.rst:33
+msgid "Cu、格子定数3.64 Å"
+msgstr "Cu, lattice constant 3.64 Å"
+
+#: ../../kpoints/reproduction.rst:34
+msgid ":download:`cu_fcc_a3.68.cif <structures/cu_fcc_a3.68.cif>`"
+msgstr ":download:`cu_fcc_a3.68.cif <structures/cu_fcc_a3.68.cif>`"
+
+#: ../../kpoints/reproduction.rst:35
+msgid "Cu、格子定数3.68 Å"
+msgstr "Cu, lattice constant 3.68 Å"
+
+#: ../../kpoints/reproduction.rst:36
+msgid ":download:`si_diamond_a5.42.cif <structures/si_diamond_a5.42.cif>`"
+msgstr ":download:`si_diamond_a5.42.cif <structures/si_diamond_a5.42.cif>`"
+
+#: ../../kpoints/reproduction.rst:37
+msgid "Si、格子定数5.42 Å"
+msgstr "Si, lattice constant 5.42 Å"
+
+#: ../../kpoints/reproduction.rst:38
+msgid ":download:`si_diamond_a5.47.cif <structures/si_diamond_a5.47.cif>`"
+msgstr ":download:`si_diamond_a5.47.cif <structures/si_diamond_a5.47.cif>`"
+
+#: ../../kpoints/reproduction.rst:39
+msgid "Si、格子定数5.47 Å"
+msgstr "Si, lattice constant 5.47 Å"
+
+#: ../../kpoints/reproduction.rst:40
+msgid ":download:`si_diamond_a5.52.cif <structures/si_diamond_a5.52.cif>`"
+msgstr ":download:`si_diamond_a5.52.cif <structures/si_diamond_a5.52.cif>`"
+
+#: ../../kpoints/reproduction.rst:41
+msgid "Si、格子定数5.52 Å"
+msgstr "Si, lattice constant 5.52 Å"
+
+#: ../../kpoints/reproduction.rst:43
+msgid "Cuはfccの原始胞（1原子）、Siはダイヤモンド構造の原始胞（2原子、分率座標 (0, 0, 0) と (1/4, 1/4, 1/4)）です。"
+msgstr ""
+"The Cu structure is an fcc primitive cell (1 atom). The Si structure is a"
+" diamond primitive cell (2 atoms, with fractional coordinates (0, 0, 0) "
+"and (1/4, 1/4, 1/4))."
+
+#: ../../kpoints/reproduction.rst:46
+msgid "スクリプト"
+msgstr "Script"
+
+#: ../../kpoints/reproduction.rst:48
+msgid ""
+":download:`analyze_kpoints.py <scripts/analyze_kpoints.py>` : "
+"Quloudからダウンロードした出力ファイルのZIPを読み、記事中の数値を表示して、図を作成します。"
+msgstr ""
+":download:`analyze_kpoints.py <scripts/analyze_kpoints.py>` reads ZIP "
+"archives of output files downloaded from Quloud, prints the numbers given"
+" in the article, and generates the figures."
+
+#: ../../kpoints/reproduction.rst:50
+msgid "スクリプトはPython 3、NumPy、Matplotlibで動作します。"
+msgstr "The script runs with Python 3, NumPy, and Matplotlib."
+
+#: ../../kpoints/reproduction.rst:53
+msgid "記事の計算の出力"
+msgstr "Output from the Calculations in This Article"
+
+#: ../../kpoints/reproduction.rst:55
+msgid ""
+"記事の計算の出力ファイルを、Quloudの「一括ダウンロード」で得られるファイル名にそろえ、1つのZIPに、ジョブごとのフォルダをまとめたものです。\\"
+" 各フォルダには、解析に使う ``QuloudJob.scf.out`` （pw.xの出力）と、入力のコピー "
+"``QuloudJob.scf.in`` 、終了状態の ``QuloudJob.exit_status.json`` だけを入れています。"
+msgstr ""
+"Each ZIP archive groups the calculation outputs from the article into one"
+" folder per Job and uses the same file names as Quloud's \"Batch "
+"Download\". \\ Each folder contains only ``QuloudJob.scf.out`` (the pw.x "
+"output used for analysis), a copy of the input (``QuloudJob.scf.in``), "
+"and the exit status (``QuloudJob.exit_status.json``)."
+
+#: ../../kpoints/reproduction.rst:64
+msgid ":download:`cu_kmesh.zip <data/cu_kmesh.zip>`"
+msgstr ":download:`cu_kmesh.zip <data/cu_kmesh.zip>`"
+
+#: ../../kpoints/reproduction.rst:65
+msgid "Cu、MV 0.02 Ry（32件）"
+msgstr "Cu, MV 0.02 Ry (32 Jobs)"
+
+#: ../../kpoints/reproduction.rst:66
+msgid ":download:`cu_smearing.zip <data/cu_smearing.zip>`"
+msgstr ":download:`cu_smearing.zip <data/cu_smearing.zip>`"
+
+#: ../../kpoints/reproduction.rst:67
+msgid "Cu 3.64 Å、MV 0.005、0.01、0.04 Ry（23件）"
+msgstr "Cu 3.64 Å, MV 0.005, 0.01, and 0.04 Ry (23 Jobs)"
+
+#: ../../kpoints/reproduction.rst:68
+msgid ":download:`cu_tetrahedra.zip <data/cu_tetrahedra.zip>`"
+msgstr ":download:`cu_tetrahedra.zip <data/cu_tetrahedra.zip>`"
+
+#: ../../kpoints/reproduction.rst:69
+msgid "Cu、テトラヘドロン法（52件）"
+msgstr "Cu, tetrahedron methods (52 Jobs)"
+
+#: ../../kpoints/reproduction.rst:70
+msgid ":download:`si_kmesh.zip <data/si_kmesh.zip>`"
+msgstr ":download:`si_kmesh.zip <data/si_kmesh.zip>`"
+
+#: ../../kpoints/reproduction.rst:71
+msgid "Si、固定占有（24件）"
+msgstr "Si, fixed occupations (24 Jobs)"
+
+#: ../../kpoints/reproduction.rst:73
+msgid ""
+"``cu_kmesh.zip`` ：3.60、3.68 Åは :math:`n` = "
+"4、6、8、10、12、14、16、20、24、32、3.64 Åはこれに40、48を加えたメッシュ。"
+msgstr ""
+"``cu_kmesh.zip`` contains meshes with :math:`n` = 4, 6, 8, 10, 12, 14, "
+"16, 20, 24, and 32 at 3.60, 3.64, and 3.68 Å, with 40 and 48 also used at"
+" 3.64 Å."
+
+#: ../../kpoints/reproduction.rst:74
+msgid "``cu_smearing.zip`` ： :math:`n` = 8、12、16、20、24、32、40（0.005、0.01 Ryは48も）。"
+msgstr ""
+"``cu_smearing.zip`` contains meshes with :math:`n` = 8, 12, 16, 20, 24, "
+"32, and 40 (also 48 at 0.005 and 0.01 Ry)."
+
+#: ../../kpoints/reproduction.rst:75
+msgid ""
+"``cu_tetrahedra.zip`` ：Blöchlの方法と最適化テトラヘドロン法のそれぞれで、3つの格子定数 × :math:`n` = "
+"8、10、12、14、16、20、24、32（3.64 Åは40、48も）。"
+msgstr ""
+"``cu_tetrahedra.zip`` contains, for each of Blöchl's method and the "
+"optimized tetrahedron method, 3 lattice constants × meshes with :math:`n`"
+" = 8, 10, 12, 14, 16, 20, 24, and 32 (also 40 and 48 at 3.64 Å)."
+
+#: ../../kpoints/reproduction.rst:76
+msgid "``si_kmesh.zip`` ：3つの格子定数 × :math:`n` = 2、3、4、6、8、10、12、16。"
+msgstr ""
+"``si_kmesh.zip`` contains 3 lattice constants × meshes with :math:`n` = "
+"2, 3, 4, 6, 8, 10, 12, and 16."
+
+#: ../../kpoints/reproduction.rst:78
+msgid ""
+"フォルダ名（例： ``cu_a3.64_k24_sm0.020`` 、 ``cu_a3.64_k24_tetra_opt`` "
+"）は内容を示すために付けたもので、解析スクリプトは使いません。"
+msgstr ""
+"Folder names such as ``cu_a3.64_k24_sm0.020`` and "
+"``cu_a3.64_k24_tetra_opt`` describe the contents. The analysis script "
+"does not use them."
+
+#: ../../kpoints/reproduction.rst:81
+msgid "Quloudでの計算手順"
+msgstr "Calculation Procedure in Quloud"
+
+#: ../../kpoints/reproduction.rst:84
+msgid "共通の設定"
+msgstr "Common Settings"
+
+#: ../../kpoints/reproduction.rst:86
+msgid ""
+"すべての計算で、計算ソフトにQuantum ESPRESSOを選び、計算機能「自己無撞着電子状態計算（SCF）」のJobを作ります。\\ "
+"入力項目は次のように設定します。表にない項目は既定値のままです。"
+msgstr ""
+"For all calculations, select Quantum ESPRESSO as the calculation software"
+" and create a \"Single-Point SCF\" Job (a self-consistent electronic "
+"structure calculation). \\ Set the input fields as shown below. Leave all"
+" other fields at their defaults."
+
+#: ../../kpoints/reproduction.rst:93
+msgid "入力項目"
+msgstr "Input field"
+
+#: ../../kpoints/reproduction.rst:94
+msgid "設定値"
+msgstr "Value"
+
+#: ../../kpoints/reproduction.rst:95
+msgid "既定値との違い"
+msgstr "Difference from default"
+
+#: ../../kpoints/reproduction.rst:96
+msgid "交換相関汎関数"
+msgstr "Exchange-Correlation Functional"
+
+#: ../../kpoints/reproduction.rst:97
+msgid "GGA-PBE"
+msgstr "GGA-PBE"
+
+#: ../../kpoints/reproduction.rst:98 ../../kpoints/reproduction.rst:110
+msgid "既定値"
+msgstr "Default"
+
+#: ../../kpoints/reproduction.rst:99
+msgid "擬ポテンシャル（Cu）"
+msgstr "Pseudopotential (Cu)"
+
+#: ../../kpoints/reproduction.rst:100
+msgid "``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF``"
+msgstr "``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF``"
+
+#: ../../kpoints/reproduction.rst:101 ../../kpoints/reproduction.rst:104
+msgid "一覧から選ぶ"
+msgstr "Select from the list"
+
+#: ../../kpoints/reproduction.rst:102
+msgid "擬ポテンシャル（Si）"
+msgstr "Pseudopotential (Si)"
+
+#: ../../kpoints/reproduction.rst:103
+msgid "``Si.pbe-n-kjpaw_psl.1.0.0.UPF``"
+msgstr "``Si.pbe-n-kjpaw_psl.1.0.0.UPF``"
+
+#: ../../kpoints/reproduction.rst:105
+msgid "k グリッド（a、b、c 軸）"
+msgstr "k-grid (a-, b-, c-axis)"
+
+#: ../../kpoints/reproduction.rst:106
+msgid ":math:`n` 、 :math:`n` 、 :math:`n`"
+msgstr ":math:`n`, :math:`n`, :math:`n`"
+
+#: ../../kpoints/reproduction.rst:107
+msgid "変更（既定値は4）"
+msgstr "Changed (default: 4)"
+
+#: ../../kpoints/reproduction.rst:108
+msgid "k グリッドオフセット（a、b、c 軸）"
+msgstr "k-grid offset (a-, b-, c-axis)"
+
+#: ../../kpoints/reproduction.rst:109
+msgid "オフ"
+msgstr "Off"
+
+#: ../../kpoints/reproduction.rst:111
+msgid "対称性利用"
+msgstr "Using Symmetry"
+
+#: ../../kpoints/reproduction.rst:112
+msgid "オン"
+msgstr "On"
+
+#: ../../kpoints/reproduction.rst:113
+msgid "**変更**"
+msgstr "**Changed**"
+
+#: ../../kpoints/reproduction.rst:114
+msgid "電子占有数スメアリング"
+msgstr "Electronic occupation number smearing"
+
+#: ../../kpoints/reproduction.rst:115
+msgid "MV"
+msgstr "MV"
+
+#: ../../kpoints/reproduction.rst:116
+msgid "変更（既定値はGaussian）"
+msgstr "Changed (default: Gaussian)"
+
+#: ../../kpoints/reproduction.rst:117
+msgid "スメアリング幅"
+msgstr "Smearing Width"
+
+#: ../../kpoints/reproduction.rst:118
+msgid "0.02 Ry"
+msgstr "0.02 Ry"
+
+#: ../../kpoints/reproduction.rst:119
+msgid "変更（既定値は0.01 Ry）"
+msgstr "Changed (default: 0.01 Ry)"
+
+#: ../../kpoints/reproduction.rst:120
+msgid "平面波カットオフエネルギー"
+msgstr "Plane-wave cutoff energy"
+
+#: ../../kpoints/reproduction.rst:121
+msgid "60 Ry"
+msgstr "60 Ry"
+
+#: ../../kpoints/reproduction.rst:122 ../../kpoints/reproduction.rst:125
+msgid "変更"
+msgstr "Changed"
+
+#: ../../kpoints/reproduction.rst:123
+msgid "密度・ポテンシャルカットオフエネルギー"
+msgstr "Density-potential cutoff energy"
+
+#: ../../kpoints/reproduction.rst:124
+msgid "600 Ry"
+msgstr "600 Ry"
+
+#: ../../kpoints/reproduction.rst:126
+msgid "SCF 収束閾値（エネルギー）"
+msgstr "SCF Convergence Threshold (Energy)"
+
+#: ../../kpoints/reproduction.rst:127
+msgid "1e-12 Ry"
+msgstr "1e-12 Ry"
+
+#: ../../kpoints/reproduction.rst:128
+msgid "変更（既定値は1e-6 Ry）"
+msgstr "Changed (default: 1e-6 Ry)"
+
+#: ../../kpoints/reproduction.rst:130
+msgid ""
+"k グリッドの :math:`n` には、調べるメッシュの分割数を入れます。\\ "
+"Cuのスメアリング幅の比較では、スメアリング幅を0.005、0.01、0.04 Ryにします。"
+msgstr ""
+"For :math:`n` in \"k-grid (a-, b-, c-axis)\", enter the number of "
+"divisions in the mesh you want to test. \\ To compare smearing widths for"
+" Cu, set \"Smearing Width\" to 0.005, 0.01, and 0.04 Ry."
+
+#: ../../kpoints/reproduction.rst:133
+#, python-brace-format
+msgid ""
+"**「対称性利用」は既定値がオフです。** オフのままでは、QEの入力に ``nosym = .true.`` "
+"が書かれ、結晶の対称性で既約k点に減らす処理が行われません（ :doc:`kpoint_convergence` の "
+":numref:`{number}節 <sec-kp-irreducible>` ）。\\ "
+"計算時間が増えるほか、記事の既約k点の数と比べられなくなります。"
+msgstr ""
+"**\"Using Symmetry\" is Off by default.** If you leave it Off, Quloud "
+"writes ``nosym = .true.`` to the QE input, so QE does not use crystal "
+"symmetry to reduce the mesh to its irreducible k-points (:numref:`Section"
+" {number} <sec-kp-irreducible>` of :doc:`kpoint_convergence`). \\ This "
+"increases the computation time and prevents you from comparing your "
+"irreducible k-point counts with those in the article."
+
+#: ../../kpoints/reproduction.rst:136
+msgid ""
+"Materialの登録とJobの作成・実行の操作は、マニュアルの `原子構造の登録 <https://manual.quloud-"
+"platform.quemix.com/source/jobs_and_models_atom.html>`__ 、 `計算 Job の登録 "
+"<https://manual.quloud-platform.quemix.com/source/calculation.html>`__ 、 "
+"`Job の実行 <https://manual.quloud-"
+"platform.quemix.com/source/runjob.html>`__ の章を参照してください。"
+msgstr ""
+"For help registering a Material and creating and running a Job, see the "
+"manual sections on `registering atomic structures <https://manual.quloud-"
+"platform.quemix.com/source/jobs_and_models_atom.html>`__, `creating a "
+"calculation Job <https://manual.quloud-"
+"platform.quemix.com/source/calculation.html>`__, and `running a Job "
+"<https://manual.quloud-platform.quemix.com/source/runjob.html>`__."
+
+#: ../../kpoints/reproduction.rst:139
+msgid "1. Cuの計算"
+msgstr "1. Calculations for Cu"
+
+#: ../../kpoints/reproduction.rst:141
+msgid ""
+"``cu_fcc_a3.64.cif`` などを登録したMaterialで、上の設定のJobを作り、実行します。\\ k "
+"グリッドを変えたJobを、調べたいメッシュの数だけ作ります。\\ Quloudは、3辺が等しく角が60°のセルを、QEの入力で ``ibrav ="
+" 2`` （fcc）、 ``A`` = 立方晶の格子定数（Å）として書きます。\\ 例えば、3.64 Å、 :math:`12^3` "
+"のJobの入力ファイル ``QuloudJob.scf.in`` は次のようになります。"
+msgstr ""
+"Create and run a Job with the settings above for a Material registered "
+"from a file such as ``cu_fcc_a3.64.cif``. \\ Create one Job for each mesh"
+" you want to test, varying \"k-grid (a-, b-, c-axis)\". \\ For a cell "
+"with three edges of equal length and angles of 60° between them, Quloud "
+"writes ``ibrav = 2`` (fcc) in the QE input and sets ``A`` equal to the "
+"cubic lattice constant (Å). \\ For example, for the Job at 3.64 Å with a "
+":math:`12^3` mesh, the input file ``QuloudJob.scf.in`` looks like this."
+
+#: ../../kpoints/reproduction.rst:146
+#, python-brace-format
+msgid ""
+"&control\n"
+" calculation = 'scf'\n"
+" prefix = 'QuloudJob'\n"
+" tstress = .true.\n"
+" tprnfor = .true.\n"
+" pseudo_dir = './'\n"
+" outdir = './work'\n"
+" verbosity = 'high'\n"
+"/\n"
+"&system\n"
+" nat = 1\n"
+" ntyp = 1\n"
+" ibrav = 2\n"
+" A = 3.639999995023336\n"
+" ecutwfc = 60.0\n"
+" ecutrho = 600.0\n"
+" occupations = 'smearing'\n"
+" smearing = 'marzari-vanderbilt'\n"
+" degauss = 0.020000\n"
+"/\n"
+"&electrons\n"
+" electron_maxstep = 100\n"
+" conv_thr = 1.00e-12\n"
+" diagonalization = 'david'\n"
+"/\n"
+"ATOMIC_SPECIES\n"
+"Cu 63.546 Cu.pbe-dn-kjpaw_psl.1.0.0.UPF\n"
+"ATOMIC_POSITIONS {crystal}\n"
+"Cu 0.0 0.0 0.0\n"
+"K_POINTS automatic\n"
+"12 12 12 0 0 0"
+msgstr ""
+"&control\n"
+" calculation = 'scf'\n"
+" prefix = 'QuloudJob'\n"
+" tstress = .true.\n"
+" tprnfor = .true.\n"
+" pseudo_dir = './'\n"
+" outdir = './work'\n"
+" verbosity = 'high'\n"
+"/\n"
+"&system\n"
+" nat = 1\n"
+" ntyp = 1\n"
+" ibrav = 2\n"
+" A = 3.639999995023336\n"
+" ecutwfc = 60.0\n"
+" ecutrho = 600.0\n"
+" occupations = 'smearing'\n"
+" smearing = 'marzari-vanderbilt'\n"
+" degauss = 0.020000\n"
+"/\n"
+"&electrons\n"
+" electron_maxstep = 100\n"
+" conv_thr = 1.00e-12\n"
+" diagonalization = 'david'\n"
+"/\n"
+"ATOMIC_SPECIES\n"
+"Cu 63.546 Cu.pbe-dn-kjpaw_psl.1.0.0.UPF\n"
+"ATOMIC_POSITIONS {crystal}\n"
+"Cu 0.0 0.0 0.0\n"
+"K_POINTS automatic\n"
+"12 12 12 0 0 0"
+
+#: ../../kpoints/reproduction.rst:180
+msgid ""
+"``tstress = .true.`` により、出力に応力と圧力（ ``P=`` ）が書かれます。\\ ``verbosity = "
+"'high'`` により、既約k点の座標と重みの一覧が出力に書かれます（記事の :numref:`tab-kp-irreducible-4` ）。"
+msgstr ""
+"With ``tstress = .true.``, the output includes the stress and pressure "
+"(``P=``). \\ ``verbosity = 'high'`` adds the coordinates and weights of "
+"the irreducible k-points (see :numref:`tab-kp-irreducible-4` in the "
+"article)."
+
+#: ../../kpoints/reproduction.rst:184
+msgid "2. Siの計算（固定占有）"
+msgstr "2. Calculations for Si (Fixed Occupations)"
+
+#: ../../kpoints/reproduction.rst:186
+msgid ""
+"``si_diamond_a5.47.cif`` などを登録したMaterialで、Cuと同じ設定のJobを作ります。\\ "
+"「電子占有数スメアリング」の選択肢には「なし（固定占有）」がなく、どれかを選ぶと入力にスメアリングの行が書き込まれます。\\ "
+"Siは固定占有で計算するので、 **Jobを登録したら、実行する前に入力ファイル** ``QuloudJob.scf.in`` "
+"**から次の3行を削除します。**"
+msgstr ""
+"Create a Job with the same settings as for Cu, using a Material "
+"registered from a file such as ``si_diamond_a5.47.cif``. \\ There is no "
+"option for no smearing (fixed occupations) under \"Electronic occupation "
+"number smearing\". Selecting any of the available options writes smearing"
+" lines to the input. \\ For Si, use fixed occupations. To do so, **after "
+"registering the Job, delete the following 3 lines from the input file** "
+"``QuloudJob.scf.in`` **before running the Job.**"
+
+#: ../../kpoints/reproduction.rst:190 ../../kpoints/reproduction.rst:206
+msgid ""
+"occupations = 'smearing'\n"
+"smearing = 'marzari-vanderbilt'\n"
+"degauss = 0.020000"
+msgstr ""
+"occupations = 'smearing'\n"
+"smearing = 'marzari-vanderbilt'\n"
+"degauss = 0.020000"
+
+#: ../../kpoints/reproduction.rst:196
+msgid ""
+"3行を削除すると、QEは既定の固定占有（ ``occupations = 'fixed'`` ）で計算します。\\ Status "
+"が「Registered」のJobは、Job詳細画面の「ファイル」で入力ファイルを直接編集できます（マニュアルの `Job の詳細 "
+"<https://manual.quloud-platform.quemix.com/source/jobdetail.html>`__ "
+"の章）。\\ 3行を残したまま（MVスメアリング0.02 Ry）計算すると、格子定数5.469 Å・ :math:`8^3` "
+"の確認計算で、全エネルギーが固定占有より約1.5 mRy高く、圧力が約1.2 kbar大きくなりました。"
+msgstr ""
+"Deleting the 3 lines makes QE use its default fixed occupations "
+"(``occupations = 'fixed'``). \\ When a Job's \"Status\" is "
+"\"Registered\", you can edit its input file directly in the \"Files\" tab"
+" of the Job details page (see the section on `viewing Job details "
+"<https://manual.quloud-platform.quemix.com/source/jobdetail.html>`__ in "
+"the manual). \\ In a check at a lattice constant of 5.469 Å and an "
+":math:`8^3` mesh, leaving the 3 lines in place (MV smearing at 0.02 Ry) "
+"raised the total energy by about 1.5 mRy and the pressure by about 1.2 "
+"kbar compared with fixed occupations."
+
+#: ../../kpoints/reproduction.rst:201
+msgid "3. Cuのテトラヘドロン法"
+msgstr "3. Tetrahedron Method for Cu"
+
+#: ../../kpoints/reproduction.rst:203
+msgid ""
+"Cuの計算と同じ設定のJobを作ります。\\ 「電子占有数スメアリング」の選択肢にはテトラヘドロン法がないので、Siと同じく、 "
+"**Jobを登録したら、実行する前に入力ファイル** ``QuloudJob.scf.in`` **の次の3行を書き換えます。**"
+msgstr ""
+"Create a Job with the same settings as for the Cu calculation. \\ The "
+"tetrahedron method is unavailable under \"Electronic occupation number "
+"smearing\", so follow the same procedure as for Si and **replace these 3 "
+"lines in the input file** ``QuloudJob.scf.in`` **after registering the "
+"Job and before running it.**"
+
+#: ../../kpoints/reproduction.rst:212
+msgid "この3行を、Blöchlの方法なら次の1行に、"
+msgstr "For Blöchl's method, replace the 3 lines with this line."
+
+#: ../../kpoints/reproduction.rst:214
+msgid "occupations = 'tetrahedra'"
+msgstr "occupations = 'tetrahedra'"
+
+#: ../../kpoints/reproduction.rst:218
+msgid "最適化テトラヘドロン法なら次の1行にします。"
+msgstr "For the optimized tetrahedron method, use this line instead."
+
+#: ../../kpoints/reproduction.rst:220
+msgid "occupations = 'tetrahedra_opt'"
+msgstr "occupations = 'tetrahedra_opt'"
+
+#: ../../kpoints/reproduction.rst:224
+#, python-brace-format
+msgid ""
+"テトラヘドロン法は、 ``K_POINTS automatic`` で指定した規則的なメッシュでしか使えません。Quloudの「k "
+"グリッド」はこの形式で書かれるので、そのままで構いません。\\ 出力には、応力の計算を推奨しないという警告（ ``BEWARE: stress "
+"calculation with tetrahedra (not recommanded)`` ）が書かれますが、計算は最後まで行われます（記事の"
+" :numref:`{number}節 <sec-kp-tetra>` ）。\\ テトラヘドロン法は細かいメッシュで時間がかかり、 "
+":math:`48^3` ではMPI 4並列で約9分でした（MVスメアリングでは約2分）。"
+msgstr ""
+"The tetrahedron method works only with a regular mesh specified by "
+"``K_POINTS automatic``. Quloud writes the mesh from \"k-grid (a-, b-, "
+"c-axis)\" in this format, so you can leave it as is. \\ The output "
+"includes a warning advising against stress calculations (``BEWARE: stress"
+" calculation with tetrahedra (not recommanded)``), but the calculation "
+"runs to completion (see :numref:`Section {number} <sec-kp-tetra>` of the "
+"article). \\ The tetrahedron method takes longer on fine meshes. At "
+":math:`48^3`, it took about 9 minutes with 4 MPI processes (about 2 "
+"minutes with MV smearing)."
+
+#: ../../kpoints/reproduction.rst:229
+msgid "4. 出力のダウンロードと解析"
+msgstr "4. Downloading and Analyzing the Output"
+
+#: ../../kpoints/reproduction.rst:231
+msgid ""
+"各Jobの詳細画面の「ファイル」で「出力ファイル」に切り替え、「一括ダウンロード」でZIPを取得します。\\ "
+"ダウンロードしたZIPを1つのフォルダ（例えば ``downloads`` ）に集め、そのフォルダを指定して解析スクリプトを実行します。"
+msgstr ""
+"On each Job details page, open the \"Files\" tab, switch to \"Output "
+"Files\", and use \"Batch Download\" to get the ZIP archive. \\ Put the "
+"downloaded archives in one folder, such as ``downloads``, and run the "
+"analysis script with that folder as its argument."
+
+#: ../../kpoints/reproduction.rst:234
+msgid "python analyze_kpoints.py downloads"
+msgstr "python analyze_kpoints.py downloads"
+
+#: ../../kpoints/reproduction.rst:238
+msgid ""
+"スクリプトは、フォルダの中のZIPを1つずつ開き、pw.xの出力（ ``Program PWSCF`` "
+"を含むファイル）と、同じフォルダにある入力のコピー（ ``K_POINTS`` を含むファイル）から、次の内容を読み取ってJobを判定します。"
+msgstr ""
+"The script opens the ZIP archives in the folder one by one. To identify "
+"each Job, it reads the information below from the pw.x output (the file "
+"containing ``Program PWSCF``) and the copy of its input in the same "
+"folder (the file containing ``K_POINTS``)."
+
+#: ../../kpoints/reproduction.rst:240
+msgid "元素と原子数、格子定数（出力の ``lattice parameter (alat)`` 。 ``ibrav = 2`` の場合は立方晶の格子定数）"
+msgstr ""
+"Elements, number of atoms, and lattice constant (``lattice parameter "
+"(alat)`` in the output. With ``ibrav = 2``, this is the cubic lattice "
+"constant)."
+
+#: ../../kpoints/reproduction.rst:241
+msgid "k点メッシュ :math:`n` （入力の ``K_POINTS automatic`` の行）"
+msgstr "k-point mesh :math:`n` (the ``K_POINTS automatic`` line in the input)"
+
+#: ../../kpoints/reproduction.rst:242
+msgid "占有数（出力にテトラヘドロン法を使った旨が書かれていればその種類、スメアリングの幅が書かれていればその幅、どちらもなければ固定占有）"
+msgstr ""
+"Occupation numbers (the type of tetrahedron method if the output reports "
+"one, the smearing width if reported, or fixed occupations if it reports "
+"neither)"
+
+#: ../../kpoints/reproduction.rst:244
+msgid ""
+"ZIPの名前やファイル名は判定に使わないので、ダウンロードしたままの名前で構いません。\\ 展開したフォルダを指定することもできます。\\ "
+"同じ条件のJobが複数あるときは、最初の1つだけを使います。\\ "
+"判定の結果を最初に表示し、続いて記事中の数値（表と、許容誤差に収まるメッシュ）を表示して、図を ``figures`` フォルダに書き出します（ "
+"``--figures`` で変更できます）。\\ 一部の計算だけを行った場合は、そのJobから求められる数値と図だけを出力します。\\ "
+"参照値には、そのJobの系列で最も細かいメッシュの値を使うので、記事より粗いメッシュまでしか計算していない場合は、数値が記事と変わります。"
+msgstr ""
+"The script does not use the ZIP archive or file names to identify Jobs, "
+"so you can keep the downloaded names. \\ You can also pass an extracted "
+"folder. \\ If several Jobs share the same conditions, the script uses "
+"only the first. \\ It first lists the Jobs it identified, then prints the"
+" article's numbers (the tables and the meshes that meet the tolerance), "
+"and writes the figures to the ``figures`` folder (which you can change "
+"with ``--figures``). \\ If you ran only some of the calculations, the "
+"script outputs only the numbers and figures it can obtain from those "
+"Jobs. \\ It takes each reference value from the finest mesh in that "
+"series. If your finest mesh is coarser than the one in the article, the "
+"numbers will differ."
+
+#: ../../kpoints/reproduction.rst:251
+msgid "記事の数値と図は、上の「記事の計算の出力」のZIPを1つのフォルダに集めて、同じように実行すると得られます。"
+msgstr ""
+"You can reproduce the article's numbers and figures by putting the ZIP "
+"archives from “Output from the Calculations in This Article” above in a "
+"single folder and running the script the same way."
+
+#: ../../kpoints/reproduction.rst:253
+msgid "python analyze_kpoints.py data"
+msgstr "python analyze_kpoints.py data"
+
+#: ../../kpoints/reproduction.rst:257
+msgid ""
+"Jobの数を減らして試す場合は、例えばCu 3.64 Å（ :math:`n` = 8、12、16、24）とSi 5.47 Å（ "
+":math:`n` = "
+"4、6、8）をQuloudで計算し、配布した出力の同じ条件の値と全エネルギー・圧力が一致することを確かめてから、残りは配布した出力で解析する、という進め方ができます。"
+msgstr ""
+"If you want to run fewer Jobs, you can, for example, compute Cu at 3.64 Å"
+" (:math:`n` = 8, 12, 16, and 24) and Si at 5.47 Å (:math:`n` = 4, 6, and "
+"8) in Quloud, check that the total energies and pressures agree with the "
+"supplied outputs for the same conditions, and then use the supplied "
+"outputs to analyze the remaining cases."
+
+#: ../../kpoints/reproduction.rst:260
+msgid "計算と数値を扱う上での注意"
+msgstr "Notes on Calculations and Numerical Results"
+
+#: ../../kpoints/reproduction.rst:262
+msgid ""
+"**SCFの収束閾値と圧力。** Cu 3.64 Å・ :math:`12^3` で、SCF 収束閾値を1e-9 "
+"Ryにすると、圧力は計算の設定（対称性の使い方、電荷密度の混合の割合）によって −11.27〜−12.35 kbarとばらつきました。1e-12 "
+"Ryでは、どの設定でも −12.05±0.02 kbarにそろいました。全エネルギーは1e-9 "
+"Ryでも8桁まで一致します。圧力を比べる計算では、閾値を厳しくしてください。"
+msgstr ""
+"**SCF convergence threshold and pressure.** For Cu at 3.64 Å and "
+":math:`12^3`, a threshold of 1e-9 Ry gave pressures from −11.27 to −12.35"
+" kbar depending on the calculation settings (use of symmetry and charge-"
+"density mixing fraction). At 1e-12 Ry, all settings gave pressures of "
+"−12.05 ± 0.02 kbar. The total energies agreed to 8 digits even at 1e-9 "
+"Ry. Use a tighter threshold when comparing pressures."
+
+#: ../../kpoints/reproduction.rst:263
+#, python-brace-format
+msgid ""
+"**対称性と既約k点。** 記事の計算では、すべてのJobでQEが48個の対称操作を見つけました（出力の ``48 Sym. Ops.`` "
+"）。QuloudのVer.7.0.2より前のバージョンでは、fccの原始胞を ``ibrav = 5`` "
+"（菱面体晶）として書くため、QEは12個の対称操作しか使わず、既約k点が多くなります（Cu :math:`12^3` "
+"で189点。Ver.7.0.2以降は72点）。全エネルギーは :math:`10^{-8}` Ryの桁まで同じです。解析スクリプトは "
+"``ibrav = 2`` の出力だけを読みます。"
+msgstr ""
+"**Symmetry and irreducible k-points.** QE found 48 symmetry operations in"
+" every Job in this article (``48 Sym. Ops.`` in the output). Quloud "
+"versions earlier than Ver. 7.0.2 wrote the fcc primitive cell as ``ibrav "
+"= 5`` (rhombohedral), so QE used only 12 symmetry operations and the mesh"
+" had more irreducible k-points (189 for Cu at :math:`12^3`, compared with"
+" 72 in Ver. 7.0.2 and later). The total energies agree to :math:`10^{-8}`"
+" Ry. The analysis script reads only output for ``ibrav = 2``."
+
+#: ../../kpoints/reproduction.rst:264
+msgid ""
+"**参照値。** 全エネルギーの収束は、最も細かいメッシュ（Cu :math:`48^3` 、Si :math:`16^3` "
+"）の値との差で評価しています。参照値自体の誤差は、Cuの :math:`40^3` と :math:`48^3` の差（0.003 "
+"meV/atom、0.01 kbar）、Siの :math:`12^3` と :math:`16^3` の差（0.07 "
+"meV/atom）程度です。スメアリング幅0.005 Ryの計算は、 :math:`48^3` でもまだ0.08 meV/atom、0.2 "
+"kbar程度動いています。"
+msgstr ""
+"**Reference values.** We assess total energy convergence by comparing "
+"with the value on the finest mesh (:math:`48^3` for Cu and :math:`16^3` "
+"for Si). The errors in the reference values themselves are on the order "
+"of the differences between :math:`40^3` and :math:`48^3` for Cu (0.003 "
+"meV/atom and 0.01 kbar) and between :math:`12^3` and :math:`16^3` for Si "
+"(0.07 meV/atom). At a smearing width of 0.005 Ry, the results still "
+"change by about 0.08 meV/atom and 0.2 kbar even at :math:`48^3`."
+
+#: ../../kpoints/reproduction.rst:265
+msgid ""
+"**計算時間。** 記事の時間は、WSL2のMPI 4並列で、QEの出力の最後の ``PWSCF`` "
+"の行の経過時間（WALL）です。Quloudで実行すると、選んだインスタンスによって変わります。"
+msgstr ""
+"**Computation time.** The times in the article are the elapsed times "
+"(WALL) on the final ``PWSCF`` line of the QE output, measured on WSL2 "
+"with 4 MPI processes. When you run the calculations in Quloud, the time "
+"depends on the instance you select."
+

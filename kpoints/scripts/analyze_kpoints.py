@@ -1,7 +1,8 @@
 """Analyze the k-point convergence example from Quantum ESPRESSO jobs downloaded from Quloud.
 
-Pass the ZIP files downloaded from the job pages of Quloud ("一括ダウンロード" of
-the output files), folders holding them, or their extracted contents. A job is
+Pass the ZIP files downloaded from the job pages of Quloud ("Batch Download" of
+the output files; "一括ダウンロード" in the Japanese interface), folders holding
+them, or their extracted contents. A job is
 an output of pw.x (a file holding "Program PWSCF") with the copy of its input
 in the same folder (a file holding "K_POINTS"). The file names do not matter;
 each job is recognized from its contents:

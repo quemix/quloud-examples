@@ -1,0 +1,1607 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 15:56+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../kpoints/kpoint_convergence.rst:3
+msgid "k点はいくつ必要か：金属Cuと半導体Siの収束"
+msgstr ""
+"How Many k-Points Are Needed? Convergence for Metallic Cu and "
+"Semiconducting Si"
+
+#: ../../kpoints/kpoint_convergence.rst:5
+msgid ""
+"周期結晶の電子状態計算では、入力に「k点メッシュ」を指定します。\\ "
+"粗いメッシュでも計算結果は得られますが、定性的に誤った結果になることがあります。\\ "
+"収束した結果を得るにはk点を十分に増やす必要がありますが、メッシュを細かくするほど計算時間は長くなります。\\ "
+"このページでは、k点の意味を説明し、計算事例を通じて必要なk点数の目安を示します。"
+msgstr ""
+"Electronic structure calculations for periodic crystals require a k-point"
+" mesh as input. \\ Even a coarse mesh yields a result, but the result can"
+" be qualitatively wrong. \\ A converged result requires sufficiently many"
+" k-points, but a finer mesh takes longer to compute. \\ This page "
+"explains what k-points are and uses this calculation example to show "
+"roughly how many are needed."
+
+#: ../../kpoints/kpoint_convergence.rst:23
+msgid "k点メッシュ"
+msgstr "k-Point Mesh"
+
+#: ../../kpoints/kpoint_convergence.rst:25
+#, python-brace-format
+msgid ""
+"結晶の全エネルギーや電子密度を求めるには、各バンド・各波数 :math:`\\boldsymbol{k}` "
+"の状態からの寄与を占有数で重み付けて、ブリルアンゾーン（BZ）全体にわたって積分する必要があります。\\ "
+"実際の計算では、この積分を、BZを規則正しく覆う有限個のk点、つまり **k点メッシュ** での値の平均で近似します。"
+msgstr ""
+"To obtain the total energy or electron density of a crystal, we weight "
+"the contribution from each band at each wave vector "
+":math:`\\boldsymbol{k}` by its occupation number and integrate over the "
+"Brillouin zone (BZ). \\ In practice, we approximate this integral by "
+"averaging the values at a finite set of k-points that regularly sample "
+"the BZ. This set is the **k-point mesh**."
+
+#: ../../kpoints/kpoint_convergence.rst:28
+msgid ""
+"\\frac{1}{\\Omega_\\mathrm{BZ}}\\int_\\mathrm{BZ} "
+"A(\\boldsymbol{k})\\,\\mathrm{d}\\boldsymbol{k}\n"
+"\\;\\approx\\;\n"
+"\\frac{1}{n^3}\\sum_{\\boldsymbol{k}\\in\\text{メッシュ}} A(\\boldsymbol{k})\n"
+"\\;=\\;\n"
+"\\sum_{i} w_i\\,A(\\boldsymbol{k}_i)"
+msgstr ""
+"\\frac{1}{\\Omega_\\mathrm{BZ}}\\int_\\mathrm{BZ} "
+"A(\\boldsymbol{k})\\,\\mathrm{d}\\boldsymbol{k}\n"
+"\\;\\approx\\;\n"
+"\\frac{1}{n^3}\\sum_{\\boldsymbol{k}\\in\\text{mesh}} A(\\boldsymbol{k})\n"
+"\\;=\\;\n"
+"\\sum_{i} w_i\\,A(\\boldsymbol{k}_i)"
+
+#: ../../kpoints/kpoint_convergence.rst:37
+#, python-brace-format
+msgid ""
+":math:`\\Omega_\\mathrm{BZ}` はBZの体積、 :math:`n` はBZを各方向に等分する数です。\\ 今回は、 "
+":math:`\\Gamma` 点を含む（オフセットなしの） :math:`n\\times n\\times n` メッシュを使います。\\ "
+"最後の形は、対称性で等価な点をまとめた既約k点 :math:`\\boldsymbol{k}_i` と重み :math:`w_i` による和です（"
+" :numref:`{number}節 <sec-kp-irreducible>` ）。"
+msgstr ""
+":math:`\\Omega_\\mathrm{BZ}` is the volume of the BZ, and :math:`n` is "
+"the number of equal divisions along each direction. \\ Here we use a "
+":math:`\\Gamma`-centered (unshifted) :math:`n\\times n\\times n` mesh. \\"
+" The final expression is a sum over irreducible k-points "
+":math:`\\boldsymbol{k}_i`, one from each group of symmetry-equivalent "
+"points, with weights :math:`w_i` (:numref:`Section {number} <sec-kp-"
+"irreducible>`)."
+
+#: ../../kpoints/kpoint_convergence.rst:41
+#, python-brace-format
+msgid ""
+"和で積分を近似する精度は、被積分関数 :math:`A(\\boldsymbol{k})` がどれだけ滑らかかで決まります。\\ "
+"半導体・絶縁体では、占有バンドがBZ全体で占有されたままなので被積分関数は滑らかで、和は :math:`n` "
+"とともに指数関数的に速く収束するはずです。\\ "
+"金属では、フェルミ面を境に占有数が1から0へ飛ぶため、被積分関数に段差があり、収束は遅く、誤差は符号を変えながら減ると予想されます。\\ "
+"この段差を扱うために、占有数をなめらかにする **スメアリング** や、段差を含んだまま積分を近似する **テトラヘドロン法** が使われます。"
+msgstr ""
+"The accuracy of the sum as an approximation to the integral depends on "
+"how smooth the integrand :math:`A(\\boldsymbol{k})` is. \\ In "
+"semiconductors and insulators, occupied bands remain occupied throughout "
+"the BZ, so the integrand is smooth and the sum should converge "
+"exponentially fast as :math:`n` increases. \\ In metals, the occupation "
+"number jumps from 1 to 0 across the Fermi surface, creating a "
+"discontinuity in the integrand. Convergence is therefore expected to be "
+"slow, with the error changing sign as its magnitude decreases. \\ Two "
+"ways to handle the discontinuity are **smearing**, which smooths the "
+"occupation numbers, and the **tetrahedron method**, which approximates "
+"the integral with the discontinuity still present."
+
+#: ../../kpoints/kpoint_convergence.rst:46
+msgid ""
+"許されるk点が結晶の周期性からどう決まるかは技術ノートの\\ `ブロッホの定理と周期境界条件 <https://technical-"
+"notes.quemix.com/solid/blochstheorem.html#pbc-wavevector-count>`__\\ "
+"に、等間隔の点の和の誤差が何で決まるかは\\ `k点メッシュと積分誤差 <https://technical-"
+"notes.quemix.com/solid/kpoint_sampling.html>`__\\ "
+"に、スメアリングとテトラヘドロン法の考え方は\\ `金属のブリルアンゾーン積分 <https://technical-"
+"notes.quemix.com/solid/metal_bz_integration.html>`__\\ にまとめました。\\ "
+"このページでは、これらの予想を、CuとSiの実際の計算で確かめます。"
+msgstr ""
+"In the Technical Notes, the section on \\ `Bloch’s theorem and periodic "
+"boundary conditions <https://technical-"
+"notes.quemix.com/solid/blochstheorem.html#pbc-wavevector-count>`__ \\ "
+"explains how crystal periodicity determines the allowed k-points. The "
+"note on \\ `k-point meshes and integration error <https://technical-"
+"notes.quemix.com/solid/kpoint_sampling.html>`__ \\ explains what governs "
+"the error in a sum over equally spaced points. The note on \\ `Brillouin "
+"zone integration for metals <https://technical-"
+"notes.quemix.com/solid/metal_bz_integration.html>`__ \\ explains the "
+"ideas behind smearing and the tetrahedron method. \\ On this page we test"
+" these predictions using calculations for Cu and Si."
+
+#: ../../kpoints/kpoint_convergence.rst:50
+msgid "計算対象と計算条件"
+msgstr "Systems and Calculation Conditions"
+
+#: ../../kpoints/kpoint_convergence.rst:52
+#, python-brace-format
+msgid ""
+"計算するのは、面心立方（fcc）構造のCuと、ダイヤモンド構造のSiです。\\ どちらも原始胞（Cuは1原子、Siは2原子）を使います。\\ "
+"原始胞は、3辺の長さが立方晶の格子定数 :math:`a` の :math:`1/\\sqrt{2}` "
+"で、辺のなす角がすべて60°のセルです。\\ 以下では、格子の大きさを立方晶の格子定数 :math:`a` で表します。"
+msgstr ""
+"We studied Cu in the face-centered cubic (fcc) structure and Si in the "
+"diamond structure. \\ We used primitive cells for both (1 atom for Cu and"
+" 2 atoms for Si). \\ In each primitive cell, all three edges have a "
+"length equal to the cubic lattice constant :math:`a` multiplied by "
+":math:`1/\\sqrt{2}`. All angles between the edges are 60°. \\ Below, we "
+"express the size of the lattice in terms of the cubic lattice constant "
+":math:`a`."
+
+#: ../../kpoints/kpoint_convergence.rst:57
+msgid ""
+"格子定数は、Cuが3.60、3.64、3.68 Å、Siが5.42、5.47、5.52 Åの3通りです。\\ "
+"いずれもPBE汎関数で求まる格子定数の付近の値で、格子定数を変えたときのエネルギー差と圧力も調べるために3通り用意しました。\\ "
+"k点メッシュは、BZを各方向に :math:`n` 等分した :math:`n\\times n\\times n` のメッシュで、 "
+":math:`n` を変えて計算します。\\ 計算は平面波基底の第一原理計算コードQuantum ESPRESSO（QE） [1]_ [2]_ "
+"で行い、条件を :numref:`tab-kp-conditions` にまとめました。"
+msgstr ""
+"We used three lattice constants for each material: 3.60, 3.64, and 3.68 Å"
+" for Cu and 5.42, 5.47, and 5.52 Å for Si. \\ These values are close to "
+"the lattice constants obtained with the PBE functional. We used three "
+"values to examine the energy differences and pressures as the lattice "
+"constant changes. \\ We divided the BZ into :math:`n` equal parts along "
+"each direction to form an :math:`n\\times n\\times n` k-point mesh and "
+"varied :math:`n` across the calculations. \\ We ran the calculations with"
+" Quantum ESPRESSO (QE) [1]_ [2]_, a first-principles code that uses a "
+"plane-wave basis. :numref:`tab-kp-conditions` lists the calculation "
+"conditions."
+
+#: ../../kpoints/kpoint_convergence.rst:62
+msgid "計算条件"
+msgstr "Calculation conditions"
+
+#: ../../kpoints/kpoint_convergence.rst:67
+msgid "項目"
+msgstr "Parameter"
+
+#: ../../kpoints/kpoint_convergence.rst:68
+msgid "Cu"
+msgstr "Cu"
+
+#: ../../kpoints/kpoint_convergence.rst:69
+#: ../../kpoints/kpoint_convergence.rst:455
+msgid "Si"
+msgstr "Si"
+
+#: ../../kpoints/kpoint_convergence.rst:70
+msgid "計算コード"
+msgstr "Calculation code"
+
+#: ../../kpoints/kpoint_convergence.rst:71
+msgid "Quantum ESPRESSO 7.5 [1]_ [2]_"
+msgstr "Quantum ESPRESSO 7.5 [1]_ [2]_"
+
+#: ../../kpoints/kpoint_convergence.rst:72
+#: ../../kpoints/kpoint_convergence.rst:75
+#: ../../kpoints/kpoint_convergence.rst:78
+#: ../../kpoints/kpoint_convergence.rst:87
+#: ../../kpoints/kpoint_convergence.rst:96
+msgid "同左"
+msgstr "Same as Cu"
+
+#: ../../kpoints/kpoint_convergence.rst:73
+msgid "交換相関汎関数"
+msgstr "Exchange-correlation functional"
+
+#: ../../kpoints/kpoint_convergence.rst:74
+msgid "PBE [3]_"
+msgstr "PBE [3]_"
+
+#: ../../kpoints/kpoint_convergence.rst:76
+msgid "擬ポテンシャル"
+msgstr "Pseudopotentials"
+
+#: ../../kpoints/kpoint_convergence.rst:77
+msgid "PAW（pslibrary 1.0.0 [4]_ ）"
+msgstr "PAW (pslibrary 1.0.0 [4]_)"
+
+#: ../../kpoints/kpoint_convergence.rst:79
+msgid "セル"
+msgstr "Cell"
+
+#: ../../kpoints/kpoint_convergence.rst:80
+msgid "fcc、原始胞1原子"
+msgstr "fcc primitive cell, 1 atom"
+
+#: ../../kpoints/kpoint_convergence.rst:81
+msgid "ダイヤモンド構造、原始胞2原子"
+msgstr "Diamond primitive cell, 2 atoms"
+
+#: ../../kpoints/kpoint_convergence.rst:82
+msgid "格子定数 :math:`a`"
+msgstr "Lattice constant :math:`a`"
+
+#: ../../kpoints/kpoint_convergence.rst:83
+msgid "3.60、3.64、3.68 Å"
+msgstr "3.60, 3.64, 3.68 Å"
+
+#: ../../kpoints/kpoint_convergence.rst:84
+msgid "5.42、5.47、5.52 Å"
+msgstr "5.42, 5.47, 5.52 Å"
+
+#: ../../kpoints/kpoint_convergence.rst:85
+msgid "カットオフエネルギー"
+msgstr "Cutoff energy"
+
+#: ../../kpoints/kpoint_convergence.rst:86
+msgid "波動関数 60 Ry、電荷密度 600 Ry"
+msgstr "Wave functions 60 Ry, charge density 600 Ry"
+
+#: ../../kpoints/kpoint_convergence.rst:88
+msgid "k点メッシュ :math:`n`"
+msgstr "k-point mesh :math:`n`"
+
+#: ../../kpoints/kpoint_convergence.rst:89
+msgid "4〜32（3.64 Åでは48まで）"
+msgstr "4 to 32 (up to 48 at 3.64 Å)"
+
+#: ../../kpoints/kpoint_convergence.rst:90
+msgid "2〜16"
+msgstr "2 to 16"
+
+#: ../../kpoints/kpoint_convergence.rst:91
+msgid "占有数"
+msgstr "Occupation numbers"
+
+#: ../../kpoints/kpoint_convergence.rst:92
+msgid "MVスメアリング [5]_ 、幅0.02 Ry"
+msgstr "MV smearing [5]_, width 0.02 Ry"
+
+#: ../../kpoints/kpoint_convergence.rst:93
+msgid "固定"
+msgstr "Fixed"
+
+#: ../../kpoints/kpoint_convergence.rst:94
+msgid "SCF収束閾値"
+msgstr "SCF convergence threshold"
+
+#: ../../kpoints/kpoint_convergence.rst:95
+#, python-brace-format
+msgid ":math:`10^{-12}` Ry"
+msgstr ":math:`10^{-12}` Ry"
+
+#: ../../kpoints/kpoint_convergence.rst:98
+#, python-brace-format
+msgid ""
+"擬ポテンシャルのファイルは、Cuが ``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF`` 、Siが "
+"``Si.pbe-n-kjpaw_psl.1.0.0.UPF`` です。\\ "
+"MVはMarzari–Vanderbiltの略で、スメアリングについては :numref:`{number}節 <sec-kp-"
+"smearing>` で説明します。\\ Cuの3.64 Åでは、スメアリング幅を0.005、0.01、0.04 Ryに変えた計算も行います。\\"
+" Cuでは、スメアリングのかわりにテトラヘドロン法を使った計算も行い、 :numref:`{number}節 <sec-kp-tetra>` "
+"で比べます。\\ SCFの収束閾値を :math:`10^{-12}` Ryと厳しくしているのは、圧力を比べるためです。\\ "
+"圧力（応力）は全エネルギーより収束が遅く、 :math:`10^{-9}` Ryでは、Cuの圧力が計算の設定により約1 kbarばらつきました（ "
+":doc:`reproduction` の「計算と数値を扱う上での注意」）。\\ "
+"以下では、エネルギーは1原子あたりの値をmeVで、圧力はQEの出力どおりkbar（10 kbar = 1 GPa）で示します。"
+msgstr ""
+"The pseudopotential files are ``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF`` for Cu "
+"and ``Si.pbe-n-kjpaw_psl.1.0.0.UPF`` for Si. \\ MV stands for "
+"Marzari–Vanderbilt. We explain smearing in :numref:`Section {number} "
+"<sec-kp-smearing>`. \\ For Cu at 3.64 Å, we also ran calculations with "
+"smearing widths of 0.005, 0.01, and 0.04 Ry. \\ For Cu we also ran "
+"calculations with the tetrahedron method in place of smearing and compare"
+" the results in :numref:`Section {number} <sec-kp-tetra>`. \\ We set a "
+"tight SCF convergence threshold of :math:`10^{-12}` Ry so we could "
+"compare pressures. \\ Pressure (stress) converges more slowly than total "
+"energy. At :math:`10^{-9}` Ry, the Cu pressure varied by about 1 kbar "
+"depending on the calculation settings (see “Notes on Calculations and "
+"Numerical Results” in :doc:`reproduction`). \\ Below, we give energies in"
+" meV per atom. For pressure, we use kbar (10 kbar = 1 GPa), following the"
+" QE output."
+
+#: ../../kpoints/kpoint_convergence.rst:109
+#: ../../kpoints/kpoint_convergence.rst:173
+msgid "既約k点"
+msgstr "Irreducible k-Points"
+
+#: ../../kpoints/kpoint_convergence.rst:111
+msgid ""
+"結晶に対称性があると、全エネルギーのようなスカラー量の被積分関数は、対称操作で互いに移り合うk点で等しくなります。\\ "
+"そこで、メッシュの点を対称操作で移り合う組に分け、各組から1点（既約k点）だけを計算して、組の点の数に比例する重み :math:`w_i` "
+"をかけて足します（式 :eq:`kp-bz-average` の最後の形）。\\ "
+"fccのCuとダイヤモンド構造のSiは、どちらも48個の対称操作を持つ立方晶の点群に属します。\\ :numref:`tab-kp-"
+"irreducible-4` は、Cuの :math:`4\\times4\\times4` "
+"メッシュ（64点）を、QEが8個の既約k点にまとめた結果です。"
+msgstr ""
+"If the crystal has symmetry, the integrand of a scalar quantity such as "
+"the total energy is identical at k-points related by symmetry operations."
+" \\ We therefore group the mesh points by symmetry, calculate only one "
+"point (an irreducible k-point) from each group, and sum the contributions"
+" with weights :math:`w_i` proportional to the number of points in the "
+"group (the final expression in Equation :eq:`kp-bz-average`). \\ Both fcc"
+" Cu and diamond-structure Si belong to a cubic point group with 48 "
+"symmetry operations. \\ :numref:`tab-kp-irreducible-4` shows how QE "
+"reduced the :math:`4\\times4\\times4` mesh for Cu (64 points) to 8 "
+"irreducible k-points."
+
+#: ../../kpoints/kpoint_convergence.rst:116
+msgid "Cuの :math:`4\\times4\\times4` メッシュの既約k点（QEの出力から）"
+msgstr ""
+"Irreducible k-points of the :math:`4\\times4\\times4` mesh for Cu (from "
+"the QE output)"
+
+#: ../../kpoints/kpoint_convergence.rst:121
+msgid "k点（ :math:`2\\pi/a` 単位）"
+msgstr "k-point (in units of :math:`2\\pi/a`)"
+
+#: ../../kpoints/kpoint_convergence.rst:122
+msgid "位置"
+msgstr "Location"
+
+#: ../../kpoints/kpoint_convergence.rst:123
+msgid "同等な点の数"
+msgstr "Number of equivalent points"
+
+#: ../../kpoints/kpoint_convergence.rst:124
+msgid "重み :math:`w_i`"
+msgstr "Weight :math:`w_i`"
+
+#: ../../kpoints/kpoint_convergence.rst:125
+msgid "(0, 0, 0)"
+msgstr "(0, 0, 0)"
+
+#: ../../kpoints/kpoint_convergence.rst:126
+msgid ":math:`\\Gamma`"
+msgstr ":math:`\\Gamma`"
+
+#: ../../kpoints/kpoint_convergence.rst:127
+msgid "1"
+msgstr "1"
+
+#: ../../kpoints/kpoint_convergence.rst:128
+msgid "0.0156"
+msgstr "0.0156"
+
+#: ../../kpoints/kpoint_convergence.rst:129
+msgid "(−1/4, 1/4, −1/4)"
+msgstr "(−1/4, 1/4, −1/4)"
+
+#: ../../kpoints/kpoint_convergence.rst:130
+msgid ":math:`\\Gamma`–L上"
+msgstr "On :math:`\\Gamma`–L"
+
+#: ../../kpoints/kpoint_convergence.rst:131
+#: ../../kpoints/kpoint_convergence.rst:177
+#: ../../kpoints/kpoint_convergence.rst:183
+#: ../../kpoints/kpoint_convergence.rst:186
+#: ../../kpoints/kpoint_convergence.rst:423
+#: ../../kpoints/kpoint_convergence.rst:467
+#: ../../kpoints/kpoint_convergence.rst:471
+#: ../../kpoints/kpoint_convergence.rst:475
+msgid "8"
+msgstr "8"
+
+#: ../../kpoints/kpoint_convergence.rst:132
+msgid "0.1250"
+msgstr "0.1250"
+
+#: ../../kpoints/kpoint_convergence.rst:133
+msgid "(1/2, −1/2, 1/2)"
+msgstr "(1/2, −1/2, 1/2)"
+
+#: ../../kpoints/kpoint_convergence.rst:134
+msgid "L"
+msgstr "L"
+
+#: ../../kpoints/kpoint_convergence.rst:135
+#: ../../kpoints/kpoint_convergence.rst:181
+msgid "4"
+msgstr "4"
+
+#: ../../kpoints/kpoint_convergence.rst:136
+msgid "0.0625"
+msgstr "0.0625"
+
+#: ../../kpoints/kpoint_convergence.rst:137
+msgid "(0, 1/2, 0)"
+msgstr "(0, 1/2, 0)"
+
+#: ../../kpoints/kpoint_convergence.rst:138
+msgid ":math:`\\Gamma`–X上"
+msgstr "On :math:`\\Gamma`–X"
+
+#: ../../kpoints/kpoint_convergence.rst:139
+#: ../../kpoints/kpoint_convergence.rst:155
+msgid "6"
+msgstr "6"
+
+#: ../../kpoints/kpoint_convergence.rst:140
+#: ../../kpoints/kpoint_convergence.rst:156
+msgid "0.0938"
+msgstr "0.0938"
+
+#: ../../kpoints/kpoint_convergence.rst:141
+msgid "(3/4, −1/4, 3/4)"
+msgstr "(3/4, −1/4, 3/4)"
+
+#: ../../kpoints/kpoint_convergence.rst:142
+#: ../../kpoints/kpoint_convergence.rst:179
+#: ../../kpoints/kpoint_convergence.rst:205
+#: ../../kpoints/kpoint_convergence.rst:210
+#: ../../kpoints/kpoint_convergence.rst:215
+msgid "—"
+msgstr "—"
+
+#: ../../kpoints/kpoint_convergence.rst:143
+#: ../../kpoints/kpoint_convergence.rst:201
+#: ../../kpoints/kpoint_convergence.rst:413
+#: ../../kpoints/kpoint_convergence.rst:414
+#: ../../kpoints/kpoint_convergence.rst:474
+msgid "24"
+msgstr "24"
+
+#: ../../kpoints/kpoint_convergence.rst:144
+msgid "0.3750"
+msgstr "0.3750"
+
+#: ../../kpoints/kpoint_convergence.rst:145
+msgid "(1/2, 0, 1/2)"
+msgstr "(1/2, 0, 1/2)"
+
+#: ../../kpoints/kpoint_convergence.rst:146
+msgid ":math:`\\Gamma`–K上"
+msgstr "On :math:`\\Gamma`–K"
+
+#: ../../kpoints/kpoint_convergence.rst:147
+#: ../../kpoints/kpoint_convergence.rst:191
+#: ../../kpoints/kpoint_convergence.rst:418
+#: ../../kpoints/kpoint_convergence.rst:463
+msgid "12"
+msgstr "12"
+
+#: ../../kpoints/kpoint_convergence.rst:148
+msgid "0.1875"
+msgstr "0.1875"
+
+#: ../../kpoints/kpoint_convergence.rst:149
+msgid "(0, −1, 0)"
+msgstr "(0, −1, 0)"
+
+#: ../../kpoints/kpoint_convergence.rst:150
+msgid "X"
+msgstr "X"
+
+#: ../../kpoints/kpoint_convergence.rst:151
+#: ../../kpoints/kpoint_convergence.rst:178
+msgid "3"
+msgstr "3"
+
+#: ../../kpoints/kpoint_convergence.rst:152
+msgid "0.0469"
+msgstr "0.0469"
+
+#: ../../kpoints/kpoint_convergence.rst:153
+msgid "(−1/2, −1, 0)"
+msgstr "(−1/2, −1, 0)"
+
+#: ../../kpoints/kpoint_convergence.rst:154
+msgid "W"
+msgstr "W"
+
+#: ../../kpoints/kpoint_convergence.rst:158
+msgid ""
+"重みは、同等な点の数を全点数64で割ったものです（QEの出力の ``wk`` "
+"は、スピンの縮退を含めて合計が2になるように書かれているので、表では2で割っています）。\\ "
+"L点が4点、X点が3点と少なく見えるのは、BZの境界の点は逆格子ベクトルだけずれた点と同じ点なので、メッシュの中では重複して数えないためです。"
+msgstr ""
+"Each weight is the number of equivalent points divided by the total of "
+"64. (The values of ``wk`` in the QE output sum to 2 to account for spin "
+"degeneracy, so we divided them by 2 for this table.) \\ The counts of 4 "
+"for L and 3 for X may seem small. Points on the BZ boundary that differ "
+"by a reciprocal lattice vector are equivalent, so the mesh counts them "
+"only once."
+
+#: ../../kpoints/kpoint_convergence.rst:161
+msgid ""
+"メッシュを細かくしたときの既約k点の数と計算時間を :numref:`tab-kp-count` に示します。\\ 既約k点の数は、 "
+":math:`16^3` ではメッシュの点の数 :math:`n^3` の約1/28、 :math:`24^3` "
+"以上では約1/30〜1/40です。\\ 調べた範囲では、メッシュを細かくするほど、削減の倍率は対称操作の数48に近づきました。\\ "
+"大きなメッシュでは、計算時間はおおむね既約k点の数に比例して増えます。"
+msgstr ""
+":numref:`tab-kp-count` shows the number of irreducible k-points and the "
+"computation time as the mesh gets finer. \\ At :math:`16^3`, the number "
+"of irreducible k-points is about 1/28 of the :math:`n^3` mesh points and "
+"about 1/30 to 1/40 at :math:`24^3` and above. \\ Over the range we "
+"tested, the reduction factor approached the number of symmetry operations"
+" (48) as the mesh got finer. \\ For large meshes, the computation time "
+"increases roughly in proportion to the number of irreducible k-points."
+
+#: ../../kpoints/kpoint_convergence.rst:166
+msgid "k点メッシュの点の数、既約k点の数、1回のSCF計算の時間"
+msgstr ""
+"Number of k-point mesh points, number of irreducible k-points, and time "
+"for one SCF calculation"
+
+#: ../../kpoints/kpoint_convergence.rst:171
+msgid ":math:`n`"
+msgstr ":math:`n`"
+
+#: ../../kpoints/kpoint_convergence.rst:172
+msgid ":math:`n^3`"
+msgstr ":math:`n^3`"
+
+#: ../../kpoints/kpoint_convergence.rst:174
+msgid "時間（Cu）"
+msgstr "Time (Cu)"
+
+#: ../../kpoints/kpoint_convergence.rst:175
+msgid "時間（Si）"
+msgstr "Time (Si)"
+
+#: ../../kpoints/kpoint_convergence.rst:176
+msgid "2"
+msgstr "2"
+
+#: ../../kpoints/kpoint_convergence.rst:180
+#: ../../kpoints/kpoint_convergence.rst:194
+msgid "5 秒"
+msgstr "5 s"
+
+#: ../../kpoints/kpoint_convergence.rst:182
+msgid "64"
+msgstr "64"
+
+#: ../../kpoints/kpoint_convergence.rst:184
+msgid "2 秒"
+msgstr "2 s"
+
+#: ../../kpoints/kpoint_convergence.rst:185
+#: ../../kpoints/kpoint_convergence.rst:190
+msgid "7 秒"
+msgstr "7 s"
+
+#: ../../kpoints/kpoint_convergence.rst:187
+msgid "512"
+msgstr "512"
+
+#: ../../kpoints/kpoint_convergence.rst:188
+msgid "29"
+msgstr "29"
+
+#: ../../kpoints/kpoint_convergence.rst:189
+msgid "3 秒"
+msgstr "3 s"
+
+#: ../../kpoints/kpoint_convergence.rst:192
+msgid "1728"
+msgstr "1728"
+
+#: ../../kpoints/kpoint_convergence.rst:193
+msgid "72"
+msgstr "72"
+
+#: ../../kpoints/kpoint_convergence.rst:195
+msgid "12 秒"
+msgstr "12 s"
+
+#: ../../kpoints/kpoint_convergence.rst:196
+#: ../../kpoints/kpoint_convergence.rst:412
+#: ../../kpoints/kpoint_convergence.rst:458
+msgid "16"
+msgstr "16"
+
+#: ../../kpoints/kpoint_convergence.rst:197
+msgid "4096"
+msgstr "4096"
+
+#: ../../kpoints/kpoint_convergence.rst:198
+msgid "145"
+msgstr "145"
+
+#: ../../kpoints/kpoint_convergence.rst:199
+msgid "8 秒"
+msgstr "8 s"
+
+#: ../../kpoints/kpoint_convergence.rst:200
+#: ../../kpoints/kpoint_convergence.rst:204
+#: ../../kpoints/kpoint_convergence.rst:415
+msgid "18 秒"
+msgstr "18 s"
+
+#: ../../kpoints/kpoint_convergence.rst:202
+msgid "13824"
+msgstr "13824"
+
+#: ../../kpoints/kpoint_convergence.rst:203
+msgid "413"
+msgstr "413"
+
+#: ../../kpoints/kpoint_convergence.rst:206
+#: ../../kpoints/kpoint_convergence.rst:462
+msgid "32"
+msgstr "32"
+
+#: ../../kpoints/kpoint_convergence.rst:207
+msgid "32768"
+msgstr "32768"
+
+#: ../../kpoints/kpoint_convergence.rst:208
+msgid "897"
+msgstr "897"
+
+#: ../../kpoints/kpoint_convergence.rst:209
+msgid "39 秒"
+msgstr "39 s"
+
+#: ../../kpoints/kpoint_convergence.rst:211
+msgid "48"
+msgstr "48"
+
+#: ../../kpoints/kpoint_convergence.rst:212
+msgid "110592"
+msgstr "110592"
+
+#: ../../kpoints/kpoint_convergence.rst:213
+msgid "2769"
+msgstr "2769"
+
+#: ../../kpoints/kpoint_convergence.rst:214
+msgid "125 秒"
+msgstr "125 s"
+
+#: ../../kpoints/kpoint_convergence.rst:217
+msgid ""
+"時間は、Cuは3.64 Å・スメアリング幅0.02 Ry、Siは5.47 Åの計算の、MPI 4並列での実行時間です（計算環境は "
+":doc:`reproduction` ）。\\ 既約k点の数はCuとSiで同じです。"
+msgstr ""
+"The times are for Cu at 3.64 Å with a smearing width of 0.02 Ry and Si at"
+" 5.47 Å, using 4 MPI processes (see :doc:`reproduction` for the computing"
+" environment). \\ Cu and Si have the same number of irreducible k-points."
+
+#: ../../kpoints/kpoint_convergence.rst:223
+msgid "全エネルギーの収束"
+msgstr "Total Energy Convergence"
+
+#: ../../kpoints/kpoint_convergence.rst:225
+#, python-brace-format
+msgid ""
+"Cu（3.64 Å、スメアリング幅0.02 Ry）とSi（5.47 Å）の全エネルギーが、メッシュを細かくするとどう変わるかを :numref"
+":`fig-kp-energy` に示します。\\ 縦軸は、最も細かいメッシュ（Cuは :math:`48^3` 、Siは "
+":math:`16^3` ）の値との差の絶対値で、対数軸です。\\ Cuの全エネルギーは、スメアリングを使った計算で最小化される自由エネルギー "
+":math:`F` （ :numref:`{number}節 <sec-kp-smearing>` で説明します）です。"
+msgstr ""
+":numref:`fig-kp-energy` shows how the total energy changes as the mesh "
+"gets finer for Cu (3.64 Å, smearing width 0.02 Ry) and Si (5.47 Å). \\ "
+"The vertical axis uses a logarithmic scale and gives the absolute "
+"difference from the finest-mesh value (:math:`48^3` for Cu and "
+":math:`16^3` for Si). \\ For Cu, the total energy plotted here is the "
+"free energy :math:`F` that the smearing calculation minimizes (explained "
+"in :numref:`Section {number} <sec-kp-smearing>`)."
+
+#: ../../kpoints/kpoint_convergence.rst:233
+#, python-brace-format
+msgid ""
+"全エネルギーの、最も細かいメッシュの値（参照値）との差 :math:`|E(n)-E(\\mathrm{ref})|` "
+"（1原子あたり）。青はCu（3.64 Å、MVスメアリング0.02 Ry、参照は :math:`48^3` ）、オレンジはSi（5.47 "
+"Å、固定占有、参照は :math:`16^3` ）。塗りつぶしの点は参照値より高い、白抜きの点は低い値です。点線は1 meV/atom。"
+msgstr ""
+"Absolute difference in total energy from the finest-mesh value (the "
+"reference value), :math:`|E(n)-E(\\mathrm{ref})|`, per atom. Blue shows "
+"Cu (3.64 Å, MV smearing at 0.02 Ry, :math:`48^3` reference), and orange "
+"shows Si (5.47 Å, fixed occupations, :math:`16^3` reference). Filled "
+"points mark values above the reference, and open points mark values below"
+" it. The dotted line marks 1 meV/atom."
+
+#: ../../kpoints/kpoint_convergence.rst:235
+msgid ""
+"Siの差は、 :math:`n` を2増やすごとにおよそ1/5〜1/8になり、片対数のグラフでほぼ直線に並びます。\\ :math:`8^3` "
+"で1.9 meV、 :math:`12^3` で0.07 meV/atomです。\\ "
+"占有されたバンドのエネルギーはkの滑らかな周期関数なので、等間隔の点での平均（式 :eq:`kp-bz-average` "
+"）が、点を増やすと指数関数的に速く正確になるためです。"
+msgstr ""
+"For Si, each increase of 2 in :math:`n` reduces the difference to about "
+"1/5 to 1/8 of its previous value, giving nearly a straight line on the "
+"semilog plot. \\ :math:`8^3` gives a difference of 1.9 meV, and "
+":math:`12^3` gives 0.07 meV/atom. \\ The energies of the occupied bands "
+"are smooth periodic functions of k, so the average over equally spaced "
+"points (Equation :eq:`kp-bz-average`) becomes more accurate at an "
+"exponential rate as the number of points increases."
+
+#: ../../kpoints/kpoint_convergence.rst:239
+msgid ""
+"Cuは、 :math:`n` が小さいうちは差が大きく、 :math:`4^3` で155 meV、 :math:`8^3` で31 "
+"meV/atomです。\\ :math:`14^3` で1.3 meV、 :math:`16^3` で0.5 "
+"meVまで減りますが、そこから先は参照値より低い側に振れ、 :math:`24^3` の差（−0.33 meV）は :math:`20^3` "
+"の差（−0.17 meV）より大きくなります。\\ k点を増やせば単調に正確になる、とは限らないのです。\\ 同じ1 "
+"meV/atomの精度を得るのに、Siは :math:`10^3` 、Cuは :math:`16^3` "
+"が必要で、既約k点の数では47点と145点です。"
+msgstr ""
+"For Cu, the difference is large at small :math:`n`, reaching 155 meV at "
+":math:`4^3` and 31 meV/atom at :math:`8^3`. \\ :math:`14^3` brings the "
+"difference down to 1.3 meV and :math:`16^3` to 0.5 meV, but on finer "
+"meshes the error changes sign and the energy drops below the reference "
+"value. The error at :math:`24^3` (−0.33 meV) is larger in magnitude than "
+"at :math:`20^3` (−0.17 meV). \\ Increasing the number of k-points does "
+"not necessarily improve accuracy monotonically. \\ To reach the same "
+"accuracy of 1 meV/atom, Si needs :math:`10^3` and Cu needs :math:`16^3`, "
+"or 47 and 145 irreducible k-points, respectively."
+
+#: ../../kpoints/kpoint_convergence.rst:244
+msgid ""
+"Quloudの「k グリッド」の既定値は4です。\\ :math:`4\\times4\\times4` では、Cuで155 meV、Siで92 "
+"meV/atomのずれがあります。\\ 既定値のまま、全エネルギーの値を議論に使うことはできません。"
+msgstr ""
+"The default \"k-grid\" value in Quloud is 4. \\ :math:`4\\times4\\times4`"
+" gives deviations of 155 meV for Cu and 92 meV/atom for Si. \\ The total "
+"energies obtained with the default grid cannot be used to draw "
+"conclusions."
+
+#: ../../kpoints/kpoint_convergence.rst:248
+#, python-brace-format
+msgid ""
+"金属では、 :numref:`{number}節 <sec-kp-mesh>` で見たように、フェルミ面付近の占有数が積分の精度に影響します。\\"
+" 今回のCuではスメアリングによって占有数の段差は滑らかになっていますが、フェルミ面付近では依然として急に変化します。\\ "
+"メッシュの点とその領域の位置関係が変わるため、誤差は正にも負にもなり、単調には減りません。"
+msgstr ""
+"In metals, occupation numbers near the Fermi surface affect the accuracy "
+"of the integral, as discussed in :numref:`Section {number} <sec-kp-"
+"mesh>`. \\ Smearing smooths the step in occupation numbers for Cu, but "
+"the occupation numbers still change sharply near the Fermi surface. \\ As"
+" the positions of the mesh points relative to that region change, the "
+"error can be positive or negative and does not decrease monotonically."
+
+#: ../../kpoints/kpoint_convergence.rst:255
+msgid "スメアリング幅"
+msgstr "Smearing Width"
+
+#: ../../kpoints/kpoint_convergence.rst:257
+#, python-brace-format
+msgid ""
+"金属の計算では、占有数の段差をならすために、占有数を幅 :math:`\\sigma` のなめらかな関数に置き換えます（スメアリング）。\\ "
+"このとき自己無撞着に最小化されるのは、全エネルギー :math:`U` から「スメアリングによるエントロピーの項」 :math:`TS` "
+"を引いた自由エネルギー :math:`F = U - TS` です。\\ スメアリングの関数の種類と :math:`F` "
+"の性質は、技術ノートの\\ `金属のブリルアンゾーン積分 <https://technical-"
+"notes.quemix.com/solid/metal_bz_integration.html#smearing>`__\\ "
+"で説明しています。\\ QEの出力では、 ``!`` で始まる行の ``total energy`` が :math:`F` 、 "
+"``smearing contrib. (-TS)`` が :math:`-TS` 、 ``internal energy E=F+TS`` が "
+":math:`U` です。\\ :math:`\\sigma \\to 0` で、 :math:`F` も :math:`U` "
+"も、スメアリングのない本来の全エネルギーに近づきます（この極限の値は、 :numref:`{number}節 <sec-kp-tetra>` "
+"でテトラヘドロン法を使って確かめます）。"
+msgstr ""
+"In calculations for metals, smearing replaces the step in occupation "
+"numbers with a smooth function of width :math:`\\sigma`. \\ The self-"
+"consistent calculation minimizes the total energy :math:`U` minus the "
+"entropy term :math:`TS` due to smearing, giving the free energy :math:`F "
+"= U - TS`. \\ The types of smearing functions and the properties of "
+":math:`F` are discussed in \\ `Brillouin zone integration for metals "
+"<https://technical-"
+"notes.quemix.com/solid/metal_bz_integration.html#smearing>`__ \\ in the "
+"Technical Notes. \\ In the QE output, the line beginning with ``!`` shows"
+" ``total energy``, which is :math:`F`. The line labeled ``smearing "
+"contrib. (-TS)`` gives :math:`-TS`, and the line labeled ``internal "
+"energy E=F+TS`` gives :math:`U`. \\ :math:`\\sigma \\to 0` is the limit "
+"in which both :math:`F` and :math:`U` approach the underlying total "
+"energy without smearing. We use the tetrahedron method to check this "
+"limit in :numref:`Section {number} <sec-kp-tetra>`."
+
+#: ../../kpoints/kpoint_convergence.rst:263
+msgid ""
+"幅を広げるほど段差がなめらかになり、少ないk点で収束するはずですが、そのかわり :math:`\\sigma \\to 0` "
+"の値からずれます。\\ 今回使ったMarzari–Vanderbilt（MV）スメアリング [5]_ は、 :math:`F` の "
+":math:`\\sigma` への依存が小さくなるように作られた関数です。\\ Cu（3.64 "
+"Å）で幅を0.005、0.01、0.02、0.04 Ryの4通りに変えた結果を :numref:`fig-kp-smearing` に示します。"
+msgstr ""
+"A wider smearing width smooths the step more, so convergence should "
+"require fewer k-points, but the result shifts away from the "
+":math:`\\sigma \\to 0` limit. \\ The Marzari–Vanderbilt (MV) smearing "
+"[5]_ used here is designed to make :math:`F` weakly dependent on "
+":math:`\\sigma`. \\ We tested four smearing widths for Cu (3.64 Å): "
+"0.005, 0.01, 0.02, and 0.04 Ry. The results are in :numref:`fig-kp-"
+"smearing`."
+
+#: ../../kpoints/kpoint_convergence.rst:271
+msgid ""
+"Cu（3.64 Å）のMVスメアリングの幅ごとの、自由エネルギー :math:`F` （左）と圧力（右）。左の縦軸は、幅0.005 Ry・ "
+":math:`48^3` の :math:`F` との差（1原子あたり）で、4本の曲線に共通の基準です。幅0.04 Ryは "
+":math:`40^3` まで計算しました。 :math:`n=8` の点は縦軸の範囲外です。"
+msgstr ""
+"Free energy :math:`F` (left) and pressure (right) for Cu (3.64 Å) at "
+"different MV smearing widths. The vertical axis on the left shows the "
+"difference per atom from the value at a width of 0.005 Ry and a "
+":math:`48^3` mesh. This value of :math:`F` serves as the reference for "
+"all four curves. For 0.04 Ry, we calculated meshes up to :math:`40^3`. "
+"The points at :math:`n=8` are outside the vertical axis limits."
+
+#: ../../kpoints/kpoint_convergence.rst:273
+msgid "左の図から、2つのことが読み取れます。"
+msgstr "The left panel shows two features of convergence."
+
+#: ../../kpoints/kpoint_convergence.rst:275
+msgid ""
+"**収束の速さ。** 幅が狭いほど、 :math:`n` を増やしたときの振れが大きく、長く続きます。0.005 Ryと0.01 Ryでは "
+":math:`24^3` でも基準から1.3〜1.4 meV離れていて、0.005 Ryは :math:`40^3` から "
+":math:`48^3` の間でもまだ0.08 meV動いています。0.04 Ryは :math:`20^3` 以降、自分の収束値から0.03 "
+"meV以内に収まります。"
+msgstr ""
+"**Convergence rate.** With smaller widths, fluctuations are larger and "
+"persist as :math:`n` increases. At 0.005 Ry and 0.01 Ry, the values are "
+"still 1.3 to 1.4 meV from the reference at :math:`24^3`. At 0.005 Ry, the"
+" value still changes by 0.08 meV between :math:`40^3` and :math:`48^3`. "
+"At 0.04 Ry, the value stays within 0.03 meV of its own converged value "
+"from :math:`20^3` onward."
+
+#: ../../kpoints/kpoint_convergence.rst:276
+msgid ""
+"**収束する値。** 0.005、0.01、0.02 Ryの :math:`F` は、最も細かいメッシュで約0.1 "
+"meVの範囲にそろいます。0.04 Ryだけは、それより1.3 meV高い値に収束します。"
+msgstr ""
+"**Converged values.** At 0.005, 0.01, and 0.02 Ry, the values of "
+":math:`F` are within about 0.1 meV of one another on the finest mesh. "
+"Only the 0.04 Ry calculation converges to a value 1.3 meV higher."
+
+#: ../../kpoints/kpoint_convergence.rst:278
+msgid ""
+"圧力（右）でも同じ兼ね合いが見えます。\\ 0.04 Ryの圧力は :math:`16^3` 以降 −12.33〜−12.35 "
+"kbarで変わりませんが、狭い3つの幅の最も細かいメッシュでの値（−11.71〜−11.84 kbar）より0.5〜0.6 "
+"kbar低くなっています。"
+msgstr ""
+"Pressure (right) shows the same trade-off. \\ At 0.04 Ry, the pressure "
+"stays between −12.33 and −12.35 kbar from :math:`16^3` onward, but it is "
+"0.5 to 0.6 kbar lower than the finest-mesh values for the three narrower "
+"widths (−11.71 to −11.84 kbar)."
+
+#: ../../kpoints/kpoint_convergence.rst:281
+msgid ""
+"最も細かいメッシュでの :math:`F` 、 :math:`U` 、 :math:`-TS` を :numref:`tab-kp-"
+"smearing` にまとめます。"
+msgstr ""
+"The values of :math:`F`, :math:`U`, and :math:`-TS` on the finest mesh "
+"are listed in :numref:`tab-kp-smearing`."
+
+#: ../../kpoints/kpoint_convergence.rst:283
+msgid "Cu（3.64 Å）の、最も細かいメッシュでの自由エネルギー、全エネルギー、圧力"
+msgstr "Free energy, total energy, and pressure on the finest mesh for Cu (3.64 Å)"
+
+#: ../../kpoints/kpoint_convergence.rst:288
+msgid "幅（Ry）"
+msgstr "Width (Ry)"
+
+#: ../../kpoints/kpoint_convergence.rst:289
+msgid "メッシュ"
+msgstr "Mesh"
+
+#: ../../kpoints/kpoint_convergence.rst:290
+msgid ":math:`F` （meV/atom）"
+msgstr ":math:`F` (meV/atom)"
+
+#: ../../kpoints/kpoint_convergence.rst:291
+msgid ":math:`U` （meV/atom）"
+msgstr ":math:`U` (meV/atom)"
+
+#: ../../kpoints/kpoint_convergence.rst:292
+msgid ":math:`-TS` （meV/atom）"
+msgstr ":math:`-TS` (meV/atom)"
+
+#: ../../kpoints/kpoint_convergence.rst:293
+msgid "圧力（kbar）"
+msgstr "Pressure (kbar)"
+
+#: ../../kpoints/kpoint_convergence.rst:294
+msgid "0.005"
+msgstr "0.005"
+
+#: ../../kpoints/kpoint_convergence.rst:295
+#: ../../kpoints/kpoint_convergence.rst:301
+#: ../../kpoints/kpoint_convergence.rst:307
+msgid ":math:`48^3`"
+msgstr ":math:`48^3`"
+
+#: ../../kpoints/kpoint_convergence.rst:296
+msgid "0.00"
+msgstr "0.00"
+
+#: ../../kpoints/kpoint_convergence.rst:297
+msgid "0.09"
+msgstr "0.09"
+
+#: ../../kpoints/kpoint_convergence.rst:298
+msgid "−0.09"
+msgstr "−0.09"
+
+#: ../../kpoints/kpoint_convergence.rst:299
+msgid "−11.84"
+msgstr "−11.84"
+
+#: ../../kpoints/kpoint_convergence.rst:300
+msgid "0.01"
+msgstr "0.01"
+
+#: ../../kpoints/kpoint_convergence.rst:302
+msgid "−0.10"
+msgstr "−0.10"
+
+#: ../../kpoints/kpoint_convergence.rst:303
+msgid "0.05"
+msgstr "0.05"
+
+#: ../../kpoints/kpoint_convergence.rst:304
+msgid "−0.16"
+msgstr "−0.16"
+
+#: ../../kpoints/kpoint_convergence.rst:305
+msgid "−11.73"
+msgstr "−11.73"
+
+#: ../../kpoints/kpoint_convergence.rst:306
+msgid "0.02"
+msgstr "0.02"
+
+#: ../../kpoints/kpoint_convergence.rst:308
+msgid "−0.05"
+msgstr "−0.05"
+
+#: ../../kpoints/kpoint_convergence.rst:309
+msgid "−0.45"
+msgstr "−0.45"
+
+#: ../../kpoints/kpoint_convergence.rst:310
+msgid "0.40"
+msgstr "0.40"
+
+#: ../../kpoints/kpoint_convergence.rst:311
+msgid "−11.71"
+msgstr "−11.71"
+
+#: ../../kpoints/kpoint_convergence.rst:312
+msgid "0.04"
+msgstr "0.04"
+
+#: ../../kpoints/kpoint_convergence.rst:313
+msgid ":math:`40^3`"
+msgstr ":math:`40^3`"
+
+#: ../../kpoints/kpoint_convergence.rst:314
+msgid "1.34"
+msgstr "1.34"
+
+#: ../../kpoints/kpoint_convergence.rst:315
+msgid "−7.52"
+msgstr "−7.52"
+
+#: ../../kpoints/kpoint_convergence.rst:316
+msgid "8.86"
+msgstr "8.86"
+
+#: ../../kpoints/kpoint_convergence.rst:317
+msgid "−12.35"
+msgstr "−12.35"
+
+#: ../../kpoints/kpoint_convergence.rst:319
+msgid ""
+":math:`F` と :math:`U` は、幅0.005 Ry・ :math:`48^3` の :math:`F` との差です。\\ "
+"幅0.04 Ryでは、 :math:`U` は7.5 meV下がり、 :math:`F` のずれ（1.3 meV）よりずっと大きくずれます。\\ "
+"MVスメアリングでは、 :math:`\\sigma \\to 0` の値に近いのは :math:`F` （QEの ``!`` "
+"の行）のほうです。\\ なお、MVスメアリングの :math:`-TS` は正にも負にもなり、物理的なエントロピーではありません。"
+msgstr ""
+":math:`F` and :math:`U` are given as differences from the value at a "
+"width of 0.005 Ry and a :math:`48^3` mesh. We use :math:`F` at those "
+"settings as the reference for both quantities. \\ At 0.04 Ry, :math:`U` "
+"is 7.5 meV below the reference, a much larger deviation than for "
+":math:`F` (1.3 meV). \\ With MV smearing, the quantity closer to the "
+":math:`\\sigma \\to 0` limit is :math:`F` (the line beginning with ``!`` "
+"in the QE output). \\ The term :math:`-TS` in MV smearing can be positive"
+" or negative and is not a physical entropy."
+
+#: ../../kpoints/kpoint_convergence.rst:324
+msgid ""
+"この結果から、今回のCuでは、幅0.02 Ryが兼ね合いのよい選択です。\\ 収束値は狭い幅とほぼ同じ（ :math:`F` で0.1 "
+"meV、圧力で0.13 kbar以内）で、狭い幅より振れが小さく、早く収束します。"
+msgstr ""
+"For Cu in these calculations, a width of 0.02 Ry offers a good balance. "
+"\\ The converged values are close to those at narrower widths (within 0.1"
+" meV for :math:`F` and 0.13 kbar for pressure), but convergence is faster"
+" and the fluctuations are smaller."
+
+#: ../../kpoints/kpoint_convergence.rst:330
+msgid "エネルギー差と圧力"
+msgstr "Energy Differences and Pressure"
+
+#: ../../kpoints/kpoint_convergence.rst:332
+msgid ""
+"格子定数や構造を比べる計算で必要なのは、全エネルギーそのものではなく、格子定数を変えたときのエネルギー差や、圧力です。\\ "
+"これらの量は、全エネルギーと同じ速さで収束するのでしょうか。\\ :numref:`fig-kp-differences` "
+"に、Cu（スメアリング幅0.02 Ry）の3つの格子定数の結果を示します。\\ ここでは3つの格子定数で共通に計算した最も細かいメッシュ "
+":math:`32^3` の値を基準にしました（3.64 Åでは、 :math:`32^3` と :math:`48^3` "
+"の差は全エネルギーで0.07 meV、圧力で0.01 kbarです）。"
+msgstr ""
+"Calculations that compare lattice constants or structures require energy "
+"differences as the lattice constant changes, or pressure, rather than the"
+" total energy itself. \\ Do those quantities converge as quickly as the "
+"total energy? \\ :numref:`fig-kp-differences` shows the results for Cu at"
+" three lattice constants with a smearing width of 0.02 Ry. \\ The "
+"reference is the finest mesh used for all three lattice constants, "
+":math:`32^3`. At 3.64 Å, the :math:`32^3` and :math:`48^3` results differ"
+" by 0.07 meV in total energy and 0.01 kbar in pressure."
+
+#: ../../kpoints/kpoint_convergence.rst:341
+msgid ""
+"Cu（MVスメアリング0.02 Ry）の、 :math:`32^3` の値からのずれ。左：3.64 Åの全エネルギー（灰色）と、格子定数を3.64"
+" Åから ±0.04 Å変えたときのエネルギー差（青）。右：3つの格子定数での圧力。縦軸の範囲外の点（ :math:`n` "
+"が小さいもの）は描いていません。"
+msgstr ""
+"Deviations from the :math:`32^3` values for Cu (MV smearing at 0.02 Ry). "
+"The left panel shows the total energy at 3.64 Å (gray) and the energy "
+"differences when the lattice constant changes by ±0.04 Å from 3.64 Å "
+"(blue). The right panel shows pressure deviations at all three lattice "
+"constants. Points outside the vertical axis limits (small :math:`n`) are "
+"omitted."
+
+#: ../../kpoints/kpoint_convergence.rst:343
+#, python-brace-format
+msgid ""
+"左の図で、 :math:`12^3` では全エネルギーが5.2 meVずれているのに、エネルギー差のずれは0.1 meV程度です。\\ "
+":math:`12^3` から :math:`32^3` まで、 "
+":math:`E(3.60\\,\\text{Å})-E(3.64\\,\\text{Å})` は2.93〜3.20 meV、 "
+":math:`E(3.68\\,\\text{Å})-E(3.64\\,\\text{Å})` は8.02〜8.23 "
+"meVの範囲にあり、ずれは0.16 meV以内です。\\ "
+"格子定数が少し違うだけの2つの計算では、同じメッシュによる誤差がほぼ同じだけ入るので、差をとると打ち消し合います。"
+msgstr ""
+"In the left panel, the :math:`12^3` mesh gives a total energy deviation "
+"of 5.2 meV, but the energy differences deviate by only about 0.1 meV. \\ "
+":math:`12^3` through :math:`32^3` keep "
+":math:`E(3.60\\,\\text{Å})-E(3.64\\,\\text{Å})` between 2.93 and 3.20 meV"
+" and :math:`E(3.68\\,\\text{Å})-E(3.64\\,\\text{Å})` between 8.02 and "
+"8.23 meV, a deviation of at most 0.16 meV. \\ For two calculations with "
+"only slightly different lattice constants, the same mesh introduces "
+"nearly the same error in both calculations, so the errors cancel when we "
+"take the difference."
+
+#: ../../kpoints/kpoint_convergence.rst:347
+msgid ""
+"右の図の圧力は、 :math:`12^3` 〜 :math:`20^3` で −0.6〜+0.7 kbarの範囲で振れ、 :math:`24^3`"
+" で0.2 kbar以内に収まります。\\ 3つの格子定数で、振れ方がほぼそろっていることにも注目してください。\\ "
+"圧力の誤差は、エネルギー差の誤差と同じく、近い格子定数でほぼ共通です。\\ "
+"ただし、圧力が0になる格子定数を求めるときは、2つの計算の差をとらないので、この共通の誤差は打ち消されずに残り、求まる格子定数をずらします。\\ "
+"3.60 Åと3.68 Åの圧力の差から、圧力の格子定数による変化は約1100 kbar/Åです（ :math:`32^3` ）。\\ "
+"圧力の誤差1 kbarは、格子定数の約0.001 Åのずれに相当します。"
+msgstr ""
+"In the right panel, pressure deviations from :math:`12^3` to :math:`20^3`"
+" range between −0.6 and +0.7 kbar and fall within 0.2 kbar at "
+":math:`24^3`. \\ Notice that the fluctuations are much the same at all "
+"three lattice constants. \\ As with the errors in energy differences, "
+"pressure errors are nearly the same at nearby lattice constants. \\ "
+"Finding the lattice constant at zero pressure, however, does not involve "
+"a difference between two calculations, so this common error does not "
+"cancel and shifts the resulting lattice constant. \\ The pressure "
+"difference between 3.60 Å and 3.68 Å gives a rate of change in pressure "
+"with the lattice constant of about 1100 kbar/Å (at :math:`32^3`). \\ An "
+"error of 1 kbar in pressure corresponds to a shift of about 0.001 Å in "
+"the lattice constant."
+
+#: ../../kpoints/kpoint_convergence.rst:354
+#, python-brace-format
+msgid ""
+"Siでは、エネルギー差も圧力も速く収束します。\\ :math:`E(5.42\\,\\text{Å})-E(5.47\\,\\text{Å})`"
+" は :math:`8^3` で4.277、 :math:`16^3` で4.255 meV/atomで、5.47 Åの圧力は "
+":math:`8^3` で −0.38 kbar、 :math:`10^3` 以降は −0.43 kbarで変わりません。"
+msgstr ""
+"For Si, both energy differences and pressure converge quickly. \\ "
+":math:`E(5.42\\,\\text{Å})-E(5.47\\,\\text{Å})` is 4.277 meV/atom at "
+":math:`8^3` and 4.255 meV/atom at :math:`16^3`. The pressure at 5.47 Å is"
+" −0.38 kbar at :math:`8^3` and stays at −0.43 kbar from :math:`10^3` "
+"onward."
+
+#: ../../kpoints/kpoint_convergence.rst:360
+msgid "テトラヘドロン法との比較"
+msgstr "Comparison with the Tetrahedron Method"
+
+#: ../../kpoints/kpoint_convergence.rst:362
+msgid ""
+"ここまでのCuの計算は、すべてスメアリングを使っていました。\\ ここでは、スメアリングを使わない **テトラヘドロン法** "
+"で同じ計算を行い、スメアリングと比べます。\\ "
+"テトラヘドロン法は、メッシュの点を頂点とする四面体でBZを埋め、その中でバンドのエネルギーを線形に補間して、占有数の段差を含んだまま積分する方法です（技術ノートの\\"
+" `金属のブリルアンゾーン積分 <https://technical-"
+"notes.quemix.com/solid/metal_bz_integration.html#tetrahedron-"
+"method>`__）。\\ 線形補間の誤差を補正したBlöchlらの方法 [6]_ と、補間を改良した最適化テトラヘドロン法 [7]_ "
+"の2つを使います。\\ QEでは、入力の ``occupations`` を ``'tetrahedra'`` （Blöchlの方法）または "
+"``'tetrahedra_opt'`` （最適化テトラヘドロン法）にすると使えます。\\ "
+"Quloudの「電子占有数スメアリング」ではテトラヘドロン法を選べないので、入力ファイルを書き換えて計算しました（ "
+":doc:`reproduction` ）。"
+msgstr ""
+"All Cu calculations so far used smearing. \\ Here we repeat the "
+"calculations with the **tetrahedron method**, which uses no smearing, and"
+" compare the results with smearing. \\ The tetrahedron method fills the "
+"BZ with tetrahedra whose vertices are the mesh points. It interpolates "
+"the band energies linearly within each tetrahedron to integrate with the "
+"discontinuity in the occupation numbers still present (see the Technical "
+"Notes page on \\ `Brillouin zone integration for metals <https"
+"://technical-notes.quemix.com/solid/metal_bz_integration.html"
+"#tetrahedron-method>`__). \\ We use two variants. The method of Blöchl et"
+" al. [6]_ corrects the linear interpolation error, and the optimized "
+"tetrahedron method [7]_ improves the interpolation itself. \\ In QE, "
+"setting ``occupations`` to ``'tetrahedra'`` enables Blöchl's method, and "
+"setting it to ``'tetrahedra_opt'`` enables the optimized tetrahedron "
+"method. \\ Quloud does not offer the tetrahedron method under "
+"\"Electronic occupation number smearing\", so we edited the input file "
+"before running the calculations (:doc:`reproduction`)."
+
+#: ../../kpoints/kpoint_convergence.rst:369
+msgid ""
+"Cuの3つの格子定数で、 :math:`n` = 8〜32（3.64 Åでは48まで）を、2つのテトラヘドロン法で計算しました。\\ "
+"占有数のほかは :numref:`tab-kp-conditions` と同じ条件です。\\ 3.64 "
+"Åの全エネルギーと圧力を、MVスメアリング0.02 Ryの結果と並べて :numref:`fig-kp-tetra` に示します。"
+msgstr ""
+"We used both tetrahedron methods at all three Cu lattice constants for "
+":math:`n` = 8 to 32 (up to 48 at 3.64 Å). \\ Apart from the occupation "
+"numbers, the conditions are the same as in :numref:`tab-kp-conditions`. "
+"\\ We compare the total energy and pressure at 3.64 Å with the results "
+"for MV smearing at 0.02 Ry in :numref:`fig-kp-tetra`."
+
+#: ../../kpoints/kpoint_convergence.rst:377
+msgid ""
+"Cu（3.64 Å）の、MVスメアリング0.02 "
+"Ry（青、丸）、Blöchlのテトラヘドロン法（緑、四角）、最適化テトラヘドロン法（黄、ひし形）による全エネルギー（左）と圧力（右）。左の縦軸は、最適化テトラヘドロン法の"
+" :math:`48^3` の値との差（1原子あたり）で、MVは自由エネルギー :math:`F` です。縦軸の範囲外の点（ :math:`n` "
+"が小さいもの）は描いていません。"
+msgstr ""
+"Total energy (left) and pressure (right) for Cu (3.64 Å) with MV smearing"
+" at 0.02 Ry (blue circles), Blöchl's tetrahedron method (green squares), "
+"and the optimized tetrahedron method (yellow diamonds). The vertical axis"
+" on the left shows the difference per atom from the optimized tetrahedron"
+" method at :math:`48^3`. For MV, the energy shown is the free energy "
+":math:`F`. Points outside the vertical axis limits (small :math:`n`) are "
+"omitted."
+
+#: ../../kpoints/kpoint_convergence.rst:379
+msgid ""
+"**全エネルギー（左）。** 2つのテトラヘドロン法の値は、 :math:`48^3` で0.003 meV/atomの差で一致しました。\\ "
+"スメアリング幅0の極限の値を、スメアリングとは別の方法で求めたことになります。\\ MV 0.02 Ryの :math:`F` は、 "
+":math:`48^3` でこれより0.12 meV/atom高い値です。\\ :numref:`tab-kp-smearing` "
+"の基準（幅0.005 Ry・ :math:`48^3` の :math:`F` ）は、これより0.17 meV/atom高く、幅0.02 Ryの "
+":math:`U` は0.28 meV/atom低い値なので、ここでも幅0の極限に近いのは :math:`F` のほうです。"
+msgstr ""
+"**Total energy (left).** The two tetrahedron methods gave total energies "
+"that differed by 0.003 meV/atom at :math:`48^3`. \\ This gives us the "
+"zero-smearing-width limit independently of smearing. \\ For MV at 0.02 "
+"Ry, :math:`F` at :math:`48^3` was 0.12 meV/atom above this limit. \\ "
+":numref:`tab-kp-smearing` uses a reference (the 0.005 Ry, :math:`48^3` "
+"value of :math:`F`) that was 0.17 meV/atom above the limit, while "
+":math:`U` at 0.02 Ry was 0.28 meV/atom below it. So here too, :math:`F` "
+"is closer to the zero-width limit."
+
+#: ../../kpoints/kpoint_convergence.rst:384
+msgid ""
+"収束の仕方は、スメアリングとはっきり違います。\\ 最適化テトラヘドロン法は :math:`n` "
+"を増やすと上から単調に近づきます。Blöchlの方法は主に下から近づきますが、 :math:`40^3` では自身の :math:`48^3` "
+"の値を0.013 meV/atom上回りました。\\ ただし、収束の速さはMVと大きくは変わりません。\\ 自分の :math:`48^3` "
+"の値との差が1 meV/atom以内になるのは、MVが :math:`16^3` 、2つのテトラヘドロン法が :math:`20^3` "
+"からで、0.1 meV/atom以内になるのはどれも :math:`32^3` からです。"
+msgstr ""
+"The convergence behavior differs clearly from that of smearing. \\ The "
+"optimized tetrahedron method approaches its finest-mesh value "
+"monotonically from above as :math:`n` increases. Blöchl's method "
+"approaches its finest-mesh value mainly from below, but at :math:`40^3` "
+"it was 0.013 meV/atom above its own :math:`48^3` value. \\ However, the "
+"convergence rates are similar to that of MV smearing. \\ Each method "
+"comes within 1 meV/atom of its own :math:`48^3` value from :math:`16^3` "
+"onward for MV and from :math:`20^3` onward for both tetrahedron methods. "
+"All three come within 0.1 meV/atom from :math:`32^3` onward."
+
+#: ../../kpoints/kpoint_convergence.rst:389
+msgid ""
+"**圧力（右）。** 最適化テトラヘドロン法の圧力は、 :math:`14^3` で −11.55 kbar、 :math:`24^3` 以降は "
+"−11.68 kbarで変わりません。\\ Blöchlの方法の圧力は、 :math:`8^3` の −12.57 kbarから "
+":math:`48^3` の −11.73 kbarまで一方向にゆっくり変わり、 :math:`32^3` でもまだ0.08 "
+"kbar動いています。\\ QEは、テトラヘドロン法で力や応力を計算すると、推奨しないという警告（ ``BEWARE: stress "
+"calculation with tetrahedra (not recommanded)`` ）を出力します。\\ "
+"Blöchlの補正を加えたエネルギーは変分的でないため、そこから求めた応力は、スメアリングの場合ほど信頼できません。\\ "
+"最も細かいメッシュでの圧力は、MV 0.02 Ryが −11.71、Blöchlの方法が −11.73、最適化テトラヘドロン法が −11.68 "
+"kbarで、0.05 kbarの範囲にそろいました。"
+msgstr ""
+"**Pressure (right).** The optimized tetrahedron method gives −11.55 kbar "
+"at :math:`14^3` and stays at −11.68 kbar from :math:`24^3` onward. \\ "
+"With Blöchl's method, the pressure slowly increases from −12.57 kbar at "
+":math:`8^3` to −11.73 kbar at :math:`48^3` and is still 0.08 kbar below "
+"the finest-mesh value at :math:`32^3`. \\ When forces or stress are "
+"calculated with the tetrahedron method, QE issues the warning ``BEWARE: "
+"stress calculation with tetrahedra (not recommanded)``. \\ The energy "
+"with Blöchl's correction is nonvariational, so stress obtained from it is"
+" less reliable than with smearing. \\ On the finest mesh, the pressures "
+"were −11.71 kbar for MV at 0.02 Ry, −11.73 kbar for Blöchl's method, and "
+"−11.68 kbar for the optimized tetrahedron method, a spread of 0.05 kbar."
+
+#: ../../kpoints/kpoint_convergence.rst:395
+#, python-brace-format
+msgid ""
+"**エネルギー差。** 格子定数を変えたときのエネルギー差は、テトラヘドロン法のほうが粗いメッシュで収束しました。\\ :math:`32^3` "
+"の値との差が0.1 meV/atom以内に収まるのは、最適化テトラヘドロン法が :math:`8^3` 、Blöchlの方法が "
+":math:`12^3` 、MVが :math:`24^3` からです。\\ :math:`32^3` での値は、 "
+":math:`E(3.60\\,\\text{Å})-E(3.64\\,\\text{Å})` が3.03〜3.05 meV/atom、 "
+":math:`E(3.68\\,\\text{Å})-E(3.64\\,\\text{Å})` が8.12〜8.14 "
+"meV/atomで、3つの方法で0.02 meV以内に一致します。"
+msgstr ""
+"**Energy differences.** Energy differences between lattice constants "
+"converged on coarser meshes with the tetrahedron methods. \\ :math:`32^3`"
+" serves as the reference here. The differences stay within 0.1 meV/atom "
+"of it from :math:`8^3` onward for the optimized tetrahedron method, from "
+":math:`12^3` onward for Blöchl's method, and from :math:`24^3` onward for"
+" MV. \\ :math:`32^3` gives 3.03 to 3.05 meV/atom for "
+":math:`E(3.60\\,\\text{Å})-E(3.64\\,\\text{Å})` and 8.12 to 8.14 meV/atom"
+" for :math:`E(3.68\\,\\text{Å})-E(3.64\\,\\text{Å})`, so the three "
+"methods agree within 0.02 meV."
+
+#: ../../kpoints/kpoint_convergence.rst:399
+msgid ""
+":numref:`tab-kp-tetra` に、 :numref:`tab-kp-summary` "
+"と同じ基準で求めた、許容誤差に収まるメッシュと計算時間をまとめます。"
+msgstr ""
+":numref:`tab-kp-tetra` lists the meshes that meet each tolerance, using "
+"the same criteria as :numref:`tab-kp-summary`, and the computation times."
+
+#: ../../kpoints/kpoint_convergence.rst:401
+msgid "Cuで許容誤差に収まるk点メッシュ :math:`n` と、 :math:`24^3` の計算時間"
+msgstr ""
+"k-point meshes :math:`n` meeting the tolerances for Cu and computation "
+"time at :math:`24^3`"
+
+#: ../../kpoints/kpoint_convergence.rst:406
+msgid "方法"
+msgstr "Method"
+
+#: ../../kpoints/kpoint_convergence.rst:407
+msgid "全エネルギー（1 meV）"
+msgstr "Total energy (1 meV)"
+
+#: ../../kpoints/kpoint_convergence.rst:408
+msgid "エネルギー差（0.1 meV）"
+msgstr "Energy difference (0.1 meV)"
+
+#: ../../kpoints/kpoint_convergence.rst:409
+msgid "圧力（0.2 kbar）"
+msgstr "Pressure (0.2 kbar)"
+
+#: ../../kpoints/kpoint_convergence.rst:410
+msgid "時間（ :math:`24^3` ）"
+msgstr "Time (:math:`24^3`)"
+
+#: ../../kpoints/kpoint_convergence.rst:411
+msgid "MV 0.02 Ry"
+msgstr "MV 0.02 Ry"
+
+#: ../../kpoints/kpoint_convergence.rst:416
+msgid "Blöchl"
+msgstr "Blöchl"
+
+#: ../../kpoints/kpoint_convergence.rst:417
+#: ../../kpoints/kpoint_convergence.rst:419
+#: ../../kpoints/kpoint_convergence.rst:422
+#: ../../kpoints/kpoint_convergence.rst:470
+msgid "20"
+msgstr "20"
+
+#: ../../kpoints/kpoint_convergence.rst:420
+msgid "38 秒"
+msgstr "38 s"
+
+#: ../../kpoints/kpoint_convergence.rst:421
+msgid "最適化"
+msgstr "Optimized tetrahedron"
+
+#: ../../kpoints/kpoint_convergence.rst:424
+msgid "14"
+msgstr "14"
+
+#: ../../kpoints/kpoint_convergence.rst:425
+msgid "56 秒"
+msgstr "56 s"
+
+#: ../../kpoints/kpoint_convergence.rst:427
+msgid ""
+"全エネルギーは自分の :math:`48^3` の値、エネルギー差と圧力（3.64 Å）は :math:`32^3` "
+"の値との差で判定しました。\\ テトラヘドロン法は、同じメッシュでもMVより時間がかかります（ :math:`24^3` で約2〜3倍、 "
+":math:`48^3` では4倍以上）。\\ テトラヘドロン法では、既約k点だけでなく、メッシュ全体の四面体（ :math:`6n^3` "
+"個）を扱います。\\ SCFの反復全体で占有数の重みの計算にかかった時間（QEの出力の ``sum_band:wei`` ）は "
+":math:`24^3` で9〜16秒でした。SCFの最初の反復が始まるまでの時間も、MVの1秒に対して7〜8秒でした。\\ "
+":math:`48^3` では、最初の反復が始まるまでに4〜5分かかりました（MVは4秒）。"
+msgstr ""
+"We assessed total energy against the :math:`48^3` value for each method "
+"and energy differences and pressure (3.64 Å) against the :math:`32^3` "
+"values. \\ On the same mesh, the tetrahedron methods take longer than MV "
+"(about 2 to 3 times as long at :math:`24^3` and more than 4 times as long"
+" at :math:`48^3`). \\ The tetrahedron methods handle both the irreducible"
+" k-points and the tetrahedra across the entire mesh (:math:`6n^3` of "
+"them). \\ Across all SCF iterations, computing the occupation number "
+"weights (reported under ``sum_band:wei`` in the QE output) took 9 to 16 "
+"seconds in total at :math:`24^3`. Before the first SCF iteration, the "
+"tetrahedron methods took 7 to 8 seconds, compared with 1 second for MV. "
+"\\ :math:`48^3` required 4 to 5 minutes before the first iteration could "
+"start (4 seconds for MV)."
+
+#: ../../kpoints/kpoint_convergence.rst:433
+msgid ""
+"格子定数を求めるという目的では、最適化テトラヘドロン法は :math:`14^3` （既約k点104点、17秒）で、MV 0.02 Ryの "
+":math:`24^3` （413点、18秒）と同じ精度に届きます。\\ "
+"計算時間はほぼ同じで、Quloudの画面では選べず、QEも応力の計算には推奨していないので、格子定数の計算にはMVスメアリングを使います。\\ "
+"テトラヘドロン法は、スメアリング幅の影響を受けない参照値を得たいときや、状態密度（DOS）の計算に向いています。\\ "
+"QuloudのDOS計算でも、SCFのあとのNSCF計算ではテトラヘドロン法が使われます。"
+msgstr ""
+"For determining the lattice constant, the optimized tetrahedron method at"
+" :math:`14^3` (104 irreducible k-points, 17 seconds) reaches the same "
+"accuracy as MV at 0.02 Ry with :math:`24^3` (413 points, 18 seconds). \\ "
+"We use MV smearing to calculate the lattice constant because the two "
+"methods take nearly the same time, the Quloud interface does not offer "
+"the optimized tetrahedron method, and QE advises against using it for "
+"stress calculations. \\ The tetrahedron method is useful for obtaining "
+"reference values unaffected by the smearing width or for calculating the "
+"density of states (DOS). \\ For DOS calculations in Quloud, the NSCF "
+"calculation after the SCF calculation also uses the tetrahedron method."
+
+#: ../../kpoints/kpoint_convergence.rst:441
+msgid "必要なk点メッシュ"
+msgstr "Required k-Point Mesh"
+
+#: ../../kpoints/kpoint_convergence.rst:443
+msgid ""
+"ここまでの結果を、量ごとに「どのメッシュから許容誤差に収まるか」でまとめます（ :numref:`tab-kp-summary` ）。\\ 表の "
+":math:`n` は、そのメッシュと、それより細かい計算したすべてのメッシュで、参照値との差が許容誤差以内になる最小の :math:`n` "
+"です。\\ 参照値は、Cuの全エネルギーは :math:`48^3` 、Cuのエネルギー差と圧力は :math:`32^3` 、Siはすべて "
+":math:`16^3` の値です。"
+msgstr ""
+"For each quantity, we summarize how fine the mesh needs to be to meet "
+"each tolerance (:numref:`tab-kp-summary`). \\ Each :math:`n` in the table"
+" is the smallest :math:`n` for which that mesh and every finer mesh we "
+"tested give values within the stated tolerance of the reference value. \\"
+" The reference values come from :math:`48^3` for Cu total energy, "
+":math:`32^3` for Cu energy differences and pressure, and :math:`16^3` for"
+" all Si quantities."
+
+#: ../../kpoints/kpoint_convergence.rst:447
+msgid "許容誤差に収まるk点メッシュ :math:`n`"
+msgstr "k-point meshes :math:`n` meeting each tolerance"
+
+#: ../../kpoints/kpoint_convergence.rst:452
+msgid "量"
+msgstr "Quantity"
+
+#: ../../kpoints/kpoint_convergence.rst:453
+msgid "許容誤差"
+msgstr "Tolerance"
+
+#: ../../kpoints/kpoint_convergence.rst:454
+msgid "Cu（MV 0.02 Ry）"
+msgstr "Cu (MV 0.02 Ry)"
+
+#: ../../kpoints/kpoint_convergence.rst:456
+#: ../../kpoints/kpoint_convergence.rst:460
+msgid "全エネルギー"
+msgstr "Total energy"
+
+#: ../../kpoints/kpoint_convergence.rst:457
+msgid "1 meV/atom"
+msgstr "1 meV/atom"
+
+#: ../../kpoints/kpoint_convergence.rst:459
+msgid "10"
+msgstr "10"
+
+#: ../../kpoints/kpoint_convergence.rst:461
+#: ../../kpoints/kpoint_convergence.rst:465
+msgid "0.1 meV/atom"
+msgstr "0.1 meV/atom"
+
+#: ../../kpoints/kpoint_convergence.rst:464
+msgid "エネルギー差（ :math:`a` を約1 %変えたとき）"
+msgstr "Energy difference (for a change of about 1% in :math:`a`)"
+
+#: ../../kpoints/kpoint_convergence.rst:466
+msgid "24（12以降は0.16以内）"
+msgstr "24 (within 0.16 from 12 onward)"
+
+#: ../../kpoints/kpoint_convergence.rst:468
+#: ../../kpoints/kpoint_convergence.rst:472
+msgid "圧力"
+msgstr "Pressure"
+
+#: ../../kpoints/kpoint_convergence.rst:469
+msgid "0.5 kbar"
+msgstr "0.5 kbar"
+
+#: ../../kpoints/kpoint_convergence.rst:473
+msgid "0.2 kbar"
+msgstr "0.2 kbar"
+
+#: ../../kpoints/kpoint_convergence.rst:477
+msgid ""
+"必要なメッシュは、物質と同じくらい、何を求めたいかで変わります。\\ 例えば、Cuの格子定数をエネルギーの曲線や圧力から0.001 "
+"Åの桁まで求めたいなら、圧力の誤差を1 kbarより十分小さくしたいので、 :math:`24^3` が目安になります。\\ "
+"このとき、全エネルギーの値そのものは0.3 meV/atomずれていますが、格子定数を決めるのに使うエネルギー差と圧力は十分に収束しています。\\"
+" Siなら :math:`8^3` 〜 :math:`10^3` で足ります。"
+msgstr ""
+"The mesh you need depends as much on what you want to calculate as on the"
+" material. \\ For example, to determine the lattice constant of Cu to the"
+" nearest 0.001 Å using the energy curve or pressure, the pressure error "
+"should be well below 1 kbar. A :math:`24^3` mesh is a reasonable choice. "
+"\\ The total energy itself still differs by 0.3 meV/atom at this mesh, "
+"but the energy differences and pressure used to determine the lattice "
+"constant are sufficiently converged. \\ For Si, :math:`8^3` to "
+":math:`10^3` suffices."
+
+#: ../../kpoints/kpoint_convergence.rst:482
+msgid ""
+"そこで、Cuの格子定数を求める計算では、MVスメアリング0.02 Ry、 :math:`24\\times24\\times24` "
+"メッシュを使うことにします。\\ 既約k点は413点で、1回のSCF計算は約18秒（MPI 4並列）です。"
+msgstr ""
+"We therefore use MV smearing at 0.02 Ry and a "
+":math:`24\\times24\\times24` mesh to determine the lattice constant of "
+"Cu. \\ There are 413 irreducible k-points, and one SCF calculation takes "
+"about 18 seconds with 4 MPI processes."
+
+#: ../../kpoints/kpoint_convergence.rst:485
+msgid ""
+"この条件で、Cuの格子定数をエネルギー曲線と応力の2つの方法で求めた結果は、 "
+":doc:`../cu_lattice/lattice_constant` で紹介します。"
+msgstr ""
+":doc:`../cu_lattice/lattice_constant` presents the Cu lattice constants "
+"obtained under these conditions using two methods, one based on the "
+"energy curve and the other on stress."
+
+#: ../../kpoints/kpoint_convergence.rst:488
+msgid "この数値実験から分かること"
+msgstr "What the Numerical Experiment Shows"
+
+#: ../../kpoints/kpoint_convergence.rst:490
+msgid ""
+"k点メッシュは、BZ平均を等間隔の点の和で近似するためのもので、結晶の対称性を使うと、 :math:`24^3` "
+"以上のメッシュでは計算する点（既約k点）をメッシュの点の数の約1/30〜1/40に減らせました。"
+msgstr ""
+"A k-point mesh approximates the BZ average by a sum over equally spaced "
+"points. By using crystal symmetry, we reduced the number of points to "
+"calculate (irreducible k-points) to about 1/30 to 1/40 of the mesh points"
+" for meshes of :math:`24^3` and above."
+
+#: ../../kpoints/kpoint_convergence.rst:491
+msgid ""
+"半導体のSiの全エネルギーは、メッシュを細かくすると指数関数的に速く収束しました。金属のCuは、スメアリングを使ってもフェルミ面付近の占有数の変化が急なため、収束が遅く、細かくするほど正確になるとは限りませんでした。1"
+" meV/atomの精度に必要な既約k点の数は、SiとCuで約3倍違いました。"
+msgstr ""
+"The total energy of semiconducting Si converged exponentially fast as the"
+" mesh got finer. In metallic Cu, however, the total energy converged "
+"slowly because occupation numbers still changed sharply near the Fermi "
+"surface even with smearing. Refining the mesh did not always improve "
+"accuracy. The number of irreducible k-points needed for 1 meV/atom "
+"accuracy differed by a factor of about 3 between Si and Cu."
+
+#: ../../kpoints/kpoint_convergence.rst:492
+msgid ""
+"スメアリングの幅を広げると収束は速くなりますが、収束する値が幅0の極限からずれます。今回のCuでは、MVスメアリング0.02 "
+"Ryで、狭い幅とほぼ同じ値に、より早く収束しました。"
+msgstr ""
+"Increasing the smearing width speeds up convergence, but it shifts the "
+"converged value away from the zero-width limit. For Cu in these "
+"calculations, MV smearing at 0.02 Ry converged faster and gave nearly the"
+" same values as narrower widths."
+
+#: ../../kpoints/kpoint_convergence.rst:493
+msgid "格子定数を変えたときのエネルギー差は、全エネルギーより粗いメッシュで収束しました。圧力の誤差は近い格子定数で共通に入るので、そのまま格子定数のずれになります。必要なメッシュは、求めたい量と精度で決まります。"
+msgstr ""
+"Energy differences between lattice constants converged on a coarser mesh "
+"than total energy. Pressure errors are nearly the same at nearby lattice "
+"constants, so they carry over into a shift in the lattice constant. The "
+"required mesh depends on the quantity and accuracy you need."
+
+#: ../../kpoints/kpoint_convergence.rst:494
+msgid "スメアリングを使わないテトラヘドロン法では、全エネルギーが主に一方向から収束し、スメアリング幅0の極限の値が得られました。収束に必要なメッシュはMVと同程度でしたが、最適化テトラヘドロン法では、エネルギー差と圧力がより粗いメッシュで収束しました。ただし同じメッシュでは計算時間が長く、格子定数を求める計算の時間は、MVとほぼ同じでした。"
+msgstr ""
+"With the tetrahedron methods, which use no smearing, the total energy "
+"converged mainly from one side, yielding the zero-smearing-width limit. "
+"The meshes needed for total energy convergence were similar to those for "
+"MV, but the optimized tetrahedron method converged on coarser meshes for "
+"energy differences and pressure. The tetrahedron methods took longer than"
+" MV on the same mesh, but determining the lattice constant took nearly "
+"the same time with the optimized tetrahedron method and with MV."
+
+#: ../../kpoints/kpoint_convergence.rst:496
+msgid ""
+"今回の結果は、Cu、Siと、 :numref:`tab-kp-conditions` "
+"の計算条件（擬ポテンシャル、カットオフ、Γ点を含むメッシュ）についてのものです。\\ "
+"メッシュのオフセットや、ほかのスメアリングの方式（Gaussian、Methfessel–Paxtonなど）は調べていません。\\ "
+"ほかの物質では、セルの大きさやフェルミ面の形によって必要なメッシュは変わるので、同じように収束を確かめてください。"
+msgstr ""
+"These results apply to Cu and Si under the calculation conditions in "
+":numref:`tab-kp-conditions` (pseudopotentials, cutoffs, and meshes "
+"containing the Γ point). \\ We did not investigate mesh offsets or other "
+"smearing schemes such as Gaussian or Methfessel–Paxton. \\ For other "
+"materials, the required mesh varies with the cell size and the shape of "
+"the Fermi surface. Check convergence in the same way."
+
+#: ../../kpoints/kpoint_convergence.rst:501
+msgid "参考文献"
+msgstr "References"
+
+#: ../../kpoints/kpoint_convergence.rst:503
+msgid ""
+"P\\. Giannozzi *et al.*, \"QUANTUM ESPRESSO: a modular and open-source "
+"software project for quantum simulations of materials,\" *Journal of "
+"Physics: Condensed Matter* **21**, 395502 (2009). "
+"https://doi.org/10.1088/0953-8984/21/39/395502"
+msgstr ""
+"P\\. Giannozzi *et al.*, \"QUANTUM ESPRESSO: a modular and open-source "
+"software project for quantum simulations of materials,\" *Journal of "
+"Physics: Condensed Matter* **21**, 395502 (2009). "
+"https://doi.org/10.1088/0953-8984/21/39/395502"
+
+#: ../../kpoints/kpoint_convergence.rst:504
+msgid ""
+"P\\. Giannozzi *et al.*, \"Advanced capabilities for materials modelling "
+"with Quantum ESPRESSO,\" *Journal of Physics: Condensed Matter* **29**, "
+"465901 (2017). https://doi.org/10.1088/1361-648X/aa8f79"
+msgstr ""
+"P\\. Giannozzi *et al.*, \"Advanced capabilities for materials modelling "
+"with Quantum ESPRESSO,\" *Journal of Physics: Condensed Matter* **29**, "
+"465901 (2017). https://doi.org/10.1088/1361-648X/aa8f79"
+
+#: ../../kpoints/kpoint_convergence.rst:505
+msgid ""
+"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
+"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
+"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
+msgstr ""
+"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
+"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
+"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
+
+#: ../../kpoints/kpoint_convergence.rst:506
+msgid ""
+"A\\. Dal Corso, \"Pseudopotentials periodic table: From H to Pu,\" "
+"*Computational Materials Science* **95**, 337–350 (2014). "
+"https://doi.org/10.1016/j.commatsci.2014.07.043"
+msgstr ""
+"A\\. Dal Corso, \"Pseudopotentials periodic table: From H to Pu,\" "
+"*Computational Materials Science* **95**, 337–350 (2014). "
+"https://doi.org/10.1016/j.commatsci.2014.07.043"
+
+#: ../../kpoints/kpoint_convergence.rst:507
+msgid ""
+"N\\. Marzari, D. Vanderbilt, A. De Vita, and M. C. Payne, \"Thermal "
+"Contraction and Disordering of the Al(110) Surface,\" *Physical Review "
+"Letters* **82**, 3296 (1999). https://doi.org/10.1103/PhysRevLett.82.3296"
+msgstr ""
+"N\\. Marzari, D. Vanderbilt, A. De Vita, and M. C. Payne, \"Thermal "
+"Contraction and Disordering of the Al(110) Surface,\" *Physical Review "
+"Letters* **82**, 3296 (1999). https://doi.org/10.1103/PhysRevLett.82.3296"
+
+#: ../../kpoints/kpoint_convergence.rst:508
+msgid ""
+"P\\. E. Blöchl, O. Jepsen, and O. K. Andersen, \"Improved tetrahedron "
+"method for Brillouin-zone integrations,\" *Physical Review B* **49**, "
+"16223 (1994). https://doi.org/10.1103/PhysRevB.49.16223"
+msgstr ""
+"P\\. E. Blöchl, O. Jepsen, and O. K. Andersen, \"Improved tetrahedron "
+"method for Brillouin-zone integrations,\" *Physical Review B* **49**, "
+"16223 (1994). https://doi.org/10.1103/PhysRevB.49.16223"
+
+#: ../../kpoints/kpoint_convergence.rst:509
+msgid ""
+"M\\. Kawamura, Y. Gohda, and S. Tsuneyuki, \"Improved tetrahedron method "
+"for the Brillouin-zone integration applicable to response functions,\" "
+"*Physical Review B* **89**, 094515 (2014). "
+"https://doi.org/10.1103/PhysRevB.89.094515"
+msgstr ""
+"M\\. Kawamura, Y. Gohda, and S. Tsuneyuki, \"Improved tetrahedron method "
+"for the Brillouin-zone integration applicable to response functions,\" "
+"*Physical Review B* **89**, 094515 (2014). "
+"https://doi.org/10.1103/PhysRevB.89.094515"
+

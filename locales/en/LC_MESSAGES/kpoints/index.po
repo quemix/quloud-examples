@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../kpoints/index.rst:4
+msgid "Cu・Siのk点サンプリングと収束"
+msgstr "k-Point Sampling and Convergence for Cu and Si"
+
+#: ../../kpoints/index.rst:6
+msgid "k点を増やしたときのエネルギーや圧力の収束を、金属Cuと半導体Siで比較します。"
+msgstr ""
+"We compare how energy and pressure converge as the number of k-points "
+"increases for metallic Cu and semiconducting Si."
+
+#: ../../kpoints/index.rst:10
+msgid ":doc:`計算結果を読む <kpoint_convergence>`"
+msgstr ":doc:`Interpreting the Calculation Results <kpoint_convergence>`"
+
+#: ../../kpoints/index.rst:11
+msgid ":doc:`計算条件と再現手順 <reproduction>`"
+msgstr ":doc:`Calculation Conditions and Reproduction Procedure <reproduction>`"
+
