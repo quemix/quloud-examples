@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../index.rst:2
+msgid "Quloudの計算事例"
+msgstr "Quloud Calculation Examples"
+
+#: ../../index.rst:4
+msgid "材料・分子・気体を対象とした計算の結果と再現手順を探せます。"
+msgstr ""
+"Find calculation results for materials, molecules, and gases, together "
+"with the steps to reproduce them."
+
+#: ../../index.rst:8
+msgid ":doc:`BaTiO3/index`"
+msgstr ":doc:`BaTiO3/index`"
+
+#: ../../index.rst:10
+msgid "DFTと機械学習原子間ポテンシャルで、安定な結晶構造と温度による構造相転移を調べます。"
+msgstr ""
+"Uses DFT and machine-learning interatomic potentials to study the stable "
+"crystal structures and the temperature-driven structural phase "
+"transitions."
+
+#: ../../index.rst:12
+msgid ":doc:`li3po4/index`"
+msgstr ":doc:`li3po4/index`"
+
+#: ../../index.rst:14
+msgid "結晶・非晶質の構造、Li空孔の移動障壁、Liイオンの拡散係数を調べます。"
+msgstr ""
+"Studies crystalline and amorphous structures, migration barriers of Li "
+"vacancies, and Li-ion diffusion coefficients."
+
+#: ../../index.rst:16
+msgid ":doc:`hydrogen_chain/index`"
+msgstr ":doc:`hydrogen_chain/index`"
+
+#: ../../index.rst:18
+msgid "Psi4を用い、水素原子を並べたときに軌道のエネルギーがどう変わるかを調べます。"
+msgstr ""
+"Uses Psi4 to study how orbital energies change as hydrogen atoms are "
+"lined up in a chain."
+
+#: ../../index.rst:20
+msgid ":doc:`co2_ir/index`"
+msgstr ":doc:`co2_ir/index`"
+
+#: ../../index.rst:22
+msgid "RSDFTの第一原理分子動力学から、CO₂の振動が赤外スペクトルにどう現れるかを調べます。"
+msgstr ""
+"Uses first-principles molecular dynamics with RSDFT to study how the "
+"vibrations of CO₂ appear in the infrared spectrum."
+
+#: ../../index.rst:24
+msgid ":doc:`kpoints/index`"
+msgstr ":doc:`kpoints/index`"
+
+#: ../../index.rst:26
+msgid "Quantum ESPRESSOで、金属Cuと半導体Siのk点を増やしたときの物理量の収束を比べます。"
+msgstr ""
+"Uses Quantum ESPRESSO to compare how physical quantities converge as the "
+"number of k-points increases for metallic Cu and semiconducting Si."
+
+#: ../../index.rst:28
+msgid ":doc:`cu_lattice/index`"
+msgstr ":doc:`cu_lattice/index`"
+
+#: ../../index.rst:30
+msgid "Quantum ESPRESSOで、エネルギー曲線と応力に基づく構造緩和からCuの格子定数を求めます。"
+msgstr ""
+"Uses Quantum ESPRESSO to determine the lattice constant of Cu from energy"
+" curves and from stress-based structural relaxation."
+
+#: ../../index.rst:32
+msgid ":doc:`gan_surface/index`"
+msgstr ":doc:`gan_surface/index`"
+
+#: ../../index.rst:34
+msgid "Quantum ESPRESSOで候補構造を計算し、条件によって安定な表面構造がどう変わるかを調べます。"
+msgstr ""
+"Uses Quantum ESPRESSO to calculate candidate structures and to study how "
+"the stable surface structure changes with the conditions."
+
+#: ../../index.rst:36
+msgid ":doc:`gas_laws/index`"
+msgstr ":doc:`gas_laws/index`"
+
+#: ../../index.rst:38
+msgid "GROMACSで希薄気体を計算し、Arの体積と圧力の関係や、気体の種類による違いを調べます。"
+msgstr ""
+"Uses GROMACS to simulate dilute gases, examine how the volume and "
+"pressure of Ar are related, and compare different gas species."
+

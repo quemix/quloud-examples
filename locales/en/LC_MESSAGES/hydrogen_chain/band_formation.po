@@ -1,0 +1,938 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 12:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../hydrogen_chain/band_formation.rst:3
+msgid "水素原子を並べると電子バンドは生まれるのか"
+msgstr "Do Electronic Bands Form in a Hydrogen Atom Chain?"
+
+#: ../../hydrogen_chain/band_formation.rst:5
+msgid "固体物理の教科書では、原子がたくさん集まると、原子の離散的なエネルギー準位が密集して「バンド」になると説明されます。この過程を、実際の電子状態計算で確かめてみましょう。"
+msgstr ""
+"Solid-state physics textbooks explain that when many atoms come together,"
+" their discrete energy levels crowd together to form a band. Let's follow"
+" this process in an actual electronic structure calculation."
+
+#: ../../hydrogen_chain/band_formation.rst:16
+msgid "計算対象と計算条件"
+msgstr "Systems and Calculation Conditions"
+
+#: ../../hydrogen_chain/band_formation.rst:18
+#, python-brace-format
+msgid ""
+"計算するのは、等間隔に一直線に並んだ中性の水素原子鎖 :math:`\\mathrm{H}_N` です（ :numref:`fig-hchain-"
+"model` ）。\\ 隣り合う水素原子の間隔はすべて1.8 Åとし、原子核の位置は最適化せずに固定します。\\ "
+"鎖の両端は開いており、周期境界条件は課しません。\\ これを\\ :numref:`tab-hchain-conditions`\\ "
+"にあるような設定で、量子化学計算ソフト Psi4 [1]_ を用いて「分子」として計算します。"
+msgstr ""
+"The system is a neutral hydrogen atom chain :math:`\\mathrm{H}_N` with "
+"equally spaced atoms in a straight line (:numref:`fig-hchain-model`). \\ "
+"All neighboring hydrogen atoms are 1.8 Å apart, and the nuclear positions"
+" are held fixed without optimization. \\ The chain has open ends, with no"
+" periodic boundary conditions. \\ We use the calculation conditions in \\"
+" :numref:`tab-hchain-conditions` \\ to treat the chain as a molecule with"
+" the quantum chemistry software Psi4 [1]_."
+
+#: ../../hydrogen_chain/band_formation.rst:27
+msgid ""
+"計算モデルの模式図。隣接原子間の距離を1.8 Åに保ち、原子核を固定したまま原子数 :math:`N` "
+"を増やします。原子を結ぶ線は並び方を示すためのもので、化学結合を表すものではありません。"
+msgstr ""
+"This schematic shows the model used in the calculations. We increase the "
+"number of atoms :math:`N` while keeping the nuclei fixed and neighboring "
+"atoms 1.8 Å apart. The lines show how the atoms are arranged and do not "
+"represent chemical bonds."
+
+#: ../../hydrogen_chain/band_formation.rst:29
+msgid "計算条件"
+msgstr "Calculation conditions"
+
+#: ../../hydrogen_chain/band_formation.rst:34
+msgid "項目"
+msgstr "Parameter"
+
+#: ../../hydrogen_chain/band_formation.rst:35
+msgid "条件"
+msgstr "Setting"
+
+#: ../../hydrogen_chain/band_formation.rst:36
+msgid "計算コード"
+msgstr "Software"
+
+#: ../../hydrogen_chain/band_formation.rst:37
+msgid "Psi4 1.10"
+msgstr "Psi4 1.10"
+
+#: ../../hydrogen_chain/band_formation.rst:38
+msgid "モデル"
+msgstr "Model"
+
+#: ../../hydrogen_chain/band_formation.rst:39
+msgid "中性の有限水素原子鎖。開放端、原子核位置固定"
+msgstr "Finite, neutral hydrogen atom chain with open ends and fixed nuclei"
+
+#: ../../hydrogen_chain/band_formation.rst:40
+msgid "原子間距離"
+msgstr "Interatomic Distance"
+
+#: ../../hydrogen_chain/band_formation.rst:41
+msgid "1.8 Å"
+msgstr "1.8 Å"
+
+#: ../../hydrogen_chain/band_formation.rst:42
+msgid "原子数"
+msgstr "Number of Atoms"
+
+#: ../../hydrogen_chain/band_formation.rst:43
+msgid "主に :math:`N` = 2, 4, 8, 16, 24, 32, 48, 64"
+msgstr "Mainly :math:`N` = 2, 4, 8, 16, 24, 32, 48, 64"
+
+#: ../../hydrogen_chain/band_formation.rst:44
+msgid "基底関数"
+msgstr "Basis Set"
+
+#: ../../hydrogen_chain/band_formation.rst:45
+msgid "STO-3G（H原子あたり1個の空間基底関数）"
+msgstr "STO-3G (one spatial basis function per H atom)"
+
+#: ../../hydrogen_chain/band_formation.rst:46
+msgid "スピン制限計算"
+msgstr "Spin-Restricted Calculations"
+
+#: ../../hydrogen_chain/band_formation.rst:47
+msgid "RHF、RKS-PBE"
+msgstr "RHF, RKS-PBE"
+
+#: ../../hydrogen_chain/band_formation.rst:48
+msgid "スピン非制限計算"
+msgstr "Spin-Unrestricted Calculations"
+
+#: ../../hydrogen_chain/band_formation.rst:49
+msgid "UHF、UKS-PBE（:math:`N` = 16, 32）"
+msgstr "UHF, UKS-PBE (:math:`N` = 16, 32)"
+
+#: ../../hydrogen_chain/band_formation.rst:50
+msgid "電子数とスピン"
+msgstr "Electron Count and Spin"
+
+#: ../../hydrogen_chain/band_formation.rst:51
+msgid "電子数 :math:`N`、偶数原子数、:math:`N_\\alpha = N_\\beta = N/2`"
+msgstr ""
+":math:`N` electrons, even number of atoms, :math:`N_\\alpha = N_\\beta = "
+"N/2`"
+
+#: ../../hydrogen_chain/band_formation.rst:52
+msgid "SCF収束条件"
+msgstr "SCF Convergence Criteria"
+
+#: ../../hydrogen_chain/band_formation.rst:53
+#, python-brace-format
+msgid "エネルギー・密度ともに :math:`10^{-9}`、最大500反復"
+msgstr ""
+":math:`10^{-9}` for both energy and density, with a maximum of 500 "
+"iterations"
+
+#: ../../hydrogen_chain/band_formation.rst:55
+msgid ""
+"原子数依存性の計算には密度フィッティング（DF）SCFを、後半のスピン制限解・非制限解の比較と安定性解析には近似のない4中心積分（PK法）を使いました。\\"
+" PBEの積分グリッドはPsi4の既定値です。以下に示す数値はすべて収束したSCF解から取得しています。"
+msgstr ""
+"We used density-fitted (DF) SCF to study the dependence on atom count. "
+"For the later comparison of spin-restricted and spin-unrestricted "
+"solutions and for the stability analysis, we used exact four-center "
+"integrals (the PK method). \\ The PBE integration grid was the Psi4 "
+"default. All values shown below come from converged SCF solutions."
+
+#: ../../hydrogen_chain/band_formation.rst:61
+msgid "Tight-Binding 模型による予想"
+msgstr "Prediction from the Tight-Binding Model"
+
+#: ../../hydrogen_chain/band_formation.rst:63
+msgid ""
+"孤立した水素原子の基底状態では、電子が1s軌道を占めます。\\ "
+"水素原子を2個近づけると、2つの1s軌道から結合性軌道と反結合性軌道ができます。\\ さらに原子を増やすと、 :math:`N` "
+"個の1s基底関数から :math:`N` 個の分子軌道ができます。"
+msgstr ""
+"In the ground state of an isolated hydrogen atom, the electron occupies a"
+" 1s orbital. \\ When two hydrogen atoms approach each other, their two 1s"
+" orbitals form a bonding orbital and an antibonding orbital. \\ As more "
+"atoms are added, :math:`N` 1s basis functions form :math:`N` molecular "
+"orbitals."
+
+#: ../../hydrogen_chain/band_formation.rst:67
+#, python-brace-format
+msgid ""
+"中性の :math:`\\mathrm{H}_N` 鎖には :math:`N` 個の電子があり、スピン制限の閉殻計算では、エネルギーの低い "
+":math:`N/2` 個の分子軌道を2電子ずつ占有します。1原子あたり1電子なので、1軌道のバンド模型でいえば **半充填** の状態です。"
+msgstr ""
+"A neutral :math:`\\mathrm{H}_N` chain has :math:`N` electrons. In a spin-"
+"restricted closed-shell calculation, two electrons occupy each of the "
+":math:`N/2` lowest-energy molecular orbitals. With one electron per atom,"
+" a one-orbital band model is at **half filling**."
+
+#: ../../hydrogen_chain/band_formation.rst:69
+msgid ""
+"この状況を説明する最も簡単なモデルが、隣接原子間のホッピングだけを考える強束縛（tight-binding）模型です。\\ "
+"各原子の軌道エネルギーを :math:`\\varepsilon_0` 、隣接原子間のホッピングを :math:`t` とすると、開放端の "
+":math:`N` 原子鎖の固有値は"
+msgstr ""
+"The simplest model for this situation is a tight-binding model with "
+"hopping only between neighboring atoms. \\ If each atom has orbital "
+"energy :math:`\\varepsilon_0` and the hopping between neighboring atoms "
+"is :math:`t`, the eigenvalues of an open-ended chain of :math:`N` atoms "
+"are"
+
+#: ../../hydrogen_chain/band_formation.rst:72
+#, python-brace-format
+msgid ""
+"E_j = \\varepsilon_0 - 2t\\cos\\left(\\frac{j\\pi}{N+1}\\right),\n"
+"\\qquad j = 1, \\ldots, N"
+msgstr ""
+"E_j = \\varepsilon_0 - 2t\\cos\\left(\\frac{j\\pi}{N+1}\\right),\n"
+"\\qquad j = 1, \\ldots, N"
+
+#: ../../hydrogen_chain/band_formation.rst:77
+msgid "となります。一方、原子間隔 :math:`a` の無限周期鎖のバンド分散は"
+msgstr ""
+"whereas the band dispersion of an infinite periodic chain with "
+"interatomic spacing :math:`a` is"
+
+#: ../../hydrogen_chain/band_formation.rst:79
+msgid "E(k) = \\varepsilon_0 - 2t\\cos(ka)"
+msgstr "E(k) = \\varepsilon_0 - 2t\\cos(ka)"
+
+#: ../../hydrogen_chain/band_formation.rst:84
+msgid ""
+"です。有限鎖の :math:`j` 番目の準位に形式的に :math:`k_j a = j\\pi/(N+1)` という **擬似波数** "
+"を割り当てると、\\ 原子数を増やすほど、このコサインカーブを細かくサンプリングしていくことが分かります。"
+msgstr ""
+"If we formally assign the :math:`j`-th level of the finite chain the "
+"value :math:`k_j a = j\\pi/(N+1)` as its **pseudo wave number**, \\ "
+"increasing the number of atoms samples this cosine curve more finely."
+
+#: ../../hydrogen_chain/band_formation.rst:88
+msgid "分子軌道エネルギーがバンドになるか"
+msgstr "Do Molecular Orbital Energies Form a Band?"
+
+#: ../../hydrogen_chain/band_formation.rst:90
+msgid ""
+"RKS-PBE計算で得た分子軌道エネルギーを、上記の擬似波数に対して並べたのが :numref:`fig-hchain-pbe-levels` "
+"です。"
+msgstr ""
+":numref:`fig-hchain-pbe-levels` plots the molecular orbital energies "
+"obtained from the RKS-PBE calculations against the pseudo wave number "
+"defined above."
+
+#: ../../hydrogen_chain/band_formation.rst:96
+msgid ""
+"RKS-PBEで求めた分子軌道エネルギー（原子数ごとに軌道エネルギーの平均を差し引いています）。黒い破線は、式 :eq:`nntb-band` で"
+" :math:`t \\simeq 1.87` eV とした場合（後述）のバンドです。\\ 横軸は擬似波数 :math:`ka = "
+"j\\pi/(N+1)` 、中央にある垂直な点線は半充填位置（電子占有／非占有の境界） :math:`ka = \\pi/2` を示しています。"
+msgstr ""
+"These are the RKS-PBE molecular orbital energies relative to the chain "
+"mean for each atom count. The black dashed line is the band given by "
+"Equation :eq:`nntb-band` with :math:`t \\simeq 1.87` eV, as explained "
+"below. \\ The horizontal axis shows the assigned pseudo wave number "
+":math:`ka = j\\pi/(N+1)`, and the vertical dotted line at the center "
+"marks half filling at :math:`ka = \\pi/2`, the boundary between occupied "
+"and unoccupied levels."
+
+#: ../../hydrogen_chain/band_formation.rst:99
+msgid ""
+"原子数が少ないうちは準位がまばらですが、 :math:`N` = 32、64になると点が1本の滑らかな曲線を描きます。\\ "
+"たしかに、分子軌道の集まりからバンド状のエネルギースペクトルが生まれる様子が、\\ 数値実験として直接確認できました。"
+msgstr ""
+"For small numbers of atoms, the levels are sparse, but at :math:`N` = 32 "
+"and 64 the points trace a smooth curve. \\ This numerical experiment "
+"indeed shows directly how a band-like energy spectrum \\ emerges from a "
+"collection of molecular orbitals."
+
+#: ../../hydrogen_chain/band_formation.rst:103
+msgid ""
+"ただし、ここで計算しているのは、あくまでも有限の孤立分子であり、周期結晶のバンド構造そのものではありません。\\ "
+"擬似波数が実際の波動関数の空間振動と対応しているかは、軌道係数を解析して検証する必要があります。\\ RKS-"
+"PBEの準位は黒い破線に近いものの、特に上下端付近ではずれています。"
+msgstr ""
+"However, the calculation is only for a finite, isolated molecule and does"
+" not give the band structure of a periodic crystal itself. \\ Verifying "
+"whether the pseudo wave number corresponds to the actual spatial "
+"oscillations of the wave function requires an analysis of the orbital "
+"coefficients. \\ The RKS-PBE levels lie close to the black dashed line "
+"but deviate from it, especially near the upper and lower ends."
+
+#: ../../hydrogen_chain/band_formation.rst:107
+msgid ""
+"例えば :math:`N` = 64の全軌道エネルギーに :math:`A+B\\cos(ka)` を最小二乗フィットすると、\\ "
+"二乗平均平方根誤差は約 0.312 eV になります。\\ :math:`C\\cos(2ka)` を加えて、フィッティングの自由度を上げると、約"
+" 0.041 eV まで減らせます。\\ "
+"これは、最近接以遠の相互作用、軌道の重なり、自己無撞着ポテンシャルなどが、単純な模型との差に寄与しているためだと考えられますが、\\ "
+"ここでは、これ以上は立ち入りません。"
+msgstr ""
+"For example, for :math:`N` = 64 a least-squares fit of "
+":math:`A+B\\cos(ka)` to all orbital energies \\ gives a root mean square "
+"error of about 0.312 eV. With \\ :math:`C\\cos(2ka)` added to make the "
+"fit more flexible, the error drops to about 0.041 eV. \\ Interactions "
+"beyond nearest neighbors, orbital overlap, and the self-consistent "
+"potential are among the likely contributors to the difference from the "
+"simple model, but \\ we do not investigate those contributions further "
+"here."
+
+#: ../../hydrogen_chain/band_formation.rst:114
+msgid "RHFの場合"
+msgstr "RHF Results"
+
+#: ../../hydrogen_chain/band_formation.rst:116
+msgid ""
+"同じ水素鎖の計算を、今度はRHF法で行い、先ほどと同様に、\\ 原子数を変えて軌道エネルギーをプロットしてみると :numref:`fig-"
+"hchain-rhf-levels` のようになります。\\ RKS-"
+"PBEの場合とは大きく様子が異なり、はっきりとバンドギャップが現れているのがわかります。"
+msgstr ""
+"We ran RHF calculations on the same hydrogen chains and, as before, \\ "
+"plotted the orbital energies for different atom counts in :numref:`fig-"
+"hchain-rhf-levels`. \\ The RHF plot differs markedly from the RKS-PBE "
+"plot in that it shows a clearly visible band gap."
+
+#: ../../hydrogen_chain/band_formation.rst:124
+msgid ""
+"RHFで求めた分子軌道エネルギー。軸の定義と黒い破線は :numref:`fig-hchain-pbe-levels` "
+"と同じです。破線はPBEのギャップから求めた :math:`t \\simeq 1.87` "
+"eVの強束縛模型を比較の基準として示しており、RHFへのフィットではありません。縦軸の表示範囲はRHFの準位に合わせています。"
+msgstr ""
+"These are the RHF molecular orbital energies. The axes and the black "
+"dashed line are defined as in :numref:`fig-hchain-pbe-levels`. The dashed"
+" line is the tight-binding model with :math:`t \\simeq 1.87` eV obtained "
+"from the PBE gap, shown as a reference for comparison; it is not a fit to"
+" the RHF results. The vertical range is chosen to show the RHF levels."
+
+#: ../../hydrogen_chain/band_formation.rst:126
+msgid ""
+":numref:`tab-hchain-gaps` および :numref:`fig-hchain-gaps` に、RHFおよびRKS-"
+"PBEによる、\\ 最高被占有軌道（HOMO）と最低空軌道（LUMO）のエネルギー差（HOMO-"
+"LUMOギャップ）の、水素鎖長に対する変化を示しています。\\ これをみると、RKS-PBEの場合は、水素鎖長とともに HOMO-LUMO "
+"ギャップがどんどん小さくなっていくのに対し、\\ RHFの場合は、調べた鎖長の範囲では大きな軌道ギャップが残ることが分かります。\\ "
+"その結果、RHF法で水素鎖のバンドを描くと、\\ :numref:`fig-hchain-rhf-levels` "
+"のようにバンドギャップが現れることになります。"
+msgstr ""
+":numref:`tab-hchain-gaps` and :numref:`fig-hchain-gaps` compare how the "
+"RHF and RKS-PBE HOMO–LUMO gaps, \\ the energy differences between the "
+"highest occupied molecular orbital (HOMO) and the lowest unoccupied "
+"molecular orbital (LUMO), change with hydrogen chain length. \\ The RKS-"
+"PBE HOMO–LUMO gap shrinks rapidly as the chain length increases, whereas "
+"\\ a large orbital gap persists in RHF over the chain lengths studied. \\"
+" As a result, the RHF band plot for the hydrogen chain shows a band gap, "
+"as in \\ :numref:`fig-hchain-rhf-levels`."
+
+#: ../../hydrogen_chain/band_formation.rst:136
+msgid "HOMO–LUMO軌道ギャップ（DF-SCF）"
+msgstr "HOMO–LUMO orbital gaps (DF-SCF)"
+
+#: ../../hydrogen_chain/band_formation.rst:141
+msgid "原子数 :math:`N`"
+msgstr "Number of atoms :math:`N`"
+
+#: ../../hydrogen_chain/band_formation.rst:142
+msgid "RHF (eV)"
+msgstr "RHF (eV)"
+
+#: ../../hydrogen_chain/band_formation.rst:143
+msgid "RKS-PBE (eV)"
+msgstr "RKS-PBE (eV)"
+
+#: ../../hydrogen_chain/band_formation.rst:144
+msgid "2"
+msgstr "2"
+
+#: ../../hydrogen_chain/band_formation.rst:145
+msgid "12.124"
+msgstr "12.124"
+
+#: ../../hydrogen_chain/band_formation.rst:146
+msgid "3.806"
+msgstr "3.806"
+
+#: ../../hydrogen_chain/band_formation.rst:147
+msgid "4"
+msgstr "4"
+
+#: ../../hydrogen_chain/band_formation.rst:148
+msgid "9.325"
+msgstr "9.325"
+
+#: ../../hydrogen_chain/band_formation.rst:149
+msgid "2.327"
+msgstr "2.327"
+
+#: ../../hydrogen_chain/band_formation.rst:150
+msgid "8"
+msgstr "8"
+
+#: ../../hydrogen_chain/band_formation.rst:151
+msgid "7.089"
+msgstr "7.089"
+
+#: ../../hydrogen_chain/band_formation.rst:152
+msgid "1.302"
+msgstr "1.302"
+
+#: ../../hydrogen_chain/band_formation.rst:153
+msgid "16"
+msgstr "16"
+
+#: ../../hydrogen_chain/band_formation.rst:154
+msgid "5.679"
+msgstr "5.679"
+
+#: ../../hydrogen_chain/band_formation.rst:155
+msgid "0.691"
+msgstr "0.691"
+
+#: ../../hydrogen_chain/band_formation.rst:156
+msgid "24"
+msgstr "24"
+
+#: ../../hydrogen_chain/band_formation.rst:157
+msgid "5.214"
+msgstr "5.214"
+
+#: ../../hydrogen_chain/band_formation.rst:158
+msgid "0.470"
+msgstr "0.470"
+
+#: ../../hydrogen_chain/band_formation.rst:159
+msgid "32"
+msgstr "32"
+
+#: ../../hydrogen_chain/band_formation.rst:160
+msgid "5.007"
+msgstr "5.007"
+
+#: ../../hydrogen_chain/band_formation.rst:161
+#: ../../hydrogen_chain/band_formation.rst:349
+msgid "0.356"
+msgstr "0.356"
+
+#: ../../hydrogen_chain/band_formation.rst:162
+msgid "48"
+msgstr "48"
+
+#: ../../hydrogen_chain/band_formation.rst:163
+msgid "4.833"
+msgstr "4.833"
+
+#: ../../hydrogen_chain/band_formation.rst:164
+msgid "0.240"
+msgstr "0.240"
+
+#: ../../hydrogen_chain/band_formation.rst:165
+msgid "64"
+msgstr "64"
+
+#: ../../hydrogen_chain/band_formation.rst:166
+msgid "4.764"
+msgstr "4.764"
+
+#: ../../hydrogen_chain/band_formation.rst:167
+msgid "0.181"
+msgstr "0.181"
+
+#: ../../hydrogen_chain/band_formation.rst:175
+msgid "原子数に対するHOMO–LUMO軌道ギャップ（縦軸は対数）。破線は有限サイズ則 :math:`11.75/(N+1)` eVです。"
+msgstr ""
+"The plot shows the HOMO–LUMO orbital gap versus the number of atoms, with"
+" a logarithmic vertical axis. The dashed line shows the finite-size law "
+":math:`11.75/(N+1)` eV."
+
+#: ../../hydrogen_chain/band_formation.rst:177
+msgid "RKS-PBEのギャップは原子数とともに速やかに小さくなり、原子数を2倍にするとおおむね半分になります。\\ 実際、次のような式"
+msgstr ""
+"The RKS-PBE gap decreases rapidly as the number of atoms increases. "
+"Doubling the number of atoms roughly halves the gap. \\ In fact, the "
+"expression"
+
+#: ../../hydrogen_chain/band_formation.rst:180
+msgid "\\Delta_N^{\\mathrm{PBE}} \\simeq \\frac{11.75\\ \\mathrm{eV}}{N+1}"
+msgstr "\\Delta_N^{\\mathrm{PBE}} \\simeq \\frac{11.75\\ \\mathrm{eV}}{N+1}"
+
+#: ../../hydrogen_chain/band_formation.rst:185
+msgid ""
+"を考えると、\\ :numref:`fig-hchain-gaps` の破線で示されるように、HOMO-LUMO "
+"ギャップの水素鎖長依存性のプロットによくフィットすることが分かります。\\ 上式 :eq:`rks-pbe-gaps` "
+"は、半充填の最近接強束縛模型での有限サイズギャップ"
+msgstr ""
+"fits the dependence of the HOMO–LUMO gap on hydrogen chain length well, "
+"as shown by the dashed line in \\ :numref:`fig-hchain-gaps`. \\ Equation "
+":eq:`rks-pbe-gaps` has the same form as the finite-size gap of a half-"
+"filled nearest-neighbor tight-binding model,"
+
+#: ../../hydrogen_chain/band_formation.rst:188
+msgid ""
+"\\Delta_N^{\\mathrm{TB}} = 4t\\sin\\left(\\frac{\\pi}{2(N+1)}\\right) "
+"\\simeq \\frac{2\\pi t}{N+1}"
+msgstr ""
+"\\Delta_N^{\\mathrm{TB}} = 4t\\sin\\left(\\frac{\\pi}{2(N+1)}\\right) "
+"\\simeq \\frac{2\\pi t}{N+1}"
+
+#: ../../hydrogen_chain/band_formation.rst:192
+msgid ""
+"と同じ形をしています。偶数 :math:`N` の半充填鎖では左の式が厳密に成り立ち、\\ 右の近似は大きな :math:`N` "
+"に対するものです。係数を比較し、フェルミ準位付近の準位間隔を対応させると、\\ 有効ホッピングは"
+msgstr ""
+"whose left-hand expression is exact for a half-filled chain with even "
+":math:`N`, \\ whereas the approximation on the right applies at large "
+":math:`N`. Comparing coefficients to match the level spacing near the "
+"Fermi level \\ gives the effective hopping"
+
+#: ../../hydrogen_chain/band_formation.rst:196
+#, python-brace-format
+msgid "t \\approx 11.75/(2\\pi) \\approx 1.87\\ \\mathrm{eV}"
+msgstr "t \\approx 11.75/(2\\pi) \\approx 1.87\\ \\mathrm{eV}"
+
+#: ../../hydrogen_chain/band_formation.rst:200
+msgid ""
+"になります。\\ この模型のバンド幅 :math:`4t \\approx 7.48` eV は、\\ :numref:`fig-hchain-"
+"pbe-levels` から読み取れる、\\ RKS-PBEの :math:`N` = 64での軌道エネルギーの最大値と最小値の差、約 8.01 "
+"eVに近い値です。\\"
+msgstr ""
+"for this model. \\ The model bandwidth of :math:`4t \\approx 7.48` eV is "
+"close to the span of orbital energies in \\ :numref:`fig-hchain-pbe-"
+"levels`, \\ where the highest and lowest RKS-PBE orbital energies for "
+":math:`N` = 64 differ by about 8.01 eV.\\"
+
+#: ../../hydrogen_chain/band_formation.rst:206
+msgid "一方、RHFでは :math:`N` = 64まで増やしても約4.8 eVのギャップが残ります。"
+msgstr "In contrast, an RHF gap of about 4.8 eV remains even at :math:`N` = 64."
+
+#: ../../hydrogen_chain/band_formation.rst:210
+msgid "波動関数（分子軌道）の解析"
+msgstr "Wave Function (Molecular Orbital) Analysis"
+
+#: ../../hydrogen_chain/band_formation.rst:212
+msgid ""
+"あらためて、2つの手法で計算した :math:`N` = 64の軌道エネルギーを並べてプロットしたものを :numref:`fig-hchain-"
+"levels-n64` に示します。\\ PBEの準位は半充填位置 :math:`ka = \\pi/2` "
+"をはさんで大きな段差なく並ぶのに対し、RHFでは占有軌道と空軌道の間に大きな段差があります。\\ "
+"同じ原子配置と電子数なのに、なぜこれほど違う結果になるのでしょうか？"
+msgstr ""
+"For :math:`N` = 64, :numref:`fig-hchain-levels-n64` plots the orbital "
+"energies from both methods together. \\ The PBE levels show no large step"
+" across half filling at :math:`ka = \\pi/2`, whereas RHF shows a large "
+"step between the occupied and unoccupied orbitals. \\ Why do the results "
+"differ so much for the same atomic arrangement and electron count?"
+
+#: ../../hydrogen_chain/band_formation.rst:220
+msgid ""
+":math:`N` = 64でのRHFとRKS-PBEの分子軌道エネルギー。塗りつぶしは占有軌道、白抜きは空軌道です。軸の定義は :numref"
+":`fig-hchain-pbe-levels` と同じです。"
+msgstr ""
+"These are the RHF and RKS-PBE molecular orbital energies for :math:`N` = "
+"64. Filled markers indicate occupied orbitals, and open markers indicate "
+"unoccupied orbitals. The axes are defined as in :numref:`fig-hchain-pbe-"
+"levels`."
+
+#: ../../hydrogen_chain/band_formation.rst:224
+msgid ""
+"原因を探るため、隣り合う原子の間の電子的な結びつきを調べます。\\ 重なり行列 :math:`S` と（スピンについて和をとった）密度行列 "
+":math:`D` から、Löwdin直交化した密度行列"
+msgstr ""
+"To investigate the cause, we examine electronic bonding between "
+"neighboring atoms. \\ From the overlap matrix :math:`S` and the spin-"
+"summed density matrix :math:`D`, we form the Löwdin-orthogonalized "
+"density matrix"
+
+#: ../../hydrogen_chain/band_formation.rst:227
+msgid "P^{\\mathrm{L}} = S^{1/2} D S^{1/2}"
+msgstr "P^{\\mathrm{L}} = S^{1/2} D S^{1/2}"
+
+#: ../../hydrogen_chain/band_formation.rst:231
+msgid "をつくり、その隣接原子間の要素を **結合次数に相当する量**"
+msgstr ""
+"and use its element between neighboring atoms as a **measure "
+"corresponding to the bond order**"
+
+#: ../../hydrogen_chain/band_formation.rst:233
+msgid "B_i = P^{\\mathrm{L}}_{i,i+1}"
+msgstr "B_i = P^{\\mathrm{L}}_{i,i+1}"
+
+#: ../../hydrogen_chain/band_formation.rst:238
+msgid "として使います（これはこの解析のための指標で、結合次数の唯一の定義ではありません）。\\ 例えば、最近接強束縛模型の場合であれば、波動関数"
+msgstr ""
+"(an indicator for this analysis, not the only definition of bond order). "
+"\\ For example, in the nearest-neighbor tight-binding model, we use the "
+"wave function"
+
+#: ../../hydrogen_chain/band_formation.rst:241
+msgid "\\phi_j(i) = \\sqrt{\\frac{2}{N+1}}\\sin\\left(\\frac{ij\\pi}{N+1}\\right)"
+msgstr "\\phi_j(i) = \\sqrt{\\frac{2}{N+1}}\\sin\\left(\\frac{ij\\pi}{N+1}\\right)"
+
+#: ../../hydrogen_chain/band_formation.rst:245
+msgid "を使って以下のような評価を行うことになります。"
+msgstr "to evaluate the bond order as follows."
+
+#: ../../hydrogen_chain/band_formation.rst:247
+#, python-brace-format
+msgid " B_i = 2\\sum_{j=1}^{N/2}\\phi_j(i)\\phi_j(i+1)."
+msgstr " B_i = 2\\sum_{j=1}^{N/2}\\phi_j(i)\\phi_j(i+1)."
+
+#: ../../hydrogen_chain/band_formation.rst:252
+msgid "結合次数の解析結果を :numref:`fig-hchain-bond-order` に示します。"
+msgstr ""
+":numref:`fig-hchain-bond-order` shows the results of the bond-order "
+"analysis."
+
+#: ../../hydrogen_chain/band_formation.rst:258
+msgid ""
+":math:`N` = 32の各結合におけるLöwdin密度行列要素（式 :eq:`lowdin-bi` ）。Uniform "
+"TBは電子間相互作用を含まない一様な最近接強束縛模型の場合（式 :eq:`lowdin-bi-tb` ）。"
+msgstr ""
+"For each bond at :math:`N` = 32, the plot shows the Löwdin nearest-"
+"neighbor density matrix element (Equation :eq:`lowdin-bi`). The curve "
+"labeled “Uniform TB (no interaction)” shows the result for the uniform "
+"nearest-neighbor tight-binding model without electron-electron "
+"interactions (Equation :eq:`lowdin-bi-tb`)."
+
+#: ../../hydrogen_chain/band_formation.rst:278
+msgid ""
+"RHFでは、鎖の中央でも :math:`B_i` がおおよそ0.86、0.38、0.86、0.38、……と大きく交替しています。\\ "
+"PBEでは0.67と0.61程度の小さな交替にとどまります。これは、水素原子間の結合の強さが、\\ :numref:`fig-hchain-"
+"bond-order-image` のようになっていることを示しています。"
+msgstr ""
+"In RHF, :math:`B_i` alternates strongly even at the center of the chain, "
+"with values of roughly 0.86, 0.38, 0.86, 0.38, and so on. \\ In PBE, "
+"however, the alternation is small, between about 0.67 and 0.61. The "
+"corresponding pattern in bonding strength between hydrogen atoms is "
+"illustrated in \\ :numref:`fig-hchain-bond-order-image`."
+
+#: ../../hydrogen_chain/band_formation.rst:285
+msgid ""
+":math:`N` = 32の水素鎖中央における結合次数の交替を表す模式図。数値は隣接原子間のLöwdin密度行列要素 :math:`B_i` "
+"の代表値です。原子間距離は一定で、青と橙はそれぞれ大きい値と小さい値を示します。"
+msgstr ""
+"This schematic shows the alternation of bond orders at the center of the "
+":math:`N` = 32 hydrogen chain. The numbers are representative values of "
+"the Löwdin density matrix element :math:`B_i` between neighboring atoms. "
+"The interatomic spacing is constant. Blue indicates larger values and "
+"orange indicates smaller values."
+
+#: ../../hydrogen_chain/band_formation.rst:291
+msgid ""
+"このように、 **原子核は等間隔のまま、電子による結合の強さだけが「強・弱・強・弱」と交替する状態** は、\\ 結合次数波あるいは結合秩序波"
+"（bond-order wave、BOW）と呼ばれています\\ （原子そのものが交互に変位する Peierls 歪みとは区別が必要です）。"
+msgstr ""
+"A state in which **the nuclei remain equally spaced and only the "
+"electronic bond strengths alternate in a “strong, weak, strong, weak” "
+"pattern** is \\ called a bond-order wave (BOW). \\ It must be "
+"distinguished from a Peierls distortion, in which the atoms themselves "
+"undergo alternating displacements."
+
+#: ../../hydrogen_chain/band_formation.rst:295
+msgid ""
+"BOW状態が無限鎖でも保たれるとすると、電子状態の周期は :math:`a` から :math:`2a` に倍化します。\\ "
+"これは、強弱2種類のホッピング :math:`t_1, t_2` を交互に並べた Su-Schrieffer-Heeger (SSH) 模型 "
+"[5]_ と呼ばれる強束縛模型で記述できる状態となっており、\\ 簡単な計算から、折り返されたバンドの境界に"
+msgstr ""
+"If the BOW state persists in an infinite chain, the period of the "
+"electronic state doubles from :math:`a` to :math:`2a`. \\ A tight-binding"
+" model with alternating strong and weak hoppings :math:`t_1, t_2`, known "
+"as the Su–Schrieffer–Heeger (SSH) model [5]_, can describe this state. \\"
+" A simple calculation shows that a gap of"
+
+#: ../../hydrogen_chain/band_formation.rst:299
+msgid "\\Delta_{\\mathrm{BOW}} = 2|t_1 - t_2|"
+msgstr "\\Delta_{\\mathrm{BOW}} = 2|t_1 - t_2|"
+
+#: ../../hydrogen_chain/band_formation.rst:303
+msgid ""
+"のギャップが開くことが示されます。\\ :numref:`fig-hchain-levels-n64` で、RHFの準位が半充填位置 "
+":math:`ka = \\pi/2` で段差を持つことも、この描像と整合しています。"
+msgstr ""
+"opens at the boundary of the folded band. \\ :numref:`fig-hchain-"
+"levels-n64` also shows a step in the RHF levels at half filling :math:`ka"
+" = \\pi/2`, consistent with this picture."
+
+#: ../../hydrogen_chain/band_formation.rst:311
+msgid "スピン分極を考慮した場合"
+msgstr "Including Spin Polarization"
+
+#: ../../hydrogen_chain/band_formation.rst:313
+msgid ""
+"ここまでの計算は、上向きスピンと下向きスピンの電子に同じ空間軌道を使わせるスピン制限計算でした。\\ そこで"
+"、両スピンの軌道を独立に最適化できるUHFとUKS-PBEでも計算してみました。\\ バンド風プロットの結果を :numref:`fig-"
+"hchain-uhf-spectrum` および :numref:`fig-hchain-uks-spectrum` に示します。"
+msgstr ""
+"So far, the calculations have been spin-restricted calculations, with the"
+" same spatial orbitals for spin-up and spin-down electrons. \\ We "
+"therefore also ran UHF and UKS-PBE calculations, which can optimize the "
+"orbitals for the two spins independently. \\ The band-like plots are "
+"shown in :numref:`fig-hchain-uhf-spectrum` and :numref:`fig-hchain-uks-"
+"spectrum`."
+
+#: ../../hydrogen_chain/band_formation.rst:323
+msgid "UHFの軌道エネルギー。横軸は軌道番号から割り当てた擬似波数で、塗りつぶしは占有軌道、白抜きは空軌道を示します。"
+msgstr ""
+"These are the UHF orbital energies. The horizontal axis shows the pseudo "
+"wave number assigned by orbital order. Filled markers indicate occupied "
+"orbitals, and open markers indicate unoccupied orbitals."
+
+#: ../../hydrogen_chain/band_formation.rst:329
+msgid "UKS-PBEの軌道エネルギー。横軸と記号の意味は左図と同じですが、縦軸の範囲は異なります。"
+msgstr ""
+"These are the UKS-PBE orbital energies. The horizontal axis and the "
+"markers have the same meanings as in the plot on the left, but the "
+"vertical range differs."
+
+#: ../../hydrogen_chain/band_formation.rst:331
+msgid ""
+"図では、 :math:`\\alpha` スピンと :math:`\\beta` スピンの軌道エネルギーが重なっています。\\ そして今度は "
+"UHF と UKS-PBE の両方で大きなHOMO–LUMO軌道ギャップが現れています。\\ :numref:`tab-hchain-spin` "
+"に、HOMO–LUMO軌道ギャップと\\ Löwdinスピン密度（原子ごとのα電子数とβ電子数の差）の平均絶対値を示します。\\ "
+"非制限解での平均絶対値は 0.6 :math:`\\sim` 0.9 です。"
+msgstr ""
+"The plots show overlapping :math:`\\alpha`- and :math:`\\beta`-spin "
+"orbital energies. \\ Both UHF and UKS-PBE now show a large HOMO–LUMO "
+"orbital gap. \\ :numref:`tab-hchain-spin` gives the HOMO–LUMO orbital gap"
+" and \\ the mean absolute Löwdin spin density. The spin density at each "
+"atom is its α electron population minus its β electron population. \\ The"
+" mean absolute value is 0.6 :math:`\\sim` 0.9 for the unrestricted "
+"solutions."
+
+#: ../../hydrogen_chain/band_formation.rst:337
+msgid ":math:`N` = 32でのスピン制限解と非制限解の比較（PK積分）"
+msgstr ""
+"Comparison of spin-restricted and spin-unrestricted solutions at "
+":math:`N` = 32 (PK integrals)"
+
+#: ../../hydrogen_chain/band_formation.rst:342
+msgid "手法"
+msgstr "Method"
+
+#: ../../hydrogen_chain/band_formation.rst:343
+msgid "HOMO–LUMO軌道ギャップ (eV)"
+msgstr "HOMO–LUMO orbital gap (eV)"
+
+#: ../../hydrogen_chain/band_formation.rst:344
+msgid "Löwdinスピン密度の平均絶対値"
+msgstr "Mean absolute Löwdin spin density"
+
+#: ../../hydrogen_chain/band_formation.rst:345
+msgid "RHF"
+msgstr "RHF"
+
+#: ../../hydrogen_chain/band_formation.rst:346
+msgid "5.005"
+msgstr "5.005"
+
+#: ../../hydrogen_chain/band_formation.rst:347
+#: ../../hydrogen_chain/band_formation.rst:350
+msgid "0"
+msgstr "0"
+
+#: ../../hydrogen_chain/band_formation.rst:348
+msgid "RKS-PBE"
+msgstr "RKS-PBE"
+
+#: ../../hydrogen_chain/band_formation.rst:351
+msgid "UHF"
+msgstr "UHF"
+
+#: ../../hydrogen_chain/band_formation.rst:352
+msgid "19.493"
+msgstr "19.493"
+
+#: ../../hydrogen_chain/band_formation.rst:353
+msgid "0.898"
+msgstr "0.898"
+
+#: ../../hydrogen_chain/band_formation.rst:354
+msgid "UKS-PBE"
+msgstr "UKS-PBE"
+
+#: ../../hydrogen_chain/band_formation.rst:355
+msgid "3.611"
+msgstr "3.611"
+
+#: ../../hydrogen_chain/band_formation.rst:356
+msgid "0.626"
+msgstr "0.626"
+
+#: ../../hydrogen_chain/band_formation.rst:358
+msgid ""
+"続いて :numref:`fig-hchain-spin` に、\\ UHF および UKS-PBE "
+"の結合次数解析の結果と、スピン密度分布の結果を示します。"
+msgstr ""
+"Next, :numref:`fig-hchain-spin` shows \\ the bond orders and the spin "
+"density distributions for UHF and UKS-PBE."
+
+#: ../../hydrogen_chain/band_formation.rst:365
+msgid ""
+":math:`N` = 32の鎖のLöwdin結合次数（上）とLöwdinスピン密度 :math:`\\alpha-\\beta` "
+"（下）。RHFの結合交替に対し、UHFとUKS-PBEでは結合次数がほぼ一様になり、スピン密度が原子ごとに反転します。"
+msgstr ""
+"For the :math:`N` = 32 chain, the top panel shows Löwdin bond order and "
+"the bottom panel shows Löwdin spin density :math:`\\alpha-\\beta`, "
+"labeled “Löwdin spin population.” In contrast to the alternating RHF bond"
+" orders, the UHF and UKS-PBE bond orders are nearly uniform, and the spin"
+" density changes sign from atom to atom."
+
+#: ../../hydrogen_chain/band_formation.rst:367
+msgid ""
+"RHFで大きかったBOWはほぼ消え、代わりに **隣り合う原子ごとにスピン密度の符号が反転する（反強磁性的）な状態** "
+"が得られていることがわかります。"
+msgstr ""
+"The pronounced BOW seen in RHF almost disappears. Instead, the "
+"calculations give **an antiferromagnetic-like state in which the sign of "
+"the spin density alternates between neighboring atoms**."
+
+#: ../../hydrogen_chain/band_formation.rst:374
+msgid ""
+"非制限計算では、もう一つ、強磁性的な状態も実現する可能性がありますが、計算してみたところ、\\ 原子あたり 0.6 :math:`\\sim` 1"
+" eV 近くエネルギーの高い不安定な状態でした。\\ もちろん、RHF および RKS-PBE も、よりエネルギーの高い\\ （\\ "
+":math:`N` = 32では、UHF→RHFで1原子あたり約1.49 eV、UKS-PBE→RKS-PBEで1原子あたり約0.125 "
+"eVだけ不安定化する）状態です。"
+msgstr ""
+"A ferromagnetic-like state is another possibility in the unrestricted "
+"calculations, but \\ when we computed it, it was less stable, with an "
+"energy higher by about 0.6 :math:`\\sim` 1 eV per atom. \\ The RHF and "
+"RKS-PBE solutions are also higher in energy \\ (for \\ :math:`N` = 32, "
+"the UHF→RHF increase is about 1.49 eV per atom and the UKS-PBE→RKS-PBE "
+"increase is about 0.125 eV per atom)."
+
+#: ../../hydrogen_chain/band_formation.rst:379
+msgid ""
+"したがって、HFとPBEでそれぞれの手法内の全エネルギーを比べると、今回得られた解の中では、どちらの手法でも反強磁性的な解が最も安定です。\\ "
+"そしてこの「スピンの向きが異なるサイトが隣同士になっている」という状況は、とりもなおさず、\\ "
+"系の周期を2倍にするという効果につながることになります。"
+msgstr ""
+"Comparing total energies within HF and within PBE, we find that the "
+"antiferromagnetic-like solution is the most stable of the solutions "
+"obtained for each method. \\ Having neighboring sites with opposite spin "
+"orientations \\ doubles the period of the system."
+
+#: ../../hydrogen_chain/band_formation.rst:389
+msgid "どの結果が「正しい」のか？"
+msgstr "Which Result Is “Correct”?"
+
+#: ../../hydrogen_chain/band_formation.rst:391
+msgid ""
+"ここで注意したいのは、軌道ギャップが開いているのが正しいわけではない、ということです。\\ 反対に、スピン制限のPBE計算で軌道ギャップがほぼ "
+":math:`1/N` で小さくなったことも、真の多電子系が金属であることの証明ではありません。\\ "
+"今回行った計算は全て「それぞれの理論手法の特徴を見た」という程度の話だと思っておくのが安全です。"
+msgstr ""
+"An open orbital gap does not by itself tell us that the result is "
+"correct. \\ Conversely, the decrease in the orbital gap approximately as "
+":math:`1/N` in spin-restricted PBE is no proof that the true many-"
+"electron system is metallic. \\ It is safest to regard these calculations"
+" as illustrations of the characteristics of the respective methods."
+
+#: ../../hydrogen_chain/band_formation.rst:395
+msgid ""
+"誤解のないように言っておくと、DFTによる第一原理計算は、通常の状況であれば非常に信頼できる結果が得られる手法です。\\ "
+"しかしその一方で「強相関電子系」と呼ばれる特別な系の記述を不得手とすることも知られています。"
+msgstr ""
+"First-principles calculations based on DFT can give very reliable results"
+" under ordinary conditions. \\ However, DFT is also known to have "
+"difficulty describing a special class of systems known as strongly "
+"correlated electron systems."
+
+#: ../../hydrogen_chain/band_formation.rst:398
+msgid ""
+"実は、水素原子鎖は、電子相関を扱う手法のベンチマークとして広く使われている系です。\\ "
+"多体計算による研究では、原子間距離に応じてMott絶縁体的な振る舞い、準長距離の反強磁性相関、絶縁体–金属転移などの性質が報告されています "
+"[2]_ 。\\ 有限の水素鎖でHF解の安定性と対称性の破れを調べた古典的な研究もあります [3]_ 。\\ また別の研究では、原子間距離1.4 "
+"Åの水素鎖について、PBEなどがほぼゼロのギャップを与える一方、密度行列繰り込み群（DMRG）による多電子計算では絶縁体ギャップが得られています "
+"[4]_ 。\\"
+msgstr ""
+"The hydrogen atom chain is widely used as a benchmark for methods that "
+"treat electron correlation. \\ Many-body studies have reported properties"
+" such as Mott-insulator-like behavior, quasi-long-range antiferromagnetic"
+" correlations, and an insulator-to-metal transition, depending on the "
+"interatomic distance [2]_. \\ A classic study also examined the stability"
+" and symmetry breaking of HF solutions for finite hydrogen chains [3]_. "
+"\\ In another study of a hydrogen chain with an interatomic distance of "
+"1.4 Å, PBE and other methods gave a nearly zero gap, whereas a many-"
+"electron calculation using the density matrix renormalization group "
+"(DMRG) gave an insulating gap [4]_.\\"
+
+#: ../../hydrogen_chain/band_formation.rst:408
+msgid ""
+"今回の計算での教訓は、 **同じ原子配置と電子数であっても、計算手法が違えば、得られる電子状態の解釈そのものが変わるケースもある** "
+"ということです。"
+msgstr ""
+"The lesson from these calculations is that **even with the same atomic "
+"arrangement and electron count, changing the calculation method can "
+"change the very interpretation of the electronic state**."
+
+#: ../../hydrogen_chain/band_formation.rst:425
+msgid "参考文献"
+msgstr "References"
+
+#: ../../hydrogen_chain/band_formation.rst:427
+msgid ""
+"Psi4 documentation, \"HF: Hartree–Fock Theory.\" "
+"https://psi4.github.io/psi4docs/master/scf.html"
+msgstr ""
+"Psi4 documentation, \"HF: Hartree–Fock Theory.\" "
+"https://psi4.github.io/psi4docs/master/scf.html"
+
+#: ../../hydrogen_chain/band_formation.rst:428
+msgid ""
+"M\\. Motta et al., \"Ground-State Properties of the Hydrogen Chain: "
+"Dimerization, Insulator-to-Metal Transition, and Magnetic Phases,\" "
+"*Physical Review X* **10**, 031058 (2020). "
+"https://doi.org/10.1103/PhysRevX.10.031058"
+msgstr ""
+"M\\. Motta et al., \"Ground-State Properties of the Hydrogen Chain: "
+"Dimerization, Insulator-to-Metal Transition, and Magnetic Phases,\" "
+"*Physical Review X* **10**, 031058 (2020). "
+"https://doi.org/10.1103/PhysRevX.10.031058"
+
+#: ../../hydrogen_chain/band_formation.rst:429
+msgid ""
+"M\\. Bénard and J. Paldus, \"Stability of Hartree–Fock solutions and "
+"symmetry breaking in the independent particle model: An ab initio case "
+"study of the LCAO–MO–SCF solutions for finite chains of hydrogen atoms,\""
+" *The Journal of Chemical Physics* **72**, 6546–6559 (1980). "
+"https://doi.org/10.1063/1.439112"
+msgstr ""
+"M\\. Bénard and J. Paldus, \"Stability of Hartree–Fock solutions and "
+"symmetry breaking in the independent particle model: An ab initio case "
+"study of the LCAO–MO–SCF solutions for finite chains of hydrogen atoms,\""
+" *The Journal of Chemical Physics* **72**, 6546–6559 (1980). "
+"https://doi.org/10.1063/1.439112"
+
+#: ../../hydrogen_chain/band_formation.rst:430
+msgid ""
+"\"Bridging the gap between molecules and materials in quantum chemistry "
+"with localized active spaces,\" *Nature Communications* **16**, 10832 "
+"(2025). https://doi.org/10.1038/s41467-025-65846-1"
+msgstr ""
+"\"Bridging the gap between molecules and materials in quantum chemistry "
+"with localized active spaces,\" *Nature Communications* **16**, 10832 "
+"(2025). https://doi.org/10.1038/s41467-025-65846-1"
+
+#: ../../hydrogen_chain/band_formation.rst:431
+msgid ""
+"W\\. P. Su, J. R. Schrieffer, and A. J. Heeger, \"Solitons in "
+"Polyacetylene,\" *Physical Review Letters* **42**, 1698 (1979). "
+"https://doi.org/10.1103/PhysRevLett.42.1698"
+msgstr ""
+"W\\. P. Su, J. R. Schrieffer, and A. J. Heeger, \"Solitons in "
+"Polyacetylene,\" *Physical Review Letters* **42**, 1698 (1979). "
+"https://doi.org/10.1103/PhysRevLett.42.1698"
+

@@ -1,3 +1,7 @@
 # 英語版で公開するページ（docname を1行に1つ）。
 # 載せる条件: そのページの .po に未訳・fuzzy が無く、check_po.py が0で、図の英語版がそろい、訳のレビューを済ませた。
 # ここに無いページも英語版にページとして出るが、本文は日本語の原文への案内に置き換わる（_ext/english_edition.py）。
+index
+hydrogen_chain/index
+hydrogen_chain/band_formation
+hydrogen_chain/reproduction

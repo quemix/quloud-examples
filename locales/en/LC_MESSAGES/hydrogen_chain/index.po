@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../hydrogen_chain/index.rst:2
+msgid "水素原子鎖の電子バンド形成"
+msgstr "Electronic Band Formation in a Hydrogen Atom Chain"
+
+#: ../../hydrogen_chain/index.rst:4
+msgid "水素原子を並べたときの軌道エネルギーを計算し、鎖の長さと電子バンド形成の関係を調べます。"
+msgstr ""
+"We calculate orbital energies for a chain of hydrogen atoms and examine "
+"the relationship between chain length and electronic band formation."
+
+#: ../../hydrogen_chain/index.rst:8
+msgid ":doc:`計算結果を読む <band_formation>`"
+msgstr ":doc:`Interpreting the Calculation Results <band_formation>`"
+
+#: ../../hydrogen_chain/index.rst:9
+msgid ":doc:`計算条件と再現手順 <reproduction>`"
+msgstr ":doc:`Calculation Conditions and Reproduction Procedure <reproduction>`"
+

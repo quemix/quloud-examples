@@ -63,7 +63,7 @@ Psi4入力スクリプト
 計算手順
 ========
 
-以下のコマンドは、Psi4 1.10の環境で、スクリプトを置いたディレクトリから実行します。各スクリプトはPsi4のログ（ ``*_psi4.log`` ）も出力します。
+手順1〜4のコマンドは、Psi4 1.10の環境で、スクリプトを置いたディレクトリから実行します。各スクリプトはPsi4のログ（ ``*_psi4.log`` ）も出力します。
 
 1. RHFの原子数依存性
 --------------------
@@ -105,7 +105,7 @@ Psi4入力スクリプト
 
    python hydrogen_chain_spin.py --ns 16 32
 
-``hydrogen_chain_spin_summary.csv`` 、 ``_sites.csv`` 、 ``_bonds.csv`` 、 ``_orbitals.csv`` （α・β軌道のエネルギー）が得られます。
+``hydrogen_chain_spin_summary.csv`` 、 ``hydrogen_chain_spin_sites.csv`` 、 ``hydrogen_chain_spin_bonds.csv`` 、 ``hydrogen_chain_spin_orbitals.csv`` （α・β軌道のエネルギー）が得られます。
 
 非制限計算の初期軌道は次のようにつくります。まず同じ手法の制限解（RHFまたはRKS-PBE）のFock行列またはKohn–Sham行列をLöwdin直交化し、対角成分に :math:`\pm 0.5\ E_\mathrm{h}` の交互の場をαとβで逆符号に加えて対角化します。得られた軌道をPsi4の ``restart_file`` として読み込ませます。この場は初期軌道の生成だけに使い、SCF本計算には加えていません。ログに ``Reading orbitals`` が出力されていることで、初期軌道の読み込みを確認できます。単純なHOMO–LUMO混合による初期推定では、 :math:`N` = 16のUHFが500反復以内に収束しませんでした。
 
