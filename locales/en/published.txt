@@ -21,3 +21,15 @@ gas_laws/index
 gas_laws/argon_molar_volume
 gas_laws/five_gases_avogadro
 gas_laws/reproduction
+li3po4/index
+li3po4/introduction
+li3po4/beta-gamma-comparison
+li3po4/melt-quench-structure
+li3po4/vacancy-formation
+li3po4/vacancy-paths
+li3po4/vacancy-barriers
+li3po4/lithium-msd
+li3po4/diffusivity-temperature
+li3po4/partial-rdf
+li3po4/large-structure-rdf
+li3po4/large-model-diffusivity

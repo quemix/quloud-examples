@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/large-model-diffusivity.rst:4
+msgid "大規模モデルのLi拡散係数"
+msgstr "Li Diffusion Coefficient in the Large Model"
+
+#: ../../li3po4/large-model-diffusivity.rst:6
+msgid ""
+"文献と同じ組成・原子数のモデルを使うと、Li拡散の温度依存性はどこまで一致するでしょうか。\\ "
+"1006原子モデルの活性化エネルギーはCHGNetで0.296 eVでした。文献NNP-MDの0.55 "
+"eVと、薄膜実験で得られた0.55～0.58 eVを下回ります。"
+msgstr ""
+"How closely does the temperature dependence of Li diffusion match the "
+"published results for a model of the same composition and atom count? \\ "
+"The CHGNet activation energy for the 1006-atom model was 0.296 eV, below "
+"both the 0.55 eV from NNP-MD (Li et al.) and the 0.55–0.58 eV from thin-"
+"film experiments."
+
+#: ../../li3po4/large-model-diffusivity.rst:14
+msgid "1006原子モデルの拡散係数"
+msgstr "Diffusion Coefficient of the 1006-Atom Model"
+
+#: ../../li3po4/large-model-diffusivity.rst:16
+#, python-brace-format
+msgid ""
+":numref:`{number}. {name} <li3po4-doc-large-structure-rdf>` "
+"の1006原子モデル（Li₃₇₂P₁₂₈O₅₀₆）を、QuloudのGPU上でCHGNetを使って計算しました。\\ "
+":numref:`li3po4-diffusivity-1006atoms` の600、700、800、1000、1200 "
+"Kの5点を直線で近似し、拡散の活性化エネルギーとして :math:`0.296\\pm0.008` eVを得ました。\\ ±0.008 "
+"eVはこの直線近似の不確かさです。構造の選び方、軌跡長、拡散係数を求める時間範囲の影響は別途評価する必要があります（技術ノートの\\ "
+"`平均二乗変位の解釈と限界 <https://technical-notes.quemix.com/md/diffusion.html#msd-"
+"interpretation-limits>`__）。"
+msgstr ""
+"We used the 1006-atom model (Li₃₇₂P₁₂₈O₅₀₆) from :numref:`{number}. "
+"{name} <li3po4-doc-large-structure-rdf>` and ran CHGNet on a GPU in "
+"Quloud. \\ :numref:`li3po4-diffusivity-1006atoms` shows the straight line"
+" we fitted to five points at 600, 700, 800, 1000, and 1200 K, from which "
+"we obtained an activation energy for diffusion of :math:`0.296\\pm0.008` "
+"eV. \\ The ±0.008 eV quantifies the uncertainty of this straight-line "
+"fit. The effects of structure selection, trajectory length, and the time "
+"range used to obtain the diffusion coefficient need separate evaluation "
+"(see \\ `interpretation and limitations of mean squared displacement "
+"<https://technical-notes.quemix.com/md/diffusion.html#msd-interpretation-"
+"limits>`__ in the Technical Notes)."
+
+#: ../../li3po4/large-model-diffusivity.rst:22
+msgid "1006原子モデルの5温度の拡散係数。アレニウス近似による活性化エネルギーは0.296 eV"
+msgstr ""
+"Diffusion coefficients for the 1006-atom model at five temperatures. The "
+"Arrhenius fit gives an activation energy of 0.296 eV."
+
+#: ../../li3po4/large-model-diffusivity.rst:27
+msgid ""
+"1006原子モデルのLi拡散係数。赤丸は本計算、赤線はアレニウス式による近似。\\ 縦軸は拡散係数の常用対数で、 :numref:`li3po4"
+"-diffusivity-31atoms` の縦軸は自然対数です。常用対数の軸での傾きの換算は技術ノートの\\ `アレニウス式 <https"
+"://technical-notes.quemix.com/md/thermal_activation.html#arrhenius-"
+"equation>`__\\ にあります。"
+msgstr ""
+"Li diffusion coefficient in the 1006-atom model. The red circles are from"
+" this work, and the red line is a fit to the Arrhenius equation. \\ The "
+"vertical axis gives the base-10 logarithm of the diffusion coefficient, "
+"whereas :numref:`li3po4-diffusivity-31atoms` uses the natural logarithm. "
+"For the slope conversion on a base-10 logarithmic axis, see the Technical"
+" Notes on the \\ `Arrhenius equation <https://technical-"
+"notes.quemix.com/md/thermal_activation.html#arrhenius-equation>`__\\ ."
+
+#: ../../li3po4/large-model-diffusivity.rst:31
+msgid "文献・実験との比較"
+msgstr "Comparison with the Literature and Experiment"
+
+#: ../../li3po4/large-model-diffusivity.rst:33
+msgid ""
+"文献NNP-MDも同じ組成と原子数で600～1200 Kを調べ、活性化エネルギーは0.55 "
+"eVでした。薄膜実験では、二次イオン質量分析（SIMS）から0.57～0.58 eV、インピーダンス測定から0.55 "
+"eVが報告されています（SIMSのトレーサー拡散係数とインピーダンス測定の伝導度の対応は技術ノートの\\ `トレーサー拡散係数とイオン伝導度 "
+"<https://technical-notes.quemix.com/md/diffusion.html#tracer-diffusion-"
+"and-conductivity>`__）。 `Liらの図11とその解説 "
+"<https://doi.org/10.1063/1.4997242>`__"
+msgstr ""
+"Li et al. used NNP-MD to study a model of the same composition and atom "
+"count over 600–1200 K and obtained an activation energy of 0.55 eV. Thin-"
+"film experiments report 0.57–0.58 eV from secondary ion mass spectrometry"
+" (SIMS) and 0.55 eV from impedance measurements (see \\ `tracer diffusion"
+" coefficient and ionic conductivity <https://technical-"
+"notes.quemix.com/md/diffusion.html#tracer-diffusion-and-conductivity>`__ "
+"in the Technical Notes for how the tracer diffusion coefficient measured "
+"by SIMS relates to the conductivity measured by impedance). `Li et al., "
+"Fig. 11 and the accompanying discussion "
+"<https://doi.org/10.1063/1.4997242>`__"
+
+#: ../../li3po4/large-model-diffusivity.rst:35
+#, python-brace-format
+msgid ""
+"本計算の活性化エネルギーは、文献NNP-MDより0.254 eV、実験値より0.254～0.284 "
+"eV低いです。文献計算との差は、本計算の直線近似の不確かさより大きく、両計算の原子数は同じです。\\ また、 :numref:`{number}."
+" {name} <li3po4-doc-diffusivity-temperature>` の0.43 eVより0.134 "
+"eV低いです。31原子モデルとは組成や作製した構造も異なるため、サイズの影響を調べるには他の条件をそろえた比較が必要です。"
+msgstr ""
+"The activation energy in this work is 0.254 eV below the value from NNP-"
+"MD (Li et al.) and 0.254–0.284 eV below the experimental values. The "
+"difference from the published calculation is larger than the uncertainty "
+"of the straight-line fit in this work, and both calculations used the "
+"same number of atoms. \\ It is also 0.134 eV below the 0.43 eV in "
+":numref:`{number}. {name} <li3po4-doc-diffusivity-temperature>`. Since "
+"the composition and the prepared structure also differ from those of the "
+"31-atom model, isolating the effect of size requires a comparison with "
+"the other conditions matched."
+
+#: ../../li3po4/large-model-diffusivity.rst:39
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/large-model-diffusivity.rst:41
+msgid ""
+"同じ組成・原子数でも、CHGNetの活性化エネルギーは文献NNP-MDの値を下回り、拡散係数の温度依存性は緩やかでした。\\ "
+"図で比較した活性化エネルギーは直線の傾きから求めた値なので、各温度での拡散係数の絶対値を比べるには、文献・実験の拡散係数そのものと照合する必要があります。"
+msgstr ""
+"Even with the same composition and atom count, the CHGNet activation "
+"energy was lower than the value from NNP-MD (Li et al.), and the "
+"diffusion coefficient depended less strongly on temperature. \\ Because "
+"the activation energies compared in the figure come from the slopes of "
+"straight lines, a comparison of absolute diffusion coefficients at each "
+"temperature requires checking them directly against the published "
+"calculated and experimental diffusion coefficients."
+

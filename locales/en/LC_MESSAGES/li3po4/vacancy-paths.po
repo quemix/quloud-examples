@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/vacancy-paths.rst:4
+msgid "Li空孔の拡散経路"
+msgstr "Li Vacancy Diffusion Paths"
+
+#: ../../li3po4/vacancy-paths.rst:6
+msgid ""
+"Liの位置が1つ空いているとき、隣のLiはどの経路を通ってそこに移るでしょうか。\\ "
+"3つの機械学習原子間ポテンシャルを使ってQuloudで求めた経路数は、UMAで31、SevenNetで30、CHGNetで20でした。\\ "
+":numref:`li3po4-migration-paths` で、各モデルでどのLiサイトが経路で結ばれるかを比べます。"
+msgstr ""
+"When one Li site is vacant, what path does a neighboring Li atom take to "
+"reach it? \\ With three machine-learning interatomic potentials in "
+"Quloud, we obtained 31 paths with UMA, 30 with SevenNet, and 20 with "
+"CHGNet. \\ :numref:`li3po4-migration-paths` compares which Li sites the "
+"paths connect in each model."
+
+#: ../../li3po4/vacancy-paths.rst:10
+msgid ""
+"隣のLiが空孔に移ると、そのLiがもといた位置が空くため、空孔はLiと逆向きに移ります。\\ "
+"図の曲線は、このときLiがたどると計算された経路です。図を選ぶと元の大きさで確認できます。"
+msgstr ""
+"When a neighboring Li atom moves into a vacancy, it leaves its original "
+"site empty, so the vacancy moves in the opposite direction to the Li "
+"atom. \\ The curves show the calculated paths of the Li atoms during "
+"these moves. You can select the figure to view it at its original size."
+
+#: ../../li3po4/vacancy-paths.rst:15
+msgid "12個のLiサイトを結ぶ移動経路。左のUMAと中央のSevenNetは右のCHGNetより経路が多い"
+msgstr ""
+"Migration paths connecting 12 Li sites. UMA on the left and SevenNet in "
+"the center have more paths than CHGNet on the right."
+
+#: ../../li3po4/vacancy-paths.rst:20
+msgid ""
+"Li空孔の移動に対応するLiの経路。左からUMAの31経路（橙）、SevenNetの30経路（緑）、CHGNetの20経路（灰色）。\\ "
+"青い球と数字はLiサイト、Pで始まる番号は経路、紫の多面体はPO₄四面体を表します。"
+msgstr ""
+"Paths taken by Li atoms as Li vacancies migrate. From left to right: 31 "
+"paths for UMA (orange), 30 for SevenNet (green), and 20 for CHGNet "
+"(gray). \\ Blue spheres and numbers mark Li sites, labels starting with P"
+" identify paths, and purple polyhedra represent PO₄ tetrahedra."
+
+#: ../../li3po4/vacancy-paths.rst:23
+#, python-brace-format
+msgid ""
+"UMAとSevenNetでは広い範囲に分岐した経路が見えます。CHGNetでは経路の数が少なく、結ばれるサイトの組み合わせも異なります。\\ "
+"経路数には、候補の選び方や経路が成立するかどうかの判定が影響します（技術ノートの\\ `端点・経路の候補・イメージの数 <https"
+"://technical-notes.quemix.com/electronic/neb.html#neb-path-"
+"setup>`__）。また、Liの移動しやすさは経路ごとの障壁にも左右されます。 :numref:`{number}. {name} "
+"<li3po4-doc-vacancy-barriers>` では、図に示した経路の障壁を比較します。"
+msgstr ""
+"With UMA and SevenNet, the paths branch across a wide region. CHGNet "
+"gives fewer paths and connects different pairs of sites. \\ The path "
+"count depends on how candidate paths are selected and the criteria for "
+"deciding whether a path exists (see \\ `endpoints, candidate paths, and "
+"number of images <https://technical-notes.quemix.com/electronic/neb.html"
+"#neb-path-setup>`__ in the Technical Notes). How easily Li moves also "
+"depends on the barrier along each path. In :numref:`{number}. {name} "
+"<li3po4-doc-vacancy-barriers>`, we compare the barriers along the paths "
+"shown here."
+
+#: ../../li3po4/vacancy-paths.rst:26
+msgid ""
+"文献では、32原子の不規則構造で3.5 Å未満のLiサイト間を候補とし、46経路を調べました。\\ 両端のサイトを結ぶ\\ `最低エネルギー経路 "
+"<https://technical-notes.quemix.com/electronic/neb.html#minimum-energy-"
+"path>`__\\ を求める\\ `NEB（nudged elastic band）法 <https://technical-"
+"notes.quemix.com/electronic/neb.html#nudged-elastic-band>`__\\ "
+"を用い、同じ構造・同じサイトの組み合わせでNNPとDFTの経路の位置と形が近いことを確かめています。 `Liらの図5 "
+"<https://doi.org/10.1063/1.4997242>`__"
+msgstr ""
+"Li et al. considered Li sites less than 3.5 Å apart in a 32-atom "
+"disordered structure and examined 46 paths. \\ To find the \\ `minimum "
+"energy paths <https://technical-notes.quemix.com/electronic/neb.html"
+"#minimum-energy-path>`__ \\ connecting the endpoints, they used the \\ "
+"`nudged elastic band (NEB) method <https://technical-"
+"notes.quemix.com/electronic/neb.html#nudged-elastic-band>`__ \\ and "
+"confirmed that the NNP and DFT paths were similar in position and shape "
+"for the same structure and pairs of sites. `Li et al., Fig. 5 "
+"<https://doi.org/10.1063/1.4997242>`__"
+
+#: ../../li3po4/vacancy-paths.rst:30
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/vacancy-paths.rst:32
+msgid ""
+"3つのモデルで、Liサイトを結ぶ経路の数とつながり方が異なりました。\\ "
+"文献とは元の原子配置が異なるため、本計算の経路の再現性を評価するには、同じ構造と始点・終点でOpenMXによるDFT-"
+"NEB計算を行い、経路の形と障壁を照合する必要があります。"
+msgstr ""
+"The three models gave different numbers of paths and different "
+"connections between Li sites. \\ Because our starting atomic arrangement "
+"differs from that of Li et al., assessing the reproducibility of our "
+"paths requires running DFT-NEB calculations with OpenMX on our structure "
+"with the same endpoints, then comparing path shapes and barriers."
+

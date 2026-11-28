@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/vacancy-barriers.rst:4
+msgid "Li空孔移動障壁"
+msgstr "Li Vacancy Migration Barriers"
+
+#: ../../li3po4/vacancy-barriers.rst:6
+msgid ""
+"Liが空孔へ移るときに越えるエネルギー障壁は、経路や計算モデルによってどれだけ変わるでしょうか。\\ "
+"3つの機械学習原子間ポテンシャルで求めた平均障壁はUMAで0.50 eV、SevenNetで0.42 eV、CHGNetで0.36 "
+"eVでした。\\ 3つのモデルの中ではUMAの平均が文献DFTの0.58 eVと文献NNPの0.57 eVに最も近い値です。"
+msgstr ""
+"How much does the energy barrier for Li moving into a vacancy vary with "
+"the path and the computational model? \\ The three machine-learning "
+"interatomic potentials gave mean barriers of 0.50 eV for UMA, 0.42 eV for"
+" SevenNet, and 0.36 eV for CHGNet. \\ Of the three models, UMA gave the "
+"mean closest to the published means of 0.58 eV for DFT (Li et al.) and "
+"0.57 eV for NNP (Li et al.)."
+
+#: ../../li3po4/vacancy-barriers.rst:10
+#, python-brace-format
+msgid ""
+"`移動障壁 <https://technical-notes.quemix.com/electronic/neb.html#migration-"
+"barrier>`__\\ は、経路上の最高エネルギーと出発点のエネルギーの差です。\\ 出発点を入れ替えると基準となるエネルギーが変わるため、 "
+":numref:`li3po4-migration-barriers` では :numref:`{number}. {name} <li3po4"
+"-doc-vacancy-paths>` の各経路について順・逆両方向の障壁を数えます。"
+msgstr ""
+"The `migration barrier <https://technical-"
+"notes.quemix.com/electronic/neb.html#migration-barrier>`__ \\ is the "
+"difference between the highest energy along a path and the energy at the "
+"starting point. \\ Swapping the starting and ending points changes the "
+"reference energy, so :numref:`li3po4-migration-barriers` includes the "
+"barriers in both directions for each path in :numref:`{number}. {name} "
+"<li3po4-doc-vacancy-paths>`."
+
+#: ../../li3po4/vacancy-barriers.rst:15
+msgid "UMA、SevenNet、CHGNetそれぞれのLi空孔移動障壁を低い順に並べた棒グラフ"
+msgstr ""
+"Bar charts of Li vacancy migration barriers for UMA, SevenNet, and "
+"CHGNet, sorted from lowest to highest for each model"
+
+#: ../../li3po4/vacancy-barriers.rst:20
+msgid ""
+"方向ごとのLi空孔移動障壁（eV）。上段左はUMA（31経路・62方向）、上段右はSevenNet（30経路・60方向）、下段はCHGNet（20経路・40方向）。\\"
+" 棒は各モデルの障壁が低い順に並んでいます。横軸はこの並び順で、経路図の番号とは対応しません。"
+msgstr ""
+"Li vacancy migration barriers (eV) by direction. Top left: UMA (31 paths,"
+" 62 directions). Top right: SevenNet (30 paths, 60 directions). Bottom: "
+"CHGNet (20 paths, 40 directions). \\ The bars are sorted by increasing "
+"barrier within each model. The horizontal axis gives that order and does "
+"not correspond to the labels in the path diagram."
+
+#: ../../li3po4/vacancy-barriers.rst:23
+msgid ""
+"どのモデルにも低い障壁と高い障壁があり、Liの移動しやすさは経路によって異なります。\\ "
+"本計算の平均は、UMA、SevenNet、CHGNetの順に、文献DFTより0.08、0.16、0.22 "
+"eV、文献NNPより0.07、0.15、0.21 eV低くなりました。\\ これらは、構造と経路の組が異なる計算の平均値を比べた差です。"
+msgstr ""
+"Every model has both low and high barriers, so the ease of Li migration "
+"depends on the path. \\ For UMA, SevenNet, and CHGNet, respectively, the "
+"means in this work were 0.08, 0.16, and 0.22 eV below DFT (Li et al.) and"
+" 0.07, 0.15, and 0.21 eV below NNP (Li et al.). \\ These differences are "
+"between the means from calculations with different structures and sets of"
+" paths."
+
+#: ../../li3po4/vacancy-barriers.rst:27
+msgid ""
+"文献では同じ46経路の順・逆92方向を照合し、NNPとDFTの障壁の平均絶対差を0.048 eVと求めました。\\ "
+"移動途中の構造を学習から外したNNPでは0.073 "
+"eVに増え、文献のモデルでは遷移途中の構造が障壁の精度に影響することが分かります（技術ノートの\\ `最小エネルギー経路とNEB法の解釈と限界 "
+"<https://technical-notes.quemix.com/electronic/neb.html#neb-"
+"interpretation-limits>`__）。 `Liらの図6とその解説 "
+"<https://doi.org/10.1063/1.4997242>`__"
+msgstr ""
+"Li et al. compared the NNP and DFT barriers for the same 46 paths in both"
+" directions (92 directions in total) and found a mean absolute difference"
+" of 0.048 eV. \\ When they excluded structures along the migration paths "
+"from NNP training, the difference increased to 0.073 eV, showing that "
+"structures along the transition affect barrier accuracy in their model "
+"(see \\ `interpretation and limitations of minimum energy paths and the "
+"NEB method <https://technical-notes.quemix.com/electronic/neb.html#neb-"
+"interpretation-limits>`__ in the Technical Notes). `Li et al., Fig. 6 and"
+" the accompanying discussion <https://doi.org/10.1063/1.4997242>`__"
+
+#: ../../li3po4/vacancy-barriers.rst:31
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/vacancy-barriers.rst:33
+#, python-brace-format
+msgid ""
+"UMAの平均障壁が文献の平均に最も近い値でした。個々の障壁の精度を評価するには、本計算の不規則構造で始点・終点と計算条件をそろえ"
+"、OpenMXのDFT-NEBによる値と経路ごとに比較する必要があります。\\ "
+"ここで求めた障壁は1回の移動に対する量です（多数回の移動からなる拡散との関係は技術ノートの\\ `熱活性化過程の解釈と限界 <https"
+"://technical-notes.quemix.com/md/thermal_activation.html#thermal-"
+"activation-limits>`__）。多数の移動を含む拡散は、 :numref:`{number}. {name} <li3po4"
+"-doc-lithium-msd>` で分子動力学によりLiの変位を時間に沿って追い、 :numref:`{number}. {name} "
+"<li3po4-doc-diffusivity-temperature>` で拡散係数の温度依存性として評価します。"
+msgstr ""
+"UMA's mean migration barrier was closest to the published means. To "
+"assess the accuracy of individual barriers, we need to use the disordered"
+" structure from this work, match the endpoints and calculation "
+"conditions, and compare the barriers path by path with DFT-NEB results "
+"from OpenMX. \\ The barriers calculated here apply to a single hop (see "
+"\\ `interpretation and limitations of thermally activated processes "
+"<https://technical-notes.quemix.com/md/thermal_activation.html#thermal-"
+"activation-limits>`__ in the Technical Notes for the connection to "
+"diffusion over many hops). To examine diffusion over many hops, we track "
+"Li displacement over time using molecular dynamics in :numref:`{number}. "
+"{name} <li3po4-doc-lithium-msd>` and analyze the temperature dependence "
+"of the diffusion coefficient in :numref:`{number}. {name} <li3po4-doc-"
+"diffusivity-temperature>`."
+

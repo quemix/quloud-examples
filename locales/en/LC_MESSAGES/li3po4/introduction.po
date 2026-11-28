@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/introduction.rst:4
+msgid "導入"
+msgstr "Introduction"
+
+#: ../../li3po4/introduction.rst:6
+msgid ""
+"非晶質Li₃PO₄（リン酸リチウム）は、薄膜電池などに使われる固体電解質です。\\ "
+"結晶のように同じ原子配列が繰り返されないため、Liイオンの移動しやすさは周囲の原子配置によって変わります。\\ "
+"この連載ではQuloudを使い、**Liがどの経路を通るか** と **温度を上げるとどれだけ速く拡散するか** を調べます。"
+msgstr ""
+"Amorphous Li₃PO₄ (lithium phosphate) is a solid electrolyte used in "
+"applications such as thin-film batteries. \\ Because it lacks the "
+"repeating atomic arrangement of a crystal, the ease with which Li ions "
+"move depends on the local atomic arrangement. \\ In this series, we use "
+"Quloud to examine **which paths Li takes** and **how much faster it "
+"diffuses at higher temperatures**."
+
+#: ../../li3po4/introduction.rst:11
+msgid "計算で調べること"
+msgstr "What the Calculations Probe"
+
+#: ../../li3po4/introduction.rst:13
+#, python-brace-format
+msgid ""
+":numref:`{number}. {name} <li3po4-doc-beta-gamma-comparison>` "
+"で結晶の格子定数を文献のDFT計算値と実験値に比べ、 :numref:`{number}. {name} <li3po4-doc-melt-"
+"quench-structure>` でγ相を溶融・急冷して32原子の不規則構造を作ります。"
+msgstr ""
+"In :numref:`{number}. {name} <li3po4-doc-beta-gamma-comparison>`, we "
+"compare the crystal lattice constants with published DFT and experimental"
+" values. In :numref:`{number}. {name} <li3po4-doc-melt-quench-"
+"structure>`, we melt and quench the γ phase to create a 32-atom "
+"disordered structure."
+
+#: ../../li3po4/introduction.rst:14
+#, python-brace-format
+msgid ""
+":numref:`{number}. {name} <li3po4-doc-vacancy-formation>` "
+"でLiを1個取り除くのに必要なエネルギーを求めます。隣のLiが空いた位置に移る経路と、経路上で越える\\ `エネルギー障壁 <https"
+"://technical-notes.quemix.com/electronic/neb.html#migration-barrier>`__\\"
+" を :numref:`{number}. {name} <li3po4-doc-vacancy-paths>` と "
+":numref:`{number}. {name} <li3po4-doc-vacancy-barriers>` で調べます。"
+msgstr ""
+"In :numref:`{number}. {name} <li3po4-doc-vacancy-formation>`, we "
+"calculate the energy needed to remove one Li atom. We examine the paths "
+"by which neighboring Li atoms move into the vacant site and the \\ "
+"`energy barriers <https://technical-notes.quemix.com/electronic/neb.html"
+"#migration-barrier>`__ \\ along those paths in :numref:`{number}. {name} "
+"<li3po4-doc-vacancy-paths>` and :numref:`{number}. {name} <li3po4-doc-"
+"vacancy-barriers>`."
+
+#: ../../li3po4/introduction.rst:15
+#, python-brace-format
+msgid ""
+":numref:`{number}. {name} <li3po4-doc-lithium-msd>` と :numref:`{number}. "
+"{name} <li3po4-doc-diffusivity-temperature>` "
+"では、Li空孔を1つ含む31原子モデルを用います。分子動力学（MD）でLiの位置を時間に沿って追い、\\ `平均二乗変位 <https"
+"://technical-notes.quemix.com/md/diffusion.html#mean-squared-"
+"displacement>`__\\ から拡散係数を求めます。 :numref:`{number}. {name} <li3po4-doc-"
+"partial-rdf>` では、原子対の距離分布から局所構造の温度変化を調べます。"
+msgstr ""
+"In :numref:`{number}. {name} <li3po4-doc-lithium-msd>` and "
+":numref:`{number}. {name} <li3po4-doc-diffusivity-temperature>`, we use a"
+" 31-atom model with one Li vacancy. We track Li positions over time using"
+" molecular dynamics (MD) and obtain the diffusion coefficient from the \\"
+" `mean squared displacement <https://technical-"
+"notes.quemix.com/md/diffusion.html#mean-squared-displacement>`__\\ . In "
+":numref:`{number}. {name} <li3po4-doc-partial-rdf>`, we use the "
+"distribution of distances between atom pairs to examine how the local "
+"structure changes with temperature."
+
+#: ../../li3po4/introduction.rst:16
+#, python-brace-format
+msgid ""
+":numref:`{number}. {name} <li3po4-doc-large-structure-rdf>` "
+"では、125～2012原子のモデルで原子配置と距離分布を比べます。 :numref:`{number}. {name} <li3po4-doc-"
+"large-model-diffusivity>` では、1006原子モデルで拡散の温度依存性を評価します。"
+msgstr ""
+"In :numref:`{number}. {name} <li3po4-doc-large-structure-rdf>`, we "
+"compare atomic arrangements and distance distributions in models with "
+"125–2012 atoms. In :numref:`{number}. {name} <li3po4-doc-large-model-"
+"diffusivity>`, we evaluate the temperature dependence of diffusion in the"
+" 1006-atom model."
+
+#: ../../li3po4/introduction.rst:19
+msgid "比較に使う計算手法"
+msgstr "Calculation Methods Used for Comparison"
+
+#: ../../li3po4/introduction.rst:21
+msgid ""
+"Liらは、Li₃PO₄の密度汎関数理論（DFT）データで学習したニューラルネットワークポテンシャル（NNP）を使い、構造とLi拡散を調べました。\\"
+" この連載では、OpenMXによるDFTと、事前学習済みの3つの汎用\\ `機械学習原子間ポテンシャル <https://technical-"
+"notes.quemix.com/md/mlip.html>`__\\ "
+"（UMA、SevenNet、CHGNet）を使います。使用する手法は計算項目によって異なります。各記事では、Liらのモデルと計算値を「文献NNP」「文献DFT」と表記します。"
+msgstr ""
+"Li et al. investigated the structure of Li₃PO₄ and Li diffusion using a "
+"neural network potential (NNP) trained on density functional theory (DFT)"
+" data for Li₃PO₄. \\ In this series, we use DFT with OpenMX and three "
+"pretrained general-purpose \\ `machine-learning interatomic potentials "
+"<https://technical-notes.quemix.com/md/mlip.html>`__ \\ (UMA, SevenNet, "
+"and CHGNet). The choice of method depends on the calculation. We refer to"
+" the models and results reported by Li et al. as “NNP (Li et al.)” and "
+"“DFT (Li et al.)”."
+
+#: ../../li3po4/introduction.rst:24
+msgid ""
+"1006原子モデルでは、Li拡散の活性化エネルギーはCHGNetで0.296 eV、文献NNPで0.55 eVでした。\\ "
+"空孔の平均移動障壁は、3つのモデルの中でUMA（0.50 eV）が文献値に最も近い値を示しました。\\ "
+"個々の移動障壁の精度を評価するには構造と経路をそろえる必要があり、拡散係数の精度を評価するにはMDの条件もそろえる必要があります。"
+msgstr ""
+"For the 1006-atom model, the activation energy for Li diffusion was 0.296"
+" eV with CHGNet and 0.55 eV with NNP (Li et al.). \\ Of the three models,"
+" UMA gave the mean vacancy migration barrier (0.50 eV) closest to the "
+"mean barriers reported by Li et al. \\ Evaluating the accuracy of "
+"individual migration barriers requires matching the structures and paths."
+" Evaluating the accuracy of diffusion coefficients also requires matching"
+" the MD conditions."
+
+#: ../../li3po4/introduction.rst:29
+msgid "参考文献"
+msgstr "References"
+
+#: ../../li3po4/introduction.rst:31
+msgid ""
+"Wenwen Li, Yasunobu Ando, Emi Minamitani, Satoshi Watanabe, \\ “Study of "
+"Li atom diffusion in amorphous Li₃PO₄ with neural network potential,” \\ "
+"*J. Chem. Phys.* **147**, 214106 (2017). \\ `DOI: 10.1063/1.4997242 "
+"<https://doi.org/10.1063/1.4997242>`__."
+msgstr ""
+"Wenwen Li, Yasunobu Ando, Emi Minamitani, Satoshi Watanabe, \\ “Study of "
+"Li atom diffusion in amorphous Li₃PO₄ with neural network potential,” \\ "
+"*J. Chem. Phys.* **147**, 214106 (2017). \\ `DOI: 10.1063/1.4997242 "
+"<https://doi.org/10.1063/1.4997242>`__."
+

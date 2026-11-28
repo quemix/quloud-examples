@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/lithium-msd.rst:4
+msgid "Liの平均二乗変位"
+msgstr "Mean Squared Displacement of Li"
+
+#: ../../li3po4/lithium-msd.rst:6
+msgid ""
+"Liイオンは、同じ時間にどれだけ移動するでしょうか。\\ "
+"Li空孔を1つ含む31原子モデル（Li₁₁P₄O₁₆）では、800、1000、1200、1500 "
+"Kの順にLiの平均二乗変位（MSD）の増加が速くなりました。"
+msgstr ""
+"How far do Li ions move in the same amount of time? \\ In the 31-atom "
+"model (Li₁₁P₄O₁₆) with one Li vacancy, the mean squared displacement "
+"(MSD) of Li increased more rapidly at each successively higher "
+"temperature (800, 1000, 1200, and 1500 K)."
+
+#: ../../li3po4/lithium-msd.rst:9
+#, python-brace-format
+msgid ""
+"MSDは、ある時間間隔の前後でLiの位置の差を取り、その大きさの二乗をLi原子や観測の起点について平均した量です。\\ "
+":numref:`li3po4-msd-31atoms` の横軸には、この時間間隔（`ラグ時間 <https://technical-"
+"notes.quemix.com/md/diffusion.html#mean-squared-displacement>`__）を取ります。\\"
+" 三次元の拡散係数は、MSDが時間に比例する領域の傾きの6分の1です（技術ノートの\\ `Einstein関係 <https"
+"://technical-notes.quemix.com/md/diffusion.html#einstein-relation>`__）。 "
+"\\ :numref:`{number}. {name} <li3po4-doc-diffusivity-temperature>` "
+"では、こうして求めた拡散係数を温度に対して並べます。"
+msgstr ""
+"To obtain the MSD, we take the difference between Li positions at the "
+"start and end of a time interval, square the magnitude of that "
+"displacement, and average over Li atoms and time origins. \\ "
+":numref:`li3po4-msd-31atoms` shows this time interval (the `lag time "
+"<https://technical-notes.quemix.com/md/diffusion.html#mean-squared-"
+"displacement>`__) on the horizontal axis. \\ The three-dimensional "
+"diffusion coefficient is one-sixth of the slope in the region where the "
+"MSD is proportional to time (see the \\ `Einstein relation <https"
+"://technical-notes.quemix.com/md/diffusion.html#einstein-relation>`__ in "
+"the Technical Notes). \\ :numref:`{number}. {name} <li3po4-doc-"
+"diffusivity-temperature>` plots the resulting diffusion coefficients "
+"against temperature."
+
+#: ../../li3po4/lithium-msd.rst:16
+msgid "Liの平均二乗変位は全4温度で増加し、1500 Kで最も増加が速い"
+msgstr ""
+"The mean squared displacement of Li increases at all four temperatures, "
+"with the fastest increase at 1500 K"
+
+#: ../../li3po4/lithium-msd.rst:21
+msgid ""
+"31原子のLi空孔モデルでの平均二乗変位（Å²）。横軸は最大500 psのラグ時間。\\ 各曲線は800 K（青）、1000 K（緑）、1200 "
+"K（橙）、1500 K（赤）のMDに対応します。"
+msgstr ""
+"Mean squared displacement (Å²) in the 31-atom model with a Li vacancy. "
+"The horizontal axis shows lag time up to 500 ps. \\ The curves correspond"
+" to MD at 800 K (blue), 1000 K (green), 1200 K (orange), and 1500 K "
+"(red)."
+
+#: ../../li3po4/lithium-msd.rst:24
+msgid ""
+"1000～1500 Kでは、広い時間範囲でMSDが増加します。800 Kでも500 psまで増え続けますが、傾きは小さいです。\\ "
+"図の横軸から読み取れるのは観測した時間間隔です。傾きの不確かさを評価するには、ホップ（Liのサイト間移動）の回数や軌跡の平均化手順を確認する必要があります（技術ノートの\\"
+" `平均二乗変位の解釈と限界 <https://technical-notes.quemix.com/md/diffusion.html#msd-"
+"interpretation-limits>`__）。"
+msgstr ""
+"At 1000–1500 K, the MSD increases over a wide range of times. At 800 K it"
+" also keeps increasing up to 500 ps, but the slope is smaller. \\ The "
+"horizontal axis shows the time intervals over which displacement was "
+"measured. To assess the uncertainty in the slope, we need to check the "
+"number of hops (moves of Li between sites) and how the trajectories were "
+"averaged (see the Technical Notes on \\ `interpretation and limitations "
+"of mean squared displacement <https://technical-"
+"notes.quemix.com/md/diffusion.html#msd-interpretation-limits>`__)."
+
+#: ../../li3po4/lithium-msd.rst:27
+msgid ""
+"Liらは、50 psの軌跡から求めた800 KのMSDが直線から外れる理由を、ホップ数の少なさで説明しました。\\ 同じ温度で1 "
+"nsまで計算すると、MSDはほぼ直線になりました。ホップがまれな温度では、十分な回数を観測できる時間が必要です。 `Liらの図8と補足資料の図S2"
+" <https://doi.org/10.1063/1.4997242>`__"
+msgstr ""
+"Li et al. attributed the departure from linearity in the MSD at 800 K, "
+"calculated from a 50 ps trajectory, to the small number of hops. \\ The "
+"MSD became nearly linear when they extended the run to 1 ns at the same "
+"temperature. At temperatures where hops are rare, the run must be long "
+"enough to observe a sufficient number of them. `Li et al., Fig. 8 and "
+"Supplementary Fig. S2 <https://doi.org/10.1063/1.4997242>`__"
+
+#: ../../li3po4/lithium-msd.rst:31
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/lithium-msd.rst:33
+msgid ""
+"MSDは高温ほど速く増え、Liが同じ時間により広い範囲を移動することが分かります。\\ "
+"拡散係数を評価するには、MSDが時間に比例する範囲を選び、複数の時間起点や独立な軌跡から求めた傾きのばらつきを調べます。"
+msgstr ""
+"The MSD increases more rapidly at higher temperatures, showing that Li "
+"moves over a wider region in the same amount of time. \\ To estimate the "
+"diffusion coefficient, we select the range where the MSD is proportional "
+"to time and examine the spread of slopes obtained from multiple time "
+"origins or independent trajectories."
+

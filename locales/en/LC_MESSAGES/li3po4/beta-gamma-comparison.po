@@ -1,0 +1,534 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/beta-gamma-comparison.rst:4
+msgid "β相・γ相の結晶構造"
+msgstr "Crystal Structures of the β and γ Phases"
+
+#: ../../li3po4/beta-gamma-comparison.rst:6
+msgid ""
+"CHGNetで最適化したLi₃PO₄の結晶構造は、文献DFT-PBEの結果にどの程度近いでしょうか。\\ 式量当たりの体積は、β相"
+"・γ相とも文献DFT-PBEの値と0.1%以内で一致しました。\\ "
+"実験値を基準とした格子定数の平均相対誤差も、CHGNetの1.19%・1.23%に対し、文献DFT-"
+"PBEでは1.17%・1.21%と同程度でした。"
+msgstr ""
+"How closely do the Li₃PO₄ crystal structures optimized with CHGNet agree "
+"with the results of DFT-PBE (Li et al.)? \\ In both the β and γ phases, "
+"the volumes per formula unit agreed with DFT-PBE (Li et al.) to within "
+"0.1%. \\ The mean relative errors in the lattice constants compared with "
+"the experimental values were also similar: 1.19% and 1.23% for CHGNet, "
+"compared with 1.17% and 1.21% for DFT-PBE (Li et al.)."
+
+#: ../../li3po4/beta-gamma-comparison.rst:11
+#: ../../li3po4/beta-gamma-comparison.rst:19
+msgid "格子定数と体積"
+msgstr "Lattice Constants and Volume"
+
+#: ../../li3po4/beta-gamma-comparison.rst:13
+msgid ""
+":numref:`li3po4-lattice-constants` "
+"では、CHGNetとOpenMX/PBEの結果を、文献の計算値と実験値に並べます。\\ "
+"β相の単位胞は16原子（Li₃PO₄の2式量）、γ相は32原子（4式量）なので、体積は1式量当たりに換算しました。\\ "
+"本計算で掲載する機械学習モデルの格子定数はCHGNetの値です。文献の格子定数は\\ `Liらの表II "
+"<https://doi.org/10.1063/1.4997242>`__\\ によります。"
+msgstr ""
+":numref:`li3po4-lattice-constants` compares the CHGNet and OpenMX/PBE "
+"results with published calculated and experimental values. \\ The β-phase"
+" unit cell contains 16 atoms (2 formula units of Li₃PO₄) and the γ-phase "
+"unit cell contains 32 atoms (4 formula units), so we converted the "
+"volumes to values per formula unit. \\ The lattice constants we report "
+"for a machine-learning model in this work are those obtained with CHGNet."
+" The published lattice constants come from \\ `Li et al., Table II "
+"<https://doi.org/10.1063/1.4997242>`__\\ ."
+
+#: ../../li3po4/beta-gamma-comparison.rst:24
+#: ../../li3po4/beta-gamma-comparison.rst:61
+msgid "相"
+msgstr "Phase"
+
+#: ../../li3po4/beta-gamma-comparison.rst:24
+#: ../../li3po4/beta-gamma-comparison.rst:61
+msgid "出典・手法"
+msgstr "Source and method"
+
+#: ../../li3po4/beta-gamma-comparison.rst:24
+msgid "a (Å)"
+msgstr "a (Å)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:24
+msgid "b (Å)"
+msgstr "b (Å)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:24
+msgid "c (Å)"
+msgstr "c (Å)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:24
+msgid "体積 (Å³/式量)"
+msgstr "Volume (Å³/formula unit)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:26
+#: ../../li3po4/beta-gamma-comparison.rst:63
+msgid "β相"
+msgstr "β phase"
+
+#: ../../li3po4/beta-gamma-comparison.rst:26
+#: ../../li3po4/beta-gamma-comparison.rst:36
+#: ../../li3po4/beta-gamma-comparison.rst:63
+#: ../../li3po4/beta-gamma-comparison.rst:71
+msgid "文献NNP"
+msgstr "NNP (Li et al.)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:26
+msgid "4.914"
+msgstr "4.914"
+
+#: ../../li3po4/beta-gamma-comparison.rst:26
+msgid "5.287"
+msgstr "5.287"
+
+#: ../../li3po4/beta-gamma-comparison.rst:26
+msgid "6.164"
+msgstr "6.164"
+
+#: ../../li3po4/beta-gamma-comparison.rst:26
+msgid "80.07"
+msgstr "80.07"
+
+#: ../../li3po4/beta-gamma-comparison.rst:28
+#: ../../li3po4/beta-gamma-comparison.rst:38
+#: ../../li3po4/beta-gamma-comparison.rst:65
+#: ../../li3po4/beta-gamma-comparison.rst:73
+msgid "文献DFT-PBE"
+msgstr "DFT-PBE (Li et al.)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:28
+msgid "4.923"
+msgstr "4.923"
+
+#: ../../li3po4/beta-gamma-comparison.rst:28
+msgid "5.298"
+msgstr "5.298"
+
+#: ../../li3po4/beta-gamma-comparison.rst:28
+#: ../../li3po4/beta-gamma-comparison.rst:38
+msgid "6.177"
+msgstr "6.177"
+
+#: ../../li3po4/beta-gamma-comparison.rst:28
+msgid "80.55"
+msgstr "80.55"
+
+#: ../../li3po4/beta-gamma-comparison.rst:30
+#: ../../li3po4/beta-gamma-comparison.rst:40
+msgid "実験"
+msgstr "Experiment"
+
+#: ../../li3po4/beta-gamma-comparison.rst:30
+msgid "4.856"
+msgstr "4.856"
+
+#: ../../li3po4/beta-gamma-comparison.rst:30
+msgid "5.240"
+msgstr "5.240"
+
+#: ../../li3po4/beta-gamma-comparison.rst:30
+msgid "6.115"
+msgstr "6.115"
+
+#: ../../li3po4/beta-gamma-comparison.rst:30
+msgid "77.80"
+msgstr "77.80"
+
+#: ../../li3po4/beta-gamma-comparison.rst:32
+#: ../../li3po4/beta-gamma-comparison.rst:42
+#: ../../li3po4/beta-gamma-comparison.rst:67
+#: ../../li3po4/beta-gamma-comparison.rst:75
+msgid "本計算CHGNet"
+msgstr "CHGNet (this work)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:32
+msgid "4.9439"
+msgstr "4.9439"
+
+#: ../../li3po4/beta-gamma-comparison.rst:32
+msgid "5.3008"
+msgstr "5.3008"
+
+#: ../../li3po4/beta-gamma-comparison.rst:32
+msgid "6.1517"
+msgstr "6.1517"
+
+#: ../../li3po4/beta-gamma-comparison.rst:32
+msgid "80.61"
+msgstr "80.61"
+
+#: ../../li3po4/beta-gamma-comparison.rst:34
+#: ../../li3po4/beta-gamma-comparison.rst:44
+#: ../../li3po4/beta-gamma-comparison.rst:69
+#: ../../li3po4/beta-gamma-comparison.rst:77
+msgid "本計算OpenMX/PBE"
+msgstr "OpenMX/PBE (this work)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:34
+msgid "4.9450"
+msgstr "4.9450"
+
+#: ../../li3po4/beta-gamma-comparison.rst:34
+msgid "5.3168"
+msgstr "5.3168"
+
+#: ../../li3po4/beta-gamma-comparison.rst:34
+msgid "6.2251"
+msgstr "6.2251"
+
+#: ../../li3po4/beta-gamma-comparison.rst:34
+msgid "81.83"
+msgstr "81.83"
+
+#: ../../li3po4/beta-gamma-comparison.rst:36
+#: ../../li3po4/beta-gamma-comparison.rst:71
+msgid "γ相"
+msgstr "γ phase"
+
+#: ../../li3po4/beta-gamma-comparison.rst:36
+msgid "5.003"
+msgstr "5.003"
+
+#: ../../li3po4/beta-gamma-comparison.rst:36
+msgid "6.108"
+msgstr "6.108"
+
+#: ../../li3po4/beta-gamma-comparison.rst:36
+msgid "10.502"
+msgstr "10.502"
+
+#: ../../li3po4/beta-gamma-comparison.rst:36
+msgid "80.23"
+msgstr "80.23"
+
+#: ../../li3po4/beta-gamma-comparison.rst:38
+msgid "5.001"
+msgstr "5.001"
+
+#: ../../li3po4/beta-gamma-comparison.rst:38
+msgid "10.615"
+msgstr "10.615"
+
+#: ../../li3po4/beta-gamma-comparison.rst:38
+msgid "81.98"
+msgstr "81.98"
+
+#: ../../li3po4/beta-gamma-comparison.rst:40
+msgid "4.927"
+msgstr "4.927"
+
+#: ../../li3po4/beta-gamma-comparison.rst:40
+msgid "6.120"
+msgstr "6.120"
+
+#: ../../li3po4/beta-gamma-comparison.rst:40
+msgid "10.490"
+msgstr "10.490"
+
+#: ../../li3po4/beta-gamma-comparison.rst:40
+msgid "79.08"
+msgstr "79.08"
+
+#: ../../li3po4/beta-gamma-comparison.rst:42
+msgid "4.9959"
+msgstr "4.9959"
+
+#: ../../li3po4/beta-gamma-comparison.rst:42
+msgid "6.1820"
+msgstr "6.1820"
+
+#: ../../li3po4/beta-gamma-comparison.rst:42
+msgid "10.6246"
+msgstr "10.6246"
+
+#: ../../li3po4/beta-gamma-comparison.rst:42
+msgid "82.03"
+msgstr "82.03"
+
+#: ../../li3po4/beta-gamma-comparison.rst:44
+msgid "5.0429"
+msgstr "5.0429"
+
+#: ../../li3po4/beta-gamma-comparison.rst:44
+msgid "6.2260"
+msgstr "6.2260"
+
+#: ../../li3po4/beta-gamma-comparison.rst:44
+msgid "10.6680"
+msgstr "10.6680"
+
+#: ../../li3po4/beta-gamma-comparison.rst:44
+msgid "83.74"
+msgstr "83.74"
+
+#: ../../li3po4/beta-gamma-comparison.rst:48
+#: ../../li3po4/beta-gamma-comparison.rst:56
+msgid "実験値からの相対差"
+msgstr "Relative Differences from Experimental Values"
+
+#: ../../li3po4/beta-gamma-comparison.rst:50
+msgid ""
+":numref:`li3po4-lattice-errors` に、格子定数と体積の実験値からの相対差を百分率で示します。\\ 計算値を "
+":math:`x_{\\mathrm{calc}}`、実験値を :math:`x_{\\mathrm{exp}}` とすると、相対差は "
+":math:`100(x_{\\mathrm{calc}}/x_{\\mathrm{exp}}-1)` です。\\ "
+"「平均」は三軸の格子定数の相対差の絶対値を平均した値です。"
+msgstr ""
+":numref:`li3po4-lattice-errors` shows the percentage differences in "
+"lattice constants and volumes relative to experiment. \\ For a calculated"
+" value :math:`x_{\\mathrm{calc}}` and an experimental value "
+":math:`x_{\\mathrm{exp}}`, the relative difference is "
+":math:`100(x_{\\mathrm{calc}}/x_{\\mathrm{exp}}-1)`. \\ “Mean” is the "
+"average of the absolute relative differences in the lattice constants "
+"along the three axes."
+
+#: ../../li3po4/beta-gamma-comparison.rst:61
+msgid "Δa (%)"
+msgstr "Δa (%)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:61
+msgid "Δb (%)"
+msgstr "Δb (%)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:61
+msgid "Δc (%)"
+msgstr "Δc (%)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:61
+msgid "ΔV (%)"
+msgstr "ΔV (%)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:61
+msgid "平均 (%)"
+msgstr "Mean (%)"
+
+#: ../../li3po4/beta-gamma-comparison.rst:63
+#: ../../li3po4/beta-gamma-comparison.rst:73
+msgid "+1.19"
+msgstr "+1.19"
+
+#: ../../li3po4/beta-gamma-comparison.rst:63
+msgid "+0.90"
+msgstr "+0.90"
+
+#: ../../li3po4/beta-gamma-comparison.rst:63
+msgid "+0.80"
+msgstr "+0.80"
+
+#: ../../li3po4/beta-gamma-comparison.rst:63
+msgid "+2.92"
+msgstr "+2.92"
+
+#: ../../li3po4/beta-gamma-comparison.rst:63
+msgid "0.96"
+msgstr "0.96"
+
+#: ../../li3po4/beta-gamma-comparison.rst:65
+msgid "+1.38"
+msgstr "+1.38"
+
+#: ../../li3po4/beta-gamma-comparison.rst:65
+msgid "+1.11"
+msgstr "+1.11"
+
+#: ../../li3po4/beta-gamma-comparison.rst:65
+#: ../../li3po4/beta-gamma-comparison.rst:75
+msgid "+1.01"
+msgstr "+1.01"
+
+#: ../../li3po4/beta-gamma-comparison.rst:65
+msgid "+3.54"
+msgstr "+3.54"
+
+#: ../../li3po4/beta-gamma-comparison.rst:65
+msgid "1.17"
+msgstr "1.17"
+
+#: ../../li3po4/beta-gamma-comparison.rst:67
+msgid "+1.81"
+msgstr "+1.81"
+
+#: ../../li3po4/beta-gamma-comparison.rst:67
+msgid "+1.16"
+msgstr "+1.16"
+
+#: ../../li3po4/beta-gamma-comparison.rst:67
+msgid "+0.60"
+msgstr "+0.60"
+
+#: ../../li3po4/beta-gamma-comparison.rst:67
+msgid "+3.61"
+msgstr "+3.61"
+
+#: ../../li3po4/beta-gamma-comparison.rst:67
+msgid "1.19"
+msgstr "1.19"
+
+#: ../../li3po4/beta-gamma-comparison.rst:69
+msgid "+1.83"
+msgstr "+1.83"
+
+#: ../../li3po4/beta-gamma-comparison.rst:69
+msgid "+1.47"
+msgstr "+1.47"
+
+#: ../../li3po4/beta-gamma-comparison.rst:69
+msgid "+1.80"
+msgstr "+1.80"
+
+#: ../../li3po4/beta-gamma-comparison.rst:69
+msgid "+5.19"
+msgstr "+5.19"
+
+#: ../../li3po4/beta-gamma-comparison.rst:69
+msgid "1.70"
+msgstr "1.70"
+
+#: ../../li3po4/beta-gamma-comparison.rst:71
+msgid "+1.54"
+msgstr "+1.54"
+
+#: ../../li3po4/beta-gamma-comparison.rst:71
+msgid "−0.20"
+msgstr "−0.20"
+
+#: ../../li3po4/beta-gamma-comparison.rst:71
+msgid "+0.11"
+msgstr "+0.11"
+
+#: ../../li3po4/beta-gamma-comparison.rst:71
+msgid "+1.46"
+msgstr "+1.46"
+
+#: ../../li3po4/beta-gamma-comparison.rst:71
+msgid "0.62"
+msgstr "0.62"
+
+#: ../../li3po4/beta-gamma-comparison.rst:73
+msgid "+1.50"
+msgstr "+1.50"
+
+#: ../../li3po4/beta-gamma-comparison.rst:73
+msgid "+0.93"
+msgstr "+0.93"
+
+#: ../../li3po4/beta-gamma-comparison.rst:73
+msgid "+3.67"
+msgstr "+3.67"
+
+#: ../../li3po4/beta-gamma-comparison.rst:73
+msgid "1.21"
+msgstr "1.21"
+
+#: ../../li3po4/beta-gamma-comparison.rst:75
+msgid "+1.40"
+msgstr "+1.40"
+
+#: ../../li3po4/beta-gamma-comparison.rst:75
+msgid "+1.28"
+msgstr "+1.28"
+
+#: ../../li3po4/beta-gamma-comparison.rst:75
+msgid "+3.74"
+msgstr "+3.74"
+
+#: ../../li3po4/beta-gamma-comparison.rst:75
+msgid "1.23"
+msgstr "1.23"
+
+#: ../../li3po4/beta-gamma-comparison.rst:77
+msgid "+2.35"
+msgstr "+2.35"
+
+#: ../../li3po4/beta-gamma-comparison.rst:77
+msgid "+1.73"
+msgstr "+1.73"
+
+#: ../../li3po4/beta-gamma-comparison.rst:77
+msgid "+1.70"
+msgstr "+1.70"
+
+#: ../../li3po4/beta-gamma-comparison.rst:77
+msgid "+5.89"
+msgstr "+5.89"
+
+#: ../../li3po4/beta-gamma-comparison.rst:77
+msgid "1.93"
+msgstr "1.93"
+
+#: ../../li3po4/beta-gamma-comparison.rst:80
+msgid ""
+"CHGNetの式量当たりの体積は、文献DFT-"
+"PBEよりβ相で0.07%、γ相で0.06%大きく、両相でほぼ一致します。格子定数の平均相対誤差の差は、両相とも0.02パーセントポイントです。"
+msgstr ""
+"The volumes per formula unit from CHGNet are 0.07% larger for the β phase"
+" and 0.06% larger for the γ phase than those from DFT-PBE (Li et al.), so"
+" the two methods give nearly the same volumes in both phases. The mean "
+"relative errors of the lattice constants differ by 0.02 percentage points"
+" in both phases."
+
+#: ../../li3po4/beta-gamma-comparison.rst:82
+msgid ""
+"文献NNPの体積は、文献DFT-PBEよりβ相で0.60%、γ相で2.13%小さく、両相で実験値に近づきます。\\ "
+"格子定数の平均相対誤差もβ相で0.96%、γ相で0.62%と、文献DFT-PBEより小さい値です。"
+msgstr ""
+"The volumes from NNP (Li et al.) are 0.60% smaller for the β phase and "
+"2.13% smaller for the γ phase than those from DFT-PBE (Li et al.), "
+"bringing both closer to the experimental values. \\ The mean relative "
+"errors of the lattice constants are also smaller with NNP (Li et al.): "
+"0.96% for the β phase and 0.62% for the γ phase."
+
+#: ../../li3po4/beta-gamma-comparison.rst:85
+msgid ""
+"OpenMX/PBEの体積は、文献DFT-"
+"PBEよりβ相で約1.59%、γ相で約2.15%大きく、実験値からのずれもCHGNetより大きいです。\\ "
+"OpenMX/PBEの比較には掲載の格子定数を使いました。差の要因を調べるには、最終構造と最適化条件の確認が必要です。"
+msgstr ""
+"The volumes from OpenMX/PBE are about 1.59% larger for the β phase and "
+"about 2.15% larger for the γ phase than those from DFT-PBE (Li et al.). "
+"The OpenMX/PBE volumes also differ more from the experimental values than"
+" the CHGNet volumes do. \\ We used the lattice constants listed here for "
+"the OpenMX/PBE comparison. Identifying the reasons for the differences "
+"requires checking the final structures and optimization conditions."
+
+#: ../../li3po4/beta-gamma-comparison.rst:89
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/beta-gamma-comparison.rst:91
+msgid ""
+"CHGNetの格子定数と体積は両相とも文献DFT-PBEの値とほぼ一致し、実験値からのずれも同程度でした。\\ "
+"ここで比較したのは、手法や最適化条件が異なる計算で得た格子定数と体積です。\\ "
+"相の安定性や拡散の精度を評価するには、相対エネルギーや拡散係数を別途比較する必要があります。"
+msgstr ""
+"For both phases, the CHGNet lattice constants and volumes agreed closely "
+"with DFT-PBE (Li et al.), and the two methods gave similar deviations "
+"from the experimental values. \\ We compared lattice constants and "
+"volumes obtained with different methods and optimization conditions. \\ "
+"Evaluating phase stability or the accuracy of diffusion predictions "
+"requires separate comparisons of relative energies or diffusion "
+"coefficients."
+

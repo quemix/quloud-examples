@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/index.rst:4
+msgid "Li₃PO₄の構造とLiイオン拡散"
+msgstr "Structure and Li-Ion Diffusion in Li₃PO₄"
+
+#: ../../li3po4/index.rst:6
+msgid ""
+"非晶質Li₃PO₄では、周囲の原子配置によってLiイオンの移動しやすさが変わります。\\ この連載では、Quloudで "
+"**Liが移動する経路とその障壁** を求め、**拡散係数の温度依存性** を調べます。\\ "
+"まず結晶を溶融・急冷して不規則な原子配置を作り、次にLiを1個取り除いた小さなモデルと、薄膜の組成に近い大規模モデルで拡散を調べます。"
+msgstr ""
+"In amorphous Li₃PO₄, the local atomic arrangement affects how easily Li "
+"ions move. \\ In this series, we use Quloud to determine **the paths Li "
+"takes and their migration barriers** and examine **how the diffusion "
+"coefficient depends on temperature**. \\ We first melt and quench the "
+"crystal to create a disordered atomic arrangement, then study diffusion "
+"in a small model with one Li atom removed and in large models with "
+"compositions close to those of thin films."
+
+#: ../../li3po4/index.rst:10
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-introduction>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-introduction>`"
+
+#: ../../li3po4/index.rst:12
+msgid "空孔の移動とLiイオンの拡散の関係を確認し、各計算で文献と何を比較するかを整理します。"
+msgstr ""
+"We examine how vacancy migration relates to Li-ion diffusion and identify"
+" which quantities each calculation compares with published results."
+
+#: ../../li3po4/index.rst:-1
+msgid "結晶・非晶質の構造"
+msgstr "Crystalline and Amorphous Structures"
+
+#: ../../li3po4/index.rst:17
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-beta-gamma-comparison>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-beta-gamma-comparison>`"
+
+#: ../../li3po4/index.rst:19
+msgid "Li₃PO₄のβ相とγ相について、計算した格子定数と体積を文献の計算値・実験値と比較します。"
+msgstr ""
+"We compare the calculated lattice constants and volumes of the β and γ "
+"phases of Li₃PO₄ with calculated and experimental values from the "
+"literature."
+
+#: ../../li3po4/index.rst:21
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-melt-quench-structure>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-melt-quench-structure>`"
+
+#: ../../li3po4/index.rst:23
+msgid "γ相のLi₃PO₄を第一原理分子動力学で溶融・急冷し、原子座標を緩和した後の構造を調べます。"
+msgstr ""
+"We melt and quench γ-phase Li₃PO₄ using first-principles molecular "
+"dynamics and examine the structure after relaxing the atomic coordinates."
+
+#: ../../li3po4/index.rst:-1
+msgid "空孔と移動障壁"
+msgstr "Vacancies and Migration Barriers"
+
+#: ../../li3po4/index.rst:28
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-vacancy-formation>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-vacancy-formation>`"
+
+#: ../../li3po4/index.rst:30
+msgid "Liを取り除くサイトを変え、OpenMXと3つの機械学習原子間ポテンシャルによる空孔形成エネルギーを比較します。"
+msgstr ""
+"We remove Li from different sites and compare vacancy formation energies "
+"obtained with OpenMX and three machine-learning interatomic potentials."
+
+#: ../../li3po4/index.rst:32
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-vacancy-paths>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-vacancy-paths>`"
+
+#: ../../li3po4/index.rst:34
+msgid "隣のLiが空孔に移る経路の形とつながりを、3つの機械学習原子間ポテンシャルで比較します。"
+msgstr ""
+"We compare the shapes and connectivity of the paths by which neighboring "
+"Li atoms move into vacancies, using three machine-learning interatomic "
+"potentials."
+
+#: ../../li3po4/index.rst:36
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-vacancy-barriers>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-vacancy-barriers>`"
+
+#: ../../li3po4/index.rst:38
+msgid "各経路の順・逆方向の移動障壁を求め、モデルごとの障壁の分布を比較します。"
+msgstr ""
+"We calculate the migration barriers in both directions along each path "
+"and compare the barrier distributions across the models."
+
+#: ../../li3po4/index.rst:-1
+msgid "拡散と高温の局所構造"
+msgstr "Diffusion and Local Structure at High Temperature"
+
+#: ../../li3po4/index.rst:43
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-lithium-msd>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-lithium-msd>`"
+
+#: ../../li3po4/index.rst:45
+msgid "Li空孔を含むモデルでLiの平均二乗変位の時間変化を計算し、温度による違いを比較します。"
+msgstr ""
+"We calculate the time dependence of the mean squared displacement of Li "
+"in a model with a Li vacancy and compare the results at different "
+"temperatures."
+
+#: ../../li3po4/index.rst:47
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-diffusivity-temperature>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-diffusivity-temperature>`"
+
+#: ../../li3po4/index.rst:49
+msgid "Li空孔を含むモデルで拡散係数の温度依存性を計算し、活性化エネルギーを求めて文献値と比較します。"
+msgstr ""
+"We calculate the temperature dependence of the diffusion coefficient in a"
+" model with a Li vacancy and compare the resulting activation energy with"
+" published values."
+
+#: ../../li3po4/index.rst:51
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-partial-rdf>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-partial-rdf>`"
+
+#: ../../li3po4/index.rst:53
+msgid "異なる温度で得た分子動力学の軌跡から原子対ごとの動径分布関数を求め、局所構造の温度変化を調べます。"
+msgstr ""
+"We calculate radial distribution functions for each type of atom pair "
+"from molecular dynamics trajectories at different temperatures to examine"
+" how the local structure changes with temperature."
+
+#: ../../li3po4/index.rst:-1
+msgid "大規模モデル"
+msgstr "Large Models"
+
+#: ../../li3po4/index.rst:58
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-large-structure-rdf>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-large-structure-rdf>`"
+
+#: ../../li3po4/index.rst:60
+msgid "大規模なLi₃PO₄構造を分子動力学で作り、部分動径分布関数から局所的な原子配置をモデルサイズごとに比較します。"
+msgstr ""
+"We use molecular dynamics to build large Li₃PO₄ structures and compare "
+"local atomic arrangements across model sizes using partial radial "
+"distribution functions."
+
+#: ../../li3po4/index.rst:62
+#, python-brace-format
+msgid ":numref:`{number}. {name} <li3po4-doc-large-model-diffusivity>`"
+msgstr ":numref:`{number}. {name} <li3po4-doc-large-model-diffusivity>`"
+
+#: ../../li3po4/index.rst:64
+msgid "1006原子モデルで拡散の活性化エネルギーを求め、同じ組成の文献計算と実験の値を比べます。"
+msgstr ""
+"We calculate the activation energy for diffusion in the 1006-atom model "
+"and compare it with calculated and experimental values reported for the "
+"same composition."
+

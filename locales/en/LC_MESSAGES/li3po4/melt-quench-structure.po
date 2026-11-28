@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/melt-quench-structure.rst:4
+msgid "溶融・急冷後の構造"
+msgstr "Structure After Melting and Quenching"
+
+#: ../../li3po4/melt-quench-structure.rst:6
+#, python-brace-format
+msgid ""
+"γ相のLi₃PO₄を溶かして急冷すると、原子の並びはどう変わるでしょうか。\\ "
+"OpenMXで32原子のモデルを作ると、初期の結晶に比べてPO₄四面体の向きとLiの配置が乱れました。\\ この構造を "
+":numref:`{number}. {name} <li3po4-doc-vacancy-formation>` 以降の小セルの計算に使います。"
+msgstr ""
+"How does the atomic arrangement change when γ-phase Li₃PO₄ is melted and "
+"quenched? \\ In the 32-atom model we made with OpenMX, the orientations "
+"of the PO₄ tetrahedra and the positions of Li were less ordered than in "
+"the initial crystal. \\ We use this structure for the small-cell "
+"calculations starting with :numref:`{number}. {name} <li3po4-doc-vacancy-"
+"formation>`."
+
+#: ../../li3po4/melt-quench-structure.rst:11
+msgid "32原子モデル"
+msgstr "32-Atom Model"
+
+#: ../../li3po4/melt-quench-structure.rst:13
+msgid ""
+"γ相の単位胞を出発点とし、`第一原理分子動力学 <https://technical-"
+"notes.quemix.com/md/ensembles.html#md-force-evaluation>`__\\ "
+"（AIMD）で高温保持、急冷、300 Kでの保持を行いました（各段階の目的と条件の決め方は技術ノートの\\ `溶融・急冷で非晶質モデルを作る "
+"<https://technical-notes.quemix.com/md/heating_simulation.html#melt-"
+"quench>`__）。\\ その後、セルの大きさと形を固定し、DFTで原子座標を緩和しました。 :numref:`li3po4-relaxed-"
+"32atoms` に緩和後の構造を示します。"
+msgstr ""
+"Starting from the γ-phase unit cell, we used `first-principles molecular "
+"dynamics <https://technical-notes.quemix.com/md/ensembles.html#md-force-"
+"evaluation>`__ \\ (AIMD) for a high-temperature hold, rapid quenching, "
+"and a hold at 300 K (see \\ `building an amorphous model by melting and "
+"quenching <https://technical-notes.quemix.com/md/heating_simulation.html"
+"#melt-quench>`__ in the Technical Notes for the purpose of each stage and"
+" how to choose its conditions). \\ We then relaxed the atomic coordinates"
+" with DFT while keeping the cell size and shape fixed. :numref:`li3po4"
+"-relaxed-32atoms` shows the relaxed structure."
+
+#: ../../li3po4/melt-quench-structure.rst:18
+msgid "PO₄四面体の向きとLiの配置が乱れた32原子のセル"
+msgstr "32-atom cell with disordered PO₄ tetrahedral orientations and Li positions"
+
+#: ../../li3po4/melt-quench-structure.rst:23
+msgid ""
+"OpenMXで溶融・急冷し、原子座標を緩和した32原子モデル（Li₁₂P₄O₁₆）。\\ "
+"緑の球はLi、紫の球はP、赤の球はOを表します。紫の多面体はPO₄四面体です。"
+msgstr ""
+"The 32-atom model (Li₁₂P₄O₁₆) after melting and quenching with OpenMX and"
+" subsequent relaxation of the atomic coordinates. \\ The green, purple, "
+"and red spheres represent Li, P, and O, respectively. The purple "
+"polyhedra are PO₄ tetrahedra."
+
+#: ../../li3po4/melt-quench-structure.rst:27
+msgid "文献との比較"
+msgstr "Comparison with the Literature"
+
+#: ../../li3po4/melt-quench-structure.rst:29
+msgid ""
+"本計算と文献の32原子モデルについて、溶融・急冷の各段階にかけた時間を :numref:`li3po4-melt-quench-times` "
+"に示します。 `Liらの図3とその解説 <https://doi.org/10.1063/1.4997242>`__"
+msgstr ""
+":numref:`li3po4-melt-quench-times` gives the duration of each melt-quench"
+" stage for the 32-atom models in this work and in the literature. `Li et "
+"al., Fig. 3 and the accompanying discussion "
+"<https://doi.org/10.1063/1.4997242>`__"
+
+#: ../../li3po4/melt-quench-structure.rst:33
+msgid "溶融・急冷の時間"
+msgstr "Duration of each melt-quench stage"
+
+#: ../../li3po4/melt-quench-structure.rst:38
+msgid "段階"
+msgstr "Stage"
+
+#: ../../li3po4/melt-quench-structure.rst:39
+msgid "本計算"
+msgstr "This work"
+
+#: ../../li3po4/melt-quench-structure.rst:40
+msgid "文献（図3）"
+msgstr "Li et al. (Fig. 3)"
+
+#: ../../li3po4/melt-quench-structure.rst:41
+msgid "高温保持"
+msgstr "High-temperature hold"
+
+#: ../../li3po4/melt-quench-structure.rst:42
+msgid "1.20 ps"
+msgstr "1.20 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:43
+msgid "15 ps"
+msgstr "15 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:44
+msgid "急冷"
+msgstr "Rapid quench"
+
+#: ../../li3po4/melt-quench-structure.rst:45
+msgid "0.57 ps"
+msgstr "0.57 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:46
+msgid "約5.7 ps"
+msgstr "Approx. 5.7 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:47
+msgid "300 Kでの保持"
+msgstr "Hold at 300 K"
+
+#: ../../li3po4/melt-quench-structure.rst:48
+msgid "0.53 ps"
+msgstr "0.53 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:49
+msgid "3 ps"
+msgstr "3 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:50
+msgid "合計"
+msgstr "Total"
+
+#: ../../li3po4/melt-quench-structure.rst:51
+msgid "2.30 ps"
+msgstr "2.30 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:52
+msgid "約23.7 ps"
+msgstr "Approx. 23.7 ps"
+
+#: ../../li3po4/melt-quench-structure.rst:54
+#, python-brace-format
+msgid ""
+"文献では、表のように長い時間をかけた場合でも部分的に結晶秩序が残りました。\\ "
+"本計算の32原子モデルについても、バルク非晶質の代表構造とみなすには、初期のγ相の秩序がどれだけ残るかを評価する必要があります。\\ "
+"より大きなセルの原子配置は :numref:`{number}. {name} <li3po4-doc-large-structure-rdf>`"
+" で調べます。"
+msgstr ""
+"Li et al. found that some crystalline order remained even with the longer"
+" times shown in the table. \\ Before treating the 32-atom model in this "
+"work as representative of the bulk amorphous material, we also need to "
+"assess how much of the initial γ-phase order remains. \\ We examine the "
+"atomic arrangement in larger cells in :numref:`{number}. {name} <li3po4"
+"-doc-large-structure-rdf>`."
+
+#: ../../li3po4/melt-quench-structure.rst:59
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/melt-quench-structure.rst:61
+msgid ""
+"2.30 psの溶融・急冷過程とその後の座標緩和で、PO₄四面体とLiの配置が乱れた32原子モデルを得ました。\\ "
+"小セルでは結晶秩序が残る可能性があるため、このモデルは空孔形成と移動を調べるための不規則構造として扱います。"
+msgstr ""
+"The 2.30 ps melt-quench process and subsequent relaxation of the atomic "
+"coordinates produced a 32-atom model with disordered PO₄ tetrahedra and "
+"Li positions. \\ Because some crystalline order may remain in a small "
+"cell, we treat this model as a disordered structure for studying vacancy "
+"formation and migration."
+

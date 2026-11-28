@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/partial-rdf.rst:4
+msgid "MD軌跡の部分RDF"
+msgstr "Partial RDFs from MD Trajectories"
+
+#: ../../li3po4/partial-rdf.rst:6
+msgid ""
+"温度を上げてLiが動きやすくなると、周囲の原子の並び方はどう変わるでしょうか。\\ 31原子のLi空孔モデルでは、800～1500 "
+"KでP–Oの第一ピークが約1.5 Åに残る一方、Li–Oの第一ピークは高温ほど広がりました。"
+msgstr ""
+"How does the local atomic arrangement change as Li becomes more mobile at"
+" higher temperatures? \\ In the 31-atom model with a Li vacancy, the "
+"first P–O peak stayed near 1.5 Å over 800–1500 K, whereas the first Li–O "
+"peak broadened as temperature increased."
+
+#: ../../li3po4/partial-rdf.rst:9
+#, python-brace-format
+msgid ""
+"原子対ごとの\\ `動径分布関数（部分RDF） <https://technical-notes.quemix.com/md/rdf.html"
+"#radial-distribution-function>`__\\ は、ある元素の原子から距離 :math:`r` "
+"の位置に、別の原子が平均密度に比べてどれだけ見つかりやすいかを示します。 \\ :numref:`{number}. {name} <li3po4"
+"-doc-lithium-msd>` ではLiの位置の時間変化を見ました。ここではMD軌跡の各時刻での原子対の距離を使い、近くの原子の並び方を "
+":numref:`li3po4-rdf-31atoms` で比べます。"
+msgstr ""
+"A \\ `partial radial distribution function (partial RDF) <https"
+"://technical-notes.quemix.com/md/rdf.html#radial-distribution-"
+"function>`__ \\ shows how likely it is, relative to the average density, "
+"to find another atom at a distance :math:`r` from an atom of a given "
+"element. \\ :numref:`{number}. {name} <li3po4-doc-lithium-msd>` examined "
+"how the positions of Li changed over time. Here we use distances between "
+"atom pairs at each time in the MD trajectories to compare local atomic "
+"arrangements in :numref:`li3po4-rdf-31atoms`."
+
+#: ../../li3po4/partial-rdf.rst:14
+msgid "800～1500 Kの部分RDF。P–Oの第一ピークの位置はほぼ一定で、Li–Oの第一ピークは高温で広がる"
+msgstr ""
+"Partial RDFs at 800–1500 K. The position of the first P–O peak is nearly "
+"constant, while the first Li–O peak broadens at higher temperatures."
+
+#: ../../li3po4/partial-rdf.rst:19
+msgid ""
+"31原子モデルの部分RDF。(a) Li–O、(b) P–O、(c) O–O。\\ "
+"パネルごとに縦軸の目盛りが異なります。同じパネル内で温度を変えたときのピークを比べます。"
+msgstr ""
+"Partial RDFs for the 31-atom model. (a) Li–O, (b) P–O, (c) O–O. \\ The "
+"vertical scale varies by panel. We compare peaks at different "
+"temperatures within each panel."
+
+#: ../../li3po4/partial-rdf.rst:22
+msgid ""
+"P–Oの第一ピークは、高温で低くなっても約1.5 Åに鋭く残ります。これはPO₄四面体に対応する短いP–O結合が保たれることを示します。\\ "
+"Li–Oの約1.9 Åの第一ピークは高温ほど低く広くなり、Liの周囲の酸素までの距離にばらつきが増えます。\\ "
+"O–Oの第一・第二ピークも高温で弱まり、酸素同士の距離の分布が広がります。"
+msgstr ""
+"The first P–O peak stays sharp at about 1.5 Å despite decreasing in "
+"height at higher temperatures. This shows that the short P–O bonds "
+"associated with the PO₄ tetrahedra persist. \\ The first Li–O peak, near "
+"1.9 Å, becomes lower and broader at higher temperatures, indicating a "
+"wider range of distances from Li to neighboring oxygen atoms. \\ The "
+"first and second O–O peaks also weaken at higher temperatures, and the "
+"distribution of distances between oxygen atoms broadens."
+
+#: ../../li3po4/partial-rdf.rst:26
+msgid ""
+"文献では、NNP-MDとDFT-MDで原子対の種類をまとめた全RDFが近いことを確かめています。\\ "
+"本計算で掲載しているのは原子対別の部分RDFです。文献と同じ精度検証を行うには、同じ条件でDFT-"
+"MDを実施し、同じ種類のRDFを比べる必要があります。 `Liらの図9 "
+"<https://doi.org/10.1063/1.4997242>`__"
+msgstr ""
+"Li et al. found that the total RDFs from NNP-MD and DFT-MD, which combine"
+" all types of atom pairs, were similar. \\ In this work, however, we "
+"report partial RDFs for each type of atom pair. To perform the same "
+"accuracy check as Li et al., we would need to run DFT-MD under the same "
+"conditions and compare the same type of RDF. `Li et al., Fig. 9 "
+"<https://doi.org/10.1063/1.4997242>`__"
+
+#: ../../li3po4/partial-rdf.rst:30
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/partial-rdf.rst:32
+msgid ""
+"高温でもP–Oの短距離結合は保たれ、Li–Oの距離のばらつきは増えました。\\ "
+"この結果は、リン酸基の周囲でLiの配置が変わり、温度を上げるとLiのMSDが増える傾向と整合します。\\ "
+"RDFは同時刻の原子間距離を集計するため、個々のLiの移動経路やPO₄四面体の寿命を調べるには、軌跡上で各原子の動きを追う必要があります。"
+msgstr ""
+"The short P–O bonds persisted even at high temperatures, and Li–O "
+"distances became more variable. \\ This is consistent with the change in "
+"Li positions around phosphate groups and with the trend of increasing Li "
+"MSD at higher temperatures. \\ Because RDFs aggregate distances between "
+"atoms at the same instant, studying individual Li migration paths or the "
+"lifetimes of PO₄ tetrahedra requires tracking individual atoms along the "
+"trajectories."
+

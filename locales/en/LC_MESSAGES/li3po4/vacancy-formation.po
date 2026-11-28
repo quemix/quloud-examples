@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:27+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../li3po4/vacancy-formation.rst:4
+msgid "Li空孔形成エネルギー"
+msgstr "Li Vacancy Formation Energy"
+
+#: ../../li3po4/vacancy-formation.rst:6
+msgid ""
+"Liを取り除く位置によって、空孔を作るのに必要なエネルギーはどう変わるでしょうか。\\ "
+"32原子の不規則構造で12か所を比較したところ、3つの機械学習原子間ポテンシャル（UMA、SevenNet、CHGNet）は、全サイトでOpenMXより低い値を示しました。\\"
+" 12サイトにわたる平均絶対差は0.598～1.512 eVでした。"
+msgstr ""
+"How does the energy needed to create a vacancy depend on which Li atom is"
+" removed? \\ We compared 12 sites in a 32-atom disordered structure. All "
+"three machine-learning interatomic potentials (UMA, SevenNet, and CHGNet)"
+" gave lower energies than OpenMX at every site. \\ The mean absolute "
+"differences across the 12 sites ranged from 0.598 to 1.512 eV."
+
+#: ../../li3po4/vacancy-formation.rst:10
+#, python-brace-format
+msgid ""
+"`空孔形成エネルギー <https://technical-"
+"notes.quemix.com/electronic/defect_formation.html#defect-formation-"
+"energy>`__\\ は、Liを1個取り除いた構造と元の構造のエネルギー差に、取り除いたLiの参照エネルギー（Li\\ `化学ポテンシャル "
+"<https://technical-notes.quemix.com/thermo/gibbs_energy.html#chemical-"
+"potential>`__）を加えた量です。\\ :numref:`li3po4-formation-energies` では、 "
+":numref:`{number}. {name} <li3po4-doc-melt-quench-structure>` "
+"で作った構造からLiを1個ずつ取り除いた場合を比べます。"
+msgstr ""
+"`Vacancy formation energy <https://technical-"
+"notes.quemix.com/electronic/defect_formation.html#defect-formation-"
+"energy>`__ \\ is the energy difference between the structure with one Li "
+"atom removed and the original structure, plus the reference energy of the"
+" removed Li atom (the Li \\ `chemical potential <https://technical-"
+"notes.quemix.com/thermo/gibbs_energy.html#chemical-potential>`__). \\ "
+":numref:`li3po4-formation-energies` compares the results of removing one "
+"Li atom at a time from the structure made in :numref:`{number}. {name} "
+"<li3po4-doc-melt-quench-structure>`."
+
+#: ../../li3po4/vacancy-formation.rst:15
+msgid "12サイトすべてで3つのモデルの空孔形成エネルギーがOpenMXより低い棒グラフ"
+msgstr ""
+"Bar chart showing lower vacancy formation energies than OpenMX for all "
+"three models at all 12 sites"
+
+#: ../../li3po4/vacancy-formation.rst:20
+msgid ""
+"Li空孔の形成エネルギー。横軸は取り除いたLiのサイト番号、縦軸は空孔形成エネルギー（eV）。\\ "
+"凡例の平均誤差は、OpenMXと各モデルの差の絶対値を12サイトで平均した値です。"
+msgstr ""
+"Li vacancy formation energies. The horizontal axis gives the site number "
+"of the Li atom removed, and the vertical axis gives the vacancy formation"
+" energy (eV). \\ The “avg. error” in the legend is the mean absolute "
+"difference between OpenMX and each model across the 12 sites."
+
+#: ../../li3po4/vacancy-formation.rst:23
+msgid ""
+"OpenMXを基準とする平均絶対差は、UMAで0.598 eV、SevenNetで0.706 eV、CHGNetで1.512 eVです。\\ "
+"一様なずれに加え、サイト間の違いにも注目します。例えばOpenMXでは5番サイトの形成エネルギーが最も高く、CHGNetではこのピークが現れません。"
+msgstr ""
+"With OpenMX as the reference, the mean absolute differences are 0.598 eV "
+"for UMA, 0.706 eV for SevenNet, and 1.512 eV for CHGNet. \\ In addition "
+"to the overall offset, we examine how the energies vary across sites. For"
+" example, OpenMX gives the highest formation energy at site 5, but CHGNet"
+" shows no peak there."
+
+#: ../../li3po4/vacancy-formation.rst:26
+msgid ""
+"文献の12サイトでも、NNPはDFTより低い形成エネルギーを与えました。差は平均0.029 eV、最大0.040 "
+"eVと、本計算の各モデルとOpenMXの差より小さいです。\\ 文献DFTの形成エネルギーは約5 eV、本計算のOpenMXでは約3～4 "
+"eVです。これらの差を手法の精度差として評価するには、構造とLi化学ポテンシャル、緩和条件をそろえる必要があります（化学ポテンシャルの基準と形成エネルギーの関係は技術ノートの\\"
+" `点欠陥の形成エネルギーの解釈と限界 <https://technical-"
+"notes.quemix.com/electronic/defect_formation.html#defect-formation-"
+"limits>`__）。 `Liらの図4 <https://doi.org/10.1063/1.4997242>`__"
+msgstr ""
+"For the 12 sites examined by Li et al., their NNP also gave lower "
+"formation energies than their DFT calculations. The mean difference was "
+"0.029 eV and the maximum was 0.040 eV, both smaller than the differences "
+"between each model and OpenMX in this work. \\ The formation energies are"
+" about 5 eV with DFT (Li et al.) and about 3–4 eV with OpenMX in this "
+"work. To assess whether these differences reflect differences in method "
+"accuracy, the structure, Li chemical potential, and relaxation conditions"
+" must match (see the Technical Notes on \\ `interpretation and "
+"limitations of point defect formation energies <https://technical-"
+"notes.quemix.com/electronic/defect_formation.html#defect-formation-"
+"limits>`__ for the relationship between the chemical potential reference "
+"and the formation energy). `Li et al., Fig. 4 "
+"<https://doi.org/10.1063/1.4997242>`__"
+
+#: ../../li3po4/vacancy-formation.rst:30
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../li3po4/vacancy-formation.rst:32
+#, python-brace-format
+msgid ""
+"この構造では、3つのモデルが全12サイトでOpenMXより低い形成エネルギーを与え、平均絶対差はCHGNetで最も大きくなりました。\\ "
+"形成エネルギーが表すのは空孔を作るコストです。\\ `空孔の濃度 <https://technical-"
+"notes.quemix.com/electronic/defect_formation.html#defect-"
+"concentration>`__\\ を見積もるには、温度や欠陥の状態も考慮する必要があります。\\ できた空孔にLiが移る経路と障壁は、 "
+":numref:`{number}. {name} <li3po4-doc-vacancy-paths>` と "
+":numref:`{number}. {name} <li3po4-doc-vacancy-barriers>` で調べます。"
+msgstr ""
+"For this structure, all three models gave lower formation energies than "
+"OpenMX at all 12 sites, and CHGNet had the largest mean absolute "
+"difference. \\ The formation energy measures the energy cost of creating "
+"a vacancy. \\ `Vacancy concentration <https://technical-"
+"notes.quemix.com/electronic/defect_formation.html#defect-"
+"concentration>`__ \\ estimates must also account for temperature and the "
+"state of the defect. \\ We examine the paths and barriers for Li moving "
+"into the vacancy in :numref:`{number}. {name} <li3po4-doc-vacancy-paths>`"
+" and :numref:`{number}. {name} <li3po4-doc-vacancy-barriers>`."
+

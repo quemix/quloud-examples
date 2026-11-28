@@ -3,8 +3,8 @@
 導入
 ====
 
-非晶質Li₃PO₄（リン酸リチウム）は、薄膜電池などに使われる固体電解質です。
-結晶のように同じ原子配列が繰り返されないため、Liイオンの移動しやすさは周囲の原子配置によって変わります。
+非晶質Li₃PO₄（リン酸リチウム）は、薄膜電池などに使われる固体電解質です。\
+結晶のように同じ原子配列が繰り返されないため、Liイオンの移動しやすさは周囲の原子配置によって変わります。\
 この連載ではQuloudを使い、**Liがどの経路を通るか** と **温度を上げるとどれだけ速く拡散するか** を調べます。
 
 計算で調べること
@@ -18,17 +18,17 @@
 比較に使う計算手法
 ------------------
 
-Liらは、Li₃PO₄の密度汎関数理論（DFT）データで学習したニューラルネットワークポテンシャル（NNP）を使い、構造とLi拡散を調べました。
+Liらは、Li₃PO₄の密度汎関数理論（DFT）データで学習したニューラルネットワークポテンシャル（NNP）を使い、構造とLi拡散を調べました。\
 この連載では、OpenMXによるDFTと、事前学習済みの3つの汎用\ `機械学習原子間ポテンシャル <https://technical-notes.quemix.com/md/mlip.html>`__\ （UMA、SevenNet、CHGNet）を使います。使用する手法は計算項目によって異なります。各記事では、Liらのモデルと計算値を「文献NNP」「文献DFT」と表記します。
 
-1006原子モデルでは、Li拡散の活性化エネルギーはCHGNetで0.296 eV、文献NNPで0.55 eVでした。
-空孔の平均移動障壁は、3つのモデルの中でUMA（0.50 eV）が文献値に最も近い値を示しました。
+1006原子モデルでは、Li拡散の活性化エネルギーはCHGNetで0.296 eV、文献NNPで0.55 eVでした。\
+空孔の平均移動障壁は、3つのモデルの中でUMA（0.50 eV）が文献値に最も近い値を示しました。\
 個々の移動障壁の精度を評価するには構造と経路をそろえる必要があり、拡散係数の精度を評価するにはMDの条件もそろえる必要があります。
 
 参考文献
 --------
 
-Wenwen Li, Yasunobu Ando, Emi Minamitani, Satoshi Watanabe,
-“Study of Li atom diffusion in amorphous Li₃PO₄ with neural network potential,”
-*J. Chem. Phys.* **147**, 214106 (2017).
+Wenwen Li, Yasunobu Ando, Emi Minamitani, Satoshi Watanabe, \
+“Study of Li atom diffusion in amorphous Li₃PO₄ with neural network potential,” \
+*J. Chem. Phys.* **147**, 214106 (2017). \
 `DOI: 10.1063/1.4997242 <https://doi.org/10.1063/1.4997242>`__.
