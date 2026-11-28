@@ -33,7 +33,7 @@
      - Psi4 1.10。同じくQuloudの実行スクリプトを入れたDockerコンテナで実行（2026年11月）
 
 QEの入力ファイルは、Quloudの入力生成プログラムを通さず、手で作りました。\
-Psi4の入力ファイルは、Quloudの「振動数解析（Psi4）」が以下の設定値から作るものと同じです。
+Psi4の入力ファイルは、Quloudの「振動数解析（Psi4）」が :ref:`1. H₂の振動数と回転定数（Psi4） <gan-repro-h2-psi4>` の表の設定値から作るものと同じです。
 
 配布ファイル
 ============
@@ -139,6 +139,8 @@ Quloudでの計算手順
 
 Materialの登録とJobの作成・実行の操作は、マニュアルの `原子構造の登録 <https://manual.quloud-platform.quemix.com/source/jobs_and_models_atom.html>`__ 、 `計算 Job の登録 <https://manual.quloud-platform.quemix.com/source/calculation.html>`__ 、 `Job の実行 <https://manual.quloud-platform.quemix.com/source/runjob.html>`__ の章を参照してください。
 
+.. _gan-repro-h2-psi4:
+
 1. H₂の振動数と回転定数（Psi4）
 -------------------------------
 
@@ -184,7 +186,7 @@ Materialの登録とJobの作成・実行の操作は、マニュアルの `原�
      - 設定値
    * - 交換相関汎関数
      - GGA-PBE
-   * - 擬ポテンシャル
+   * - 擬ポテンシャル（Ga、H）
      - Ga ``Ga.pbe-dn-kjpaw_psl.1.0.0.UPF`` 、H ``H.pbe-kjpaw_psl.1.0.0.UPF``
    * - k グリッド（a、b、c 軸）
      - 1、1、1
@@ -223,8 +225,8 @@ H₂は閉殻なので、 ``occupations = 'fixed'`` にするだけです。\
 3. 表面スラブの構造最適化（QE）
 -------------------------------
 
-計算機能「構造最適化（QE）」で、スラブの4つの構造それぞれについて計算します。\
-冒頭に書いたとおり、底面の擬水素を別の種として扱う設定は、現在のQuloudではできません。\
+4つのスラブ構造の最適化は、Quloudの計算機能「構造最適化（QE）」に相当します。\
+ただし、底面の擬水素を別の種として扱う設定は現在のQuloudではできないため、記事ではQuloudの外で実行しました。\
 記事の計算で使った入力ファイルの要点は次のとおりです（T4サイトの Ga adatom の例、原子の座標は省略）。\
 全文は ``gan_slabs.zip`` の各フォルダにある ``QuloudJob.scf.in`` です。
 

@@ -1,7 +1,8 @@
 """Surface phase diagram of GaN(0001) under MOVPE conditions from Quantum ESPRESSO and Psi4 jobs.
 
-Pass the ZIP files downloaded from the job pages of Quloud ("一括ダウンロード" of the
-output files), folders holding them, or their extracted contents. The file names do
+Pass the ZIP files downloaded from the job pages of Quloud ("Batch Download" of the
+output files; "一括ダウンロード" in the Japanese interface), folders holding them, or
+their extracted contents. The file names do
 not matter; each job is recognized from its contents:
 
 * Quantum ESPRESSO (an output of pw.x holding "Program PWSCF", with the copy of its

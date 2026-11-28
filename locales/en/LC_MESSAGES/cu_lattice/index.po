@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../cu_lattice/index.rst:2
+msgid "Cuの格子定数とエネルギー曲線"
+msgstr "Lattice Constant and Energy Curve of Cu"
+
+#: ../../cu_lattice/index.rst:4
+msgid "fcc Cuの格子定数を、エネルギー曲線のフィットと応力に基づく構造緩和で求め、結果を比較します。"
+msgstr ""
+"We calculate the lattice constant of fcc Cu by fitting an energy curve "
+"and by using stress to guide structural relaxation, then compare the "
+"results."
+
+#: ../../cu_lattice/index.rst:8
+msgid ":doc:`計算結果を読む <lattice_constant>`"
+msgstr ":doc:`Interpreting the Calculation Results <lattice_constant>`"
+
+#: ../../cu_lattice/index.rst:9
+msgid ":doc:`計算条件と再現手順 <reproduction>`"
+msgstr ":doc:`Calculation Conditions and Reproduction Procedure <reproduction>`"
+

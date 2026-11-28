@@ -5,3 +5,9 @@ index
 hydrogen_chain/index
 hydrogen_chain/band_formation
 hydrogen_chain/reproduction
+gan_surface/index
+gan_surface/phase_diagram
+gan_surface/reproduction
+cu_lattice/index
+cu_lattice/lattice_constant
+cu_lattice/reproduction

@@ -241,7 +241,7 @@ H₂の分圧は、N₂キャリアでもNH₃の分解で約0.17 atmあり、H�
    V/III = 5000での各表面のギブズエネルギー（Ideal 基準、2×2表面セルあたり）。左がN₂キャリア、右がH₂キャリアです。各温度で最も低い線の表面が安定です。
 
 温度が上がると、 :math:`-\tilde{\mu}` は大きくなるので、吸着した表面の :math:`\Delta G` は上がっていきます。\
-:math:`\Delta G` が0を横切る温度で、吸着した原子が離れて Ideal が安定になります。\
+吸着した表面のうち最も低い :math:`\Delta G` が0を横切ると、Ideal が最も安定になります。\
 N₂キャリアでは、Ga adatom の線が全温度で 3Ga-H の線より下にあり、Ga adatom から Ideal へ移ります。\
 H₂キャリアでは、H₂の分圧が高い分だけ :math:`\frac{3}{2}\tilde{\mu}_\mathrm{H_2}` が上がり（ :numref:`tab-gan-mu-parts` ）、3Ga-H の線が下がって Ga adatom の線と入れ替わります。\
 Ga adatom の線はキャリアガスによって変わりません。
@@ -266,7 +266,7 @@ Ga adatom の線はキャリアガスによって変わりません。
 論文 [2]_ のFig. 2と比べると、現れる表面の種類と並び方は同じです。\
 N₂キャリアで Ga adatom から Ideal へ移り、V/III比が大きいほど境界が低温になること、H₂キャリアで高V/III側に 3Ga-H が現れ、約1160 °Cで Ideal に移ることが一致しています。\
 一方、境界の位置はずれています。\
-N₂キャリアの境界は、論文の図ではV/III = 5000で約1110 °C、500で約1200 °Cで、このページの計算は40〜50 °C高温側にあります。\
+N₂キャリアの境界は、論文の図ではV/III = 5000で約1110 °C、500で約1200 °Cで、このページの計算は約40〜50 °C高温側にあります。\
 H₂キャリアで 3Ga-H が現れるV/III比の下限は、論文の図では約1200で、このページでは約2750です。
 
 境界の温度は吸着エネルギーに敏感です。\
@@ -281,7 +281,8 @@ H₂キャリアで 3Ga-H が現れるV/III比の下限は、論文の図では�
 ==============
 
 Ga adatom のGa原子をどこに置くかで、結果は変わります。\
-GaNに限らず、表面に準安定な吸着サイトが複数存在するというケースは非常に多くあります。Ga adatom表面の場合、T4サイトが最も安定なGa原子の吸着位置ですが、H3サイト（真下にスラブを通して原子が1つもない位置）に置いて構造最適化を行っても、そのまま収束し、相図も描けてしまいます。このような安定性の議論においては、準安定な構造の存在には常に注意を払う必要があります。\
+Ga原子はT4サイトが最も安定ですが、H3サイト（スラブを通して真下に原子がない位置）に置いても構造最適化は収束し、その構造から相図を描けます。\
+GaNに限らず、準安定な吸着サイトがある表面の安定性を調べるときは、収束した構造がどのサイトに対応するかを確かめる必要があります。\
 :numref:`fig-gan-site` に、H3サイトとT4サイトに置いた場合の相図を比べます。
 
 .. figure:: figures/adatom_site.png
@@ -309,7 +310,7 @@ H3サイトのままでは、N₂キャリアでも高V/III側に 3Ga-H が現�
 
 * 論文の9通りの表面構造 [2]_ のうち3つだけを比べています。ここで比べていない表面構造（Ga adlayer、N adatom など）の方が安定な条件では、相図は変わります。
 * (000−1)面は扱っていません。N面のスラブの底面には、価数1.25の擬水素が要ります。
-* 表面の原子の振動と、零点振動のエネルギーは、気相・表面とも含めていません（論文と同じ）。
+* 表面の原子の振動は含めていません。気相の分子の振動は含めていますが、零点振動のエネルギーは気相・表面とも含めていません（論文と同じ）。
 * スラブの計算はスピン分極を考えていません。Ga原子の参照エネルギーはスピン分極ありで計算しました。Ga原子をスピン分極なしで計算すると全エネルギーが0.245 eV高くなり、Ga adatom の吸着エネルギーが同じだけ変わります。
 * 底面の擬水素は、QEの ``ld1.x`` で作ったノルム保存型の擬ポテンシャルです。原子の自己無撞着計算と ``pw.x`` での1原子の計算は通りましたが、表面での転移性やカットオフエネルギーへの収束は確かめていません。
 * スラブの計算はQE 7.6、Ga原子とH₂の計算はQE 7.5で行いました（ :numref:`tab-gan-conditions` ）。
@@ -323,10 +324,10 @@ H3サイトのままでは、N₂キャリアでも高V/III側に 3Ga-H が現�
 参考文献
 ========
 
-.. [1] Y. Kangawa, T. Ito, A. Taguchi, K. Shiraishi, and T. Ohachi, Surf. Sci. **493**, 178 (2001).
+.. [1] Y\. Kangawa, T. Ito, A. Taguchi, K. Shiraishi, and T. Ohachi, Surf. Sci. **493**, 178 (2001).
 
-.. [2] A. Kusaba, Y. Kangawa, P. Kempisty, H. Valencia, K. Shiraishi, Y. Kumagai, K. Kakimoto, and A. Koukitu, "Thermodynamic analysis of (0001) and (000−1) GaN metalorganic vapor phase epitaxy," Jpn. J. Appl. Phys. **56**, 070304 (2017). `doi:10.7567/JJAP.56.070304 <https://doi.org/10.7567/JJAP.56.070304>`__ 。著者稿は `九州大学学術情報リポジトリ <https://hdl.handle.net/2324/7183509>`__ にあります。
+.. [2] A\. Kusaba, Y. Kangawa, P. Kempisty, H. Valencia, K. Shiraishi, Y. Kumagai, K. Kakimoto, and A. Koukitu, "Thermodynamic analysis of (0001) and (000−1) GaN metalorganic vapor phase epitaxy," Jpn. J. Appl. Phys. **56**, 070304 (2017). `doi:10.7567/JJAP.56.070304 <https://doi.org/10.7567/JJAP.56.070304>`__ 。著者稿は `九州大学学術情報リポジトリ <https://hdl.handle.net/2324/7183509>`__ にあります。
 
-.. [3] K. Shiraishi, J. Phys. Soc. Jpn. **59**, 3455 (1990).
+.. [3] K\. Shiraishi, J. Phys. Soc. Jpn. **59**, 3455 (1990).
 
-.. [4] K. P. Huber and G. Herzberg, *Molecular Spectra and Molecular Structure IV. Constants of Diatomic Molecules* (Van Nostrand Reinhold, 1979)。 `NIST Chemistry WebBook <https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&Mask=1000>`__ に収録された値です。
+.. [4] K\. P. Huber and G. Herzberg, *Molecular Spectra and Molecular Structure IV. Constants of Diatomic Molecules* (Van Nostrand Reinhold, 1979)。 `NIST Chemistry WebBook <https://webbook.nist.gov/cgi/cbook.cgi?ID=C1333740&Mask=1000>`__ に収録された値です。

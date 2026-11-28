@@ -1,0 +1,1059 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 14:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../cu_lattice/lattice_constant.rst:3
+msgid "格子定数をどう求めるか：Cuのエネルギー曲線と応力"
+msgstr "Determining the Lattice Constant of Cu from Energy and Stress"
+
+#: ../../cu_lattice/lattice_constant.rst:5
+msgid ""
+"結晶の格子定数は、全エネルギーが最小になる格子の大きさとして求めます。\\ よく使われる求め方は2つあります。\\ "
+"1つは、格子定数を少しずつ変えて全エネルギーを計算し、その曲線の極小を探す方法です。\\ "
+"もう1つは、1回の計算で求まる応力（圧力）を手がかりに、圧力が0になるまで格子を自動で動かす方法（QEの ``vc-relax`` "
+"、Quloudの計算機能「格子定数最適化」）です。"
+msgstr ""
+"The lattice constant of a crystal is the lattice size at which its total "
+"energy is lowest. \\ Two methods are commonly used to find it. \\ One is "
+"to calculate the total energy at a series of closely spaced lattice "
+"constants and find the minimum of the resulting curve. \\ The other uses "
+"the stress (pressure) obtained from a single calculation to guide "
+"automatic changes to the lattice until the pressure reaches zero. This is"
+" QE's ``vc-relax``, called \"Lattice Optimization\" in Quloud."
+
+#: ../../cu_lattice/lattice_constant.rst:10
+msgid ""
+"どちらも同じ極小を目指しているはずですが、曲線の当てはめ方や計算の条件によって、得られる値は少しずつ違います。\\ "
+"本稿では、面心立方（fcc）構造の銅（Cu）について、2つの求め方で格子定数を0.001 Åの桁まで求め、値がどれだけ、なぜ違うのかを調べます。"
+msgstr ""
+"Both methods should locate the same minimum, but the values they give "
+"differ slightly depending on how the curve is fitted and on the "
+"calculation conditions. \\ Here we use both methods to determine the "
+"lattice constant of face-centered cubic (fcc) copper (Cu) to the nearest "
+"0.001 Å and examine how much the values differ and why."
+
+#: ../../cu_lattice/lattice_constant.rst:14
+msgid "計算対象と計算条件"
+msgstr "Systems and Calculation Conditions"
+
+#: ../../cu_lattice/lattice_constant.rst:16
+#, python-brace-format
+msgid ""
+"計算するのは、fccのCuの原始胞（1原子）です。\\ 原始胞は、3辺の長さが立方晶の格子定数 :math:`a` の "
+":math:`1/\\sqrt{2}` で、辺のなす角がすべて60°のセルです（慣用胞と原始胞の関係は、技術ノートの\\ `格子基底と座標系の変換"
+" <https://technical-notes.quemix.com/solid/lattice_transform.html>`__\\ "
+"を参照してください）。\\ 以下では、格子の大きさを立方晶の格子定数 :math:`a` "
+"で表し、エネルギーは1原子あたりの値、圧力はQEの出力どおりkbar（10 kbar = 1 GPa）で示します。\\ 計算条件を :numref"
+":`tab-cl-conditions` にまとめます。"
+msgstr ""
+"We use the one-atom primitive cell of fcc Cu. \\ All three edges have "
+"length equal to the cubic lattice constant :math:`a` multiplied by "
+":math:`1/\\sqrt{2}`, and all angles between the edges are 60°. For how "
+"the conventional cell relates to the primitive cell, see \\ `Lattice "
+"Basis and Coordinate System Transformations <https://technical-"
+"notes.quemix.com/solid/lattice_transform.html>`__ \\ in the Technical "
+"Notes. \\ We describe the lattice size using the cubic lattice constant "
+":math:`a`, report energies per atom, and give pressures in kbar as in the"
+" QE output (10 kbar = 1 GPa). \\ The calculation conditions are listed in"
+" :numref:`tab-cl-conditions`."
+
+#: ../../cu_lattice/lattice_constant.rst:21
+msgid "計算条件"
+msgstr "Calculation conditions"
+
+#: ../../cu_lattice/lattice_constant.rst:26
+msgid "項目"
+msgstr "Item"
+
+#: ../../cu_lattice/lattice_constant.rst:27
+msgid "設定"
+msgstr "Setting"
+
+#: ../../cu_lattice/lattice_constant.rst:28
+msgid "計算コード"
+msgstr "Calculation code"
+
+#: ../../cu_lattice/lattice_constant.rst:29
+msgid "Quantum ESPRESSO（QE）7.5 [1]_ [2]_"
+msgstr "Quantum ESPRESSO (QE) 7.5 [1]_ [2]_"
+
+#: ../../cu_lattice/lattice_constant.rst:30
+msgid "交換相関汎関数"
+msgstr "Exchange-correlation functional"
+
+#: ../../cu_lattice/lattice_constant.rst:31
+msgid "PBE [3]_"
+msgstr "PBE [3]_"
+
+#: ../../cu_lattice/lattice_constant.rst:32
+msgid "擬ポテンシャル"
+msgstr "Pseudopotential"
+
+#: ../../cu_lattice/lattice_constant.rst:33
+msgid "PAW（pslibrary 1.0.0 [4]_ ）"
+msgstr "PAW (pslibrary 1.0.0 [4]_ )"
+
+#: ../../cu_lattice/lattice_constant.rst:34
+msgid "カットオフエネルギー"
+msgstr "Cutoff energy"
+
+#: ../../cu_lattice/lattice_constant.rst:35
+msgid "波動関数 60 Ry、電荷密度 600 Ry"
+msgstr "60 Ry for the wave functions, 600 Ry for the charge density"
+
+#: ../../cu_lattice/lattice_constant.rst:36
+msgid "k点メッシュ"
+msgstr "k-point mesh"
+
+#: ../../cu_lattice/lattice_constant.rst:37
+msgid ":math:`24\\times24\\times24` （Γ点を含む）"
+msgstr ":math:`24\\times24\\times24` (including the Γ point)"
+
+#: ../../cu_lattice/lattice_constant.rst:38
+msgid "占有数"
+msgstr "Occupations"
+
+#: ../../cu_lattice/lattice_constant.rst:39
+msgid "MVスメアリング [5]_ 、幅0.02 Ry"
+msgstr "MV smearing [5]_, width 0.02 Ry"
+
+#: ../../cu_lattice/lattice_constant.rst:40
+msgid "SCF収束閾値"
+msgstr "SCF convergence threshold"
+
+#: ../../cu_lattice/lattice_constant.rst:41
+#, python-brace-format
+msgid ":math:`10^{-12}` Ry"
+msgstr ":math:`10^{-12}` Ry"
+
+#: ../../cu_lattice/lattice_constant.rst:43
+#, python-brace-format
+msgid ""
+"擬ポテンシャルのファイルは ``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF`` です。\\ k点メッシュとスメアリング幅は、 "
+":doc:`../kpoints/kpoint_convergence` で決めた条件です。\\ "
+"このメッシュでは、格子定数を変えたときのエネルギー差が0.1 meV、圧力が0.2 kbarの精度で収束しています。\\ "
+"カットオフエネルギーの影響を調べるため、 :numref:`{number}節 <sec-cl-cutoff>` "
+"では波動関数のカットオフを40、80、100、120 Ry（電荷密度はその10倍）にした計算も行います。"
+msgstr ""
+"The pseudopotential file is ``Cu.pbe-dn-kjpaw_psl.1.0.0.UPF``. \\ We use "
+"the k-point mesh and smearing width determined in "
+":doc:`../kpoints/kpoint_convergence`. \\ With this mesh, the energy "
+"differences between lattice constants are converged to 0.1 meV and the "
+"pressure to 0.2 kbar. \\ To test the effect of the cutoff energy, in "
+":numref:`Section {number} <sec-cl-cutoff>` we also ran calculations at "
+"wave function cutoffs of 40, 80, 100, and 120 Ry, with charge density "
+"cutoffs 10 times as high."
+
+#: ../../cu_lattice/lattice_constant.rst:51
+msgid "エネルギー曲線"
+msgstr "Energy Curves"
+
+#: ../../cu_lattice/lattice_constant.rst:53
+msgid ""
+"格子定数を3.52 Åから3.76 Åまで0.02 Åずつ変えた13点で、全エネルギーと圧力を計算しました（ :numref:`fig-cl-"
+"eos` ）。\\ 1点のSCF計算は、MPI 4並列で約20秒です。"
+msgstr ""
+"We calculated the total energy and pressure at 13 lattice constants from "
+"3.52 Å to 3.76 Å in increments of 0.02 Å (:numref:`fig-cl-eos`). \\ Each "
+"SCF calculation took about 20 seconds on 4 MPI processes."
+
+#: ../../cu_lattice/lattice_constant.rst:60
+#, python-brace-format
+msgid ""
+"Cuの格子定数 :math:`a` と全エネルギー（左）、圧力（右）。青い点はSCF計算、灰色の曲線は13点にBirch–Murnaghanの式（"
+" :numref:`{number}節 <sec-cl-eos>` ）を当てはめた結果で、右はその曲線を体積で微分した圧力 "
+":math:`-\\mathrm{d}E/\\mathrm{d}V` です。左の縦軸は、当てはめた曲線の極小値 :math:`E_0` "
+"からのエネルギー、点線は極小の位置です。"
+msgstr ""
+"Total energy (left) and pressure (right) versus the lattice constant "
+":math:`a` of Cu. Blue points show the SCF results. The gray curve on the "
+"left is the Birch–Murnaghan fit to the 13 points (:numref:`Section "
+"{number} <sec-cl-eos>`), and the gray curve on the right is the "
+"corresponding pressure :math:`-\\mathrm{d}E/\\mathrm{d}V` from "
+"differentiating the fit with respect to volume. The vertical axis on the "
+"left shows the energy relative to the fitted minimum :math:`E_0`, and the"
+" dotted line marks its position."
+
+#: ../../cu_lattice/lattice_constant.rst:62
+msgid ""
+"エネルギーは3.62 Åと3.64 Åでほぼ等しく（差0.05 meV）、極小はこの間にあります。\\ 曲線は左右対称ではありません。\\ "
+"計算範囲の両端（3.52 Åと3.76 Å）は、どちらも極小のエネルギーより約50 meV高くなっています。\\ 極小は約3.63 "
+"Åにあるので、縮めた側は0.11 Å、伸ばした側は0.13 Åの変化で同程度のエネルギー上昇に達します。\\ "
+"原子どうしが近づくと反発が急に強くなるため、縮める側のほうが硬いのです。\\ "
+"右の圧力も、格子定数に対して直線ではなく、縮めた側で傾きが急になっています。"
+msgstr ""
+"The energies at 3.62 Å and 3.64 Å are nearly equal (a difference of 0.05 "
+"meV), and the minimum lies between them. \\ The curve is asymmetric. \\ "
+"At both ends of the calculation range (3.52 Å and 3.76 Å), the energy is "
+"about 50 meV above the minimum. \\ With the minimum at about 3.63 Å, a "
+"compression of 0.11 Å or an expansion of 0.13 Å gives a similar energy "
+"increase. \\ Repulsion rises sharply as the atoms approach one another, "
+"making the lattice stiffer under compression. \\ The pressure on the "
+"right is also nonlinear in the lattice constant and has a steeper slope "
+"on the compressed side."
+
+#: ../../cu_lattice/lattice_constant.rst:72
+msgid "2次式の当てはめ"
+msgstr "Fitting a Quadratic"
+
+#: ../../cu_lattice/lattice_constant.rst:74
+msgid ""
+"最も簡単な求め方は、極小付近の点に2次式 :math:`E(a)=c_0+c_1a+c_2a^2` を当てはめ、その頂点 "
+":math:`a_0=-c_1/(2c_2)` を格子定数とする方法です。\\ 当てはめる範囲を、3.63 Åを中心に広げていったときの "
+":math:`a_0` を :numref:`tab-cl-quadratic` と :numref:`fig-cl-quadratic` "
+"に示します。"
+msgstr ""
+"The simplest method is to fit a quadratic :math:`E(a)=c_0+c_1a+c_2a^2` to"
+" the points near the minimum and use the lattice constant at its vertex, "
+":math:`a_0=-c_1/(2c_2)`. \\ The values of :math:`a_0` as the fitting "
+"range widens around 3.63 Å are shown in :numref:`tab-cl-quadratic` and "
+":numref:`fig-cl-quadratic`."
+
+#: ../../cu_lattice/lattice_constant.rst:77
+msgid "2次式で求めた格子定数 :math:`a_0` と当てはめた範囲"
+msgstr "Lattice constant :math:`a_0` from the quadratic fit and the fitting range"
+
+#: ../../cu_lattice/lattice_constant.rst:82
+msgid "範囲"
+msgstr "Range"
+
+#: ../../cu_lattice/lattice_constant.rst:83
+msgid "点の数"
+msgstr "Number of points"
+
+#: ../../cu_lattice/lattice_constant.rst:84
+#: ../../cu_lattice/lattice_constant.rst:145
+msgid ":math:`a_0` （Å）"
+msgstr ":math:`a_0` (Å)"
+
+#: ../../cu_lattice/lattice_constant.rst:85
+msgid "3.60〜3.66 Å"
+msgstr "3.60–3.66 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:86
+#: ../../cu_lattice/lattice_constant.rst:208
+msgid "4"
+msgstr "4"
+
+#: ../../cu_lattice/lattice_constant.rst:87
+msgid "3.6307"
+msgstr "3.6307"
+
+#: ../../cu_lattice/lattice_constant.rst:88
+msgid "3.58〜3.68 Å"
+msgstr "3.58–3.68 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:89
+msgid "6"
+msgstr "6"
+
+#: ../../cu_lattice/lattice_constant.rst:90
+msgid "3.6314"
+msgstr "3.6314"
+
+#: ../../cu_lattice/lattice_constant.rst:91
+msgid "3.56〜3.70 Å"
+msgstr "3.56–3.70 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:92
+msgid "8"
+msgstr "8"
+
+#: ../../cu_lattice/lattice_constant.rst:93
+msgid "3.6323"
+msgstr "3.6323"
+
+#: ../../cu_lattice/lattice_constant.rst:94
+msgid "3.54〜3.72 Å"
+msgstr "3.54–3.72 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:95
+msgid "10"
+msgstr "10"
+
+#: ../../cu_lattice/lattice_constant.rst:96
+msgid "3.6335"
+msgstr "3.6335"
+
+#: ../../cu_lattice/lattice_constant.rst:97
+msgid "3.52〜3.74 Å"
+msgstr "3.52–3.74 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:98
+msgid "12"
+msgstr "12"
+
+#: ../../cu_lattice/lattice_constant.rst:99
+msgid "3.6350"
+msgstr "3.6350"
+
+#: ../../cu_lattice/lattice_constant.rst:105
+msgid ""
+"左：2次式（破線は4点、実線は12点で当てはめたもの）と、SCFのエネルギー（青い点）の、Birch–Murnaghanの式の曲線からの差。右：2次式で求めた"
+" :math:`a_0` と当てはめた点の数。破線はBirch–Murnaghanの式（13点）の :math:`a_0` です。"
+msgstr ""
+"Left: differences from the Birch–Murnaghan curve for the quadratic fits "
+"(dashed for 4 points, solid for 12 points) and the SCF energies "
+"(blue points). Right: :math:`a_0` from each quadratic fit versus the "
+"number of points fitted. The dashed line marks :math:`a_0` from the "
+"Birch–Murnaghan fit to 13 points."
+
+#: ../../cu_lattice/lattice_constant.rst:107
+msgid ""
+"範囲を広げるほど、 :math:`a_0` は大きい側へずれていき、12点では4点より0.004 Å大きくなります。\\ "
+"左の図のように、2次式は左右対称な放物線なので、縮めた側の急な立ち上がりと伸ばした側のゆるやかな立ち上がりの両方に合わせようとして、頂点が伸ばした側へずれます。\\"
+" 範囲を狭めればずれは小さくなりますが、点が少なく、エネルギー差も小さくなるので、1点ごとの数値誤差の影響を受けやすくなります。\\ "
+"2次式で求めた値は、どの範囲で当てはめたかを添えないと意味がありません。"
+msgstr ""
+"As the range widens, :math:`a_0` shifts to larger values. The fit to 12 "
+"points gave a value 0.004 Å higher than the fit to 4 points. \\ As the "
+"left panel shows, the quadratic is a symmetric parabola. Fitting both the"
+" steep rise on the compressed side and the gentler rise on the expanded "
+"side shifts its vertex toward the expanded side. \\ Narrowing the range "
+"reduces the shift, but with fewer points and smaller energy differences, "
+"numerical errors at individual points have more influence. \\ A value "
+"from a quadratic fit is meaningless without the fitting range."
+
+#: ../../cu_lattice/lattice_constant.rst:115
+msgid "状態方程式"
+msgstr "Equation of State"
+
+#: ../../cu_lattice/lattice_constant.rst:117
+msgid ""
+"非対称な曲線を表すために、固体の圧縮についての状態方程式を使います。\\ ここでは、体積 :math:`V` （1原子あたり、fccでは "
+":math:`V=a^3/4` ）の関数として、よく使われる2つの式を当てはめます。\\ :math:`E_0` は極小のエネルギー、 "
+":math:`V_0` は極小の体積、 :math:`B_0` は体積弾性率、 :math:`B_0'` はその圧力微分です。"
+msgstr ""
+"We use an equation of state for solid compression to describe the "
+"asymmetric curve. \\ We fit two commonly used forms as functions of the "
+"volume :math:`V` per atom, where :math:`V=a^3/4` for fcc. \\ :math:`E_0` "
+"is the minimum energy, :math:`V_0` is the volume at the minimum, "
+":math:`B_0` is the bulk modulus, and :math:`B_0'` is its pressure "
+"derivative."
+
+#: ../../cu_lattice/lattice_constant.rst:121
+msgid "Murnaghanの式 [6]_ は、体積弾性率が圧力に比例して増える（ :math:`B=B_0+B_0'P` ）と仮定したものです。"
+msgstr ""
+"The Murnaghan equation [6]_ assumes that the bulk modulus increases "
+"linearly with pressure (:math:`B=B_0+B_0'P`)."
+
+#: ../../cu_lattice/lattice_constant.rst:123
+msgid "E(V)=E_0+\\frac{B_0V}{B_0'}\\left[\\frac{(V_0/V)^{B_0'}}{B_0'-1}+1\\right]-\\frac{B_0V_0}{B_0'-1}"
+msgstr "E(V)=E_0+\\frac{B_0V}{B_0'}\\left[\\frac{(V_0/V)^{B_0'}}{B_0'-1}+1\\right]-\\frac{B_0V_0}{B_0'-1}"
+
+#: ../../cu_lattice/lattice_constant.rst:128
+#, python-brace-format
+msgid ""
+"3次のBirch–Murnaghanの式 [7]_ は、有限ひずみ "
+":math:`f=\\frac12\\left[(V_0/V)^{2/3}-1\\right]` の3次までの展開です。"
+msgstr ""
+"The third-order Birch–Murnaghan equation [7]_ is an expansion to third "
+"order in the finite strain "
+":math:`f=\\frac12\\left[(V_0/V)^{2/3}-1\\right]`."
+
+#: ../../cu_lattice/lattice_constant.rst:130
+#, python-brace-format
+msgid ""
+"E(V)=E_0+\\frac{9V_0B_0}{16}\\left\\{\\left[\\left(\\frac{V_0}{V}\\right)^{2/3}-1\\right]^3B_0'"
+"\n"
+"+\\left[\\left(\\frac{V_0}{V}\\right)^{2/3}-1\\right]^2\\left[6-4\\left(\\frac{V_0}{V}\\right)^{2/3}\\right]\\right\\}"
+msgstr ""
+"E(V)=E_0+\\frac{9V_0B_0}{16}\\left\\{\\left[\\left(\\frac{V_0}{V}\\right)^{2/3}-1\\right]^3B_0'"
+"\n"
+"+\\left[\\left(\\frac{V_0}{V}\\right)^{2/3}-1\\right]^2\\left[6-4\\left(\\frac{V_0}{V}\\right)^{2/3}\\right]\\right\\}"
+
+#: ../../cu_lattice/lattice_constant.rst:136
+#, python-brace-format
+msgid ""
+"式 :eq:`cl-bm3` は :math:`x=V^{-2/3}` の3次多項式なので、通常の多項式の最小二乗で当てはめられます。\\ 式 "
+":eq:`cl-murnaghan` は、 :math:`V_0` と :math:`B_0'` を決めると :math:`E_0` と "
+":math:`B_0` について1次式になるので、 :math:`V_0` と :math:`B_0'` "
+"だけを探索しました（解析スクリプトはNumPyだけで動きます。 :doc:`reproduction` ）。"
+msgstr ""
+"Equation :eq:`cl-bm3` is cubic in :math:`x=V^{-2/3}`, so it can be fitted"
+" by ordinary polynomial least squares. \\ In Equation :eq:`cl-murnaghan`,"
+" fixing :math:`V_0` and :math:`B_0'` makes it linear in :math:`E_0` and "
+":math:`B_0`, so we searched only over :math:`V_0` and :math:`B_0'` (the "
+"analysis script needs only NumPy; see :doc:`reproduction`)."
+
+#: ../../cu_lattice/lattice_constant.rst:139
+msgid "状態方程式の当てはめで求めた格子定数 :math:`a_0` 、体積弾性率 :math:`B_0` 、その圧力微分 :math:`B_0'`"
+msgstr ""
+"Lattice constant :math:`a_0`, bulk modulus :math:`B_0`, and its pressure "
+"derivative :math:`B_0'` from equation-of-state fits"
+
+#: ../../cu_lattice/lattice_constant.rst:144
+msgid "式と点"
+msgstr "Equation and number of points"
+
+#: ../../cu_lattice/lattice_constant.rst:146
+msgid ":math:`B_0` （GPa）"
+msgstr ":math:`B_0` (GPa)"
+
+#: ../../cu_lattice/lattice_constant.rst:147
+msgid ":math:`B_0'`"
+msgstr ":math:`B_0'`"
+
+#: ../../cu_lattice/lattice_constant.rst:148
+msgid "残差の最大（meV）"
+msgstr "Maximum residual (meV)"
+
+#: ../../cu_lattice/lattice_constant.rst:149
+msgid "Birch–Murnaghan、13点"
+msgstr "Birch–Murnaghan, 13 points"
+
+#: ../../cu_lattice/lattice_constant.rst:150
+#: ../../cu_lattice/lattice_constant.rst:160
+#: ../../cu_lattice/lattice_constant.rst:263
+msgid "3.6303"
+msgstr "3.6303"
+
+#: ../../cu_lattice/lattice_constant.rst:151
+msgid "141.3"
+msgstr "141.3"
+
+#: ../../cu_lattice/lattice_constant.rst:152
+msgid "5.05"
+msgstr "5.05"
+
+#: ../../cu_lattice/lattice_constant.rst:153
+msgid "0.005"
+msgstr "0.005"
+
+#: ../../cu_lattice/lattice_constant.rst:154
+msgid "Murnaghan、13点"
+msgstr "Murnaghan, 13 points"
+
+#: ../../cu_lattice/lattice_constant.rst:155
+#: ../../cu_lattice/lattice_constant.rst:217
+#: ../../cu_lattice/lattice_constant.rst:273
+#: ../../cu_lattice/lattice_constant.rst:278
+msgid "3.6302"
+msgstr "3.6302"
+
+#: ../../cu_lattice/lattice_constant.rst:156
+msgid "140.7"
+msgstr "140.7"
+
+#: ../../cu_lattice/lattice_constant.rst:157
+msgid "5.08"
+msgstr "5.08"
+
+#: ../../cu_lattice/lattice_constant.rst:158
+msgid "0.04"
+msgstr "0.04"
+
+#: ../../cu_lattice/lattice_constant.rst:159
+msgid "Birch–Murnaghan、7点"
+msgstr "Birch–Murnaghan, 7 points"
+
+#: ../../cu_lattice/lattice_constant.rst:161
+msgid "141.4"
+msgstr "141.4"
+
+#: ../../cu_lattice/lattice_constant.rst:162
+msgid "5.06"
+msgstr "5.06"
+
+#: ../../cu_lattice/lattice_constant.rst:163
+msgid "—"
+msgstr "—"
+
+#: ../../cu_lattice/lattice_constant.rst:165
+msgid ""
+"表の7点は、13点のうち3.58〜3.70 Åの範囲の点です。\\ 2つの式の :math:`a_0` の差は0.0001 "
+"Åで、Birch–Murnaghanの式では当てはめる範囲を13点から7点に狭めても :math:`a_0` は変わりません。\\ "
+"Birch–Murnaghanの式のほうが残差が1桁小さく、13点のエネルギーを0.005 meV以内で再現します。\\ "
+"2次式と違い、状態方程式は範囲を広げても値がずれないので、極小から離れた点も含めて安定に :math:`a_0` を決められます。\\ "
+"以下では、Birch–Murnaghanの式の値 :math:`a_0=3.6303` Åを、エネルギー曲線から求めた格子定数とします。"
+msgstr ""
+"The 7-point fit in the table uses the points from 3.58 to 3.70 Å out of "
+"the original 13. \\ Fitting the two equations gives values of :math:`a_0`"
+" that differ by 0.0001 Å, and for Birch–Murnaghan, narrowing the fitting "
+"range from 13 to 7 points leaves :math:`a_0` unchanged. \\ The "
+"Birch–Murnaghan equation gives residuals an order of magnitude smaller "
+"and reproduces the energies of all 13 points to within 0.005 meV. \\ "
+"Unlike the quadratic fit, the equation of state gives a consistent "
+":math:`a_0` as the fitting range widens, so we can include points farther"
+" from the minimum and still obtain a stable value. \\ We use the "
+"Birch–Murnaghan result :math:`a_0=3.6303` Å as the lattice constant "
+"obtained from the energy curve."
+
+#: ../../cu_lattice/lattice_constant.rst:174
+msgid "圧力とエネルギー曲線"
+msgstr "Pressure and the Energy Curve"
+
+#: ../../cu_lattice/lattice_constant.rst:176
+#, python-brace-format
+msgid ""
+"SCF計算の出力の圧力 :math:`P` （ ``P=`` ）は、波動関数から直接計算した応力で、エネルギーの体積微分 "
+":math:`P=-\\mathrm{d}E/\\mathrm{d}V` にあたります。\\ :numref:`fig-cl-eos` "
+"の右の図で、SCFの圧力（青い点）と、当てはめた曲線を微分した圧力（灰色の曲線）はよく重なっています。\\ "
+"SCFの圧力から当てはめた曲線の圧力を引くと、13点すべてで −0.67〜−0.33 kbar、極小付近では −0.44 "
+"kbarで、SCFの圧力がわずかに小さくなっています。\\ SCFの圧力が0になる格子定数は3.6298 Åで、エネルギー曲線の極小（3.6303"
+" Å）より0.0005 Å小さくなります。\\ 極小付近では、圧力は格子定数1 Åあたり約1100 kbar変わるので、0.44 "
+"kbarの差が格子定数の0.0004 Åに相当します。"
+msgstr ""
+"The pressure :math:`P` (``P=``) in the SCF output comes directly from the"
+" stress calculated from the wave functions and corresponds to the volume "
+"derivative of the energy, :math:`P=-\\mathrm{d}E/\\mathrm{d}V`. \\ "
+":numref:`fig-cl-eos` (right) shows that the SCF pressures (blue points) "
+"nearly overlap with the pressure obtained by differentiating the fit "
+"(gray curve). \\ Subtracting the fitted pressure from the SCF pressure "
+"gives differences from −0.67 to −0.33 kbar across all 13 points and −0.44"
+" kbar near the minimum. The SCF pressure is slightly lower. \\ The SCF "
+"pressure reaches zero at 3.6298 Å, which is 0.0005 Å below the energy "
+"curve minimum (3.6303 Å). \\ Near the minimum, the pressure changes by "
+"about 1100 kbar per 1 Å change in lattice constant, so a difference of "
+"0.44 kbar corresponds to 0.0004 Å in the lattice constant."
+
+#: ../../cu_lattice/lattice_constant.rst:182
+#, python-brace-format
+msgid ""
+"この差は、平面波の数が有限であることから生じます。\\ "
+"エネルギー曲線は、カットオフエネルギーを一定にして計算しているので、格子を変えると平面波の数が変わります。\\ "
+"一方、SCFの応力は、平面波の組を固定したまま格子をわずかに変えたときのエネルギー変化として計算されます。\\ "
+"平面波が十分に多ければ両者は一致しますが、そうでなければ差が残ります。この差を **Pulay応力** （有限基底による応力の補正）と呼びます "
+"[8]_ 。\\ :numref:`{number}節 <sec-cl-cutoff>` "
+"で、この差がカットオフエネルギーとともにどう変わるかを調べます。"
+msgstr ""
+"The difference arises from the finite number of plane waves. \\ We "
+"compute the energy curve at a fixed cutoff energy, so changing the "
+"lattice changes the number of plane waves. \\ The SCF stress, however, "
+"comes from the energy change for a small change in the lattice while "
+"holding the set of plane waves fixed. \\ The two results agree when there"
+" are enough plane waves, but otherwise a difference remains. This "
+"difference is called **Pulay stress**, a correction to the stress due to "
+"the finite basis [8]_. \\ :numref:`Section {number} <sec-cl-cutoff>` "
+"examines how this difference varies with the cutoff energy."
+
+#: ../../cu_lattice/lattice_constant.rst:191
+msgid "vc-relax（格子定数最適化）"
+msgstr "vc-relax (Lattice Constant Optimization)"
+
+#: ../../cu_lattice/lattice_constant.rst:193
+msgid ""
+"QEの ``vc-relax`` は、SCF計算で求めた応力を使い、BFGS法で圧力が0になる格子を探します。\\ "
+"Quloudでは、計算機能「格子定数最適化」がこの計算です。\\ 応力の収束閾値は0.01 GPa（0.1 kbar）にしました。\\ "
+"3.56、3.64、3.72 Åの3つから始めたときの格子定数の変化を :numref:`fig-cl-cutoff` の右に、結果を "
+":numref:`tab-cl-vcrelax` に示します。"
+msgstr ""
+"QE's ``vc-relax`` uses the stress from SCF calculations and the BFGS "
+"method to find the lattice at zero pressure. \\ In Quloud, this is the "
+"\"Lattice Optimization\" feature. \\ We set the stress convergence "
+"threshold to 0.01 GPa (0.1 kbar). \\ The right panel of :numref:`fig-cl-"
+"cutoff` shows how the lattice constant changes from the three starting "
+"values 3.56, 3.64, and 3.72 Å. The final results are in :numref:`tab-cl-"
+"vcrelax`."
+
+#: ../../cu_lattice/lattice_constant.rst:198
+msgid "vc-relax（60 Ry）の開始点と結果"
+msgstr "Starting values and results for vc-relax (60 Ry)"
+
+#: ../../cu_lattice/lattice_constant.rst:203
+msgid "開始点"
+msgstr "Starting value"
+
+#: ../../cu_lattice/lattice_constant.rst:204
+msgid "SCFの回数"
+msgstr "Number of SCF calculations"
+
+#: ../../cu_lattice/lattice_constant.rst:205
+msgid "最適化後の :math:`a` （Å）"
+msgstr "Optimized :math:`a` (Å)"
+
+#: ../../cu_lattice/lattice_constant.rst:206
+msgid "最後のSCFの圧力（kbar）"
+msgstr "Final SCF pressure (kbar)"
+
+#: ../../cu_lattice/lattice_constant.rst:207
+msgid "3.56 Å"
+msgstr "3.56 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:209
+msgid "3.6287"
+msgstr "3.6287"
+
+#: ../../cu_lattice/lattice_constant.rst:210
+msgid "1.39"
+msgstr "1.39"
+
+#: ../../cu_lattice/lattice_constant.rst:211
+msgid "3.64 Å"
+msgstr "3.64 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:212
+#: ../../cu_lattice/lattice_constant.rst:220
+msgid "3"
+msgstr "3"
+
+#: ../../cu_lattice/lattice_constant.rst:213
+#: ../../cu_lattice/lattice_constant.rst:221
+#: ../../cu_lattice/lattice_constant.rst:264
+#: ../../cu_lattice/lattice_constant.rst:265
+#: ../../cu_lattice/lattice_constant.rst:275
+msgid "3.6299"
+msgstr "3.6299"
+
+#: ../../cu_lattice/lattice_constant.rst:214
+msgid "−0.06"
+msgstr "−0.06"
+
+#: ../../cu_lattice/lattice_constant.rst:215
+msgid "3.72 Å"
+msgstr "3.72 Å"
+
+#: ../../cu_lattice/lattice_constant.rst:216
+msgid "5"
+msgstr "5"
+
+#: ../../cu_lattice/lattice_constant.rst:218
+msgid "−0.37"
+msgstr "−0.37"
+
+#: ../../cu_lattice/lattice_constant.rst:219
+msgid "3.6287 Å（やり直し）"
+msgstr "3.6287 Å (restart)"
+
+#: ../../cu_lattice/lattice_constant.rst:222
+msgid "0.02"
+msgstr "0.02"
+
+#: ../../cu_lattice/lattice_constant.rst:224
+msgid ""
+"SCFの回数は、最後に平面波を選び直したSCF計算を除いた回数です。\\ 3.64 Åから始めると、3回のSCF計算で3.6299 "
+"Åに収束し、SCFの圧力が0になる格子定数（3.6298 Å）とほぼ一致しました。\\ "
+"しかし、開始点を変えると、最適化後の格子定数は3.6287〜3.6302 Åと0.0015 Åの幅で散らばります。"
+msgstr ""
+"The count of SCF calculations excludes the final SCF calculation, which "
+"uses a newly selected set of plane waves. \\ Starting at 3.64 Å, the "
+"lattice constant converged to 3.6299 Å in 3 SCF calculations, nearly "
+"matching the lattice constant at which the SCF pressure is zero (3.6298 "
+"Å). \\ However, varying the starting value gives optimized lattice "
+"constants from 3.6287 to 3.6302 Å, a spread of 0.0015 Å."
+
+#: ../../cu_lattice/lattice_constant.rst:228
+msgid ""
+"この散らばりも、平面波の扱いによるものです。\\ ``vc-relax`` "
+"では、格子を動かしている間、開始時の格子で選んだ平面波の組をそのまま使います。\\ "
+"開始点が極小から離れていると、最適化後の格子では、カットオフエネルギーで本来選ぶべき組と違う平面波で計算していることになります。\\ "
+"QEは、最適化が終わったあとに、最後の格子で平面波を選び直してもう一度SCF計算を行います（出力の ``The G-vectors are "
+"recalculated for the final unit cell`` ）。\\ その圧力（表の右端）は、3.56 "
+"Åから始めた場合で1.39 kbarと、収束閾値（0.1 kbar）より大きく残っています。\\ 3.56 Åから始めた結果（3.6287 "
+"Å）を開始点にして ``vc-relax`` をやり直すと、3.6299 Åに収束し、最後のSCFの圧力は0.02 "
+"kbarになりました（表の最後の行）。\\ 3.64 Åから始めた結果と一致します。\\ "
+"最後のSCFの圧力の絶対値が閾値より大きいときは、得られた格子から ``vc-relax`` をやり直すと、開始点による違いがなくなります。"
+msgstr ""
+"This spread also comes from how the calculation treats plane waves. \\ "
+"``vc-relax`` keeps the set of plane waves selected for the starting "
+"lattice throughout relaxation. \\ If the starting point is far from the "
+"minimum, the set of plane waves used for the optimized lattice differs "
+"from the set the cutoff energy would select for that lattice. \\ After "
+"optimization, QE reselects the plane waves for the final lattice and runs"
+" one more SCF calculation (see ``The G-vectors are recalculated for the "
+"final unit cell`` in the output). \\ Starting at 3.56 Å leaves a pressure"
+" of 1.39 kbar in that calculation (rightmost column), above the "
+"convergence threshold of 0.1 kbar. \\ Rerunning ``vc-relax`` from the "
+"result of the 3.56 Å run (3.6287 Å) gave a converged lattice constant of "
+"3.6299 Å and a final SCF pressure of 0.02 kbar (last row). \\ This "
+"matches the result from starting at 3.64 Å. \\ When the magnitude of the "
+"final SCF pressure exceeds the threshold, rerunning ``vc-relax`` from the"
+" optimized lattice removes the dependence on the starting value."
+
+#: ../../cu_lattice/lattice_constant.rst:240
+msgid "カットオフエネルギーと格子定数"
+msgstr "Cutoff Energy and Lattice Constants"
+
+#: ../../cu_lattice/lattice_constant.rst:242
+msgid ""
+"エネルギー曲線と応力のどちらで求めた格子定数が、カットオフエネルギーに対して早く収束するかを調べます。\\ カットオフを40〜120 "
+"Ryに変え、それぞれ3.60〜3.68 Åの5点でエネルギー曲線と圧力を計算し、3.64 Åから ``vc-relax`` を行いました（ "
+":numref:`tab-cl-cutoff` 、 :numref:`fig-cl-cutoff` の左）。\\ "
+"エネルギー曲線の格子定数は、この5点にBirch–Murnaghanの式を当てはめて求めました。"
+msgstr ""
+"We compare how quickly the lattice constant converges with cutoff energy "
+"when obtained from the energy curve or from stress. \\ We varied the "
+"cutoff from 40 to 120 Ry and, for each cutoff, calculated the energy "
+"curve and pressure at 5 points from 3.60 to 3.68 Å and ran ``vc-relax`` "
+"from 3.64 Å (:numref:`tab-cl-cutoff` and the left panel of :numref:`fig-"
+"cl-cutoff`). \\ We obtained the lattice constant from the energy curve by"
+" fitting the Birch–Murnaghan equation to these 5 points."
+
+#: ../../cu_lattice/lattice_constant.rst:246
+msgid "カットオフエネルギーと、3つの方法で求めた格子定数"
+msgstr "Cutoff energy and lattice constants obtained by three methods"
+
+#: ../../cu_lattice/lattice_constant.rst:251
+msgid "カットオフ（Ry）"
+msgstr "Cutoff (Ry)"
+
+#: ../../cu_lattice/lattice_constant.rst:252
+msgid "全エネルギー（meV）"
+msgstr "Total energy (meV)"
+
+#: ../../cu_lattice/lattice_constant.rst:253
+msgid "エネルギー曲線（Å）"
+msgstr "Energy curve (Å)"
+
+#: ../../cu_lattice/lattice_constant.rst:254
+msgid "圧力0（Å）"
+msgstr "Zero pressure (Å)"
+
+#: ../../cu_lattice/lattice_constant.rst:255
+msgid "vc-relax（Å）"
+msgstr "vc-relax (Å)"
+
+#: ../../cu_lattice/lattice_constant.rst:256
+msgid "40"
+msgstr "40"
+
+#: ../../cu_lattice/lattice_constant.rst:257
+msgid "59.88"
+msgstr "59.88"
+
+#: ../../cu_lattice/lattice_constant.rst:258
+msgid "3.6304"
+msgstr "3.6304"
+
+#: ../../cu_lattice/lattice_constant.rst:259
+msgid "3.6238"
+msgstr "3.6238"
+
+#: ../../cu_lattice/lattice_constant.rst:260
+msgid "3.6226"
+msgstr "3.6226"
+
+#: ../../cu_lattice/lattice_constant.rst:261
+msgid "60"
+msgstr "60"
+
+#: ../../cu_lattice/lattice_constant.rst:262
+msgid "5.78"
+msgstr "5.78"
+
+#: ../../cu_lattice/lattice_constant.rst:266
+msgid "80"
+msgstr "80"
+
+#: ../../cu_lattice/lattice_constant.rst:267
+msgid "1.84"
+msgstr "1.84"
+
+#: ../../cu_lattice/lattice_constant.rst:268
+msgid "3.6301"
+msgstr "3.6301"
+
+#: ../../cu_lattice/lattice_constant.rst:269
+#: ../../cu_lattice/lattice_constant.rst:270
+msgid "3.6288"
+msgstr "3.6288"
+
+#: ../../cu_lattice/lattice_constant.rst:271
+msgid "100"
+msgstr "100"
+
+#: ../../cu_lattice/lattice_constant.rst:272
+msgid "0.73"
+msgstr "0.73"
+
+#: ../../cu_lattice/lattice_constant.rst:274
+#: ../../cu_lattice/lattice_constant.rst:279
+#: ../../cu_lattice/lattice_constant.rst:280
+msgid "3.6300"
+msgstr "3.6300"
+
+#: ../../cu_lattice/lattice_constant.rst:276
+msgid "120"
+msgstr "120"
+
+#: ../../cu_lattice/lattice_constant.rst:277
+msgid "0"
+msgstr "0"
+
+#: ../../cu_lattice/lattice_constant.rst:282
+msgid "全エネルギーは3.64 Åでの値を、120 Ryの値からの差で示しています。\\ 圧力0は、SCFの圧力が0になる格子定数です。"
+msgstr ""
+"The total energies are evaluated at 3.64 Å and reported relative to the "
+"value at 120 Ry. \\ Zero pressure denotes the lattice constant at which "
+"the SCF pressure is zero."
+
+#: ../../cu_lattice/lattice_constant.rst:289
+msgid ""
+"左：カットオフエネルギーと、エネルギー曲線（Birch–Murnaghanの式、5点）、SCFの圧力が0になる点、3.64 Åからの ``vc-"
+"relax`` で求めた格子定数。右： ``vc-relax`` （60 Ry）の各SCF計算での格子定数。0回目が開始点で、3.56 "
+"Åと3.72 Åから始めた最初の点は縦軸の範囲外です。破線はエネルギー曲線の格子定数（60 Ry、13点）です。"
+msgstr ""
+"Left: lattice constants versus cutoff energy from the energy curve "
+"(5-point Birch–Murnaghan fit), the zero of the SCF pressure, and ``vc-"
+"relax`` starting at 3.64 Å. Right: the lattice constant at each SCF "
+"calculation of ``vc-relax`` (60 Ry). Step 0 is the starting point. The "
+"starting points of the runs from 3.56 Å and 3.72 Å lie outside the "
+"vertical axis range. The dashed line is the lattice constant from the "
+"energy curve (60 Ry, 13 points)."
+
+#: ../../cu_lattice/lattice_constant.rst:291
+msgid ""
+"全エネルギーそのものは、60 Ryでもまだ120 Ryより5.8 meV高く、カットオフに対してゆっくり収束します。\\ "
+"それでも、エネルギー曲線から求めた格子定数は40〜120 Ryで3.6301〜3.6304 Åと、0.0003 Åの範囲に収まります。\\ "
+"格子定数を少し変えた計算どうしでは、カットオフによる誤差がほぼ同じだけ入り、エネルギー差では打ち消し合うためです（ "
+":doc:`../kpoints/kpoint_convergence` でk点について見たのと同じことです）。"
+msgstr ""
+"Even at 60 Ry, the total energy itself is still 5.8 meV higher than at "
+"120 Ry and converges slowly with cutoff. \\ Even so, the lattice constant"
+" from the energy curve stays between 3.6301 and 3.6304 Å over 40–120 Ry, "
+"a range of 0.0003 Å. \\ Calculations at slightly different lattice "
+"constants have nearly the same cutoff error, so the errors cancel in "
+"energy differences (the same cancellation seen for k-points in "
+":doc:`../kpoints/kpoint_convergence`)."
+
+#: ../../cu_lattice/lattice_constant.rst:295
+msgid ""
+"一方、応力から求めた格子定数は、カットオフに敏感です。\\ 40 Ryでは、エネルギー曲線の値より0.007〜0.008 Å小さくなります。\\ "
+"60 Ryでは0.0004 Åまで近づきますが、80 Ryでは再び0.0013 Å離れ、100 Ry以上でようやく0.0003 "
+"Å以内にそろいます。\\ Pulay応力はカットオフを上げると小さくなりますが、この計算では単調には減りませんでした。\\ 60 "
+"Ryで差が小さかったのは、偶然と考えるのが妥当です。"
+msgstr ""
+"The lattice constant obtained from stress, however, is sensitive to the "
+"cutoff. \\ At 40 Ry, it is 0.007–0.008 Å smaller than the value from the "
+"energy curve. \\ At 60 Ry, the difference drops to 0.0004 Å, but it rises"
+" again to 0.0013 Å at 80 Ry. Only at 100 Ry and above do the values agree"
+" to within 0.0003 Å. \\ Pulay stress decreases as the cutoff rises, but "
+"the decrease was not monotonic in these calculations. \\ The small "
+"difference at 60 Ry is best regarded as coincidental."
+
+#: ../../cu_lattice/lattice_constant.rst:301
+msgid ""
+"``vc-relax`` の結果は、どのカットオフでもSCFの圧力が0になる格子定数とよく一致しています（40 Ryを除いて0.0001 "
+"Å以内）。\\ ``vc-relax`` "
+"は応力が0になる格子を正しく見つけていて、その応力自体にPulay応力が含まれていることが、エネルギー曲線との差の原因です。\\ "
+"応力で格子定数を0.001 Åの精度で求めるには、エネルギー曲線で求める場合より高いカットオフが必要です。"
+msgstr ""
+"The ``vc-relax`` results agree closely at every cutoff with the lattice "
+"constants at zero SCF pressure (within 0.0001 Å except at 40 Ry). \\ "
+"``vc-relax`` correctly finds the lattice at zero stress. The stress "
+"itself includes Pulay stress, which explains the difference from the "
+"energy-curve result. \\ Determining the lattice constant to an accuracy "
+"of 0.001 Å from stress requires a higher cutoff than determining it from "
+"the energy curve."
+
+#: ../../cu_lattice/lattice_constant.rst:308
+msgid "実験値との比較"
+msgstr "Comparison with Experimental Values"
+
+#: ../../cu_lattice/lattice_constant.rst:310
+msgid ""
+"Cuの格子定数の実験値は、25 °Cで3.61491 Å（X線回折） [9]_ です。\\ PBEで求めた3.6303 Åは、これより0.0154"
+" Å（0.43%）大きくなっています。\\ 体積弾性率の計算値141 GPaは、室温の実験値137 GPa [10]_ より3%大きい値です。"
+msgstr ""
+"The experimental lattice constant of Cu is 3.61491 Å at 25 °C, measured "
+"by X-ray diffraction [9]_. \\ The PBE result, 3.6303 Å, is 0.0154 Å "
+"(0.43%) larger. \\ The calculated bulk modulus, 141 GPa, is 3% higher "
+"than the experimental value of 137 GPa at room temperature [10]_."
+
+#: ../../cu_lattice/lattice_constant.rst:314
+msgid ""
+"ただし、この差をそのままPBEの誤差と見ることはできません。\\ "
+"今回の計算は、原子が静止した絶対零度の結晶のエネルギーを求めたもので、原子の零点振動も熱膨張も含んでいません。\\ "
+"実験値は室温での値で、どちらの効果も格子を広げる向きにはたらきます。\\ 零点振動と熱膨張を差し引いた「静止した格子」の実験値は3.61491 "
+"Åより小さいはずなので、PBEの格子定数の過大評価は0.43%より大きいことになります。\\ "
+"体積弾性率も温度とともに小さくなるので、同じように比べるには温度の違いを考える必要があります。\\ "
+"今回の計算の範囲では、どの効果がどれだけ差に寄与しているかは分けられません。"
+msgstr ""
+"However, this difference cannot be taken directly as the PBE error. \\ We"
+" calculated the energy of a crystal with stationary atoms at absolute "
+"zero, including neither atomic zero-point vibrations nor thermal "
+"expansion. \\ The experimental values are for room temperature, and both "
+"effects expand the lattice. \\ The experimental lattice constant for a "
+"\"static lattice\" after subtracting the effects of zero-point vibrations"
+" and thermal expansion would be smaller than 3.61491 Å, so PBE "
+"overestimates the lattice constant by more than 0.43%. \\ The bulk "
+"modulus also decreases as temperature rises, so a fair comparison must "
+"also account for the temperature difference. \\ These calculations do not"
+" allow us to tell how much each effect contributes to the difference."
+
+#: ../../cu_lattice/lattice_constant.rst:322
+msgid "この数値実験から分かること"
+msgstr "What the Numerical Experiment Shows"
+
+#: ../../cu_lattice/lattice_constant.rst:324
+msgid ""
+"エネルギー曲線は、縮めた側で急に立ち上がる非対称な形をしていました。2次式で極小を求めると、当てはめる範囲を広げるほど格子定数が大きい側へずれ、3.60〜3.66"
+" Åの4点と3.52〜3.74 Åの12点で0.004 Å違いました。"
+msgstr ""
+"The energy curve was asymmetric, rising steeply on the compressed side. "
+"With a quadratic fit, the lattice constant at the minimum shifted upward "
+"as the fitting range widened. It differed by 0.004 Å between the fit to 4"
+" points from 3.60 to 3.66 Å and the fit to 12 points from 3.52 to 3.74 Å."
+
+#: ../../cu_lattice/lattice_constant.rst:325
+msgid ""
+"状態方程式（Birch–Murnaghanの式、Murnaghanの式）を当てはめると、範囲を変えても格子定数は0.0001 "
+"Åの範囲で変わらず、Birch–Murnaghanの式は13点のエネルギーを0.005 meV以内で再現しました。"
+msgstr ""
+"With an equation of state (Birch–Murnaghan or Murnaghan), the lattice "
+"constants stayed within 0.0001 Å as the fit range changed, and the "
+"Birch–Murnaghan fit reproduced the energies of all 13 points within 0.005"
+" meV."
+
+#: ../../cu_lattice/lattice_constant.rst:326
+msgid ""
+"エネルギー曲線から求めた格子定数は、カットオフ40〜120 Ryで0.0003 "
+"Åの範囲に収まりました。全エネルギーそのものが数十meV変わる条件でも、エネルギー差から求める量は早く収束します。"
+msgstr ""
+"The lattice constant from the energy curve stayed within a range of "
+"0.0003 Å for cutoffs from 40 to 120 Ry. Quantities derived from energy "
+"differences converge quickly even when the total energy itself changes by"
+" tens of meV."
+
+#: ../../cu_lattice/lattice_constant.rst:327
+msgid ""
+"応力から求めた格子定数（ ``vc-relax`` "
+"、SCFの圧力が0になる点）は、平面波の数が有限であることによるPulay応力のため、カットオフに敏感でした。0.001 Åの精度には100 "
+"Ry以上が必要で、カットオフに対して単調には収束しませんでした。また、 ``vc-relax`` "
+"は開始時の平面波の組を使い続けるので、開始点によって結果が0.0015 "
+"Å散らばりました。最後のSCFで残った圧力の絶対値を確かめ、閾値を超えていれば得られた格子からやり直すと、この散らばりはなくなりました。"
+msgstr ""
+"The lattice constants obtained from stress (``vc-relax`` and the zero of "
+"the SCF pressure) were sensitive to the cutoff because of Pulay stress "
+"from the finite number of plane waves. An accuracy of 0.001 Å required at"
+" least 100 Ry, and convergence with the cutoff was not monotonic. Also, "
+"``vc-relax`` keeps the initial set of plane waves, so the results varied "
+"by 0.0015 Å across starting points. Checking the final SCF pressure and "
+"restarting from the optimized lattice when its magnitude exceeded the "
+"threshold removed this spread."
+
+#: ../../cu_lattice/lattice_constant.rst:329
+msgid ""
+"今回の結果は、Cuと :numref:`tab-cl-conditions` "
+"の計算条件（PBE、PAW擬ポテンシャル、k点メッシュ、スメアリング）についてのものです。\\ "
+"ほかの物質や擬ポテンシャルでは、Pulay応力の大きさや必要なカットオフは変わるので、同じように確かめてください。"
+msgstr ""
+"These results apply to Cu under the calculation conditions in :numref"
+":`tab-cl-conditions` (PBE, PAW pseudopotential, k-point mesh, and "
+"smearing). \\ For other materials or pseudopotentials, repeat these "
+"checks because the magnitude of the Pulay stress and the cutoff required "
+"can differ."
+
+#: ../../cu_lattice/lattice_constant.rst:333
+msgid "参考文献"
+msgstr "References"
+
+#: ../../cu_lattice/lattice_constant.rst:335
+msgid ""
+"P\\. Giannozzi *et al.*, \"QUANTUM ESPRESSO: a modular and open-source "
+"software project for quantum simulations of materials,\" *Journal of "
+"Physics: Condensed Matter* **21**, 395502 (2009). "
+"https://doi.org/10.1088/0953-8984/21/39/395502"
+msgstr ""
+"P\\. Giannozzi *et al.*, \"QUANTUM ESPRESSO: a modular and open-source "
+"software project for quantum simulations of materials,\" *Journal of "
+"Physics: Condensed Matter* **21**, 395502 (2009). "
+"https://doi.org/10.1088/0953-8984/21/39/395502"
+
+#: ../../cu_lattice/lattice_constant.rst:336
+msgid ""
+"P\\. Giannozzi *et al.*, \"Advanced capabilities for materials modelling "
+"with Quantum ESPRESSO,\" *Journal of Physics: Condensed Matter* **29**, "
+"465901 (2017). https://doi.org/10.1088/1361-648X/aa8f79"
+msgstr ""
+"P\\. Giannozzi *et al.*, \"Advanced capabilities for materials modelling "
+"with Quantum ESPRESSO,\" *Journal of Physics: Condensed Matter* **29**, "
+"465901 (2017). https://doi.org/10.1088/1361-648X/aa8f79"
+
+#: ../../cu_lattice/lattice_constant.rst:337
+msgid ""
+"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
+"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
+"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
+msgstr ""
+"J\\. P. Perdew, K. Burke, and M. Ernzerhof, \"Generalized Gradient "
+"Approximation Made Simple,\" *Physical Review Letters* **77**, 3865 "
+"(1996). https://doi.org/10.1103/PhysRevLett.77.3865"
+
+#: ../../cu_lattice/lattice_constant.rst:338
+msgid ""
+"A\\. Dal Corso, \"Pseudopotentials periodic table: From H to Pu,\" "
+"*Computational Materials Science* **95**, 337–350 (2014). "
+"https://doi.org/10.1016/j.commatsci.2014.07.043"
+msgstr ""
+"A\\. Dal Corso, \"Pseudopotentials periodic table: From H to Pu,\" "
+"*Computational Materials Science* **95**, 337–350 (2014). "
+"https://doi.org/10.1016/j.commatsci.2014.07.043"
+
+#: ../../cu_lattice/lattice_constant.rst:339
+msgid ""
+"N\\. Marzari, D. Vanderbilt, A. De Vita, and M. C. Payne, \"Thermal "
+"Contraction and Disordering of the Al(110) Surface,\" *Physical Review "
+"Letters* **82**, 3296 (1999). https://doi.org/10.1103/PhysRevLett.82.3296"
+msgstr ""
+"N\\. Marzari, D. Vanderbilt, A. De Vita, and M. C. Payne, \"Thermal "
+"Contraction and Disordering of the Al(110) Surface,\" *Physical Review "
+"Letters* **82**, 3296 (1999). https://doi.org/10.1103/PhysRevLett.82.3296"
+
+#: ../../cu_lattice/lattice_constant.rst:340
+msgid ""
+"F\\. D. Murnaghan, \"The Compressibility of Media under Extreme "
+"Pressures,\" *Proceedings of the National Academy of Sciences* **30**, "
+"244–247 (1944). https://doi.org/10.1073/pnas.30.9.244"
+msgstr ""
+"F\\. D. Murnaghan, \"The Compressibility of Media under Extreme "
+"Pressures,\" *Proceedings of the National Academy of Sciences* **30**, "
+"244–247 (1944). https://doi.org/10.1073/pnas.30.9.244"
+
+#: ../../cu_lattice/lattice_constant.rst:341
+msgid ""
+"F\\. Birch, \"Finite Elastic Strain of Cubic Crystals,\" *Physical "
+"Review* **71**, 809–824 (1947). https://doi.org/10.1103/PhysRev.71.809"
+msgstr ""
+"F\\. Birch, \"Finite Elastic Strain of Cubic Crystals,\" *Physical "
+"Review* **71**, 809–824 (1947). https://doi.org/10.1103/PhysRev.71.809"
+
+#: ../../cu_lattice/lattice_constant.rst:342
+msgid ""
+"G\\. P. Francis and M. C. Payne, \"Finite basis set corrections to total "
+"energy pseudopotential calculations,\" *Journal of Physics: Condensed "
+"Matter* **2**, 4395–4404 (1990). "
+"https://doi.org/10.1088/0953-8984/2/19/007"
+msgstr ""
+"G\\. P. Francis and M. C. Payne, \"Finite basis set corrections to total "
+"energy pseudopotential calculations,\" *Journal of Physics: Condensed "
+"Matter* **2**, 4395–4404 (1990). "
+"https://doi.org/10.1088/0953-8984/2/19/007"
+
+#: ../../cu_lattice/lattice_constant.rst:343
+msgid ""
+"M\\. E. Straumanis and L. S. Yu, \"Lattice parameters, densities, "
+"expansion coefficients and perfection of structure of Cu and of Cu–In α "
+"phase,\" *Acta Crystallographica Section A* **25**, 676–682 (1969). "
+"https://doi.org/10.1107/S0567739469001549"
+msgstr ""
+"M\\. E. Straumanis and L. S. Yu, \"Lattice parameters, densities, "
+"expansion coefficients and perfection of structure of Cu and of Cu–In α "
+"phase,\" *Acta Crystallographica Section A* **25**, 676–682 (1969). "
+"https://doi.org/10.1107/S0567739469001549"
+
+#: ../../cu_lattice/lattice_constant.rst:344
+msgid ""
+"C\\. Kittel, *Introduction to Solid State Physics*, 8th ed. (Wiley, "
+"2005), Chap. 3."
+msgstr ""
+"C\\. Kittel, *Introduction to Solid State Physics*, 8th ed. (Wiley, "
+"2005), Chap. 3."
+
