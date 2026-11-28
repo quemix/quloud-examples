@@ -33,3 +33,8 @@ li3po4/diffusivity-temperature
 li3po4/partial-rdf
 li3po4/large-structure-rdf
 li3po4/large-model-diffusivity
+BaTiO3/index
+BaTiO3/introduction
+BaTiO3/lattice-constant
+BaTiO3/stability
+BaTiO3/geometry-optimization

@@ -1,0 +1,1344 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 18:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../BaTiO3/geometry-optimization.rst:5
+msgid "構造最適化"
+msgstr "Geometry Optimization"
+
+#: ../../BaTiO3/geometry-optimization.rst:7
+msgid ""
+"正方晶 BaTiO₃ の格子を固定し、原子座標を緩和すると、Ti と O の相対変位はどう変わるでしょうか。\\ OpenMX "
+"を使った密度汎関数理論（DFT）の計算では、Ti の中心からのずれが残り、主に O 原子が動きました。\\ "
+"機械学習原子間ポテンシャル（MLIP）でも極性変位が残りましたが、c 軸に沿う 2 本の Ti–O 結合の長さの差は、いずれも OpenMX "
+"より大きくなりました。"
+msgstr ""
+"How do the relative displacements of Ti and O change when we relax the "
+"atomic coordinates of tetragonal BaTiO₃ at a fixed lattice? \\  In "
+"density functional theory (DFT) calculations with OpenMX, Ti remained "
+"off-center and the O atoms accounted for most of the motion. \\  The "
+"machine-learning interatomic potentials (MLIPs) also retained the polar "
+"displacements, but all gave a larger difference between the lengths of "
+"the 2 Ti–O bonds along the c axis than OpenMX did."
+
+#: ../../BaTiO3/geometry-optimization.rst:12
+msgid "目的と背景"
+msgstr "Objectives and Background"
+
+#: ../../BaTiO3/geometry-optimization.rst:14
+msgid ""
+"正方晶の BaTiO₃ では、理想立方晶からのわずかな格子ひずみと、Ti・O の相対変位が強誘電性に関わります。\\ BaTiO₃ "
+"が正方晶構造をとることは、Megaw の実験で報告されました :sup:`[1]`。\\ 中性子散乱実験では相転移と\\ `ソフトモード "
+"<https://technical-notes.quemix.com/solid/soft_mode.html>`__\\ "
+"の関係が示されています :sup:`[2]`。\\ 第一原理計算では、Ti 3d 軌道と O 2p 軌道の混成が強誘電構造の安定化に重要とされます"
+" :sup:`[3]`\\ （技術ノートの\\ `Ti 3d–O 2pの混成の役割 <https://technical-"
+"notes.quemix.com/solid/ferroelectric_origin.html#fo-hybridization>`__）。"
+msgstr ""
+"In tetragonal BaTiO₃, ferroelectricity involves both a slight lattice "
+"strain relative to the ideal cubic phase and relative displacements of Ti"
+" and O. \\  Megaw reported the tetragonal crystal structure of BaTiO₃ "
+"experimentally :sup:`[1]`. \\  The link between the phase transition and "
+"\\  `soft modes <https://technical-"
+"notes.quemix.com/solid/soft_mode.html>`__ \\  has been demonstrated by "
+"neutron scattering experiments :sup:`[2]`. \\  First-principles "
+"calculations indicate that hybridization between Ti 3d and O 2p orbitals "
+"is important in stabilizing the ferroelectric structure :sup:`[3]` \\  "
+"(see the Technical Notes on the \\  `role of Ti 3d–O 2p hybridization "
+"<https://technical-notes.quemix.com/solid/ferroelectric_origin.html#fo-"
+"hybridization>`__)."
+
+#: ../../BaTiO3/geometry-optimization.rst:19
+msgid ""
+"この例では格子定数と格子角を固定し、OpenMX、CHGNet、SevenNet（モデル ``7net-mf-"
+"ompa``）、FairChem（モデル ``uma-s-1p1``）で原子座標を緩和します（`固定セル緩和 <https"
+"://technical-notes.quemix.com/electronic/structure_optimization.html"
+"#structure-optimization>`__）。\\ どの原子がどれだけ動いたかは、各原子の初期座標を基準に調べます。\\ "
+"緩和後の極性変位を手法間で比べるときは、Ba を基準にした Ti・O の変位と、酸素八面体の Ti–O 結合距離を見ます。"
+msgstr ""
+"In this example, we fix the lattice constants and angles and relax the "
+"atomic coordinates with OpenMX, CHGNet, SevenNet (model ``7net-mf-"
+"ompa``), and FairChem (model ``uma-s-1p1``) (see `fixed-cell relaxation "
+"<https://technical-"
+"notes.quemix.com/electronic/structure_optimization.html#structure-"
+"optimization>`__). \\  We use each atom's initial coordinates as the "
+"reference to determine which atoms move and by how much. \\  To compare "
+"the relaxed polar displacements across methods, we examine the "
+"displacements of Ti and O relative to Ba and the Ti–O bond lengths in the"
+" oxygen octahedron."
+
+#: ../../BaTiO3/geometry-optimization.rst:26
+msgid "入力ファイル例"
+msgstr "Example Input Files"
+
+#: ../../BaTiO3/geometry-optimization.rst:28
+msgid ""
+"対象の手法のブロックを開き、入力ファイルをコピーします。\\ QE の入力例は :doc:`安定基底状態 <stability>` "
+"で使った正方晶の設定です。\\ この記事に掲載する計算結果は、OpenMX、CHGNet、SevenNet、FairChem の 4 手法です。"
+msgstr ""
+"Open the block for the method you want and copy the input file. \\  The "
+"QE example uses the tetragonal settings from :doc:`Stable Ground State "
+"<stability>`. \\  The results in this article are for 4 methods: OpenMX, "
+"CHGNet, SevenNet, and FairChem."
+
+#: ../../BaTiO3/geometry-optimization.rst:61
+msgid "QE：固定格子・原子座標緩和"
+msgstr "QE: Fixed-Lattice Relaxation of Atomic Coordinates"
+
+#: ../../BaTiO3/geometry-optimization.rst:63
+msgid ""
+"以下は、:doc:`stability` で用いた正方晶相の QE 入力例を、この記事でもそのまま利用する場合の設定です。\\ Quloud "
+"Job では、各ジョブに含まれる ``QuloudJob.scf.in`` を以下の例で置き換え、\\ ``calculation = "
+"'relax'`` によって格子を固定したまま原子位置のみを最適化します。"
+msgstr ""
+"The QE input below reuses the tetragonal-phase example from "
+":doc:`stability` without changes. \\  In a Quloud Job, replace the Job's "
+"``QuloudJob.scf.in`` with the example below. The setting \\  "
+"``calculation = 'relax'`` optimizes only the atomic positions while "
+"keeping the lattice fixed."
+
+#: ../../BaTiO3/geometry-optimization.rst:73
+#, python-brace-format
+msgid ""
+"&control\n"
+"  calculation    = 'relax'\n"
+"  prefix         = 'BaTiO3_tetragonal_QE_fixedcell_relax_from_latticeopt'"
+"\n"
+"  pseudo_dir     = './'\n"
+"  outdir         = './work'\n"
+"  verbosity      = 'high'\n"
+"  tstress        = .true.\n"
+"  tprnfor        = .true.\n"
+"  etot_conv_thr  = 1.0d-5\n"
+"  forc_conv_thr  = 1.0d-4\n"
+"  nstep          = 100\n"
+"/\n"
+"&system\n"
+"  ibrav       = 6\n"
+"  A           = 4.0151174639\n"
+"  C           = 4.0680532926\n"
+"  nat         = 5\n"
+"  ntyp        = 3\n"
+"  ecutwfc     = 52.0\n"
+"  ecutrho     = 575.0\n"
+"  input_dft   = 'PBE'\n"
+"  tot_charge  = 0.0\n"
+"  occupations = 'fixed'\n"
+"  nspin       = 1\n"
+"/\n"
+"&electrons\n"
+"  conv_thr         = 1.0d-10\n"
+"  mixing_beta      = 0.7\n"
+"  electron_maxstep = 100\n"
+"/\n"
+"&ions\n"
+"  ion_dynamics = 'bfgs'\n"
+"/\n"
+"ATOMIC_SPECIES\n"
+"Ba 137.327 Ba.pbe-spn-rrkjus_psl.1.0.0.UPF\n"
+"Ti  47.867 Ti.pbe-spn-rrkjus_psl.1.0.0.UPF\n"
+"O   15.999 O.pbe-nl-rrkjus_psl.1.0.0.UPF\n"
+"\n"
+"ATOMIC_POSITIONS {crystal}\n"
+"Ba  0.000000000000  0.000000000000  0.000000000000\n"
+"Ti  0.499983187300  0.499983187300  0.519965796700\n"
+"O   0.499983187300  0.499983187300  0.984935211100\n"
+"O   0.499983187300  0.000000000000  0.484968098900\n"
+"O   0.000000000000  0.499983187300  0.484968098900\n"
+"\n"
+"K_POINTS {automatic}\n"
+"6 6 6 0 0 0"
+msgstr ""
+"&control\n"
+"  calculation    = 'relax'\n"
+"  prefix         = 'BaTiO3_tetragonal_QE_fixedcell_relax_from_latticeopt'"
+"\n"
+"  pseudo_dir     = './'\n"
+"  outdir         = './work'\n"
+"  verbosity      = 'high'\n"
+"  tstress        = .true.\n"
+"  tprnfor        = .true.\n"
+"  etot_conv_thr  = 1.0d-5\n"
+"  forc_conv_thr  = 1.0d-4\n"
+"  nstep          = 100\n"
+"/\n"
+"&system\n"
+"  ibrav       = 6\n"
+"  A           = 4.0151174639\n"
+"  C           = 4.0680532926\n"
+"  nat         = 5\n"
+"  ntyp        = 3\n"
+"  ecutwfc     = 52.0\n"
+"  ecutrho     = 575.0\n"
+"  input_dft   = 'PBE'\n"
+"  tot_charge  = 0.0\n"
+"  occupations = 'fixed'\n"
+"  nspin       = 1\n"
+"/\n"
+"&electrons\n"
+"  conv_thr         = 1.0d-10\n"
+"  mixing_beta      = 0.7\n"
+"  electron_maxstep = 100\n"
+"/\n"
+"&ions\n"
+"  ion_dynamics = 'bfgs'\n"
+"/\n"
+"ATOMIC_SPECIES\n"
+"Ba 137.327 Ba.pbe-spn-rrkjus_psl.1.0.0.UPF\n"
+"Ti  47.867 Ti.pbe-spn-rrkjus_psl.1.0.0.UPF\n"
+"O   15.999 O.pbe-nl-rrkjus_psl.1.0.0.UPF\n"
+"\n"
+"ATOMIC_POSITIONS {crystal}\n"
+"Ba  0.000000000000  0.000000000000  0.000000000000\n"
+"Ti  0.499983187300  0.499983187300  0.519965796700\n"
+"O   0.499983187300  0.499983187300  0.984935211100\n"
+"O   0.499983187300  0.000000000000  0.484968098900\n"
+"O   0.000000000000  0.499983187300  0.484968098900\n"
+"\n"
+"K_POINTS {automatic}\n"
+"6 6 6 0 0 0"
+
+#: ../../BaTiO3/geometry-optimization.rst:130
+msgid "OpenMX：固定格子・原子座標緩和"
+msgstr "OpenMX: Fixed-Lattice Relaxation of Atomic Coordinates"
+
+#: ../../BaTiO3/geometry-optimization.rst:132
+msgid "以下は、OpenMX による正方晶 BaTiO₃ の固定格子構造最適化入力例です。\\ 格子ベクトルは固定し、原子座標のみを緩和します。"
+msgstr ""
+"This OpenMX input example is for fixed-lattice geometry optimization of "
+"tetragonal BaTiO₃. \\  It holds the lattice vectors fixed and relaxes "
+"only the atomic coordinates."
+
+#: ../../BaTiO3/geometry-optimization.rst:141
+msgid ""
+"System.CurrrentDirectory  ./\n"
+"System.Name               BTO_Tet_Opt\n"
+"DATA.PATH                 /usr/local/rsdft/DFT_DATA19\n"
+"\n"
+"Species.Number 3\n"
+"<Definition.of.Atomic.Species\n"
+"Ba  Ba10.0-s3p2d2f1  Ba_PBE19\n"
+"Ti  Ti7.0-s3p2d2f1   Ti_PBE19\n"
+"O   O6.0-s3p2d2      O_PBE19\n"
+"Definition.of.Atomic.Species>\n"
+"\n"
+"Atoms.Number 5\n"
+"Atoms.SpeciesAndCoordinates.Unit FRAC\n"
+"<Atoms.SpeciesAndCoordinates\n"
+"1 Ba  0.0000000000  0.0000000000  0.0000000000  5.0  5.0\n"
+"2 Ti  0.4999831873  0.4999831873  0.5199657967  6.0  6.0\n"
+"3 O   0.4999831873  0.4999831873  0.9849352111  3.0  3.0\n"
+"4 O   0.4999831873  0.0000000000  0.4849680989  3.0  3.0\n"
+"5 O   0.0000000000  0.4999831873  0.4849680989  3.0  3.0\n"
+"Atoms.SpeciesAndCoordinates>\n"
+"\n"
+"Atoms.UnitVectors.Unit Ang\n"
+"<Atoms.UnitVectors\n"
+"4.0151174639  0.0000000000  0.0000000000\n"
+"0.0000000000  4.0151174639  0.0000000000\n"
+"0.0000000000  0.0000000000  4.0680532926\n"
+"Atoms.UnitVectors>\n"
+"\n"
+"scf.XcType                 GGA-PBE\n"
+"scf.SpinPolarization       off\n"
+"scf.ElectronicTemperature  300.0\n"
+"scf.energycutoff           500\n"
+"scf.maxIter                500\n"
+"scf.EigenvalueSolver       band\n"
+"scf.Kgrid                  8 8 8\n"
+"scf.criterion              1.0e-8\n"
+"\n"
+"MD.Type                    BFGS\n"
+"MD.maxIter                 500\n"
+"MD.Opt.criterion           1.0e-4\n"
+"MD.Opt.Init.Hessian        Schlegel"
+msgstr ""
+"System.CurrrentDirectory  ./\n"
+"System.Name               BTO_Tet_Opt\n"
+"DATA.PATH                 /usr/local/rsdft/DFT_DATA19\n"
+"\n"
+"Species.Number 3\n"
+"<Definition.of.Atomic.Species\n"
+"Ba  Ba10.0-s3p2d2f1  Ba_PBE19\n"
+"Ti  Ti7.0-s3p2d2f1   Ti_PBE19\n"
+"O   O6.0-s3p2d2      O_PBE19\n"
+"Definition.of.Atomic.Species>\n"
+"\n"
+"Atoms.Number 5\n"
+"Atoms.SpeciesAndCoordinates.Unit FRAC\n"
+"<Atoms.SpeciesAndCoordinates\n"
+"1 Ba  0.0000000000  0.0000000000  0.0000000000  5.0  5.0\n"
+"2 Ti  0.4999831873  0.4999831873  0.5199657967  6.0  6.0\n"
+"3 O   0.4999831873  0.4999831873  0.9849352111  3.0  3.0\n"
+"4 O   0.4999831873  0.0000000000  0.4849680989  3.0  3.0\n"
+"5 O   0.0000000000  0.4999831873  0.4849680989  3.0  3.0\n"
+"Atoms.SpeciesAndCoordinates>\n"
+"\n"
+"Atoms.UnitVectors.Unit Ang\n"
+"<Atoms.UnitVectors\n"
+"4.0151174639  0.0000000000  0.0000000000\n"
+"0.0000000000  4.0151174639  0.0000000000\n"
+"0.0000000000  0.0000000000  4.0680532926\n"
+"Atoms.UnitVectors>\n"
+"\n"
+"scf.XcType                 GGA-PBE\n"
+"scf.SpinPolarization       off\n"
+"scf.ElectronicTemperature  300.0\n"
+"scf.energycutoff           500\n"
+"scf.maxIter                500\n"
+"scf.EigenvalueSolver       band\n"
+"scf.Kgrid                  8 8 8\n"
+"scf.criterion              1.0e-8\n"
+"\n"
+"MD.Type                    BFGS\n"
+"MD.maxIter                 500\n"
+"MD.Opt.criterion           1.0e-4\n"
+"MD.Opt.Init.Hessian        Schlegel"
+
+#: ../../BaTiO3/geometry-optimization.rst:192
+msgid "CHGNet：固定格子・z方向のみの原子座標緩和"
+msgstr "CHGNet: Fixed-Lattice Relaxation of Atomic Coordinates Along z Only"
+
+#: ../../BaTiO3/geometry-optimization.rst:194
+msgid "以下は、CHGNet の入力例です。\\ 正方晶の面内原子配置を保持するため、x 方向および y 方向の力をゼロにし、z 方向のみを緩和します。"
+msgstr ""
+"The following is the CHGNet input example. \\  To preserve the tetragonal"
+" in-plane atomic arrangement, the input sets the forces along x and y to "
+"zero and allows relaxation only along z."
+
+#: ../../BaTiO3/geometry-optimization.rst:203
+msgid ""
+"# 固定格子・正方晶強誘電 BaTiO3 の CHGNet 構造最適化\n"
+"# 格子定数と格子角は固定する\n"
+"# 正方晶 P4mm 的な面内原子配置を保持する\n"
+"# c 軸方向の強誘電変位のみを緩和する\n"
+"\n"
+"units metal\n"
+"boundary p p p\n"
+"atom_style atomic\n"
+"\n"
+"read_data QuloudJob.lmp\n"
+"\n"
+"pair_style chgnet ../../../../../../../../CHGNET\n"
+"pair_coeff * * 0.3.0 Ba Ti O\n"
+"\n"
+"neighbor 2.0 bin\n"
+"neigh_modify every 1 delay 0 check yes\n"
+"\n"
+"thermo_style custom step pe etotal temp vol press pxx pyy pzz fmax\n"
+"thermo 10\n"
+"\n"
+"dump 1 all custom 5 QuloudJob.lammpstrj id type x y z fx fy fz\n"
+"dump_modify 1 sort id\n"
+"\n"
+"# x 方向および y 方向の力をゼロにし、z 方向のみを緩和する\n"
+"fix keep_tet all setforce 0.0 0.0 NULL\n"
+"\n"
+"min_style fire\n"
+"minimize 1.0e-15 1.0e-7 1000 10000\n"
+"\n"
+"unfix keep_tet\n"
+"\n"
+"write_data QuloudJob.out.lmp\n"
+"write_dump all custom QuloudJob.final.lammpstrj id type x y z fx fy fz"
+msgstr ""
+"# CHGNet geometry optimization of tetragonal ferroelectric BaTiO3 at a "
+"fixed lattice\n"
+"# Keep the lattice constants and angles fixed\n"
+"# Preserve the tetragonal P4mm-like in-plane atomic arrangement\n"
+"# Relax only the ferroelectric displacements along the c axis\n"
+"\n"
+"units metal\n"
+"boundary p p p\n"
+"atom_style atomic\n"
+"\n"
+"read_data QuloudJob.lmp\n"
+"\n"
+"pair_style chgnet ../../../../../../../../CHGNET\n"
+"pair_coeff * * 0.3.0 Ba Ti O\n"
+"\n"
+"neighbor 2.0 bin\n"
+"neigh_modify every 1 delay 0 check yes\n"
+"\n"
+"thermo_style custom step pe etotal temp vol press pxx pyy pzz fmax\n"
+"thermo 10\n"
+"\n"
+"dump 1 all custom 5 QuloudJob.lammpstrj id type x y z fx fy fz\n"
+"dump_modify 1 sort id\n"
+"\n"
+"# Set forces along x and y to zero and allow relaxation only along z\n"
+"fix keep_tet all setforce 0.0 0.0 NULL\n"
+"\n"
+"min_style fire\n"
+"minimize 1.0e-15 1.0e-7 1000 10000\n"
+"\n"
+"unfix keep_tet\n"
+"\n"
+"write_data QuloudJob.out.lmp\n"
+"write_dump all custom QuloudJob.final.lammpstrj id type x y z fx fy fz"
+
+#: ../../BaTiO3/geometry-optimization.rst:246
+msgid "SevenNet：固定格子・原子座標緩和"
+msgstr "SevenNet: Fixed-Lattice Relaxation of Atomic Coordinates"
+
+#: ../../BaTiO3/geometry-optimization.rst:248
+msgid ""
+"以下は、SevenNet による固定格子構造最適化入力例です。\\ ``latopt`` を ``false`` "
+"にすることで、格子最適化を行わず、原子座標のみを緩和します。"
+msgstr ""
+"The following is a SevenNet input example for fixed-lattice geometry "
+"optimization. Setting \\  ``latopt`` to ``false`` relaxes only the atomic"
+" coordinates, with no lattice optimization."
+
+#: ../../BaTiO3/geometry-optimization.rst:257
+#, python-brace-format
+msgid ""
+"{\n"
+"  \"mode\": \"opt\",\n"
+"  \"opt\": {\n"
+"    \"fmax\": 0.01,\n"
+"    \"ntime\": 100,\n"
+"    \"latopt\": false\n"
+"  },\n"
+"  \"provider\": \"7net\",\n"
+"  \"model_name\": \"7net-mf-ompa\"\n"
+"}"
+msgstr ""
+"{\n"
+"  \"mode\": \"opt\",\n"
+"  \"opt\": {\n"
+"    \"fmax\": 0.01,\n"
+"    \"ntime\": 100,\n"
+"    \"latopt\": false\n"
+"  },\n"
+"  \"provider\": \"7net\",\n"
+"  \"model_name\": \"7net-mf-ompa\"\n"
+"}"
+
+#: ../../BaTiO3/geometry-optimization.rst:277
+msgid "FairChem：固定格子・原子座標緩和"
+msgstr "FairChem: Fixed-Lattice Relaxation of Atomic Coordinates"
+
+#: ../../BaTiO3/geometry-optimization.rst:279
+msgid "以下は、FairChem による固定格子構造最適化入力例です。\\ SevenNet と同様に、格子は固定し、原子座標のみを緩和します。"
+msgstr ""
+"The following is a FairChem input example for fixed-lattice geometry "
+"optimization. \\  As with SevenNet, it keeps the lattice fixed and "
+"relaxes only the atomic coordinates."
+
+#: ../../BaTiO3/geometry-optimization.rst:288
+#, python-brace-format
+msgid ""
+"{\n"
+"  \"mode\": \"opt\",\n"
+"  \"opt\": {\n"
+"    \"fmax\": 0.01,\n"
+"    \"ntime\": 100,\n"
+"    \"latopt\": false\n"
+"  },\n"
+"  \"provider\": \"fairchem\",\n"
+"  \"model_name\": \"uma-s-1p1\"\n"
+"}"
+msgstr ""
+"{\n"
+"  \"mode\": \"opt\",\n"
+"  \"opt\": {\n"
+"    \"fmax\": 0.01,\n"
+"    \"ntime\": 100,\n"
+"    \"latopt\": false\n"
+"  },\n"
+"  \"provider\": \"fairchem\",\n"
+"  \"model_name\": \"uma-s-1p1\"\n"
+"}"
+
+#: ../../BaTiO3/geometry-optimization.rst:311
+msgid "OpenMXによる構造最適化"
+msgstr "Geometry Optimization with OpenMX"
+
+#: ../../BaTiO3/geometry-optimization.rst:314
+#: ../../BaTiO3/geometry-optimization.rst:434
+msgid "計算条件"
+msgstr "Calculation Conditions"
+
+#: ../../BaTiO3/geometry-optimization.rst:316
+msgid ""
+"OpenMX 計算では、正方晶格子を固定し、原子座標のみを緩和しました。\\ 交換相関汎関数には GGA-PBE を用い、k 点格子は 8 x 8"
+" x 8、エネルギーカットオフは 500 Ry としました。\\ 格子条件は、:doc:`stability` "
+"と同じ正方晶の参考格子設定を用いました。\\ 初期構造は、すでに正方晶強誘電変位を含む BaTiO₃ 構造です。"
+msgstr ""
+"In the OpenMX calculations, we kept the tetragonal lattice fixed and "
+"relaxed only the atomic coordinates. \\  We used the GGA-PBE exchange-"
+"correlation functional, an 8 x 8 x 8 k-point mesh, and a 500 Ry energy "
+"cutoff. \\  We used the same tetragonal reference lattice settings as in "
+":doc:`stability`. \\  The initial BaTiO₃ structure already included "
+"tetragonal ferroelectric displacements."
+
+#: ../../BaTiO3/geometry-optimization.rst:321
+msgid "固定格子の参考設定"
+msgstr "Reference parameters for the fixed lattice"
+
+#: ../../BaTiO3/geometry-optimization.rst:325
+#: ../../BaTiO3/geometry-optimization.rst:471
+#: ../../BaTiO3/geometry-optimization.rst:536
+#: ../../BaTiO3/geometry-optimization.rst:570
+msgid "手法"
+msgstr "Method"
+
+#: ../../BaTiO3/geometry-optimization.rst:326
+#: ../../BaTiO3/geometry-optimization.rst:445
+msgid "a (Å)"
+msgstr "a (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:327
+#: ../../BaTiO3/geometry-optimization.rst:446
+msgid "c (Å)"
+msgstr "c (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:328
+#: ../../BaTiO3/geometry-optimization.rst:447
+msgid "c/a"
+msgstr "c/a"
+
+#: ../../BaTiO3/geometry-optimization.rst:329
+msgid "OpenMX / QE 参考設定"
+msgstr "OpenMX / QE reference settings"
+
+#: ../../BaTiO3/geometry-optimization.rst:330
+#: ../../BaTiO3/geometry-optimization.rst:449
+msgid "4.0151174639"
+msgstr "4.0151174639"
+
+#: ../../BaTiO3/geometry-optimization.rst:331
+#: ../../BaTiO3/geometry-optimization.rst:450
+msgid "4.0680532926"
+msgstr "4.0680532926"
+
+#: ../../BaTiO3/geometry-optimization.rst:332
+#: ../../BaTiO3/geometry-optimization.rst:451
+#: ../../BaTiO3/geometry-optimization.rst:455
+msgid "1.01318"
+msgstr "1.01318"
+
+#: ../../BaTiO3/geometry-optimization.rst:335
+msgid "最適化手法の比較"
+msgstr "Comparison of Optimization Methods"
+
+#: ../../BaTiO3/geometry-optimization.rst:337
+msgid ""
+"OpenMX では、DIIS、EF、BFGS、RF、Opt の複数の最適化手法を比較しました。\\ "
+"すべての手法でほぼ同一の最終エネルギーと最終構造が得られました。\\ "
+"したがって、本構造最適化は、最適化アルゴリズムに強く依存しない安定な結果であると判断できます。"
+msgstr ""
+"We compared several optimization methods in OpenMX: DIIS, EF, BFGS, RF, "
+"and Opt. \\  All methods gave nearly the same final energy and structure."
+" \\  This indicates that the geometry optimization gave a stable result "
+"that does not depend strongly on the optimization algorithm."
+
+#: ../../BaTiO3/geometry-optimization.rst:341
+msgid "OpenMX による固定格子構造最適化結果"
+msgstr "OpenMX results for geometry optimization at a fixed lattice"
+
+#: ../../BaTiO3/geometry-optimization.rst:345
+msgid "最適化手法"
+msgstr "Optimization method"
+
+#: ../../BaTiO3/geometry-optimization.rst:346
+msgid "イオンステップ数"
+msgstr "Ionic steps"
+
+#: ../../BaTiO3/geometry-optimization.rst:347
+msgid "最終エネルギー (Ha)"
+msgstr "Final energy (Ha)"
+
+#: ../../BaTiO3/geometry-optimization.rst:348
+#: ../../BaTiO3/geometry-optimization.rst:472
+msgid "エネルギー低下 (meV/cell)"
+msgstr "Energy decrease (meV/cell)"
+
+#: ../../BaTiO3/geometry-optimization.rst:349
+#: ../../BaTiO3/geometry-optimization.rst:473
+msgid "最終最大力 (eV/Å)"
+msgstr "Final maximum force (eV/Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:350
+msgid "DIIS"
+msgstr "DIIS"
+
+#: ../../BaTiO3/geometry-optimization.rst:351
+#: ../../BaTiO3/geometry-optimization.rst:366
+#: ../../BaTiO3/geometry-optimization.rst:371
+msgid "10"
+msgstr "10"
+
+#: ../../BaTiO3/geometry-optimization.rst:352
+msgid "-135.5003359"
+msgstr "-135.5003359"
+
+#: ../../BaTiO3/geometry-optimization.rst:353
+msgid "9.37"
+msgstr "9.37"
+
+#: ../../BaTiO3/geometry-optimization.rst:354
+msgid "0.00357"
+msgstr "0.00357"
+
+#: ../../BaTiO3/geometry-optimization.rst:355
+msgid "EF"
+msgstr "EF"
+
+#: ../../BaTiO3/geometry-optimization.rst:356
+#: ../../BaTiO3/geometry-optimization.rst:361
+msgid "9"
+msgstr "9"
+
+#: ../../BaTiO3/geometry-optimization.rst:357
+#: ../../BaTiO3/geometry-optimization.rst:372
+msgid "-135.5003355"
+msgstr "-135.5003355"
+
+#: ../../BaTiO3/geometry-optimization.rst:358
+#: ../../BaTiO3/geometry-optimization.rst:363
+#: ../../BaTiO3/geometry-optimization.rst:368
+#: ../../BaTiO3/geometry-optimization.rst:373
+msgid "9.36"
+msgstr "9.36"
+
+#: ../../BaTiO3/geometry-optimization.rst:359
+msgid "0.00216"
+msgstr "0.00216"
+
+#: ../../BaTiO3/geometry-optimization.rst:360
+msgid "BFGS"
+msgstr "BFGS"
+
+#: ../../BaTiO3/geometry-optimization.rst:362
+msgid "-135.5003356"
+msgstr "-135.5003356"
+
+#: ../../BaTiO3/geometry-optimization.rst:364
+msgid "0.00364"
+msgstr "0.00364"
+
+#: ../../BaTiO3/geometry-optimization.rst:365
+msgid "RF"
+msgstr "RF"
+
+#: ../../BaTiO3/geometry-optimization.rst:367
+msgid "-135.5003357"
+msgstr "-135.5003357"
+
+#: ../../BaTiO3/geometry-optimization.rst:369
+msgid "0.00259"
+msgstr "0.00259"
+
+#: ../../BaTiO3/geometry-optimization.rst:370
+msgid "Opt"
+msgstr "Opt"
+
+#: ../../BaTiO3/geometry-optimization.rst:374
+msgid "0.00394"
+msgstr "0.00394"
+
+#: ../../BaTiO3/geometry-optimization.rst:376
+msgid ""
+"OpenMX では、構造最適化によるエネルギー低下は約 9.36 meV/5原子セルでした。\\ "
+"この値は比較的小さいため、初期構造はすでに正方晶強誘電相の局所安定構造に近かったと考えられます。"
+msgstr ""
+"Geometry optimization with OpenMX lowered the energy by about 9.36 meV "
+"per 5-atom cell. \\  The relatively small decrease suggests that the "
+"initial structure was already close to a locally stable structure of the "
+"tetragonal ferroelectric phase."
+
+#: ../../BaTiO3/geometry-optimization.rst:380
+msgid "原子変位の評価"
+msgstr "Quantifying Atomic Displacements"
+
+#: ../../BaTiO3/geometry-optimization.rst:382
+msgid ""
+"初期構造から最終構造への主な変化は、Ti ではなく酸素副格子に現れました。\\ Ti 原子の z 方向位置はほとんど変化せず、apical O "
+"は負方向へ、equatorial O は正方向へ緩和しました。"
+msgstr ""
+"From the initial to the final structure, the main changes occurred in the"
+" oxygen sublattice rather than at Ti. \\  Ti hardly moved along z, "
+"whereas the apical O relaxed in the negative direction and the equatorial"
+" O in the positive direction."
+
+#: ../../BaTiO3/geometry-optimization.rst:385
+msgid "OpenMX における初期構造から最終構造への z 方向変位"
+msgstr "Displacements along z between the initial and final OpenMX structures"
+
+#: ../../BaTiO3/geometry-optimization.rst:389
+#: ../../BaTiO3/geometry-optimization.rst:411
+#: ../../BaTiO3/geometry-optimization.rst:514
+msgid "原子"
+msgstr "Atom"
+
+#: ../../BaTiO3/geometry-optimization.rst:390
+#: ../../BaTiO3/geometry-optimization.rst:515
+msgid "変位量 Δz (Å)"
+msgstr "Displacement Δz (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:391
+msgid "物理的解釈"
+msgstr "Physical interpretation"
+
+#: ../../BaTiO3/geometry-optimization.rst:392
+#: ../../BaTiO3/geometry-optimization.rst:517
+msgid "Ba"
+msgstr "Ba"
+
+#: ../../BaTiO3/geometry-optimization.rst:393
+msgid "+0.00268"
+msgstr "+0.00268"
+
+#: ../../BaTiO3/geometry-optimization.rst:394
+msgid "ほぼ固定された基準原子として振る舞う"
+msgstr "Acts as a nearly stationary reference atom"
+
+#: ../../BaTiO3/geometry-optimization.rst:395
+#: ../../BaTiO3/geometry-optimization.rst:414
+#: ../../BaTiO3/geometry-optimization.rst:520
+msgid "Ti"
+msgstr "Ti"
+
+#: ../../BaTiO3/geometry-optimization.rst:396
+msgid "+0.00004"
+msgstr "+0.00004"
+
+#: ../../BaTiO3/geometry-optimization.rst:397
+msgid "Ti の中心からのずれはほぼ保たれる"
+msgstr "Ti remains nearly as far off-center as before"
+
+#: ../../BaTiO3/geometry-optimization.rst:398
+#: ../../BaTiO3/geometry-optimization.rst:417
+#: ../../BaTiO3/geometry-optimization.rst:523
+msgid "O apical"
+msgstr "Apical O"
+
+#: ../../BaTiO3/geometry-optimization.rst:399
+msgid "-0.02956"
+msgstr "-0.02956"
+
+#: ../../BaTiO3/geometry-optimization.rst:400
+msgid "c 軸方向の Ti-O 非対称性を強める"
+msgstr "Increases Ti–O asymmetry along the c axis"
+
+#: ../../BaTiO3/geometry-optimization.rst:401
+#: ../../BaTiO3/geometry-optimization.rst:420
+#: ../../BaTiO3/geometry-optimization.rst:526
+msgid "O equatorial"
+msgstr "Equatorial O"
+
+#: ../../BaTiO3/geometry-optimization.rst:402
+msgid "+0.01322"
+msgstr "+0.01322"
+
+#: ../../BaTiO3/geometry-optimization.rst:403
+msgid "面内サイトの O が z の正方向へ緩和する"
+msgstr "Equatorial O relaxes in the positive z direction"
+
+#: ../../BaTiO3/geometry-optimization.rst:405
+msgid "Ba を基準にした最終強誘電変位は以下の通りです。"
+msgstr ""
+"The table below gives the final ferroelectric displacements relative to "
+"Ba."
+
+#: ../../BaTiO3/geometry-optimization.rst:407
+msgid "OpenMX における Ba 基準の最終強誘電変位"
+msgstr "Final ferroelectric displacements relative to Ba in OpenMX"
+
+#: ../../BaTiO3/geometry-optimization.rst:412
+msgid "最終変位 (Å)"
+msgstr "Final displacement (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:413
+#: ../../BaTiO3/geometry-optimization.rst:516
+msgid "解釈"
+msgstr "Interpretation"
+
+#: ../../BaTiO3/geometry-optimization.rst:415
+#: ../../BaTiO3/geometry-optimization.rst:541
+msgid "+0.078"
+msgstr "+0.078"
+
+#: ../../BaTiO3/geometry-optimization.rst:416
+msgid "Ti が正方向へオフセンター変位している"
+msgstr "Ti is displaced off-center in the positive direction"
+
+#: ../../BaTiO3/geometry-optimization.rst:418
+#: ../../BaTiO3/geometry-optimization.rst:542
+msgid "-0.093"
+msgstr "-0.093"
+
+#: ../../BaTiO3/geometry-optimization.rst:419
+msgid "Ti-O 軸方向結合の非対称性を形成する"
+msgstr "Creates asymmetry between axial Ti–O bonds"
+
+#: ../../BaTiO3/geometry-optimization.rst:421
+#: ../../BaTiO3/geometry-optimization.rst:543
+msgid "-0.051"
+msgstr "-0.051"
+
+#: ../../BaTiO3/geometry-optimization.rst:422
+msgid "酸素八面体の極性歪みに寄与する"
+msgstr "Contributes to the polar distortion of the oxygen octahedron"
+
+#: ../../BaTiO3/geometry-optimization.rst:424
+msgid ""
+"この結果は、BaTiO₃ の強誘電性が Ti-O 相対変位に由来するという既知の物理描像と整合的です。\\ 特に、Ti "
+"原子が強誘電方向へ変位し、酸素八面体が非対称に歪むという特徴は、\\ 実験構造および第一原理研究で示されてきた BaTiO₃ "
+"の強誘電構造とよく対応しています。"
+msgstr ""
+"This result is consistent with the established picture in which "
+"ferroelectricity in BaTiO₃ arises from relative Ti–O displacements. \\  "
+"In particular, displacement of Ti in the ferroelectric direction and "
+"asymmetric distortion of the oxygen octahedron \\  agree well with the "
+"ferroelectric structure of BaTiO₃ found in experiments and first-"
+"principles studies."
+
+#: ../../BaTiO3/geometry-optimization.rst:431
+msgid "機械学習ポテンシャルによる構造最適化"
+msgstr "Geometry Optimization with Machine-Learning Potentials"
+
+#: ../../BaTiO3/geometry-optimization.rst:436
+msgid ""
+"機械学習原子間ポテンシャル計算では、CHGNet、SevenNet、FairChem を用いました。\\ OpenMX "
+"と同様に、格子定数と格子角は固定し、原子位置のみを緩和しました。\\ ただし、機械学習ポテンシャル計算で用いた固定格子は OpenMX "
+"の固定格子とわずかに異なります。"
+msgstr ""
+"We used CHGNet, SevenNet, and FairChem for the machine-learning "
+"interatomic potential calculations. \\  As in OpenMX, we fixed the "
+"lattice constants and angles and relaxed only the atomic positions. \\  "
+"However, the fixed lattice for the machine-learning potential "
+"calculations differed slightly from the one used in OpenMX."
+
+#: ../../BaTiO3/geometry-optimization.rst:440
+msgid "OpenMX と機械学習ポテンシャルの固定格子比較"
+msgstr "Fixed lattice parameters for OpenMX and the machine-learning potentials"
+
+#: ../../BaTiO3/geometry-optimization.rst:444
+msgid "計算手法"
+msgstr "Calculation method"
+
+#: ../../BaTiO3/geometry-optimization.rst:448
+#: ../../BaTiO3/geometry-optimization.rst:540
+#: ../../BaTiO3/geometry-optimization.rst:575
+msgid "OpenMX"
+msgstr "OpenMX"
+
+#: ../../BaTiO3/geometry-optimization.rst:452
+msgid "機械学習ポテンシャル"
+msgstr "Machine-learning potentials"
+
+#: ../../BaTiO3/geometry-optimization.rst:453
+msgid "4.01512"
+msgstr "4.01512"
+
+#: ../../BaTiO3/geometry-optimization.rst:454
+msgid "4.06805"
+msgstr "4.06805"
+
+#: ../../BaTiO3/geometry-optimization.rst:457
+msgid ""
+"この差は小さいため、内部変位の傾向比較には有効です。\\ 一方で、格子が完全には一致していないため、厳密な同一格子比較ではありません。\\ "
+"また、DFT 計算と機械学習ポテンシャル計算ではエネルギーの基準が異なるため、\\ 絶対エネルギーは比べません（技術ノートの\\ "
+"`化学式単位あたりの相対エネルギー <https://technical-"
+"notes.quemix.com/electronic/pseudopotential_basis.html#energy-"
+"reference>`__）。\\ 比較すべき量は、力の収束、強誘電変位、Ti-O 結合距離、および正方晶対称性の保持です。"
+msgstr ""
+"The difference is small enough to compare trends in the internal "
+"displacements. \\  However, the slight difference in lattices means the "
+"comparison is not strictly at the same lattice. \\  In addition, DFT and "
+"machine-learning potentials use different energy references, \\  so we do"
+" not compare absolute energies (see the Technical Notes on \\  `relative "
+"energy per formula unit <https://technical-"
+"notes.quemix.com/electronic/pseudopotential_basis.html#energy-"
+"reference>`__). \\  The quantities to compare are force convergence, "
+"ferroelectric displacements, Ti–O bond lengths, and retention of "
+"tetragonal symmetry."
+
+#: ../../BaTiO3/geometry-optimization.rst:464
+msgid "計算結果の概要"
+msgstr "Overview of Calculation Results"
+
+#: ../../BaTiO3/geometry-optimization.rst:466
+msgid "機械学習ポテンシャルによる固定格子構造最適化結果"
+msgstr ""
+"Geometry optimization results for machine-learning potentials at a fixed "
+"lattice"
+
+#: ../../BaTiO3/geometry-optimization.rst:474
+msgid "構造の特徴"
+msgstr "Structural features"
+
+#: ../../BaTiO3/geometry-optimization.rst:475
+msgid "判定"
+msgstr "Assessment"
+
+#: ../../BaTiO3/geometry-optimization.rst:476
+#: ../../BaTiO3/geometry-optimization.rst:544
+#: ../../BaTiO3/geometry-optimization.rst:580
+msgid "CHGNet"
+msgstr "CHGNet"
+
+#: ../../BaTiO3/geometry-optimization.rst:477
+msgid "16.31"
+msgstr "16.31"
+
+#: ../../BaTiO3/geometry-optimization.rst:478
+msgid "0.00707"
+msgstr "0.00707"
+
+#: ../../BaTiO3/geometry-optimization.rst:479
+msgid "面内座標を保持し、z方向のみ緩和"
+msgstr "Preserves the in-plane coordinates and relaxes only along z"
+
+#: ../../BaTiO3/geometry-optimization.rst:480
+msgid "対称性保持には有効ですが、酸素変位は過大"
+msgstr "Effective at preserving symmetry, but gives excessive oxygen displacements"
+
+#: ../../BaTiO3/geometry-optimization.rst:481
+#: ../../BaTiO3/geometry-optimization.rst:548
+#: ../../BaTiO3/geometry-optimization.rst:585
+msgid "SevenNet"
+msgstr "SevenNet"
+
+#: ../../BaTiO3/geometry-optimization.rst:482
+msgid "14.13"
+msgstr "14.13"
+
+#: ../../BaTiO3/geometry-optimization.rst:483
+msgid "0.00776"
+msgstr "0.00776"
+
+#: ../../BaTiO3/geometry-optimization.rst:484
+#: ../../BaTiO3/geometry-optimization.rst:489
+msgid "正方晶的構造を保持"
+msgstr "Retains a tetragonal-like structure"
+
+#: ../../BaTiO3/geometry-optimization.rst:485
+msgid "良好"
+msgstr "Good"
+
+#: ../../BaTiO3/geometry-optimization.rst:486
+#: ../../BaTiO3/geometry-optimization.rst:552
+#: ../../BaTiO3/geometry-optimization.rst:590
+msgid "FairChem"
+msgstr "FairChem"
+
+#: ../../BaTiO3/geometry-optimization.rst:487
+msgid "14.61"
+msgstr "14.61"
+
+#: ../../BaTiO3/geometry-optimization.rst:488
+msgid "0.00648"
+msgstr "0.00648"
+
+#: ../../BaTiO3/geometry-optimization.rst:490
+msgid "今回の構造では、Ba 基準の内部変位が OpenMX に最も近い"
+msgstr ""
+"For this structure, the internal displacements relative to Ba are closest"
+" to the OpenMX values"
+
+#: ../../BaTiO3/geometry-optimization.rst:492
+msgid ""
+"固定格子での緩和により、3 モデルとも 1 セルあたり 14.1～16.3 meV エネルギーが下がり、最終最大力は 0.0065～0.0078 "
+"eV/Å まで小さくなりました。"
+msgstr ""
+"Relaxation at a fixed lattice lowered the energy by 14.1–16.3 meV per "
+"cell across the three models, reducing the final maximum force to "
+"0.0065–0.0078 eV/Å."
+
+#: ../../BaTiO3/geometry-optimization.rst:494
+msgid ""
+"CHGNet では、LAMMPS 入力中で ``fix keep_tet all setforce 0.0 0.0 NULL`` "
+"を用いました。\\ これにより、x 方向および y 方向の力をゼロにし、z 方向の力のみを有効にしました。\\ "
+"その結果、格子定数、格子角、面内原子配置を保ったまま、c 軸方向の強誘電変位だけを緩和できました。"
+msgstr ""
+"For CHGNet, we used ``fix keep_tet all setforce 0.0 0.0 NULL`` in the "
+"LAMMPS input. \\  This set the forces along x and y to zero, leaving only"
+" the force along z active. \\  It allowed only the ferroelectric "
+"displacements along the c axis to relax, while preserving the lattice "
+"constants, lattice angles, and in-plane atomic arrangement."
+
+#: ../../BaTiO3/geometry-optimization.rst:498
+msgid ""
+"CHGNet の最小化は 50 ステップで停止し、エネルギーは -42.036781 eV から -42.053089 eV へ低下しました。\\"
+" エネルギー低下は 16.31 meV/5原子セルであり、最終最大力成分は 0.00707 eV/Å でした。\\ "
+"固定格子計算であるため、残留圧力は格子最適化の未実施を反映しており、\\ 原子座標緩和の収束判定には主として力を用います。"
+msgstr ""
+"The CHGNet minimization stopped after 50 steps, with the energy falling "
+"from -42.036781 eV to -42.053089 eV. \\  The energy decrease was 16.31 "
+"meV per 5-atom cell, and the final maximum force component was 0.00707 "
+"eV/Å. \\  Because this calculation used a fixed lattice, the residual "
+"pressure reflects the absence of lattice optimization. \\  We therefore "
+"use forces as the main convergence criterion for relaxation of the atomic"
+" coordinates."
+
+#: ../../BaTiO3/geometry-optimization.rst:504
+msgid "CHGNet における原子変位"
+msgstr "Atomic Displacements in CHGNet"
+
+#: ../../BaTiO3/geometry-optimization.rst:506
+msgid ""
+"CHGNet では、面内座標は保持されましたが、z 方向の内部変位は OpenMX と異なる傾向を示しました。\\ 特に、Ba 原子の z "
+"方向移動が比較的大きく、Ba を基準にした相対変位で見ると、\\ Ti 変位は小さくなり、酸素変位は OpenMX より大きくなりました。"
+msgstr ""
+"CHGNet preserved the in-plane coordinates, but the internal displacements"
+" along z differed from the OpenMX results. \\  In particular, Ba moved "
+"comparatively far along z. Measured relative to Ba, \\  the Ti "
+"displacement was smaller and the O displacements were larger than in "
+"OpenMX."
+
+#: ../../BaTiO3/geometry-optimization.rst:510
+msgid "CHGNet における初期構造から最終構造への z 方向変位"
+msgstr "Displacements along z between the initial and final CHGNet structures"
+
+#: ../../BaTiO3/geometry-optimization.rst:518
+msgid "+0.04061"
+msgstr "+0.04061"
+
+#: ../../BaTiO3/geometry-optimization.rst:519
+msgid "z 方向に比較的大きく移動する"
+msgstr "Moves relatively far along z"
+
+#: ../../BaTiO3/geometry-optimization.rst:521
+msgid "+0.00174"
+msgstr "+0.00174"
+
+#: ../../BaTiO3/geometry-optimization.rst:522
+msgid "Ti 自身の絶対位置変化は小さい"
+msgstr "The absolute position of Ti changes little"
+
+#: ../../BaTiO3/geometry-optimization.rst:524
+msgid "-0.04686"
+msgstr "-0.04686"
+
+#: ../../BaTiO3/geometry-optimization.rst:525
+msgid "c 軸方向の酸素変位が大きい"
+msgstr "Large oxygen displacement along the c axis"
+
+#: ../../BaTiO3/geometry-optimization.rst:527
+msgid "-0.00226"
+msgstr "-0.00226"
+
+#: ../../BaTiO3/geometry-optimization.rst:528
+msgid "絶対座標では小さく負方向へ移動する"
+msgstr "Moves slightly in the negative direction in absolute coordinates"
+
+#: ../../BaTiO3/geometry-optimization.rst:530
+msgid "Ba を基準にした最終強誘電変位は以下です。"
+msgstr ""
+"The table below gives the final ferroelectric displacements relative to "
+"Ba."
+
+#: ../../BaTiO3/geometry-optimization.rst:532
+msgid "OpenMX と機械学習ポテンシャルにおける Ba 基準の最終強誘電変位"
+msgstr ""
+"Final ferroelectric displacements relative to Ba from OpenMX and the "
+"machine-learning potentials"
+
+#: ../../BaTiO3/geometry-optimization.rst:537
+msgid "Ti (Å)"
+msgstr "Ti (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:538
+msgid "O apical (Å)"
+msgstr "Apical O (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:539
+msgid "O equatorial (Å)"
+msgstr "Equatorial O (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:545
+msgid "+0.042"
+msgstr "+0.042"
+
+#: ../../BaTiO3/geometry-optimization.rst:546
+msgid "-0.149"
+msgstr "-0.149"
+
+#: ../../BaTiO3/geometry-optimization.rst:547
+msgid "-0.104"
+msgstr "-0.104"
+
+#: ../../BaTiO3/geometry-optimization.rst:549
+msgid "+0.066"
+msgstr "+0.066"
+
+#: ../../BaTiO3/geometry-optimization.rst:550
+msgid "-0.123"
+msgstr "-0.123"
+
+#: ../../BaTiO3/geometry-optimization.rst:551
+msgid "-0.075"
+msgstr "-0.075"
+
+#: ../../BaTiO3/geometry-optimization.rst:553
+msgid "+0.068"
+msgstr "+0.068"
+
+#: ../../BaTiO3/geometry-optimization.rst:554
+msgid "-0.121"
+msgstr "-0.121"
+
+#: ../../BaTiO3/geometry-optimization.rst:555
+msgid "-0.071"
+msgstr "-0.071"
+
+#: ../../BaTiO3/geometry-optimization.rst:557
+msgid ""
+"Ba 基準の変位を比べると、CHGNet では OpenMX より Ti の変位が小さく、頂点方向と面内方向の O "
+"の変位はどちらも絶対値が大きいです。"
+msgstr ""
+"Compared with OpenMX, CHGNet gives a smaller Ti displacement relative to "
+"Ba and larger absolute displacements relative to Ba for both apical and "
+"equatorial O."
+
+#: ../../BaTiO3/geometry-optimization.rst:560
+#: ../../BaTiO3/geometry-optimization.rst:565
+msgid "Ti-O 局所構造の比較"
+msgstr "Comparison of Local Ti-O Structures"
+
+#: ../../BaTiO3/geometry-optimization.rst:562
+msgid ""
+"Ti を囲む酸素八面体のひずみを、c 軸に沿う 2 本の頂点方向（apical）の結合と、面内（equatorial）の結合で比較します。\\ "
+"頂点方向の短い結合と長い結合の差は、Ti–O 配置の非対称性を表します。"
+msgstr ""
+"We compare distortions of the oxygen octahedron around Ti using the two "
+"apical bonds along the c axis and the in-plane equatorial bonds. \\  The "
+"difference between the short and long apical bonds measures the asymmetry"
+" of the Ti–O arrangement."
+
+#: ../../BaTiO3/geometry-optimization.rst:571
+msgid "短い apical Ti-O (Å)"
+msgstr "Short apical Ti–O (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:572
+msgid "長い apical Ti-O (Å)"
+msgstr "Long apical Ti–O (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:573
+msgid "apical 結合差 (Å)"
+msgstr "Apical bond length difference (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:574
+msgid "equatorial Ti-O (Å)"
+msgstr "Equatorial Ti–O (Å)"
+
+#: ../../BaTiO3/geometry-optimization.rst:576
+msgid "1.860"
+msgstr "1.860"
+
+#: ../../BaTiO3/geometry-optimization.rst:577
+msgid "2.203"
+msgstr "2.203"
+
+#: ../../BaTiO3/geometry-optimization.rst:578
+msgid "0.343"
+msgstr "0.343"
+
+#: ../../BaTiO3/geometry-optimization.rst:579
+msgid "2.010"
+msgstr "2.010"
+
+#: ../../BaTiO3/geometry-optimization.rst:581
+msgid "1.843"
+msgstr "1.843"
+
+#: ../../BaTiO3/geometry-optimization.rst:582
+msgid "2.225"
+msgstr "2.225"
+
+#: ../../BaTiO3/geometry-optimization.rst:583
+msgid "0.382"
+msgstr "0.382"
+
+#: ../../BaTiO3/geometry-optimization.rst:584
+msgid "2.013"
+msgstr "2.013"
+
+#: ../../BaTiO3/geometry-optimization.rst:586
+msgid "1.846"
+msgstr "1.846"
+
+#: ../../BaTiO3/geometry-optimization.rst:587
+msgid "2.222"
+msgstr "2.222"
+
+#: ../../BaTiO3/geometry-optimization.rst:588
+msgid "0.376"
+msgstr "0.376"
+
+#: ../../BaTiO3/geometry-optimization.rst:589
+#: ../../BaTiO3/geometry-optimization.rst:594
+msgid "2.012"
+msgstr "2.012"
+
+#: ../../BaTiO3/geometry-optimization.rst:591
+msgid "1.845"
+msgstr "1.845"
+
+#: ../../BaTiO3/geometry-optimization.rst:592
+msgid "2.223"
+msgstr "2.223"
+
+#: ../../BaTiO3/geometry-optimization.rst:593
+msgid "0.378"
+msgstr "0.378"
+
+#: ../../BaTiO3/geometry-optimization.rst:596
+msgid ""
+"CHGNet、SevenNet、FairChem は、equatorial Ti-O 距離については OpenMX に近い値を与えます。\\ "
+"しかし、apical Ti-O の結合差は OpenMX より大きく、\\ "
+"機械学習ポテンシャルが酸素八面体の極性歪みを強めに予測していることが分かります。"
+msgstr ""
+"CHGNet, SevenNet, and FairChem gave equatorial Ti–O bond lengths close to"
+" those from OpenMX. \\  However, the apical Ti–O bond length difference "
+"was larger than in OpenMX, \\  showing that the machine-learning "
+"potentials predict a stronger polar distortion of the oxygen octahedron."
+
+#: ../../BaTiO3/geometry-optimization.rst:601
+msgid "考察と比較"
+msgstr "Discussion and Comparison"
+
+#: ../../BaTiO3/geometry-optimization.rst:604
+msgid "計算手法の役割"
+msgstr "Role of Each Calculation Method"
+
+#: ../../BaTiO3/geometry-optimization.rst:606
+msgid ""
+"BaTiO₃ のように微小な原子変位と電子構造が強く結び付いた強誘電体では、電子状態を解く DFT 計算を基準にします。\\ "
+"機械学習原子間ポテンシャルは DFT より速く構造を緩和できるので、多数の構造のスクリーニングや分子動力学計算に向きます。\\ "
+"一方で、学習データやモデルの表現能力によって\\ 特定の構造歪みを過大または過小に評価することがあります（技術ノートの\\ "
+"`機械学習原子間ポテンシャル <https://technical-notes.quemix.com/md/mlip.html>`__）。\\ "
+"今回も、3 モデルとも頂点方向の Ti–O 結合の差を OpenMX より大きく与えました。"
+msgstr ""
+"For ferroelectrics like BaTiO₃, where small atomic displacements are "
+"closely tied to the electronic structure, we use DFT calculations that "
+"solve for the electronic states as the reference. \\  Machine-learning "
+"interatomic potentials relax structures faster than DFT, making them "
+"suitable for screening many structures or running molecular dynamics. \\"
+"  However, depending on the training data and what the model can "
+"represent, \\  they may overestimate or underestimate particular "
+"structural distortions (see the Technical Notes on \\  `machine-learning "
+"interatomic potentials <https://technical-"
+"notes.quemix.com/md/mlip.html>`__). \\  Here, all three models gave a "
+"larger difference between the apical Ti–O bond lengths than OpenMX."
+
+#: ../../BaTiO3/geometry-optimization.rst:613
+msgid "OpenMX と既往研究の対応"
+msgstr "Consistency of the OpenMX Results with Previous Studies"
+
+#: ../../BaTiO3/geometry-optimization.rst:615
+msgid ""
+"OpenMX の結果では、Ti の中心からのずれが残り、酸素副格子が主に緩和しました。\\ これは、BaTiO₃ の強誘電性が Ti-O "
+"相対変位および酸素八面体の歪みによって特徴づけられるという\\ 既往研究（実験の正方晶構造 :sup:`[1]`、ソフトモードの中性子散乱 "
+":sup:`[2]`、Ti 3d–O 2p 混成の第一原理研究 :sup:`[3]`）の理解と整合します。\\ したがって、本 OpenMX "
+"計算で得られた Ti-O 相対変位と酸素八面体の非対称性は、\\ BaTiO₃ の強誘電構造として妥当な結果です。"
+msgstr ""
+"In the OpenMX results, Ti remained off-center and most of the relaxation "
+"occurred in the oxygen sublattice. \\  This is consistent with the "
+"picture from previous studies that relative Ti–O displacements and "
+"distortions of the oxygen octahedra \\  characterize ferroelectricity in "
+"BaTiO₃ (the experimental tetragonal structure :sup:`[1]`, neutron "
+"scattering studies of soft modes :sup:`[2]`, and first-principles studies"
+" of Ti 3d–O 2p hybridization :sup:`[3]`). \\  The relative Ti–O "
+"displacements and oxygen octahedron asymmetry from these OpenMX "
+"calculations \\  are therefore plausible for the ferroelectric structure "
+"of BaTiO₃."
+
+#: ../../BaTiO3/geometry-optimization.rst:622
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../BaTiO3/geometry-optimization.rst:624
+msgid ""
+"OpenMX は、Ti の極性変位を保ったまま酸素副格子を緩和し、既往研究と整合する構造を与えました。\\ "
+"今回の固定格子での構造最適化では、この結果を DFT の基準としました。"
+msgstr ""
+"OpenMX relaxed the oxygen sublattice while preserving Ti's polar "
+"displacement and gave a structure consistent with previous studies. \\  "
+"We used this result as the DFT reference for the fixed-lattice geometry "
+"optimization."
+
+#: ../../BaTiO3/geometry-optimization.rst:627
+msgid ""
+"FairChem と SevenNet は正方晶の極性構造を再現しており、構造を素早く見積もるのに使えます。\\ 頂点方向（apical）の "
+"Ti–O 結合の長さの差は、どちらも OpenMX より大きくなりました。"
+msgstr ""
+"FairChem and SevenNet reproduced the tetragonal polar structure and can "
+"provide quick estimates of the structure. \\  For both, the difference "
+"between the apical Ti–O bond lengths was larger than in OpenMX."
+
+#: ../../BaTiO3/geometry-optimization.rst:630
+msgid ""
+"CHGNet は z 方向だけを緩和する設定で正方晶の面内配置を保ちました。\\ Ba 基準の内部変位は、FairChem や SevenNet "
+"よりも OpenMX との差が大きくなりました。"
+msgstr ""
+"With relaxation allowed only along z, CHGNet preserved the tetragonal in-"
+"plane arrangement. \\  Its internal displacements relative to Ba differed"
+" more from OpenMX than did those from FairChem or SevenNet."
+
+#: ../../BaTiO3/geometry-optimization.rst:633
+msgid ""
+"モデル間の比較は、今回の初期構造と拘束条件での内部変位と結合距離に限られます。\\ 原子変位や結合距離を定量的に議論するには、OpenMX などの"
+" DFT 計算で確認します。"
+msgstr ""
+"The comparison among models covers only the internal displacements and "
+"bond lengths for the initial structure and constraints used here. \\  "
+"Quantitative discussion of atomic displacements or bond lengths requires "
+"verification with DFT calculations such as OpenMX."
+
+#: ../../BaTiO3/geometry-optimization.rst:637
+msgid "参考文献"
+msgstr "References"
+
+#: ../../BaTiO3/geometry-optimization.rst:639
+msgid ""
+":sup:`[1]` Megaw, H. D., \\ \"Crystal Structure of Barium Titanate,\" \\ "
+"*Nature*, **155**, 484--485, 1945. \\ `https://doi.org/10.1038/155484b0 "
+"<https://doi.org/10.1038/155484b0>`_"
+msgstr ""
+":sup:`[1]` Megaw, H. D., \\ \"Crystal Structure of Barium Titanate,\" \\ "
+"*Nature*, **155**, 484--485, 1945. \\ `https://doi.org/10.1038/155484b0 "
+"<https://doi.org/10.1038/155484b0>`_"
+
+#: ../../BaTiO3/geometry-optimization.rst:644
+msgid ""
+":sup:`[2]` Harada, J.; Axe, J. D.; Shirane, G., \\ \"Neutron-Scattering "
+"Study of Soft Modes in Cubic BaTiO₃,\" \\ *Physical Review B*, **4**, 155"
+"--162, 1971. \\ `https://doi.org/10.1103/PhysRevB.4.155 "
+"<https://doi.org/10.1103/PhysRevB.4.155>`_"
+msgstr ""
+":sup:`[2]` Harada, J.; Axe, J. D.; Shirane, G., \\ \"Neutron-Scattering "
+"Study of Soft Modes in Cubic BaTiO₃,\" \\ *Physical Review B*, **4**, 155"
+"--162, 1971. \\ `https://doi.org/10.1103/PhysRevB.4.155 "
+"<https://doi.org/10.1103/PhysRevB.4.155>`_"
+
+#: ../../BaTiO3/geometry-optimization.rst:649
+msgid ""
+":sup:`[3]` Cohen, R. E., \\ \"Origin of Ferroelectricity in Perovskite "
+"Oxides,\" \\ *Nature*, **358**, 136--138, 1992. \\ "
+"`https://doi.org/10.1038/358136a0 <https://doi.org/10.1038/358136a0>`_"
+msgstr ""
+":sup:`[3]` Cohen, R. E., \\ \"Origin of Ferroelectricity in Perovskite "
+"Oxides,\" \\ *Nature*, **358**, 136--138, 1992. \\ "
+"`https://doi.org/10.1038/358136a0 <https://doi.org/10.1038/358136a0>`_"
+

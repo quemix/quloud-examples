@@ -4,9 +4,9 @@
 安定基底状態
 ==============================
 
-BaTiO₃ の 4 つの結晶相のうち、0 K で最もエネルギーが低いのはどの相でしょうか。
-各相の最適化済みの格子を使い、原子座標を緩和して全エネルギーを比較します。
-今回の DFT と機械学習原子間ポテンシャル（MLIP）の計算では、5 手法すべてで菱面体晶が最も低く、斜方晶、正方晶、立方晶の順に高くなりました。
+BaTiO₃ の 4 つの結晶相のうち、0 K で最もエネルギーが低いのはどの相でしょうか。\
+各相の最適化済みの格子を使い、原子座標を緩和して全エネルギーを比較します。\
+今回の DFT と機械学習原子間ポテンシャル（MLIP）の計算では、5 手法すべてで菱面体晶が最も低く、斜方晶、正方晶、立方晶の順に高くなりました。\
 菱面体晶と斜方晶の差は手法によっては 1 化学式単位あたり 1 meV 未満で、計算の収束条件に敏感です。
 
 .. _batio3-stability:
@@ -18,9 +18,9 @@ BaTiO₃ の 4 つの結晶相のうち、0 K で最もエネルギーが低い�
 
    BaTiO₃ の温度依存相系列と分極方向の概略図。Shu と Bhattacharya による整理に基づきます :sup:`[1]`。
 
-正方晶、斜方晶、菱面体晶の結晶構造や原子変位は、X 線・中性子回折などで調べられてきました :sup:`[2,3]`。
-第一原理計算に基づく有効ハミルトニアン研究では、局所的な極性ひずみと長距離相互作用の競合から、低温での安定性と相転移の順序が再現されています :sup:`[4,5]`。
-以下では、菱面体晶、斜方晶、正方晶、立方晶をそれぞれ :math:`R`、:math:`O`、:math:`T`、:math:`C` と書きます。
+正方晶、斜方晶、菱面体晶の結晶構造や原子変位は、X 線・中性子回折などで調べられてきました :sup:`[2,3]`。\
+第一原理計算に基づく有効ハミルトニアン研究では、局所的な極性ひずみと長距離相互作用の競合から、低温での安定性と相転移の順序が再現されています :sup:`[4,5]`。\
+以下では、菱面体晶、斜方晶、正方晶、立方晶をそれぞれ :math:`R`、:math:`O`、:math:`T`、:math:`C` と書きます。\
 4 相の空間群と分極の向きは、技術ノートの\ `4つの相と分極の向き <https://technical-notes.quemix.com/solid/ferroelectricity.html#batio3-four-phases>`__\ にまとめました。
 
 .. _batio3-stability-inputs:
@@ -32,12 +32,12 @@ BaTiO₃ の 4 つの結晶相のうち、0 K で最もエネルギーが低い�
 2. 最適化した格子を固定し、原子座標を緩和します。
 3. 最終構造の全エネルギーを 1 化学式単位あたりに換算します。手法ごとに菱面体晶の値を差し引き、相対エネルギーを求めます（技術ノートの\ `化学式単位あたりの相対エネルギー <https://technical-notes.quemix.com/electronic/pseudopotential_basis.html#energy-reference>`__）。
 
-ここでは、構造最適化に用いた代表例として QE の入力ファイルのみを示します。
-Quloud Job では、各相のジョブに含まれる ``QuloudJob.scf.in`` を以下の例で
-置き換えることで、同じ形式の固定格子構造最適化を実行できます。入力中の
-``calculation = 'relax'`` は格子を固定して原子位置のみを最適化する指定（`固定セル緩和 <https://technical-notes.quemix.com/electronic/structure_optimization.html#structure-optimization>`__）であり、
-``ibrav``、``A``、``B``、``C``、``cosAB`` には、直前の格子最適化で得られた
-各相の格子定数を用いています。原子位置の固定フラグは付けていないため、
+ここでは、構造最適化に用いた代表例として QE の入力ファイルのみを示します。\
+Quloud Job では、各相のジョブに含まれる ``QuloudJob.scf.in`` を以下の例で\
+置き換えることで、同じ形式の固定格子構造最適化を実行できます。入力中の\
+``calculation = 'relax'`` は格子を固定して原子位置のみを最適化する指定（`固定セル緩和 <https://technical-notes.quemix.com/electronic/structure_optimization.html#structure-optimization>`__）であり、\
+``ibrav``、``A``、``B``、``C``、``cosAB`` には、直前の格子最適化で得られた\
+各相の格子定数を用いています。原子位置の固定フラグは付けていないため、\
 Ti と O を含む内部座標は最適化されます。
 
 .. list-table:: 固定格子構造最適化に用いた QE 入力の対応
@@ -208,7 +208,7 @@ Ti と O を含む内部座標は最適化されます。
 QE
 ~~~~~~
 
-.. raw:: html
+.. translatable-raw:: html
 
    <details class="input-toggle">
      <summary>立方晶相</summary>
@@ -268,7 +268,7 @@ QE
    </details>
 
 
-.. raw:: html
+.. translatable-raw:: html
 
    <details class="input-toggle">
      <summary>正方晶相</summary>
@@ -329,7 +329,7 @@ QE
    </details>
 
 
-.. raw:: html
+.. translatable-raw:: html
 
    <details class="input-toggle">
      <summary>斜方晶相</summary>
@@ -396,7 +396,7 @@ QE
    </details>
 
 
-.. raw:: html
+.. translatable-raw:: html
 
    <details class="input-toggle">
      <summary>菱面体晶相</summary>
@@ -553,10 +553,10 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
 結果の概要
 ==========
 
-本計算では、BaTiO₃ の代表的な四つの多形を対象とし、0 K における相対安定性を
-DFT および MLIP により比較しました。ここで示す全エネルギーは、前段階で最適化した
-格子定数を固定し、その格子上で原子位置を最適化して得たものです。したがって、
-この比較は、格子歪みの特徴を各相に保ったうえで、内部座標の緩和により得られる
+本計算では、BaTiO₃ の代表的な四つの多形を対象とし、0 K における相対安定性を\
+DFT および MLIP により比較しました。ここで示す全エネルギーは、前段階で最適化した\
+格子定数を固定し、その格子上で原子位置を最適化して得たものです。したがって、\
+この比較は、格子歪みの特徴を各相に保ったうえで、内部座標の緩和により得られる\
 0 K の静的エネルギー順位を評価するものです。
 
 .. figure:: ../Figure/BaTiO3/batio3_relative_phase_energies_updated-rev.png
@@ -566,9 +566,9 @@ DFT および MLIP により比較しました。ここで示す全エネルギ�
 
    菱面体晶相を基準にした BaTiO₃ 各相の相対エネルギー。
 
-エネルギーは各手法で得られた菱面体晶相を基準とし、1 化学式単位あたりの相対エネルギー
-:math:`\Delta E = E_{\mathrm{phase}} - E_R` として整理しました。5 手法は基底関数、擬ポテンシャル、
-エネルギー基準、または学習されたエネルギー面が異なるので、比べられるのは同じ手法の中での
+エネルギーは各手法で得られた菱面体晶相を基準とし、1 化学式単位あたりの相対エネルギー\
+:math:`\Delta E = E_{\mathrm{phase}} - E_R` として整理しました。5 手法は基底関数、擬ポテンシャル、\
+エネルギー基準、または学習されたエネルギー面が異なるので、比べられるのは同じ手法の中での\
 相対エネルギー差と安定性の順序です。
 
 .. list-table:: BaTiO₃ 各相の相対エネルギー（meV/化学式単位）
@@ -601,8 +601,8 @@ DFT および MLIP により比較しました。ここで示す全エネルギ�
      - 45.510
      - 64.320
 
-すべての手法で、菱面体晶相が最も低いエネルギーを示し、次に斜方晶相、正方晶相、
-立方晶相の順にエネルギーが高くなりました。したがって、本計算で得られた 0 K の
+すべての手法で、菱面体晶相が最も低いエネルギーを示し、次に斜方晶相、正方晶相、\
+立方晶相の順にエネルギーが高くなりました。したがって、本計算で得られた 0 K の\
 安定性順序は
 
 .. math::
@@ -610,7 +610,7 @@ DFT および MLIP により比較しました。ここで示す全エネルギ�
    \mathrm{Rhombohedral} < \mathrm{Orthorhombic} <
    \mathrm{Tetragonal} < \mathrm{Cubic}
 
-であり、実験的に知られている低温側から高温側への相系列、および第一原理有効
+であり、実験的に知られている低温側から高温側への相系列、および第一原理有効\
 ハミルトニアンに基づく先駆的研究の結果と整合しています :sup:`[2,4,5]`。
 
 .. _batio3-stability-methods:
@@ -618,113 +618,113 @@ DFT および MLIP により比較しました。ここで示す全エネルギ�
 DFT と MLIP の比較
 ===================
 
-DFT 計算では、OpenMX-DFT と QE-DFT のいずれも
-:math:`R < O < T < C` の順序を与えました。OpenMX-DFT では
-:math:`O-R = 0.136~\mathrm{meV/f.u.}` と非常に小さく、菱面体晶相と斜方晶相は
-ほぼ縮退しています。一方、QE-DFT では :math:`O-R = 2.469~\mathrm{meV/f.u.}`、
-:math:`T-R = 10.041~\mathrm{meV/f.u.}`、:math:`C-R = 45.608~\mathrm{meV/f.u.}`
-であり、相の対称性が高くなるにつれて相対エネルギーが段階的に上昇します。
-これは、0 K の静的エネルギー曲面において、強誘電歪みをもつ低対称相が、
+DFT 計算では、OpenMX-DFT と QE-DFT のいずれも\
+:math:`R < O < T < C` の順序を与えました。OpenMX-DFT では\
+:math:`O-R = 0.136~\mathrm{meV/f.u.}` と非常に小さく、菱面体晶相と斜方晶相は\
+ほぼ縮退しています。一方、QE-DFT では :math:`O-R = 2.469~\mathrm{meV/f.u.}`、\
+:math:`T-R = 10.041~\mathrm{meV/f.u.}`、:math:`C-R = 45.608~\mathrm{meV/f.u.}`\
+であり、相の対称性が高くなるにつれて相対エネルギーが段階的に上昇します。\
+これは、0 K の静的エネルギー曲面において、強誘電歪みをもつ低対称相が、\
 非分極の立方晶相より安定化されることを示しています。
 
-MLIP 計算でも同じ順序が得られました。SevenNet-ASE と FairChem-ASE では、
-斜方晶相は菱面体晶相より約 :math:`4~\mathrm{meV/f.u.}` 高く、正方晶相は
-さらに高いです。CHGNet-LAMMPS では :math:`O-R = 0.763~\mathrm{meV/f.u.}` と
-小さい一方、立方晶相は :math:`64.320~\mathrm{meV/f.u.}` 高く評価されました。
-MLIP の種類によってエネルギー差の大きさは異なりますが、基底状態の相安定性順序は
-DFT と一致しています。このことは、MLIP を用いた構造最適化でも、BaTiO₃ の代表的な
+MLIP 計算でも同じ順序が得られました。SevenNet-ASE と FairChem-ASE では、\
+斜方晶相は菱面体晶相より約 :math:`4~\mathrm{meV/f.u.}` 高く、正方晶相は\
+さらに高いです。CHGNet-LAMMPS では :math:`O-R = 0.763~\mathrm{meV/f.u.}` と\
+小さい一方、立方晶相は :math:`64.320~\mathrm{meV/f.u.}` 高く評価されました。\
+MLIP の種類によってエネルギー差の大きさは異なりますが、基底状態の相安定性順序は\
+DFT と一致しています。このことは、MLIP を用いた構造最適化でも、BaTiO₃ の代表的な\
 多形間の相対安定性を定性的に再現できることを示しています。
 
-ただし、:math:`R` と :math:`O` のエネルギー差は、OpenMX-DFT と
-CHGNet-LAMMPS では 1 :math:`\mathrm{meV/f.u.}` 以下であり、数値収束、格子拘束、
-原子位置最適化の条件に対して敏感です。このため、これら二つの相の順位を
-議論する場合には、k 点密度、カットオフ、最終構造の分極方向、力の収束条件を
-明記する必要があります。一方で、全手法に共通して立方晶相が最も高いエネルギーを
+ただし、:math:`R` と :math:`O` のエネルギー差は、OpenMX-DFT と\
+CHGNet-LAMMPS では 1 :math:`\mathrm{meV/f.u.}` 以下であり、数値収束、格子拘束、\
+原子位置最適化の条件に対して敏感です。このため、これら二つの相の順位を\
+議論する場合には、k 点密度、カットオフ、最終構造の分極方向、力の収束条件を\
+明記する必要があります。一方で、全手法に共通して立方晶相が最も高いエネルギーを\
 示す点は明確であり、非分極立方晶相が 0 K の基底状態ではないことをよく表しています。
 
 物理的な解釈
 ============
 
-BaTiO₃ の相安定性は、Ti 原子のオフセンター変位と O 八面体の応答による
-`極性ソフトモード <https://technical-notes.quemix.com/solid/soft_mode.html#polar-soft-mode>`__\ と、格子歪みとの結合に強く支配されます。
-各相の分極の向き（:math:`T` は :math:`\langle 100\rangle`、:math:`O` は :math:`\langle 110\rangle`、
-:math:`R` は :math:`\langle 111\rangle`）は、:math:`a`、:math:`b`、:math:`c` と格子角の歪みと結びついています。
+BaTiO₃ の相安定性は、Ti 原子のオフセンター変位と O 八面体の応答による\
+`極性ソフトモード <https://technical-notes.quemix.com/solid/soft_mode.html#polar-soft-mode>`__\ と、格子歪みとの結合に強く支配されます。\
+各相の分極の向き（:math:`T` は :math:`\langle 100\rangle`、:math:`O` は :math:`\langle 110\rangle`、\
+:math:`R` は :math:`\langle 111\rangle`）は、:math:`a`、:math:`b`、:math:`c` と格子角の歪みと結びついています。\
 この関係は、分域（ドメイン）構造や巨視的応答を議論する上でも重要です :sup:`[1]`\ （技術ノートの\ `分域と分域壁 <https://technical-notes.quemix.com/solid/ferroelectricity.html#ferroelectric-domains>`__）。
 
-Senn らの局所構造解析によれば、Ti の局所的なオフセンター変位はどの相でも菱面体的で、
-相の違いは変位の相関の向きと格子歪みの組み合わせに現れます :sup:`[6]`\ （技術ノートの\ `局所的なTiの変位と平均構造 <https://technical-notes.quemix.com/solid/ferroelectricity.html#fe-local-average>`__）。
-したがって、本計算で各相の分極方向と格子の特徴を保ちながら最適化した
+Senn らの局所構造解析によれば、Ti の局所的なオフセンター変位はどの相でも菱面体的で、\
+相の違いは変位の相関の向きと格子歪みの組み合わせに現れます :sup:`[6]`\ （技術ノートの\ `局所的なTiの変位と平均構造 <https://technical-notes.quemix.com/solid/ferroelectricity.html#fe-local-average>`__）。\
+したがって、本計算で各相の分極方向と格子の特徴を保ちながら最適化した\
 ことは、相安定性を比較する上で重要です。
 
-また、Nishimatsu らは、BaTiO₃ の相転移温度や分極歪みが、DFT の
-`交換相関汎関数 <https://technical-notes.quemix.com/electronic/exchange_correlation.html#exchange-correlation-functional>`__\ と
-格子定数に強く依存することを示しています :sup:`[7]`。本結果でも、手法によって
-相対エネルギーの大きさは異なります。しかし、DFT と MLIP の両方で同じ
-:math:`R < O < T < C` の順序が得られたことは、今回の構造最適化手順が
+また、Nishimatsu らは、BaTiO₃ の相転移温度や分極歪みが、DFT の\
+`交換相関汎関数 <https://technical-notes.quemix.com/electronic/exchange_correlation.html#exchange-correlation-functional>`__\ と\
+格子定数に強く依存することを示しています :sup:`[7]`。本結果でも、手法によって\
+相対エネルギーの大きさは異なります。しかし、DFT と MLIP の両方で同じ\
+:math:`R < O < T < C` の順序が得られたことは、今回の構造最適化手順が\
 BaTiO₃ の 0 K 相安定性を捉える上で妥当であることを支持しています。
 
 結論と今後の展望
 ================
 
-本計算では、OpenMX-DFT、QE-DFT、SevenNet-ASE、FairChem-ASE、CHGNet-LAMMPS の
+本計算では、OpenMX-DFT、QE-DFT、SevenNet-ASE、FairChem-ASE、CHGNet-LAMMPS の\
 すべてにおいて、BaTiO₃ の 0 K 安定性順序として
 
 .. math::
 
    R < O < T < C
 
-が得られました。この結果は、低温で菱面体晶相が最安定となり、温度上昇に伴って
-斜方晶相、正方晶相、立方晶相へ移るという実験的な相転移系列と整合します。
-また、DFT だけでなく MLIP でも同じ相安定性順序を再現できることから、
-MLIP は BaTiO₃ の構造探索や有限温度シミュレーションの初期評価に有用であると
+が得られました。この結果は、低温で菱面体晶相が最安定となり、温度上昇に伴って\
+斜方晶相、正方晶相、立方晶相へ移るという実験的な相転移系列と整合します。\
+また、DFT だけでなく MLIP でも同じ相安定性順序を再現できることから、\
+MLIP は BaTiO₃ の構造探索や有限温度シミュレーションの初期評価に有用であると\
 考えられます。
 
-一方で、0 K の静的エネルギー順位だけでは、相転移温度や有限温度での安定性は決まりません。
-残る課題は、(i) フォノンによる動的安定性の確認、(ii) 分子動力学またはモンテカルロ法による
-有限温度効果の評価、(iii) 自由エネルギー、エントロピー、熱膨張を含む相境界の解析です
-（技術ノートの\ `虚数振動数と動的安定性 <https://technical-notes.quemix.com/solid/phonon.html#imaginary-frequency>`__、
-`零点振動と零点エネルギー <https://technical-notes.quemix.com/solid/phonon_thermal.html#zero-point-vibration>`__）。
-とくに菱面体晶相と斜方晶相のエネルギー差が小さいため、有限温度効果、零点振動、
-格子歪みと分極の結合が相転移挙動に大きく寄与する可能性があります。
-この結果は、フォノン安定性、ドメイン構造、粒界構造などを調べるための 0 K の基準になります。
+一方で、0 K の静的エネルギー順位だけでは、相転移温度や有限温度での安定性は決まりません。\
+残る課題は、(i) フォノンによる動的安定性の確認、(ii) 分子動力学またはモンテカルロ法による\
+有限温度効果の評価、(iii) 自由エネルギー、エントロピー、熱膨張を含む相境界の解析です\
+（技術ノートの\ `虚数振動数と動的安定性 <https://technical-notes.quemix.com/solid/phonon.html#imaginary-frequency>`__、\
+`零点振動と零点エネルギー <https://technical-notes.quemix.com/solid/phonon_thermal.html#zero-point-vibration>`__）。\
+とくに菱面体晶相と斜方晶相のエネルギー差が小さいため、有限温度効果、零点振動、\
+格子歪みと分極の結合が相転移挙動に大きく寄与する可能性があります。\
+この結果は、フォノン安定性、ドメイン構造、粒界構造などを調べるための 0 K の基準になります。\
 温度を上げたときに現れる相は、:doc:`構造相転移 <phase_transition>` の昇温計算で調べます。
 
 参考文献
 ========
 
-* :sup:`[1]` Shu, Y. C.; Bhattacharya, K.,
-  "Domain patterns and macroscopic behaviour of ferroelectric materials,"
-  *Philosophical Magazine B*, **81**, 2021--2054, 2001.
+* :sup:`[1]` Shu, Y. C.; Bhattacharya, K., \
+  "Domain patterns and macroscopic behaviour of ferroelectric materials," \
+  *Philosophical Magazine B*, **81**, 2021--2054, 2001. \
   `https://doi.org/10.1080/13642810108208556 <https://doi.org/10.1080/13642810108208556>`_
 
-* :sup:`[2]` Kwei, G. H.; Lawson, A. C.; Billinge, S. J. L.; Cheong, S.-W.,
-  "Structures of the ferroelectric phases of barium titanate,"
-  *Journal of Physical Chemistry*, **97**, 2368, 1993.
+* :sup:`[2]` Kwei, G. H.; Lawson, A. C.; Billinge, S. J. L.; Cheong, S.-W., \
+  "Structures of the ferroelectric phases of barium titanate," \
+  *Journal of Physical Chemistry*, **97**, 2368, 1993. \
   `https://doi.org/10.1021/j100112a043 <https://doi.org/10.1021/j100112a043>`_
 
-* :sup:`[3]` Shirane, G.; Danner, H.; Pepinsky, R.,
-  "Neutron diffraction study of orthorhombic BaTiO₃,"
-  *Physical Review*, **105**, 856, 1957.
+* :sup:`[3]` Shirane, G.; Danner, H.; Pepinsky, R., \
+  "Neutron diffraction study of orthorhombic BaTiO₃," \
+  *Physical Review*, **105**, 856, 1957. \
   `https://doi.org/10.1103/PhysRev.105.856 <https://doi.org/10.1103/PhysRev.105.856>`_
 
-* :sup:`[4]` Zhong, W.; Vanderbilt, D.; Rabe, K. M.,
-  "Phase transitions in BaTiO₃ from first principles,"
-  *Physical Review Letters*, **73**, 1861--1864, 1994.
+* :sup:`[4]` Zhong, W.; Vanderbilt, D.; Rabe, K. M., \
+  "Phase transitions in BaTiO₃ from first principles," \
+  *Physical Review Letters*, **73**, 1861--1864, 1994. \
   `https://doi.org/10.1103/PhysRevLett.73.1861 <https://doi.org/10.1103/PhysRevLett.73.1861>`_
 
-* :sup:`[5]` Zhong, W.; Vanderbilt, D.; Rabe, K. M.,
-  "First-principles theory of ferroelectric phase transitions for perovskites:
-  The case of BaTiO₃,"
-  *Physical Review B*, **52**, 6301--6312, 1995.
+* :sup:`[5]` Zhong, W.; Vanderbilt, D.; Rabe, K. M., \
+  "First-principles theory of ferroelectric phase transitions for perovskites: \
+  The case of BaTiO₃," \
+  *Physical Review B*, **52**, 6301--6312, 1995. \
   `https://doi.org/10.1103/PhysRevB.52.6301 <https://doi.org/10.1103/PhysRevB.52.6301>`_
 
-* :sup:`[6]` Senn, M. S.; Keen, D. A.; Lucas, T. C. A.; Hriljac, J. A.;
-  Goodwin, A. L., "Emergence of long-range order in BaTiO₃ from local
-  symmetry-breaking distortions," *Physical Review Letters*, **116**, 207602, 2016.
+* :sup:`[6]` Senn, M. S.; Keen, D. A.; Lucas, T. C. A.; Hriljac, J. A.; \
+  Goodwin, A. L., "Emergence of long-range order in BaTiO₃ from local \
+  symmetry-breaking distortions," *Physical Review Letters*, **116**, 207602, 2016. \
   `https://doi.org/10.1103/PhysRevLett.116.207602 <https://doi.org/10.1103/PhysRevLett.116.207602>`_
 
-* :sup:`[7]` Nishimatsu, T.; Iwamoto, M.; Kawazoe, Y.; Waghmare, U. V.,
-  "First-principles accurate total-energy surfaces for polar structural distortions
-  of BaTiO₃, PbTiO₃, and SrTiO₃: Consequences to structural transition temperatures,"
-  *Physical Review B*, **82**, 134106, 2010.
+* :sup:`[7]` Nishimatsu, T.; Iwamoto, M.; Kawazoe, Y.; Waghmare, U. V., \
+  "First-principles accurate total-energy surfaces for polar structural distortions \
+  of BaTiO₃, PbTiO₃, and SrTiO₃: Consequences to structural transition temperatures," \
+  *Physical Review B*, **82**, 134106, 2010. \
   `https://doi.org/10.1103/PhysRevB.82.134106 <https://doi.org/10.1103/PhysRevB.82.134106>`_

@@ -4,13 +4,13 @@
 格子定数
 =======================================
 
-BaTiO₃ の 4 つの結晶相について、各相の対称性を保ちながら\ `可変セル最適化 <https://technical-notes.quemix.com/electronic/structure_optimization.html#variable-cell-optimization>`__\ でセルを最適化し、格子定数を求めます。
-実験値を基準とした平均相対誤差は、DFT では OpenMX が約 0.34%、QE が約 0.42% でした。
-機械学習原子間ポテンシャル（MLIP）では、約 1.4～1.5% でした。
-MLIP の誤差が最も大きい項目は正方晶の :math:`c/a` で、3.07～3.92% でした（DFT では 0.30～0.31%）。
+BaTiO₃ の 4 つの結晶相について、各相の対称性を保ちながら\ `可変セル最適化 <https://technical-notes.quemix.com/electronic/structure_optimization.html#variable-cell-optimization>`__\ でセルを最適化し、格子定数を求めます。\
+実験値を基準とした平均相対誤差は、DFT では OpenMX が約 0.34%、QE が約 0.42% でした。\
+機械学習原子間ポテンシャル（MLIP）では、約 1.4～1.5% でした。\
+MLIP の誤差が最も大きい項目は正方晶の :math:`c/a` で、3.07～3.92% でした（DFT では 0.30～0.31%）。\
 平均を取ったのは 8 項目（立方晶の :math:`a`、正方晶の :math:`a, c/a`、斜方晶の :math:`a, b, c`、菱面体晶の :math:`a, \alpha`）です。
 
-計算値は 0 K の最適化構造、実験値は各相が安定な温度域で測定した値です。
+計算値は 0 K の最適化構造、実験値は各相が安定な温度域で測定した値です。\
 両者の差には、交換相関汎関数の近似によるずれに加えて、熱膨張などの温度の影響も含まれます（技術ノートの\ `LDAとGGA（PBE） <https://technical-notes.quemix.com/electronic/exchange_correlation.html#exchange-correlation-functional>`__\ と\ `熱膨張と準調和近似 <https://technical-notes.quemix.com/solid/phonon_thermal.html#thermal-expansion>`__）。
 
 .. raw:: html
@@ -163,16 +163,16 @@ MLIP の誤差が最も大きい項目は正方晶の :math:`c/a` で、3.07～3
 格子最適化に用いた入力ファイル例
 --------------------------------
 
-Quloud で計算するには、下のブロックから対象の手法・相の入力例を開きます。
-コピーした内容で、ジョブの対応する入力ファイルを置き換えます。
+Quloud で計算するには、下のブロックから対象の手法・相の入力例を開きます。\
+コピーした内容で、ジョブの対応する入力ファイルを置き換えます。\
 使用するファイルは OpenMX では ``openmx.in``、QE では ``QuloudJob.scf.in``、ASE では ``ase.in``、LAMMPS では ``in.QuloudJob`` です。
 
-格子だけを比べるため、内部座標を固定し、相ごとに許される格子の自由度だけを動かしました（下の表「相ごとのセル拘束」）。
+格子だけを比べるため、内部座標を固定し、相ごとに許される格子の自由度だけを動かしました（下の表「相ごとのセル拘束」）。\
 晶系ごとに保つ関係と、分率座標を固定してセルを変える計算の意味は、技術ノートの\ `対称性を保つ格子と原子座標の拘束 <https://technical-notes.quemix.com/electronic/structure_optimization.html#symmetry-constrained-relaxation>`__\ にまとめました。
 
 そのため、OpenMXでは相に応じて ``OptC3``、``OptC4``、``OptC2`` を使い分けました。これは、最適化の途中で立方晶、正方晶、斜方晶、菱面体晶の特徴が混ざったり、別の相へ崩れたりすることを避けるためです。QEでは同じ考え方を ``vc-relax`` と ``cell_dofree = 'ibrav'`` により実装しました。MLIPのASE/LAMMPS入力は、同じ構造ファイルに対してセルを含む緩和を行うための例として示しました。
 
-各ブロックは折りたたみ形式で表示されます。相名または手法名をクリックすると入力内容が縦方向に展開され、右上のコピーアイコンから全文を取得できます。
+入力例は折りたたまれています。相名または手法名が書かれた見出しをクリックすると展開し、右上の「Copy」ボタンで入力ファイルの全文をコピーできます。
 
 入力ファイルの対応
 ~~~~~~~~~~~~~~~~~~
@@ -344,7 +344,7 @@ Quloud で計算するには、下のブロックから対象の手法・相の�
 OpenMX
 ~~~~~~
 
-.. raw:: html
+.. translatable-raw:: html
 
    <details class="input-toggle">
      <summary>立方晶 — OptC3</summary>
@@ -703,7 +703,7 @@ OpenMX
 QE
 ~~
 
-.. raw:: html
+.. translatable-raw:: html
 
    <details class="input-toggle">
      <summary>立方晶 — ibrav=1</summary>
@@ -1058,10 +1058,10 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
 格子定数の実験値および計算値
 ----------------------------
 
-表では、相ごとに実験値、Quloud の計算値、先行研究の計算値を照合できます。
+表では、相ごとに実験値、Quloud の計算値、先行研究の計算値を照合できます。\
 画面が狭い場合は表を横にスクロールして確認します。
 
-.. raw:: html
+.. translatable-raw:: html
 
    <div class="table-scroll" tabindex="0" role="region" aria-label="BaTiO₃の格子定数の比較">
    <table class="slide-style-table table-lattice">
@@ -1106,7 +1106,7 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
      <tbody>
        <tr>
          <td class="phase-cell">立方晶</td>
-         <td class="method-cell">Optc3</td>
+         <td class="method-cell">OptC3</td>
          <td class="method-cell">ibrav=1</td>
          <td class="parameter-cell">a (Å)</td>
          <td class="value-cell">4.006</td>
@@ -1121,7 +1121,7 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
        </tr>
        <tr>
          <td class="phase-cell" rowspan="2">正方晶</td>
-         <td class="method-cell" rowspan="2">Optc4</td>
+         <td class="method-cell" rowspan="2">OptC4</td>
          <td class="method-cell" rowspan="2">ibrav=6</td>
          <td class="parameter-cell">a (Å)</td>
          <td class="value-cell">3.994</td>
@@ -1148,7 +1148,7 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
        </tr>
        <tr>
          <td class="phase-cell" rowspan="3">斜方晶</td>
-         <td class="method-cell" rowspan="3">Optc2</td>
+         <td class="method-cell" rowspan="3">OptC2</td>
          <td class="method-cell" rowspan="3">ibrav=8</td>
          <td class="parameter-cell">a (Å)</td>
          <td class="value-cell">3.992</td>
@@ -1187,7 +1187,7 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
        </tr>
        <tr>
          <td class="phase-cell" rowspan="2">菱面体晶</td>
-         <td class="method-cell" rowspan="2">Optc3</td>
+         <td class="method-cell" rowspan="2">OptC3</td>
          <td class="method-cell" rowspan="2">ibrav=5</td>
          <td class="parameter-cell">a (Å)</td>
          <td class="value-cell">4.001</td>
@@ -1216,12 +1216,12 @@ MLIP には、CHGNet、SevenNet（モデル ``7net-mf-ompa``）、FairChem（モ
    </table>
    </div>
 
-実験値欄では、立方晶相、正方晶相、菱面体晶相についてKweiら :sup:`[1]`、斜方晶相についてShiraneら :sup:`[2]` の値を参照しました。
-文献DFTおよび文献ACEのうち、Sehrawatら :sup:`[3]` の値は同文献に報告されたDFT参照計算およびACEポテンシャルによる計算結果です。
-Qiら :sup:`[4]` の文献MDおよび文献DFTの値は、同文献に報告されたMDおよびDFTの格子定数です。正方晶相の :math:`c/a` は文献中の :math:`a` および :math:`c` から算出しました。また、Qiら :sup:`[4]` の斜方晶相の :math:`b=c` は擬立方格子定数として示されているため、本表では現行の斜方晶セル表記に合わせて :math:`\sqrt{2}` 倍した値を掲載しました（擬立方の格子角を90°とみなした換算。技術ノートの\ `直方晶のA中心化胞との換算 <https://technical-notes.quemix.com/solid/pseudocubic.html#pseudocubic-orthorhombic>`__）。菱面体晶相の角度は同表に示されていないため、該当欄はダッシュで示しました。
-CHGNetの菱面体晶相の :math:`a` は、最適化後の :math:`a`、:math:`b`、:math:`c` の平均値として示しました。
-QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相について、それぞれ ``ibrav=1``、``ibrav=6``、``ibrav=8``、``ibrav=5`` のBravais格子制約を保持した可変セル最適化結果です。
-表中では、OpenMXおよびQEをDFT法、CHGNet、SevenNetおよびFairChemをMLIP法、文献DFT、文献MDおよび文献ACEを先行研究として分類しました。
+実験値欄では、立方晶相、正方晶相、菱面体晶相についてKweiら :sup:`[1]`、斜方晶相についてShiraneら :sup:`[2]` の値を参照しました。\
+文献DFTおよび文献ACEのうち、Sehrawatら :sup:`[3]` の値は同文献に報告されたDFT参照計算およびACEポテンシャルによる計算結果です。\
+Qiら :sup:`[4]` の文献MDおよび文献DFTの値は、同文献に報告されたMDおよびDFTの格子定数です。正方晶相の :math:`c/a` は文献中の :math:`a` および :math:`c` から算出しました。また、Qiら :sup:`[4]` の斜方晶相の :math:`b=c` は擬立方格子定数として示されているため、本表では現行の斜方晶セル表記に合わせて :math:`\sqrt{2}` 倍した値を掲載しました（擬立方の格子角を90°とみなした換算。技術ノートの\ `直方晶のA中心化胞との換算 <https://technical-notes.quemix.com/solid/pseudocubic.html#pseudocubic-orthorhombic>`__）。菱面体晶相の角度は同表に示されていないため、該当欄はダッシュで示しました。\
+CHGNetの菱面体晶相の :math:`a` は、最適化後の :math:`a`、:math:`b`、:math:`c` の平均値として示しました。\
+QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相について、それぞれ ``ibrav=1``、``ibrav=6``、``ibrav=8``、``ibrav=5`` のBravais格子制約を保持した可変セル最適化結果です。\
+表中では、OpenMXおよびQEをDFT法、CHGNet、SevenNetおよびFairChemをMLIP法、文献DFT、文献MDおよび文献ACEを先行研究として分類しました。\
 文献DFT欄では、上段にSehrawatら :sup:`[3]` の値、下段にQiら :sup:`[4]` の値を示しました。
 
 .. _batio3-lattice-relative-errors:
@@ -1239,7 +1239,7 @@ QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相につ
 
 ここで、:math:`x_{\mathrm{calc}}` は計算値、:math:`x_{\mathrm{exp}}` は実験値を表します。
 
-.. raw:: html
+.. translatable-raw:: html
 
    <div class="table-scroll" tabindex="0" role="region" aria-label="BaTiO₃の格子定数の相対誤差">
    <table class="slide-style-table table-error">
@@ -1282,7 +1282,7 @@ QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相につ
      <tbody>
        <tr>
          <td class="phase-cell">立方晶</td>
-         <td class="method-cell">Optc3</td>
+         <td class="method-cell">OptC3</td>
          <td class="method-cell">ibrav=1</td>
          <td class="parameter-cell">a</td>
          <td class="err-green">0.35</td>
@@ -1296,7 +1296,7 @@ QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相につ
        </tr>
        <tr>
          <td class="phase-cell" rowspan="2">正方晶</td>
-         <td class="method-cell" rowspan="2">Optc4</td>
+         <td class="method-cell" rowspan="2">OptC4</td>
          <td class="method-cell" rowspan="2">ibrav=6</td>
          <td class="parameter-cell">a</td>
          <td class="err-green">0.45</td>
@@ -1321,7 +1321,7 @@ QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相につ
        </tr>
        <tr>
          <td class="phase-cell" rowspan="3">斜方晶</td>
-         <td class="method-cell" rowspan="3">Optc2</td>
+         <td class="method-cell" rowspan="3">OptC2</td>
          <td class="method-cell" rowspan="3">ibrav=8</td>
          <td class="parameter-cell">a</td>
          <td class="err-yellow">0.68</td>
@@ -1357,7 +1357,7 @@ QEの値は、立方晶相、正方晶相、斜方晶相、菱面体晶相につ
        </tr>
        <tr>
          <td class="phase-cell" rowspan="2">菱面体晶</td>
-         <td class="method-cell" rowspan="2">Optc3</td>
+         <td class="method-cell" rowspan="2">OptC3</td>
          <td class="method-cell" rowspan="2">ibrav=5</td>
          <td class="parameter-cell">a</td>
          <td class="err-yellow">0.55</td>
@@ -1408,27 +1408,27 @@ MLIPについても、FairChem、SevenNet、CHGNetの平均相対誤差はおお
 
 項目ごとに見ると、OpenMXおよびQEでは、立方晶相の :math:`a` や菱面体晶相の角度 :math:`\alpha` などで実験値との差が特に小さいです。QEでは、正方晶相の :math:`c/a`、斜方晶相の :math:`b` および :math:`c` も0.5%未満の誤差に収まりました。一方、MLIPおよび一部の先行計算では、正方晶相の :math:`c/a` や斜方晶相の個別の格子定数で相対誤差が大きくなる傾向が見られました。これは、BaTiO₃の中間相ではTi/Oのオフセンター変位と格子歪みの結合が強く、わずかなポテンシャル面の違いが :math:`c/a` や :math:`b/c` の分裂に現れやすいためです。
 
-なお、冒頭で述べたとおり、計算値は0 Kでの最適化構造で、実験値は各相が有限温度で安定に存在する領域の代表値です。熱膨張や相転移温度近傍の揺らぎを含む実験値と完全に一致する必要はありません。それでも、本結果ではDFTで0.5%前後、MLIPでも約1.5%程度の平均誤差に収まっており、BaTiO₃の格子定数を実験値と同じオーダーで再現できています。これは、適切な相拘束を用いれば、DFTおよびMLIPの双方がBaTiO₃多形の格子構造評価に有用であることを示しています。
+なお、冒頭で述べたとおり、計算値は0 Kでの最適化構造で、実験値は各相が有限温度で安定に存在する領域の代表値です。熱膨張や相転移温度近傍の揺らぎを含む実験値と完全に一致する必要はありません。それでも、本結果ではDFTで0.5%前後、MLIPでも約1.5%程度の平均誤差に収まっており、BaTiO₃の格子定数を実験値に近い値で再現できています。これは、適切な相拘束を用いれば、DFTおよびMLIPの双方がBaTiO₃多形の格子構造評価に有用であることを示しています。
 
 参考文献
 --------
 
-* :sup:`[1]` Kwei, G. H.; Lawson, A. C.; Billinge, S. J. L.; Cheong, S.-W.,
-  "Structures of the ferroelectric phases of barium titanate,"
-  *Journal of Physical Chemistry*, **97**, 2368, 1993.
+* :sup:`[1]` Kwei, G. H.; Lawson, A. C.; Billinge, S. J. L.; Cheong, S.-W., \
+  "Structures of the ferroelectric phases of barium titanate," \
+  *Journal of Physical Chemistry*, **97**, 2368, 1993. \
   `https://doi.org/10.1021/j100112a043 <https://doi.org/10.1021/j100112a043>`_
 
-* :sup:`[2]` Shirane, G.; Danner, H.; Pepinsky, R.,
-  "Neutron diffraction study of orthorhombic BaTiO₃,"
-  *Physical Review*, **105**, 856, 1957.
+* :sup:`[2]` Shirane, G.; Danner, H.; Pepinsky, R., \
+  "Neutron diffraction study of orthorhombic BaTiO₃," \
+  *Physical Review*, **105**, 856, 1957. \
   `https://doi.org/10.1103/PhysRev.105.856 <https://doi.org/10.1103/PhysRev.105.856>`_
 
-* :sup:`[3]` Amit Sehrawat et al., "Machine-learning interatomic potential for BaTiO3:
-  phase transitions, domain walls, and grain boundaries,"
-  *J. Phys.: Condens. Matter*, **38**, 015402, 2026.
+* :sup:`[3]` Amit Sehrawat et al., "Machine-learning interatomic potential for BaTiO3: \
+  phase transitions, domain walls, and grain boundaries," \
+  *J. Phys.: Condens. Matter*, **38**, 015402, 2026. \
   `https://doi.org/10.1088/1361-648X/ae2727 <https://doi.org/10.1088/1361-648X/ae2727>`_
 
-* :sup:`[4]` Qi, Y.; Liu, S.; Grinberg, I.; Rappe, A. M.,
-  "Atomistic description for temperature-driven phase transitions in BaTiO₃,"
-  *Physical Review B*, **94**, 134308, 2016.
+* :sup:`[4]` Qi, Y.; Liu, S.; Grinberg, I.; Rappe, A. M., \
+  "Atomistic description for temperature-driven phase transitions in BaTiO₃," \
+  *Physical Review B*, **94**, 134308, 2016. \
   `https://doi.org/10.1103/PhysRevB.94.134308 <https://doi.org/10.1103/PhysRevB.94.134308>`_

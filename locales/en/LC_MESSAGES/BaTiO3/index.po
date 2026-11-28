@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 18:12+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../BaTiO3/index.rst:2
+msgid "BaTiO₃の安定構造と相転移"
+msgstr "Stable Structures and Phase Transitions of BaTiO₃"
+
+#: ../../BaTiO3/index.rst:4
+msgid ""
+"BaTiO₃は低温では菱面体晶で、温度を上げると斜方晶、正方晶、立方晶の順に変化します。\\ この連載では、Quloudで **0 "
+"Kで最も安定な構造** と **温度を上げたときの相の変化** を調べます。\\ "
+"格子と原子座標を最適化し、Tiの変位に伴うエネルギー変化を調べた後、分子動力学で昇温時の構造を追います。"
+msgstr ""
+"At low temperatures, BaTiO₃ is rhombohedral. As the temperature rises, it"
+" becomes orthorhombic, then tetragonal, then cubic. \\  In this series, "
+"we use Quloud to investigate **the most stable structure at 0 K** and "
+"**how the phases change as the temperature rises**. \\  We optimize the "
+"lattice and atomic coordinates and examine how Ti displacement changes "
+"the energy. We then follow the structure during heating with molecular "
+"dynamics."
+
+#: ../../BaTiO3/index.rst:8
+#, python-brace-format
+msgid ":numref:`{number}. {name} <batio3-doc-introduction>`"
+msgstr ":numref:`{number}. {name} <batio3-doc-introduction>`"
+
+#: ../../BaTiO3/index.rst:10
+msgid "4つの結晶相と分極の向きを確認し、静的計算と昇温計算でそれぞれ何が分かるかを整理します。"
+msgstr ""
+"We review the four crystal phases and their polarization directions and "
+"discuss what we can learn from static calculations and from heating "
+"calculations."
+
+#: ../../BaTiO3/index.rst:-1
+msgid "結晶構造と相の安定性"
+msgstr "Crystal Structure and Phase Stability"
+
+#: ../../BaTiO3/index.rst:15
+#, python-brace-format
+msgid ":numref:`{number}. {name} <batio3-doc-lattice-constant>`"
+msgstr ":numref:`{number}. {name} <batio3-doc-lattice-constant>`"
+
+#: ../../BaTiO3/index.rst:17
+msgid "4つの結晶相の格子定数を可変セル最適化で求め、実験値からのずれを手法ごとに比較します。"
+msgstr ""
+"We determine the lattice constants of the four crystal phases by "
+"variable-cell optimization and compare each method's deviations from the "
+"experimental values."
+
+#: ../../BaTiO3/index.rst:19
+#, python-brace-format
+msgid ":numref:`{number}. {name} <batio3-doc-stability>`"
+msgstr ":numref:`{number}. {name} <batio3-doc-stability>`"
+
+#: ../../BaTiO3/index.rst:21
+msgid "4相のエネルギーを0 Kで比較し、各手法が菱面体晶を最安定と予測するかを確かめます。"
+msgstr ""
+"We compare the energies of the four phases at 0 K and check whether each "
+"method predicts the rhombohedral phase to be the most stable."
+
+#: ../../BaTiO3/index.rst:23
+#, python-brace-format
+msgid ":numref:`{number}. {name} <batio3-doc-geometry-optimization>`"
+msgstr ":numref:`{number}. {name} <batio3-doc-geometry-optimization>`"
+
+#: ../../BaTiO3/index.rst:25
+msgid "正方晶の格子を固定して原子座標を緩和し、TiとOの相対変位を手法ごとに比較します。"
+msgstr ""
+"We relax the atomic coordinates while keeping the tetragonal lattice "
+"fixed and compare the relative displacements of Ti and O across methods."
+
+#: ../../BaTiO3/index.rst:-1
+msgid "極性変位と相転移"
+msgstr "Polar Displacements and Phase Transitions"
+
+#: ../../BaTiO3/index.rst:30
+#, python-brace-format
+msgid ":numref:`{number}. {name} <batio3-doc-total-energy-dft-mlip>`"
+msgstr ":numref:`{number}. {name} <batio3-doc-total-energy-dft-mlip>`"
+
+#: ../../BaTiO3/index.rst:32
+msgid "立方晶中のTiだけを中心からずらし、エネルギーの極小がどこに現れるかを調べます。"
+msgstr ""
+"We displace only Ti from the center in the cubic phase and examine where "
+"the energy has a minimum."
+
+#: ../../BaTiO3/index.rst:34
+#, python-brace-format
+msgid ":numref:`{number}. {name} <batio3-doc-total-energy>`"
+msgstr ":numref:`{number}. {name} <batio3-doc-total-energy>`"
+
+#: ../../BaTiO3/index.rst:36
+msgid "Ba・Ti・Oの協同変位を取り入れ、井戸の深さに対するひずみ・圧縮の影響と、Ti–O結合の電子状態を調べます。"
+msgstr ""
+"We include cooperative displacements of Ba, Ti, and O and examine how "
+"strain and compression affect the well depth, as well as the electronic "
+"states of the Ti–O bond."
+
+#: ../../BaTiO3/index.rst:38
+#, python-brace-format
+msgid ":numref:`{number}. {name} <batio3-doc-phase-transition>`"
+msgstr ":numref:`{number}. {name} <batio3-doc-phase-transition>`"
+
+#: ../../BaTiO3/index.rst:40
+msgid "昇温時のTiの局所変位と格子定数から相を判定し、3つの機械学習モデルで相の順序と転移温度を比較します。"
+msgstr ""
+"We use the local displacements of Ti and lattice constants during heating"
+" to identify the phases and compare the phase sequence and transition "
+"temperatures across three machine-learning models."
+

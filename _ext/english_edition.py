@@ -12,12 +12,24 @@ import re
 from pathlib import Path
 
 from docutils import nodes
+from docutils.parsers.rst.directives.misc import Raw
 from sphinx.util import logging
 
 logger = logging.getLogger(__name__)
 
 PUBLISHED_LIST = 'locales/en/published.txt'
 JAPANESE_TEXT = re.compile(r'[\u3040-\u30ff\u3400-\u9fff]')
+
+
+class TranslatableRaw(Raw):
+    """Opt a raw block with reader-facing text into Sphinx gettext."""
+
+    def run(self):
+        raw_nodes = super().run()
+        for node in raw_nodes:
+            if isinstance(node, nodes.raw):
+                node['translatable'] = True
+        return raw_nodes
 
 
 def read_published(confdir):
@@ -169,6 +181,19 @@ def mark_untranslated(app, env):
         if link is not None:
             link += _japanese_only_mark()
 
+    # The standard domain supplies {name} for numbered references to articles.
+    # Use the same English title and marker as the toctree for those labels.
+    labels = env.domains.standard_domain.labels
+    article_ids = {}
+    for label, (docname, anchor, _title) in list(labels.items()):
+        if docname not in app.quloud_english_titles:
+            continue
+        if docname not in article_ids:
+            article = next(iter(env.get_doctree(docname).findall(nodes.section)), None)
+            article_ids[docname] = article['ids'] if article is not None else ()
+        if anchor in article_ids[docname]:
+            labels[label] = docname, anchor, env.titles[docname].astext()
+
 
 def check_published(app, env):
     if app.config.language != 'en':
@@ -289,6 +314,7 @@ def builder_inited(app):
 
 
 def setup(app):
+    app.add_directive('translatable-raw', TranslatableRaw)
     app.add_config_value('quloud_japanese_baseurl', '', 'html')
     app.add_config_value('quloud_english_baseurl', '', 'html')
     app.connect('builder-inited', builder_inited)
