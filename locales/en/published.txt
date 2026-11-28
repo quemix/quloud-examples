@@ -17,3 +17,7 @@ kpoints/reproduction
 co2_ir/index
 co2_ir/ir_spectrum
 co2_ir/reproduction
+gas_laws/index
+gas_laws/argon_molar_volume
+gas_laws/five_gases_avogadro
+gas_laws/reproduction

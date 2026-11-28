@@ -1,0 +1,552 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:06+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../gas_laws/five_gases_avogadro.rst:3
+msgid "気体の種類が違っても、1 molの体積はほぼ同じ？"
+msgstr "Do Different Gases Have Nearly the Same Volume per Mole?"
+
+#: ../../gas_laws/five_gases_avogadro.rst:5
+msgid ""
+"水素は軽く、二酸化炭素は重い気体です。\\ それでも高校の化学では、同じ温度と圧力なら、どちらも1 molの体積はほぼ同じだと習います。\\ "
+"重い分子と軽い分子の違いは、どこへ行くのでしょうか。"
+msgstr ""
+"Hydrogen is a light gas and carbon dioxide is a heavy one. \\ Yet in high"
+" school chemistry, we learn that a mole of either gas occupies nearly the"
+" same volume at the same temperature and pressure. \\ Where does the "
+"difference between light and heavy molecules show up?"
+
+#: ../../gas_laws/five_gases_avogadro.rst:9
+msgid ""
+"前回の :doc:`argon_molar_volume` では、Arの体積を変えて圧力を調べました。\\ "
+"今回はセルの大きさと分子数をそろえ、気体の種類だけを変えて、分子の速さと圧力を比べてみましょう。"
+msgstr ""
+"In the previous part, :doc:`argon_molar_volume`, we examined how pressure"
+" changes with the volume of Ar. \\ Here we keep the cell size and number "
+"of molecules the same and vary only the gas species to compare molecular "
+"speeds and pressures."
+
+#: ../../gas_laws/five_gases_avogadro.rst:13
+msgid "計算対象と計算条件"
+msgstr "Systems and Calculation Conditions"
+
+#: ../../gas_laws/five_gases_avogadro.rst:15
+msgid ""
+"今回比較するのは、H₂、N₂、O₂、Ar、CO₂の5種類です。\\ 使った分子モデルを :numref:`fig-five-gas-models`"
+" に示します。\\ Arは1原子が1個の気体粒子に相当するので、ここでは他の気体と合わせて粒子数を「分子数」と呼びます。"
+msgstr ""
+"We compare five gases: H₂, N₂, O₂, Ar, and CO₂. \\ The molecular models "
+"are shown in :numref:`fig-five-gas-models`. \\ Each Ar atom counts as one"
+" gas particle. We use “number of molecules” for the particle count across"
+" all five gases."
+
+#: ../../gas_laws/five_gases_avogadro.rst:24
+msgid ""
+"各気体の440 ps時点の保存座標から代表1分子を取り出し、分子の平面を紙面に合わせて回転した図です。\\ "
+"結合距離の表示スケールは5種で共通です。球の半径は表示用の0.022 nmで、原子の物理的な大きさを表しません。\\ "
+"右の数値はモデルの原子質量を足したモル質量（g/mol）です。\\ "
+"CO₂は登録モデルの角度に少し曲がる自由度があり、その保存座標の曲がりも保持しています。"
+msgstr ""
+"The figure shows one representative molecule of each gas from the "
+"coordinates saved at 440 ps, with the molecular plane rotated into the "
+"plane of the figure. \\ Bond distances are drawn to the same scale for "
+"all five gases. Spheres have a display radius of 0.022 nm and do not "
+"represent the physical sizes of the atoms. \\ The values on the right are"
+" molar masses (g/mol), obtained by summing the atomic masses in each "
+"model. \\ The registered CO₂ model allows the molecule to bend slightly. "
+"The figure retains this bend from the saved coordinates."
+
+#: ../../gas_laws/five_gases_avogadro.rst:29
+msgid ""
+"条件を :numref:`tab-five-gas-conditions` にまとめます。\\ "
+"H₂・N₂・O₂を2,000原子にするのは、1,000分子をそろえるためです。\\ "
+"原子数を全部1,000個にそろえてしまうと、気体粒子の数が変わります。"
+msgstr ""
+":numref:`tab-five-gas-conditions` summarizes the conditions. \\ We use "
+"2,000 atoms each for H₂, N₂, and O₂ to give 1,000 molecules of each gas. "
+"\\ Using 1,000 atoms for every gas would give different numbers of gas "
+"particles."
+
+#: ../../gas_laws/five_gases_avogadro.rst:33
+msgid "5気体の比較条件"
+msgstr "Conditions for comparing the five gases"
+
+#: ../../gas_laws/five_gases_avogadro.rst:39
+msgid "項目"
+msgstr "Item"
+
+#: ../../gas_laws/five_gases_avogadro.rst:40
+msgid "条件"
+msgstr "Conditions"
+
+#: ../../gas_laws/five_gases_avogadro.rst:41
+msgid "分子数"
+msgstr "Number of molecules"
+
+#: ../../gas_laws/five_gases_avogadro.rst:42
+msgid "各1,000。原子数はAr：1,000、H₂・N₂・O₂：各2,000、CO₂：3,000"
+msgstr ""
+"1,000 each, with 1,000 atoms for Ar, 2,000 each for H₂, N₂, and O₂, and "
+"3,000 for CO₂"
+
+#: ../../gas_laws/five_gases_avogadro.rst:43
+msgid "温度・セル"
+msgstr "Temperature and cell"
+
+#: ../../gas_laws/five_gases_avogadro.rst:44
+msgid "273.15 K、一辺33.3879144 nmの立方体、3方向周期境界"
+msgstr ""
+"273.15 K, cubic cell 33.3879144 nm on a side, periodic boundary "
+"conditions in all three directions"
+
+#: ../../gas_laws/five_gases_avogadro.rst:45
+msgid "計算方法"
+msgstr "Calculation method"
+
+#: ../../gas_laws/five_gases_avogadro.rst:46
+msgid "GROMACS 2026.2標準混合精度版、WSLローカルCPU、NVT、確率的動力学による温度制御"
+msgstr ""
+"Standard mixed-precision GROMACS 2026.2, local CPU on WSL, NVT, "
+"temperature control by stochastic dynamics"
+
+#: ../../gas_laws/five_gases_avogadro.rst:47
+msgid "時間刻み"
+msgstr "Time step"
+
+#: ../../gas_laws/five_gases_avogadro.rst:48
+msgid "H₂：0.5 fs、ほかの4種：2 fs"
+msgstr "0.5 fs for H₂, 2 fs for the other four gases"
+
+#: ../../gas_laws/five_gases_avogadro.rst:49
+msgid "測定区間"
+msgstr "Production period"
+
+#: ../../gas_laws/five_gases_avogadro.rst:50
+msgid "全440 psのうち40 psより後の400 ps。各3シード"
+msgstr "400 ps after the first 40 ps of the 440 ps run. Three seeds for each gas"
+
+#: ../../gas_laws/five_gases_avogadro.rst:51
+msgid "分子内の運動"
+msgstr "Intramolecular motion"
+
+#: ../../gas_laws/five_gases_avogadro.rst:52
+msgid "H₂・N₂・O₂は結合長を拘束。CO₂はC–Oを2本拘束し、角度には調和ポテンシャル"
+msgstr ""
+"Bond lengths constrained for H₂, N₂, and O₂. Two C–O bonds constrained "
+"and a harmonic potential for the bond angle in CO₂"
+
+#: ../../gas_laws/five_gases_avogadro.rst:54
+msgid ""
+"計算には、それぞれの気体についてQuloudに登録されているモデルを使います。\\ "
+"とくにCO₂は文献の完全剛体TraPPEから変更されたモデルです。\\ モデルと数値条件の詳細、Quloudの標準設定との差は "
+":doc:`reproduction` にまとめています。"
+msgstr ""
+"We use the models registered in Quloud for each gas. \\ In particular, "
+"the CO₂ model is a modification of the fully rigid TraPPE model from the "
+"literature. \\ The model details, numerical settings, and departures from"
+" the standard Quloud settings are documented in :doc:`reproduction`."
+
+#: ../../gas_laws/five_gases_avogadro.rst:59
+msgid "分子の重心速度"
+msgstr "Molecular Center-of-Mass Velocity"
+
+#: ../../gas_laws/five_gases_avogadro.rst:61
+msgid ""
+"軽い気体の分子は、重い気体の分子より速く動くと予想されます。\\ "
+"ただし、H₂やCO₂の原子の速度には、分子全体の移動に加えて回転や内部の動きも混ざります。\\ "
+"そこで、分子ごとに原子の速度を質量で重み付けし、分子全体の重心の速度を取り出します。"
+msgstr ""
+"We expect molecules of lighter gases to move faster than those of heavier"
+" gases. \\ However, the velocities of the atoms in H₂ or CO₂ include "
+"rotation and internal motion as well as translation of the whole "
+"molecule. \\ For each molecule, we therefore take the mass-weighted "
+"average of the atomic velocities to obtain its center-of-mass velocity."
+
+#: ../../gas_laws/five_gases_avogadro.rst:65
+msgid ""
+"速さを比べる指標には、重心速度の二乗を分子と時刻について平均した後に平方根を取る、\\ 二乗平均平方根速度 "
+":math:`v_{\\mathrm{rms}}` を使います。\\ 理想気体の理論式は、モル質量 :math:`M` "
+"をkg/molで表すと次のようになります。"
+msgstr ""
+"To compare speeds, we average the squared magnitude of the center-of-mass"
+" velocity over molecules and time \\ and take the square root to obtain "
+"the root-mean-square speed :math:`v_{\\mathrm{rms}}`. \\ For an ideal "
+"gas, with molar mass :math:`M` in kg/mol, this is given by"
+
+#: ../../gas_laws/five_gases_avogadro.rst:69
+msgid ""
+"\\begin{aligned}\n"
+"v_{\\mathrm{rms}}&=\\sqrt{\\langle|\\boldsymbol{v}_{\\mathrm{COM}}|^2\\rangle}\\\\"
+"\n"
+"&=\\sqrt{\\frac{3RT}{M}}.\n"
+"\\end{aligned}"
+msgstr ""
+"\\begin{aligned}\n"
+"v_{\\mathrm{rms}}&=\\sqrt{\\langle|\\boldsymbol{v}_{\\mathrm{COM}}|^2\\rangle}\\\\"
+"\n"
+"&=\\sqrt{\\frac{3RT}{M}}.\n"
+"\\end{aligned}"
+
+#: ../../gas_laws/five_gases_avogadro.rst:77
+msgid ""
+"理論値とMDの測定値を :numref:`tab-five-gas-speeds` と :numref:`fig-five-gas-speeds`"
+" で比較します。\\ 理論値にはモデルが持つ原子質量の合計を用いており、MDの速度から理論線を調整してはいません。"
+msgstr ""
+":numref:`tab-five-gas-speeds` and :numref:`fig-five-gas-speeds` compare "
+"the theoretical values and MD measurements. \\ The theoretical values use"
+" the sum of the atomic masses in each model. The MD velocities were not "
+"used to adjust the theoretical curve."
+
+#: ../../gas_laws/five_gases_avogadro.rst:80
+msgid "分子の重心の二乗平均平方根速度"
+msgstr "Molecular center-of-mass root-mean-square speed"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "気体"
+msgstr "Gas"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "モル質量（g/mol）"
+msgstr "Molar mass (g/mol)"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "理論値（m/s）"
+msgstr "Theoretical value (m/s)"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "MD平均±標準誤差（m/s）"
+msgstr "MD mean ± standard error (m/s)"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "H2"
+msgstr "H2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "2.016"
+msgstr "2.016"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "1838.4"
+msgstr "1838.4"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "1837.1 ± 0.7"
+msgstr "1837.1 ± 0.7"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "N2"
+msgstr "N2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "28.014"
+msgstr "28.014"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "493.2"
+msgstr "493.2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "492.8 ± 0.2"
+msgstr "492.8 ± 0.2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "O2"
+msgstr "O2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "31.998"
+msgstr "31.998"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "461.4"
+msgstr "461.4"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "461.1 ± 0.2"
+msgstr "461.1 ± 0.2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "Ar"
+msgstr "Ar"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "39.948"
+msgstr "39.948"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "413.0"
+msgstr "413.0"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "413.0 ± 0.2"
+msgstr "413.0 ± 0.2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "CO2"
+msgstr "CO2"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "44.009"
+msgstr "44.009"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "393.5"
+msgstr "393.5"
+
+#: ../../gas_laws/analysis/speed_table.csv:1
+msgid "393.4 ± 0.2"
+msgstr "393.4 ± 0.2"
+
+#: ../../gas_laws/five_gases_avogadro.rst:93
+msgid ""
+"横軸はモル質量（g/mol）、縦軸は分子重心の二乗平均平方根速度（m/s）です。\\ 点と誤差棒は :numref:`tab-five-gas-"
+"speeds` のMD平均と1標準誤差、曲線は式 :eq:`eq-gas-speed` による273.15 Kの事前予測です。\\ "
+"速さはTRRの保存速度とTPRの分子ID・質量から求めています。\\ 原子速度や、保存座標の有限差分から求めた値ではありません。"
+msgstr ""
+"The horizontal axis shows molar mass (g/mol), and the vertical axis shows"
+" molecular center-of-mass root-mean-square speed (m/s). \\ Points and "
+"error bars show the MD means and one standard error from :numref:`tab-"
+"five-gas-speeds`. The curve is the a priori prediction at 273.15 K from "
+"Equation :eq:`eq-gas-speed`. \\ We obtained the speeds from saved TRR "
+"velocities and molecule IDs and masses in the TPR. \\ The plotted speeds "
+"are distinct from atomic speeds and were not obtained by finite "
+"differences of the saved coordinates."
+
+#: ../../gas_laws/five_gases_avogadro.rst:98
+msgid ""
+"MDの速さは、どの気体でも理論値と0.1%以内で一致しました。\\ 軽い分子ほど速く、重い分子ほどゆっくり動きます。\\ "
+"ただし、今回の温度制御は各原子に温度に応じた揺らぎを直接与え、熱平衡の速度分布へ近づける方法です [2]_ 。\\ "
+"この一致は、そのように作った分布から分子全体の運動を正しく取り出せることを確認したものです。\\ "
+"分子どうしの衝突だけで、この関係が生まれる過程を独立に示したものではありません。"
+msgstr ""
+"The MD speeds agreed with the theoretical values to within 0.1% for every"
+" gas. \\ Lighter molecules move faster and heavier ones move more slowly."
+" \\ However, the temperature control used here applies temperature-"
+"dependent fluctuations directly to each atom to approach a thermal "
+"equilibrium velocity distribution [2]_. \\ This agreement confirms that "
+"the motion of the whole molecule can be correctly recovered from a "
+"distribution generated in this way. \\ It does not independently show how"
+" the relationship arises from collisions between molecules alone."
+
+#: ../../gas_laws/five_gases_avogadro.rst:105
+msgid "圧力とアボガドロの法則"
+msgstr "Pressure and Avogadro’s Law"
+
+#: ../../gas_laws/five_gases_avogadro.rst:107
+msgid ""
+"では、速さがこれだけ違う分子を同じ数だけ入れたとき、圧力はどうなるでしょうか。\\ "
+"今回の分子数・温度・体積について、理想気体の予測は約1.01325 barです。\\ "
+"MDの圧力は、速度から理想気体の式で作るのではなく、GROMACSのEDRに保存された ``Pressure`` を直接読み取ります。"
+msgstr ""
+"What happens to pressure when we use equal numbers of molecules with such"
+" different speeds? \\ For the number of molecules, temperature, and "
+"volume used here, the ideal gas prediction is about 1.01325 bar. \\ We "
+"read the MD pressure directly from the ``Pressure`` entry in the GROMACS "
+"EDR file. We do not use the ideal gas equation to derive pressure from "
+"the velocities."
+
+#: ../../gas_laws/five_gases_avogadro.rst:111
+msgid "結果を :numref:`fig-five-gas-pressure` に示します。"
+msgstr ":numref:`fig-five-gas-pressure` shows the results."
+
+#: ../../gas_laws/five_gases_avogadro.rst:118
+msgid ""
+"横軸は5種類の気体、縦軸は圧力（bar）です。\\ "
+"塗りつぶした丸は標準混合精度、白抜きの四角は倍精度の参考計算による各3シードのSD平均です。\\ "
+"横位置を少しずらして示しています。誤差棒は1統計標準誤差で、この表示幅ではほぼ記号の中に収まります。\\ 時間刻みはどちらもH₂が0.5 "
+"fs、ほかは2 fsです。CO₂のLINCSは混合精度が次数4・反復1、倍精度が次数8・反復2です。\\ "
+"倍精度版はQuloudの標準環境とは異なるローカル検証用の実行環境です。\\ 破線は理想気体の予測1.01325 "
+"barです。圧力の全体の大きさを比べるため、縦軸を0から表示しています。\\ "
+"気体ごとの微小な差の数値収束は確認できていないため、拡大した比較は行いません。"
+msgstr ""
+"The horizontal axis shows the five gas species, and the vertical axis "
+"shows pressure (bar). \\ Filled circles show standard mixed-precision "
+"results, and open squares show reference double-precision results, all "
+"from SD simulations averaged over three seeds per gas. \\ The points are "
+"slightly offset horizontally. The error bars show one statistical "
+"standard error and mostly fit within the markers at this scale. \\ Both "
+"sets use a time step of 0.5 fs for H₂ and 2 fs for the other gases. For "
+"CO₂, LINCS uses order 4 and one iteration in mixed precision and order 8 "
+"and two iterations in double precision. \\ The double-precision results "
+"come from a local validation build that differs from Quloud’s standard "
+"environment. \\ The dashed line marks the ideal gas prediction of 1.01325"
+" bar. The vertical axis starts at zero so that the overall pressure "
+"magnitudes can be compared. \\ We do not show a zoomed comparison because"
+" numerical convergence of the small differences between gases has yet to "
+"be verified."
+
+#: ../../gas_laws/five_gases_avogadro.rst:126
+msgid ""
+"分子の速さが大きく違っても、表に示した時間刻みでの圧力は、5種類とも理想気体の予測から1%以内でした。\\ "
+"これは、同じ温度と圧力で同じ体積の気体に含まれる分子数が等しいという、アボガドロの法則の考え方につながります。\\ "
+"ここでは体積を固定して圧力を比べたので、各気体について1 atmの体積そのものをフィットしたわけではありません。"
+msgstr ""
+"Despite the large differences in molecular speed, the pressure at the "
+"tabulated time steps was within 1% of the ideal gas prediction for all "
+"five gases. \\ This illustrates the idea behind Avogadro’s law: equal "
+"volumes of gases at the same temperature and pressure contain the same "
+"number of molecules. \\ We compared pressures at a fixed volume, without "
+"fitting the volume of each gas at 1 atm."
+
+#: ../../gas_laws/five_gases_avogadro.rst:130
+msgid ""
+"ただし、拘束のある分子では、標準の混合精度で時間刻みを小さくすると、計算上の誤差で圧力が高くなる条件がありました。\\ H₂を0.25 "
+"fsにすると理想値から約+2.7%、CO₂を1 fsにすると約+7.3%になり、「1%以内」から外れます。\\ "
+"ここで示した値は表の時間刻みで得たもので、倍精度の参考計算でも5種類とも1%以内でした。\\ "
+"H₂の倍精度では刻みを半分にした対照とも統計誤差の範囲で一致していますが、混合精度の圧力の収束を保証する結果ではありません。\\ "
+"1%未満の違いも精度や拘束の計算条件で変わるため、気体ごとの性質の差とは考えません。\\ 数値と対照条件は :doc:`reproduction`"
+" にまとめています。"
+msgstr ""
+"However, for molecules with constraints, we found conditions where "
+"reducing the time step in standard mixed precision increased the pressure"
+" through numerical error. \\ With a time step of 0.25 fs for H₂ or 1 fs "
+"for CO₂, the pressure differed from the ideal value by about +2.7% or "
+"+7.3%, respectively, outside the 1% range. \\ The results shown here use "
+"the tabulated time steps, and the double-precision reference calculations"
+" at those steps were also within 1% for all five gases. \\ For H₂ in "
+"double precision, the control with half the time step agreed within "
+"statistical error, but this does not guarantee convergence of the mixed-"
+"precision pressures. \\ Even differences of less than 1% vary with "
+"calculation settings for precision and constraints, so we do not "
+"interpret them as differences in gas properties. \\ The numerical results"
+" and control conditions are documented in :doc:`reproduction`."
+
+#: ../../gas_laws/five_gases_avogadro.rst:138
+msgid "分子の質量と運動エネルギー"
+msgstr "Molecular Mass and Kinetic Energy"
+
+#: ../../gas_laws/five_gases_avogadro.rst:140
+msgid "理想気体では、圧力と分子の重心運動の関係を、分子1個の質量を :math:`m` として\\ 次のように書けます。"
+msgstr ""
+"For an ideal gas, the relationship between pressure and molecular center-"
+"of-mass motion, where :math:`m` denotes the mass of one molecule, \\ is "
+"given by"
+
+#: ../../gas_laws/five_gases_avogadro.rst:143
+msgid ""
+"\\begin{aligned}\n"
+"P&=\\frac{1}{3}\\frac{N}{V}m\\langle v_{\\mathrm{COM}}^2\\rangle,\\\\\n"
+"m\\langle v_{\\mathrm{COM}}^2\\rangle&=3k_{\\mathrm B}T.\n"
+"\\end{aligned}"
+msgstr ""
+"\\begin{aligned}\n"
+"P&=\\frac{1}{3}\\frac{N}{V}m\\langle v_{\\mathrm{COM}}^2\\rangle,\\\\\n"
+"m\\langle v_{\\mathrm{COM}}^2\\rangle&=3k_{\\mathrm B}T.\n"
+"\\end{aligned}"
+
+#: ../../gas_laws/five_gases_avogadro.rst:150
+msgid "周期境界のセルには壁がありませんが、仮想的な面を横切る運動量の流れとしても同じ式を考えることができます。"
+msgstr ""
+"Although the cell with periodic boundary conditions has no walls, the "
+"same equation can be understood in terms of momentum flux across an "
+"imaginary surface."
+
+#: ../../gas_laws/five_gases_avogadro.rst:152
+#, python-brace-format
+msgid ""
+"質量が大きくなると、同じ温度での速さの二乗は小さくなります。\\ この二つを掛けた量は一定なので、式を合わせると\\ "
+":math:`P=Nk_{\\mathrm B}T/V` となり、質量は式から消えます。\\ "
+"重い分子がゆっくり動くことが、同じ温度でほぼ同じ圧力になることと両立するのです。"
+msgstr ""
+"At the same temperature, a larger mass means a lower mean squared speed. "
+"\\ The product of the two is constant, so combining the equations gives "
+"\\ :math:`P=Nk_{\\mathrm B}T/V` and the mass cancels. \\ This is how "
+"heavier molecules can move more slowly and still give nearly the same "
+"pressure at the same temperature."
+
+#: ../../gas_laws/five_gases_avogadro.rst:157
+msgid ""
+"この説明は、分子間の力を無視できる希薄な気体についての近似です。\\ GROMACSの圧力には分子間力や拘束力の寄与も含まれます [1]_ 。\\"
+" また、分子の回転や変角の運動は、分子全体の並進と区別しなければなりません。\\ "
+"全体の温度の表示だけを確認しても、これらの間に熱が十分行き渡ったとは限らない点に注意が必要です。"
+msgstr ""
+"This explanation is an approximation for a dilute gas whose "
+"intermolecular forces can be neglected. \\ The GROMACS pressure also "
+"includes contributions from intermolecular and constraint forces [1]_. \\"
+" Molecular rotation and bending must also be distinguished from "
+"translation of the molecule as a whole. \\ Checking only the reported "
+"overall temperature cannot establish that these modes have equilibrated "
+"with one another."
+
+#: ../../gas_laws/five_gases_avogadro.rst:163
+msgid "温度制御と数値精度"
+msgstr "Temperature Control and Numerical Precision"
+
+#: ../../gas_laws/five_gases_avogadro.rst:165
+msgid ""
+"この例題を準備する際、Quloudの既定と同じ、全体の温度を一定に保つV-rescaleでも計算しました。\\ "
+"するとCO₂では全体の温度が約273 Kでも、重心の速さは約440〜443 m/sで理論値より約12%速く、圧力も約1.27 "
+"barになりました。\\ "
+"希薄な気体では分子どうしの衝突がまれなため、並進と回転（CO₂では変角も）の間で熱が十分行き渡っていないと考えられます。\\ "
+"そこで、各原子に熱浴を作用させる確率的動力学（SD）へ変更しました。\\ 採用しなかった計算も含めた温度・速さ・圧力を "
+":doc:`reproduction` に載せています。"
+msgstr ""
+"While preparing this example, we also ran calculations with V-rescale, "
+"the Quloud default, which keeps the overall temperature constant. \\ For "
+"CO₂, even though the overall temperature was about 273 K, the center-of-"
+"mass speed was about 440–443 m/s, roughly 12% above the theoretical "
+"value, and the pressure reached about 1.27 bar. \\ Collisions between "
+"molecules are rare in a dilute gas, so heat may not have been fully "
+"distributed among translation, rotation, and, for CO₂, bending. \\ We "
+"therefore switched to stochastic dynamics (SD), which applies a heat bath"
+" to each atom. \\ Temperatures, speeds, and pressures, including those "
+"from runs we did not use, are listed in :doc:`reproduction`."
+
+#: ../../gas_laws/five_gases_avogadro.rst:171
+msgid ""
+"今回のSDは緩和時間0.1 psの強い熱浴を使っています。\\ "
+"速さの分布を比べる数値実験であり、実際の分子の飛び方や衝突時間を再現する計算としては使いません。"
+msgstr ""
+"The SD calculations used a strong heat bath with a relaxation time of 0.1"
+" ps. \\ This numerical experiment compares speed distributions. It is not"
+" intended to reproduce the actual motion or collision times of real "
+"molecules."
+
+#: ../../gas_laws/five_gases_avogadro.rst:174
+msgid ""
+"今回の結果は、登録モデルによる希薄な古典気体の数値実験です。\\ "
+"H₂の量子力学的な回転・振動や、実在気体の高精度な状態方程式まで再現するものではありません。\\ "
+"さらに圧縮した条件は、相互作用やモデルの限界も強く出る、別の実験として調べる必要があります。"
+msgstr ""
+"These results describe a numerical experiment on dilute classical gases "
+"using the registered models. \\ The calculations do not reproduce quantum"
+" rotation or vibration in H₂ or provide a high-precision equation of "
+"state for real gases. \\ More compressed conditions require a separate "
+"experiment, because interactions and the limitations of the models become"
+" more pronounced."
+
+#: ../../gas_laws/five_gases_avogadro.rst:178
+msgid ""
+"GROMACS 2026.2, `Molecular Dynamics <https://manual.gromacs.org/2026.2"
+"/reference-manual/algorithms/molecular-dynamics.html>`__ 。モデルの文献は "
+":doc:`reproduction` を参照してください。"
+msgstr ""
+"GROMACS 2026.2, `Molecular Dynamics <https://manual.gromacs.org/2026.2"
+"/reference-manual/algorithms/molecular-dynamics.html>`__. See "
+":doc:`reproduction` for references for the models."
+
+#: ../../gas_laws/five_gases_avogadro.rst:179
+msgid ""
+"GROMACS 2026.2, `Stochastic Dynamics <https://manual.gromacs.org/2026.2"
+"/reference-manual/algorithms/stochastic-dynamics.html>`__ 。"
+msgstr ""
+"GROMACS 2026.2, `Stochastic Dynamics <https://manual.gromacs.org/2026.2"
+"/reference-manual/algorithms/stochastic-dynamics.html>`__"
+

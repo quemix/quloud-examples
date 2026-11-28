@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 17:06+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../gas_laws/index.rst:3
+msgid "標準状態の気体の体積"
+msgstr "Gas Volume at Standard Temperature and Pressure (0 °C, 1 atm)"
+
+#: ../../gas_laws/index.rst:5
+msgid ""
+"「0 ℃、1気圧で気体1 molは約22.4 L」という関係を、\\ 小さな計算セルに入れた気体の運動と圧力から調べます。\\ "
+"第1回ではArの体積を変え、第2回では分子の種類を変えて比較します。"
+msgstr ""
+"At 0 °C and 1 atm, one mole of gas occupies about 22.4 L. \\ We examine "
+"this relationship through the motion and pressure of a gas in a small "
+"simulation cell. \\ In Part 1, we vary the volume of Ar. In Part 2, we "
+"compare different gas species."
+
+#: ../../gas_laws/index.rst:11
+msgid ":doc:`第1回 気体1 molはなぜ22.4 Lなのか？ <argon_molar_volume>`"
+msgstr ""
+":doc:`Part 1: Why Does One Mole of Gas Occupy 22.4 L? "
+"<argon_molar_volume>`"
+
+#: ../../gas_laws/index.rst:12
+msgid ":doc:`第2回 気体の種類が違っても、1 molの体積はほぼ同じ？ <five_gases_avogadro>`"
+msgstr ""
+":doc:`Part 2: Do Different Gases Have Nearly the Same Volume per Mole? "
+"<five_gases_avogadro>`"
+
+#: ../../gas_laws/index.rst:13
+msgid ":doc:`計算条件と再現手順 <reproduction>`"
+msgstr ":doc:`Calculation Conditions and Reproduction Procedure <reproduction>`"
+
