@@ -47,7 +47,7 @@
   "Cu・Siのk点サンプリングと収束目次": "k-Point Sampling and Convergence for Cu and Si",
   "DFT と MLIP の比較": "Comparison of DFT and MLIP",
   "DFTと機械学習原子間ポテンシャルで、安定な結晶構造と温度による構造相転移を調べます。": "Uses DFT and machine-learning interatomic potentials to study the stable crystal structures and the temperature-driven structural phase transitions.",
-  "DOS/PDOS と Cohen 1992 Figure 2 との比較": "Comparison of DOS/PDOS with Cohen 1992 Figure 2",
+  "DOS/PDOS と Cohen 1992 Figure 2 との比較": "Comparison of DOS/PDOS with Fig. 2 of Cohen (1992)",
   "FairChem：固定格子・原子座標緩和": "FairChem: Fixed-Lattice Relaxation of Atomic Coordinates",
   "GROMACSで希薄気体を計算し、Arの体積と圧力の関係や、気体の種類による違いを調べます。": "Uses GROMACS to simulate dilute gases, examine how the volume and pressure of Ar are related, and compare different gas species.",
   "GaN(0001)の表面相図": "GaN(0001) Surface Phase Diagram",

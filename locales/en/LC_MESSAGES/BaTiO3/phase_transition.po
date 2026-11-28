@@ -1,0 +1,724 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 19:01+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../BaTiO3/phase_transition.rst:5
+msgid "構造相転移"
+msgstr "Structural Phase Transitions"
+
+#: ../../BaTiO3/phase_transition.rst:7
+msgid ""
+"BaTiO₃ の結晶相の順序と転移温度を、`機械学習原子間ポテンシャル <https://technical-"
+"notes.quemix.com/md/mlip.html>`__\\ でどこまで再現できるでしょうか。\\ Quloud の GPU "
+"で分子動力学（MD）による昇温計算を行い、Ti の局所変位と格子定数から相を判定しました。"
+msgstr ""
+"How well can `machine-learning interatomic potentials <https://technical-"
+"notes.quemix.com/md/mlip.html>`__ \\  reproduce the phase sequence and "
+"transition temperatures of BaTiO₃? \\  We ran molecular dynamics (MD) "
+"heating simulations on Quloud GPUs and identified the phases from local "
+"displacements of Ti and lattice constants."
+
+#: ../../BaTiO3/phase_transition.rst:10
+msgid ""
+"UMA-S と SevenNet では、実験と同じ **菱面体晶（R）→ 斜方晶（O）→ 正方晶（T）→ 立方晶（C）** "
+"の順に相が現れました。\\ CHGNet では最低温から斜方晶で、菱面体晶は確認できませんでした。\\ 3 "
+"モデルとも、正方晶から立方晶に変わる温度は、実験値の 393 K を 400 K 以上上回りました。"
+msgstr ""
+"UMA-S and SevenNet produced the same phase sequence as the experiment: "
+"**rhombohedral (R) → orthorhombic (O) → tetragonal (T) → cubic (C)**. \\"
+"  CHGNet gave the orthorhombic phase from the lowest temperature, and we "
+"did not observe the rhombohedral phase. \\  In all three models, the "
+"tetragonal-to-cubic transition temperature exceeded the experimental "
+"value of 393 K by at least 400 K."
+
+#: ../../BaTiO3/phase_transition.rst:17
+msgid "Quloud GPU で得た転移温度"
+msgstr "Transition Temperatures Obtained on Quloud GPUs"
+
+#: ../../BaTiO3/phase_transition.rst:19
+msgid ""
+"UMA-S（FairChem の UMA モデル、タスク ``omat``）、SevenNet（7net-ompa）、CHGNet "
+"で、圧力を制御しながら温度を上げる NPT 昇温計算を行いました（アンサンブルは技術ノートの\\ `NVE・NVT・NPTで固定する量 "
+"<https://technical-notes.quemix.com/md/ensembles.html#statistical-"
+"ensembles>`__）。\\ 3 モデルともセルサイズは 8 × 8 × 8（2560 原子）、昇温速度は 10 K/ps としました。"
+msgstr ""
+"With UMA-S (the FairChem UMA model, task ``omat``), SevenNet (7net-ompa),"
+" and CHGNet, we ran NPT heating simulations, raising the temperature "
+"while controlling pressure (for the ensembles, see \\  `quantities held "
+"fixed in NVE, NVT, and NPT <https://technical-"
+"notes.quemix.com/md/ensembles.html#statistical-ensembles>`__ in the "
+"Technical Notes). \\  For all three models, we set the cell size to 8 × 8"
+" × 8 (2560 atoms) and the heating rate to 10 K/ps."
+
+#: ../../BaTiO3/phase_transition.rst:22
+msgid "昇温軌跡から読み取った転移温度と実験値（K）"
+msgstr ""
+"Transition temperatures from the heating trajectories and experimental "
+"values (K)"
+
+#: ../../BaTiO3/phase_transition.rst:29
+msgid "モデル・参照値"
+msgstr "Model or reference value"
+
+#: ../../BaTiO3/phase_transition.rst:30 ../../BaTiO3/phase_transition.rst:182
+msgid "R→O"
+msgstr "R→O"
+
+#: ../../BaTiO3/phase_transition.rst:31 ../../BaTiO3/phase_transition.rst:183
+msgid "O→T"
+msgstr "O→T"
+
+#: ../../BaTiO3/phase_transition.rst:32 ../../BaTiO3/phase_transition.rst:184
+msgid "T→C"
+msgstr "T→C"
+
+#: ../../BaTiO3/phase_transition.rst:33
+msgid "UMA-S"
+msgstr "UMA-S"
+
+#: ../../BaTiO3/phase_transition.rst:34
+msgid "188"
+msgstr "188"
+
+#: ../../BaTiO3/phase_transition.rst:35
+msgid "489"
+msgstr "489"
+
+#: ../../BaTiO3/phase_transition.rst:36
+msgid "824"
+msgstr "824"
+
+#: ../../BaTiO3/phase_transition.rst:37
+msgid "SevenNet"
+msgstr "SevenNet"
+
+#: ../../BaTiO3/phase_transition.rst:38
+msgid "223"
+msgstr "223"
+
+#: ../../BaTiO3/phase_transition.rst:39
+msgid "441"
+msgstr "441"
+
+#: ../../BaTiO3/phase_transition.rst:40
+msgid "851"
+msgstr "851"
+
+#: ../../BaTiO3/phase_transition.rst:41
+msgid "CHGNet"
+msgstr "CHGNet"
+
+#: ../../BaTiO3/phase_transition.rst:42
+msgid "検出なし"
+msgstr "Not detected"
+
+#: ../../BaTiO3/phase_transition.rst:43
+msgid "390"
+msgstr "390"
+
+#: ../../BaTiO3/phase_transition.rst:44
+msgid "827"
+msgstr "827"
+
+#: ../../BaTiO3/phase_transition.rst:45
+msgid "実験値 :sup:`[2]`"
+msgstr "Experimental values :sup:`[2]`"
+
+#: ../../BaTiO3/phase_transition.rst:46
+msgid "183"
+msgstr "183"
+
+#: ../../BaTiO3/phase_transition.rst:47
+msgid "278"
+msgstr "278"
+
+#: ../../BaTiO3/phase_transition.rst:48
+msgid "393"
+msgstr "393"
+
+#: ../../BaTiO3/phase_transition.rst:50
+msgid ""
+"UMA-S の R→O は実験値より 5 K、SevenNet は 40 K 高くなりました。\\ O→T は、モデルによって実験値より "
+"112～211 K 高くなりました。\\ 表の計算値は、有限のセルを一定の速度で昇温した 1 本の軌跡ごとに得た **見かけの転移温度** "
+"です。\\ 平衡での転移温度を評価するには、セルサイズや保持時間に加え、温度刻み、昇温速度、加熱と冷却による差を確認する必要があります "
+":sup:`[1,2]`\\ （技術ノートの\\ `軌跡から読む見かけの転移温度 <https://technical-"
+"notes.quemix.com/md/heating_simulation.html#apparent-transition-"
+"temperature>`__\\ と\\ `昇温速度・保持時間・セルサイズの影響 <https://technical-"
+"notes.quemix.com/md/heating_simulation.html#heating-rate-and-size>`__）。"
+msgstr ""
+"The R→O transition was 5 K above the experimental value for UMA-S and 40 "
+"K above it for SevenNet. \\  Depending on the model, the O→T transition "
+"was 112–211 K above the experimental value. \\  The calculated values in "
+"the table are **apparent transition temperatures** obtained from one "
+"heating trajectory per model for a finite cell at a constant rate. \\  "
+"Estimating equilibrium transition temperatures requires checking the "
+"temperature increment, the heating rate, and differences between heating "
+"and cooling, in addition to cell size and hold time :sup:`[1,2]` \\  (see"
+" \\  `apparent transition temperature from the trajectory <https"
+"://technical-notes.quemix.com/md/heating_simulation.html#apparent-"
+"transition-temperature>`__ \\  and \\  `effects of heating rate, hold "
+"time, and cell size <https://technical-"
+"notes.quemix.com/md/heating_simulation.html#heating-rate-and-size>`__ in "
+"the Technical Notes)."
+
+#: ../../BaTiO3/phase_transition.rst:55
+msgid "**転移温度の読み取り方**"
+msgstr "**How to read the transition temperatures**"
+
+#: ../../BaTiO3/phase_transition.rst:57
+msgid ""
+"上段の図は、Ti の変位方向が ab・bc・ac の各面に対してなす角度の温度微分（度/K）を示します。\\ "
+"角度微分の極大・極小は、変位の向きが急に変わる温度の目印になります。\\ 下段では、a・b・c "
+"軸の格子定数（Å）の分裂や入れ替わりを追います。\\ 両方の変化を照らし合わせ、各図の縦の破線で転移温度を示しました "
+":sup:`[1,2]`。\\ 画像を選ぶと、軸や凡例を拡大して確認できます。"
+msgstr ""
+"The upper panels show the temperature derivatives (degrees/K) of the "
+"angles that the Ti displacement direction makes with the ab, bc, and ac "
+"planes. \\  Maxima and minima in the angle derivatives mark temperatures "
+"at which the displacement direction changes abruptly. \\  The lower "
+"panels track lattice-parameter splitting and changes in the order of the "
+"a, b, and c lattice constants (Å). \\  We compared the two sets of "
+"changes and marked the transition temperatures with vertical dashed lines"
+" in each plot :sup:`[1,2]`. \\  Select an image to enlarge the axes and "
+"legends."
+
+#: ../../BaTiO3/phase_transition.rst:63
+msgid "UMA-S では、3 つの転移温度で角度微分が鋭く変化し、格子定数の分裂や入れ替わりが同じ温度帯に現れました。"
+msgstr ""
+"For UMA-S, the angle derivatives changed sharply at the three transition "
+"temperatures, and lattice-parameter splitting or changes in the order of "
+"the lattice constants appeared in the same temperature ranges."
+
+#: ../../BaTiO3/phase_transition.rst:65
+msgid "UMA-S の角度微分と格子定数に、188 K、489 K、824 K の相境界が見えます。"
+msgstr ""
+"The UMA-S angle derivatives and lattice constants show phase boundaries "
+"at 188 K, 489 K, and 824 K."
+
+#: ../../BaTiO3/phase_transition.rst:70
+msgid "UMA-S の昇温軌跡。上段は Ti 変位の角度微分、下段は各軸の格子定数。"
+msgstr ""
+"UMA-S heating trajectory. The upper panel shows the derivatives of the Ti"
+" displacement angles, and the lower panel shows the lattice constants "
+"along each axis."
+
+#: ../../BaTiO3/phase_transition.rst:72
+msgid ""
+"SevenNet も同じ順序で相が変わりました。対応する境界を UMA-S と比べると、R→O は 35 K 高く、O→T は 48 K "
+"低く、T→C は 27 K 高くなりました。"
+msgstr ""
+"SevenNet produced the same phase sequence. Relative to the corresponding "
+"temperatures for UMA-S, the R→O boundary for SevenNet was 35 K higher, "
+"the O→T boundary was 48 K lower, and the T→C boundary was 27 K higher."
+
+#: ../../BaTiO3/phase_transition.rst:74
+msgid "SevenNet の角度微分と格子定数に、223 K、441 K、851 K の相境界が見えます。"
+msgstr ""
+"The SevenNet angle derivatives and lattice constants show phase "
+"boundaries at 223 K, 441 K, and 851 K."
+
+#: ../../BaTiO3/phase_transition.rst:79
+msgid "SevenNet の昇温軌跡。上段は Ti 変位の角度微分、下段は各軸の格子定数。"
+msgstr ""
+"SevenNet heating trajectory. The upper panel shows the derivatives of the"
+" Ti displacement angles, and the lower panel shows the lattice constants "
+"along each axis."
+
+#: ../../BaTiO3/phase_transition.rst:81
+msgid ""
+"CHGNet では 1 K から O 相に対応する格子定数の分裂が現れました。\\ CHGNet での R "
+"相の熱力学的安定性を判断するには、初期構造、保持時間、冷却経路、モデルの学習範囲を検証する必要があります。"
+msgstr ""
+"With CHGNet, the lattice-parameter splitting characteristic of the O "
+"phase appeared from 1 K. \\  Determining whether the R phase is "
+"thermodynamically stable with CHGNet requires checking the starting "
+"structure, hold time, cooling path, and the range covered by the model's "
+"training data."
+
+#: ../../BaTiO3/phase_transition.rst:84
+msgid "CHGNet は 1 K から O 相で、390 K で T 相、827 K で C 相に移ります。"
+msgstr ""
+"CHGNet starts in the O phase at 1 K, changes to the T phase at 390 K, and"
+" changes to the C phase at 827 K."
+
+#: ../../BaTiO3/phase_transition.rst:89
+msgid "CHGNet の昇温軌跡。上段は Ti 変位の角度微分、下段は各軸の格子定数。"
+msgstr ""
+"CHGNet heating trajectory. The upper panel shows the derivatives of the "
+"Ti displacement angles, and the lower panel shows the lattice constants "
+"along each axis."
+
+#: ../../BaTiO3/phase_transition.rst:94
+msgid "Ti 変位分布による相の確認"
+msgstr "Phase Identification from Ti Displacement Distributions"
+
+#: ../../BaTiO3/phase_transition.rst:96
+msgid ""
+"軌跡から各相の温度範囲を選び、Ti の変位を a・b・c 軸に分けて確率密度を描きました。\\ "
+"各パネルで、分布の主なピークが変位ゼロからずれているかを見ます。\\ "
+"ピークの符号や軸名は分域と座標軸の取り方によって変わるため、ゼロからずれる軸の数を相の判定に使います :sup:`[2]`。\\ "
+"この数が相ごとに決まる理由は、技術ノートの\\ `4つの相と分極の向き <https://technical-"
+"notes.quemix.com/solid/ferroelectricity.html#batio3-four-phases>`__\\ "
+"にあります。"
+msgstr ""
+"We selected a temperature range for each phase from the trajectories and "
+"plotted the probability densities of Ti displacements along the a, b, and"
+" c axes. \\  In each panel, check whether the main peak lies away from "
+"zero displacement. \\  The signs of the peaks and the corresponding axes "
+"depend on the domain and the choice of coordinate axes, so we identify "
+"the phase from the number of axes with peaks away from zero :sup:`[2]`. "
+"\\  The reason this count is characteristic of each phase is explained in"
+" \\  `the four phases and their polarization directions <https"
+"://technical-notes.quemix.com/solid/ferroelectricity.html#batio3-four-"
+"phases>`__ \\  in the Technical Notes."
+
+#: ../../BaTiO3/phase_transition.rst:101
+msgid "相ごとの Ti 変位分布の見方"
+msgstr "How to read Ti displacement distributions by phase"
+
+#: ../../BaTiO3/phase_transition.rst:107
+msgid "相"
+msgstr "Phase"
+
+#: ../../BaTiO3/phase_transition.rst:108
+msgid "軸方向の変位分布の特徴"
+msgstr "Features of the displacement distributions along the axes"
+
+#: ../../BaTiO3/phase_transition.rst:109
+msgid "菱面体晶（R）"
+msgstr "Rhombohedral (R)"
+
+#: ../../BaTiO3/phase_transition.rst:110
+msgid "3 軸でゼロから離れたピークが現れます。"
+msgstr "Peaks lie away from zero along three axes."
+
+#: ../../BaTiO3/phase_transition.rst:111
+msgid "斜方晶（O）"
+msgstr "Orthorhombic (O)"
+
+#: ../../BaTiO3/phase_transition.rst:112
+msgid "2 軸でゼロから離れたピークが現れます。"
+msgstr "Peaks lie away from zero along two axes."
+
+#: ../../BaTiO3/phase_transition.rst:113
+msgid "正方晶（T）"
+msgstr "Tetragonal (T)"
+
+#: ../../BaTiO3/phase_transition.rst:114
+msgid "1 軸でゼロから離れたピークが現れます。"
+msgstr "A peak lies away from zero along one axis."
+
+#: ../../BaTiO3/phase_transition.rst:115
+msgid "立方晶（C）"
+msgstr "Cubic (C)"
+
+#: ../../BaTiO3/phase_transition.rst:116
+msgid "分布が広がり、特定方向への偏りが弱まります。"
+msgstr ""
+"The distributions broaden and show less preference for any particular "
+"direction."
+
+#: ../../BaTiO3/phase_transition.rst:118
+msgid ""
+"UMA-S では、R 相の鋭いピークは 3 軸ともゼロから離れています。\\ O 相では a 軸のピークがゼロ付近に移り、T "
+"相でゼロから離れたピークが目立つのは b 軸です。\\ C 相では 3 "
+"軸とも分布が広がります。局所変位は残るものの、平均としての方向の偏りは弱まります（技術ノートの\\ `局所的なTiの変位と平均構造 <https"
+"://technical-notes.quemix.com/solid/ferroelectricity.html#fe-local-"
+"average>`__）。"
+msgstr ""
+"For UMA-S, the sharp R-phase peaks are away from zero along all three "
+"axes. \\  In the O phase, the a-axis peak shifts close to zero. In the T "
+"phase, the most prominent peak away from zero is along the b-axis. \\  In"
+" the C phase, the distributions broaden along all three axes. Local "
+"displacements persist, but the average directional preference weakens "
+"(see \\  `local Ti displacements and average structure <https"
+"://technical-notes.quemix.com/solid/ferroelectricity.html#fe-local-"
+"average>`__ in the Technical Notes)."
+
+#: ../../BaTiO3/phase_transition.rst:122
+msgid "UMA-S の Ti 変位分布。R 相の 3 軸から、O 相で 2 軸、T 相で 1 軸へとゼロから離れたピークが減ります。"
+msgstr ""
+"UMA-S Ti displacement distributions. The number of axes with peaks away "
+"from zero decreases from three in the R phase to two in the O phase and "
+"one in the T phase."
+
+#: ../../BaTiO3/phase_transition.rst:127
+msgid "UMA-S の Ti 変位分布。温度範囲は R（1–176 K）、O（200–477 K）、T（501–812 K）、C（836–950 K）。"
+msgstr ""
+"UMA-S Ti displacement distributions. Temperature ranges are R (1–176 K), "
+"O (200–477 K), T (501–812 K), and C (836–950 K)."
+
+#: ../../BaTiO3/phase_transition.rst:129
+msgid ""
+"SevenNet でも、R、O、T の順に、ゼロから離れたピークを持つ軸が 3、2、1 と減ります。\\ O 相でピークがゼロ付近に移るのは b "
+"軸で、T 相でゼロから離れたピークが目立つのは c 軸です。"
+msgstr ""
+"For SevenNet, too, the number of axes with peaks away from zero decreases"
+" from three to two to one in the sequence R, O, T. \\  The b-axis peak "
+"shifts close to zero in the O phase, and the c-axis peak lies distinctly "
+"away from zero in the T phase."
+
+#: ../../BaTiO3/phase_transition.rst:132
+msgid "SevenNet の Ti 変位分布。T 相では c 軸のピークがゼロから離れています。"
+msgstr ""
+"SevenNet Ti displacement distributions. In the T phase, the c-axis peak "
+"lies away from zero."
+
+#: ../../BaTiO3/phase_transition.rst:137
+msgid ""
+"SevenNet の Ti 変位分布。温度範囲は R（1–211 K）、O（235–429 K）、T（453–839 K）、C（863–900 "
+"K）。"
+msgstr ""
+"SevenNet Ti displacement distributions. Temperature ranges are R (1–211 "
+"K), O (235–429 K), T (453–839 K), and C (863–900 K)."
+
+#: ../../BaTiO3/phase_transition.rst:139
+msgid ""
+"CHGNet の低温域では、a 軸がゼロ付近に、b・c 軸がゼロから離れた位置にピークを持ち、O 相の割り当てと整合します。\\ T 相では主に "
+"b 軸のピークがゼロから離れ、C 相では分布が広がります。"
+msgstr ""
+"At low temperatures with CHGNet, the peak lies near zero along the a-axis"
+" and away from zero along the b- and c-axes, consistent with the O-phase "
+"assignment. \\  In the T phase, it is primarily the b-axis peak that lies"
+" away from zero. In the C phase, the distributions broaden."
+
+#: ../../BaTiO3/phase_transition.rst:142
+msgid "CHGNet の Ti 変位分布。最低温域は O 相に対応し、b・c 軸のピークがゼロから離れています。"
+msgstr ""
+"CHGNet Ti displacement distributions. The lowest temperature range "
+"corresponds to the O phase, with peaks away from zero along the b- and "
+"c-axes."
+
+#: ../../BaTiO3/phase_transition.rst:147
+msgid "CHGNet の Ti 変位分布。温度範囲は O（1–378 K）、T（402–815 K）、C（839–950 K）。"
+msgstr ""
+"CHGNet Ti displacement distributions. Temperature ranges are O (1–378 K),"
+" T (402–815 K), and C (839–950 K)."
+
+#: ../../BaTiO3/phase_transition.rst:152
+msgid "セルサイズの影響と文献比較"
+msgstr "Cell-Size Effects and Comparison with the Literature"
+
+#: ../../BaTiO3/phase_transition.rst:154
+msgid ""
+"3 モデルとも、5 × 5 × 5 セルと比べて 8 × 8 × 8 セルでは、O→T と T→C の転移温度が実験値からさらに離れました。\\ "
+"UMA-S の R→O は 154～188 K、SevenNet は 161～223 K でした。\\ T→C は UMA-S と "
+"SevenNet でセルを大きくするとおおむね上昇しましたが、SevenNet では 6 × 6 × 6 から 7 × 7 × 7 "
+"にかけて一度低下しました。\\ CHGNet では最小セルから最大セルにかけて O→T が 321 K から 390 K に、T→C が 646 "
+"K から 827 K に上昇しました。\\ 今回のサイズ範囲では、8 × 8 × 8 で転移温度が収束したとは判断できません。"
+msgstr ""
+"For all three models, the O→T and T→C transition temperatures were "
+"farther from the experimental values in the 8 × 8 × 8 cell than in the 5 "
+"× 5 × 5 cell. \\  The R→O transition ranged from 154 to 188 K for UMA-S "
+"and from 161 to 223 K for SevenNet. \\  The T→C temperature generally "
+"rose with cell size for UMA-S and SevenNet, but it decreased for SevenNet"
+" from 6 × 6 × 6 to 7 × 7 × 7. \\  For CHGNet, the O→T temperature "
+"increased from 321 K to 390 K and the T→C temperature from 646 K to 827 K"
+" from the smallest cell to the largest. \\  The tested cell sizes do not "
+"establish that the transition temperatures have converged at 8 × 8 × 8."
+
+#: ../../BaTiO3/phase_transition.rst:160
+msgid ""
+"3 モデルとも、5 × 5 × 5 セルより 8 × 8 × 8 セルで O→T と T→C の転移温度が実験値から離れます。SevenNet の"
+" T→C は途中で一度低下します。"
+msgstr ""
+"For all three models, the O→T and T→C transition temperatures are farther"
+" from the experimental values in the 8 × 8 × 8 cell than in the 5 × 5 × 5"
+" cell. The SevenNet T→C temperature dips at an intermediate size."
+
+#: ../../BaTiO3/phase_transition.rst:165
+msgid ""
+"セルサイズごとの転移温度。点が Quloud の計算値、横の破線が実験値（R→O 183 K、O→T 278 K、T→C 393 K）。\\ "
+"CHGNet ではどのサイズでも R→O を検出しませんでした。"
+msgstr ""
+"Transition temperatures by cell size. The points show the Quloud results,"
+" and the horizontal dashed lines show the experimental values (R→O 183 K,"
+" O→T 278 K, T→C 393 K). \\  No R→O transition was detected with CHGNet at"
+" any size."
+
+#: ../../BaTiO3/phase_transition.rst:168
+msgid ""
+"BaTiO₃ 向けに学習した先行研究のモデルも実験と同じ相の順序を示しましたが、転移温度のずれは相境界とモデルによって異なりました。\\ Chen"
+" らの微調整 MACE の転移温度は、実験値（183 K、278 K、393 K）より順に 33 K、53 K、103 K 低い値でした "
+":sup:`[2]`。\\ Sehrawat らの ACE では、R→O は約 80 K と実験値より約 100 K 低く、T→C は約 625 "
+"K と約 230 K 高い値でした :sup:`[1]`。"
+msgstr ""
+"Models trained for BaTiO₃ in previous studies also gave the experimental "
+"phase sequence, but the transition-temperature deviations varied by phase"
+" boundary and model. \\  The temperatures from the MACE model of Chen et "
+"al. after fine-tuning were 33 K, 53 K, and 103 K below the experimental "
+"values (183 K, 278 K, and 393 K), respectively :sup:`[2]`. \\  For the "
+"ACE model of Sehrawat et al., the R→O transition was at about 80 K, about"
+" 100 K below the experimental value, and the T→C transition was at about "
+"625 K, about 230 K above the experimental value :sup:`[1]`."
+
+#: ../../BaTiO3/phase_transition.rst:172
+msgid ""
+"以下の文献値を先に示した実験値と照合すると、ずれの向きと大きさが分かります。\\ 先行研究と本計算では、モデルの学習に使った DFT "
+"の条件や昇温速度が異なるため、この比較からモデルの性能の順位は決められません。\\ "
+"微調整の効果を含めてモデルを比べるには、条件をそろえたうえで、構造と相転移を独立なデータで検証する必要があります（技術ノートの\\ "
+"`調べたい性質ごとに検証する <https://technical-notes.quemix.com/md/mlip.html#mlip-"
+"validation>`__）。"
+msgstr ""
+"Comparing the literature values below with the experimental values above "
+"shows the direction and magnitude of the discrepancies. \\  The previous "
+"studies and this work used different DFT conditions to train the models "
+"and different heating rates, so this comparison cannot rank the models' "
+"performance. \\  To compare the models, including the effect of fine-"
+"tuning, the conditions must be matched and both structure and phase "
+"transitions must be validated against independent data (see \\  "
+"`validating the properties of interest <https://technical-"
+"notes.quemix.com/md/mlip.html#mlip-validation>`__ in the Technical "
+"Notes)."
+
+#: ../../BaTiO3/phase_transition.rst:176
+msgid "先行研究の昇温計算で得た転移温度（K）"
+msgstr "Transition temperatures from heating simulations in previous studies (K)"
+
+#: ../../BaTiO3/phase_transition.rst:181
+msgid "出典・モデル"
+msgstr "Source and model"
+
+#: ../../BaTiO3/phase_transition.rst:185
+msgid "昇温速度"
+msgstr "Heating rate"
+
+#: ../../BaTiO3/phase_transition.rst:186
+msgid "Chen ら・微調整 MACE :sup:`[2]`"
+msgstr "Chen et al., MACE after fine-tuning :sup:`[2]`"
+
+#: ../../BaTiO3/phase_transition.rst:187
+msgid "150"
+msgstr "150"
+
+#: ../../BaTiO3/phase_transition.rst:188
+msgid "225"
+msgstr "225"
+
+#: ../../BaTiO3/phase_transition.rst:189
+msgid "290"
+msgstr "290"
+
+#: ../../BaTiO3/phase_transition.rst:190
+msgid "2.5 K/ps"
+msgstr "2.5 K/ps"
+
+#: ../../BaTiO3/phase_transition.rst:191
+msgid "Sehrawat ら・ACE :sup:`[1]`"
+msgstr "Sehrawat et al., ACE :sup:`[1]`"
+
+#: ../../BaTiO3/phase_transition.rst:192
+msgid "約 80"
+msgstr "About 80"
+
+#: ../../BaTiO3/phase_transition.rst:193
+msgid "約 240"
+msgstr "About 240"
+
+#: ../../BaTiO3/phase_transition.rst:194
+msgid "約 625"
+msgstr "About 625"
+
+#: ../../BaTiO3/phase_transition.rst:195
+msgid "1 K/ps"
+msgstr "1 K/ps"
+
+#: ../../BaTiO3/phase_transition.rst:198
+msgid "補足：昇温速度と融解"
+msgstr "Supplement: Heating Rate and Melting"
+
+#: ../../BaTiO3/phase_transition.rst:200
+msgid ""
+"立方晶からさらに温度を上げるときは、結晶相の判定とは別に、近接原子の並び方を表す\\ `結合配向秩序パラメータ <https"
+"://technical-notes.quemix.com/md/rdf.html#bond-orientational-order>`__ "
+":math:`q_6` を使って、融解に伴う結晶秩序の低下を追えます :sup:`[2]`。\\ この図の 2 "
+"本の軌跡では、:math:`q_6` が大きく低下する温度が昇温速度によって変わりました。\\ 見かけの融解温度は、25 K/ps で 1749 "
+"K、100 K/ps で 1818 K でした。\\ "
+"転移温度を実験と照合する際は、ポテンシャルに加えて、昇温速度による平衡化への影響を考慮する必要があります。"
+msgstr ""
+"When heating beyond the cubic phase, one can track the loss of "
+"crystalline order upon melting separately from identifying the "
+"crystalline phases, using the \\  `bond orientational order parameter "
+"<https://technical-notes.quemix.com/md/rdf.html#bond-orientational-"
+"order>`__ :math:`q_6`, which measures how neighboring atoms are arranged "
+":sup:`[2]`. \\  In the two trajectories shown, the temperature at which "
+":math:`q_6` dropped sharply depended on the heating rate. \\  The "
+"apparent melting temperatures were 1749 K at 25 K/ps and 1818 K at 100 "
+"K/ps. \\  Comparing transition temperatures with experiment requires "
+"accounting for both the potential and the effect of heating rate on "
+"equilibration."
+
+#: ../../BaTiO3/phase_transition.rst:205
+msgid "25 K/ps では 1749 K、100 K/ps では 1818 K 付近で結合配向秩序が低下します。"
+msgstr ""
+"Bond orientational order decreases near 1749 K at 25 K/ps and near 1818 K"
+" at 100 K/ps."
+
+#: ../../BaTiO3/phase_transition.rst:210
+msgid "昇温中の :math:`q_6`。一点鎖線は各軌跡での見かけの融解温度、黒の破線は実験値の 1893 K :sup:`[2]`。"
+msgstr ""
+":math:`q_6` during heating. Dash-dotted lines mark the apparent melting "
+"temperature in each trajectory, and the black dashed line marks the "
+"experimental value of 1893 K :sup:`[2]`."
+
+#: ../../BaTiO3/phase_transition.rst:213
+msgid "補足：急冷後に残る局所構造"
+msgstr "Supplement: Local Structure Remaining After Quenching"
+
+#: ../../BaTiO3/phase_transition.rst:215
+msgid ""
+"液相から急冷したアモルファス BaTiO₃ では、長距離の結晶秩序が失われた後も、Ti の周りに O が配位する局所構造が残ります。\\ "
+"部分動径分布関数（RDF） :math:`g(r)` は、原子の組み合わせごとに距離 :math:`r` "
+"の分布を表します（定義と、別の計算と比べるときにそろえる条件は技術ノートの\\ `動径分布関数と局所構造 <https://technical-"
+"notes.quemix.com/md/rdf.html>`__）。\\ 図では Ti–O "
+"の鋭い第一ピークが残る一方、遠距離には結晶に特徴的な鋭い周期ピークが見られません。"
+msgstr ""
+"In amorphous BaTiO₃ quenched from the liquid, the local structure in "
+"which O atoms coordinate Ti persists after long-range crystalline order "
+"is lost. \\  The partial radial distribution function (RDF) :math:`g(r)` "
+"describes the distribution of distances :math:`r` for each type of atom "
+"pair (for the definition and which conditions to match when comparing "
+"calculations, see \\  `radial distribution function and local structure "
+"<https://technical-notes.quemix.com/md/rdf.html>`__ in the Technical "
+"Notes). \\  The sharp first peak for Ti–O persists in the figure, whereas"
+" the sharp periodic peaks characteristic of a crystal are absent at "
+"longer distances."
+
+#: ../../BaTiO3/phase_transition.rst:219
+msgid "急冷後の 6 種類の原子対の動径分布。Ti–O 対の第一ピークが鋭いです。"
+msgstr ""
+"Radial distributions for six types of atom pairs after quenching. The "
+"first peak for Ti–O is sharp."
+
+#: ../../BaTiO3/phase_transition.rst:224
+msgid "アモルファス BaTiO₃ の部分動径分布関数。Ba–Ba、Ba–Ti、Ba–O、Ti–Ti、Ti–O、O–O を示します。"
+msgstr ""
+"Partial radial distribution functions of amorphous BaTiO₃. The panels "
+"show Ba–Ba, Ba–Ti, Ba–O, Ti–Ti, Ti–O, and O–O."
+
+#: ../../BaTiO3/phase_transition.rst:226
+msgid ""
+"Ti–Ti の RDF を、隣接する TiO₆ "
+"八面体が頂点・辺・面のどれを共有するかで分けると、八面体どうしのつながり方が分かります（技術ノートの\\ `配位多面体のつながり <https"
+"://technical-notes.quemix.com/md/rdf.html#polyhedral-connectivity>`__）。\\"
+" 図の主ピークは頂点共有（凡例の「apex sharing」）に対応し、その短距離側に辺共有のピークがあります。面共有の寄与は小さいです。\\ "
+"急冷後のガラスには TiO₆ の局所配位が残り、頂点共有と辺共有が混在します。\\ "
+"周期的な頂点共有のネットワークを持つ結晶とは、八面体のつながり方と長距離秩序が異なります。"
+msgstr ""
+"Separating the Ti–Ti RDF by whether neighboring TiO₆ octahedra share a "
+"corner, edge, or face shows how the octahedra are connected (see \\  "
+"`connectivity of coordination polyhedra <https://technical-"
+"notes.quemix.com/md/rdf.html#polyhedral-connectivity>`__ in the Technical"
+" Notes). \\  The main peak corresponds to corner sharing (\"apex "
+"sharing\" in the figure), with an edge-sharing peak at shorter distances."
+" The contribution from face sharing is small. \\  The quenched glass "
+"retains local TiO₆ coordination and contains both corner-sharing and "
+"edge-sharing octahedra. \\  Its octahedral connectivity and long-range "
+"order differ from those of the crystal, which has a periodic corner-"
+"sharing network."
+
+#: ../../BaTiO3/phase_transition.rst:231
+msgid "Ti–Ti の動径分布の主ピークは頂点共有、短距離側のピークは辺共有に対応します。"
+msgstr ""
+"The main peak of the Ti–Ti radial distribution corresponds to corner "
+"sharing, and the peak at shorter distances corresponds to edge sharing."
+
+#: ../../BaTiO3/phase_transition.rst:236
+msgid "アモルファス BaTiO₃ の Ti–Ti 動径分布と、TiO₆ 八面体の接続の種類ごとの寄与。"
+msgstr ""
+"Ti–Ti radial distribution in amorphous BaTiO₃ and contributions from each"
+" type of TiO₆ octahedral connectivity."
+
+#: ../../BaTiO3/phase_transition.rst:239
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../BaTiO3/phase_transition.rst:241
+msgid ""
+":doc:`安定基底状態 <stability>` の 0 K の静的計算では、FairChem の UMA-S 系列を含む全手法で R "
+"相のエネルギーが最も低くなりました。\\ 今回の昇温 MD では、UMA-S と SevenNet が実験と同じ R → O → T → C "
+"の順に相転移しました。CHGNet の昇温軌跡では R 相を確認できませんでした。"
+msgstr ""
+"In the static 0 K calculations in :doc:`Stable Ground State <stability>`,"
+" the R phase had the lowest energy for every method, including the "
+"FairChem UMA-S series. \\  In these MD heating simulations, the phase "
+"transitions with UMA-S and SevenNet followed the experimental sequence R "
+"→ O → T → C. We did not observe the R phase in the CHGNet heating "
+"trajectory."
+
+#: ../../BaTiO3/phase_transition.rst:244
+msgid ""
+"8 × 8 × 8 セルでは、3 モデルとも T→C の転移温度が実験値を 400 K 以上上回りました。\\ O→T と T→C "
+"の転移温度は、3 モデルとも 5 × 5 × 5 セルより 8 × 8 × 8 セルの方が実験値から離れました。\\ "
+"平衡での転移温度を評価するには、昇温速度、セルサイズと保持時間に対する収束、加熱と冷却による差を確かめる必要があります。"
+msgstr ""
+"In the 8 × 8 × 8 cell, all three models gave T→C transition temperatures "
+"at least 400 K above the experimental value. \\  For all three models, "
+"the O→T and T→C transition temperatures were farther from the "
+"experimental values in the 8 × 8 × 8 cell than in the 5 × 5 × 5 cell. \\"
+"  Estimating equilibrium transition temperatures requires checking the "
+"heating rate, convergence with cell size and hold time, and differences "
+"between heating and cooling."
+
+#: ../../BaTiO3/phase_transition.rst:248
+msgid ""
+"CHGNet は 0 K では R 相のエネルギーが最も低いのに、昇温軌跡には R 相が現れませんでした。\\ このように 0 K "
+"のエネルギー順位と昇温時に現れる相は一致するとは限らないため、モデルの検証では、0 K "
+"のエネルギー順位、昇温時の相の順序、転移温度をそれぞれ確かめます。"
+msgstr ""
+"Although CHGNet gave the R phase the lowest energy at 0 K, the R phase "
+"did not appear in its heating trajectory. \\  Thus the energy ordering at"
+" 0 K does not necessarily agree with the phases that appear during "
+"heating. Model validation should check the 0 K energy ordering, the phase"
+" sequence during heating, and the transition temperatures separately."
+
+#: ../../BaTiO3/phase_transition.rst:252
+msgid "参考文献"
+msgstr "References"
+
+#: ../../BaTiO3/phase_transition.rst:254
+msgid ""
+":sup:`[1]` Sehrawat, A.; Albe, K.; Rohrer, J., \"Machine-learning "
+"interatomic potential for BaTiO3: phase transitions, domain walls, and "
+"grain boundaries,\" *Journal of Physics: Condensed Matter*, **38**, "
+"015402, 2026. `https://doi.org/10.1088/1361-648X/ae2727 "
+"<https://doi.org/10.1088/1361-648X/ae2727>`_"
+msgstr ""
+":sup:`[1]` Sehrawat, A.; Albe, K.; Rohrer, J., \"Machine-learning "
+"interatomic potential for BaTiO3: phase transitions, domain walls, and "
+"grain boundaries,\" *Journal of Physics: Condensed Matter*, **38**, "
+"015402, 2026. `https://doi.org/10.1088/1361-648X/ae2727 "
+"<https://doi.org/10.1088/1361-648X/ae2727>`_"
+
+#: ../../BaTiO3/phase_transition.rst:260
+msgid ""
+":sup:`[2]` Chen, P.-Y.; Shibata, K.; Mizoguchi, T., \"High precision "
+"machine learning force field development for BaTiO3 phase transitions, "
+"amorphous, and liquid structures,\" *APL Machine Learning*, **3**, "
+"036115, 2025. `https://doi.org/10.1063/5.0268149 "
+"<https://doi.org/10.1063/5.0268149>`_"
+msgstr ""
+":sup:`[2]` Chen, P.-Y.; Shibata, K.; Mizoguchi, T., \"High precision "
+"machine learning force field development for BaTiO3 phase transitions, "
+"amorphous, and liquid structures,\" *APL Machine Learning*, **3**, "
+"036115, 2025. `https://doi.org/10.1063/5.0268149 "
+"<https://doi.org/10.1063/5.0268149>`_"
+

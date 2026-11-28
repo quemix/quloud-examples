@@ -38,3 +38,6 @@ BaTiO3/introduction
 BaTiO3/lattice-constant
 BaTiO3/stability
 BaTiO3/geometry-optimization
+BaTiO3/total-energy-DFT-MLIP
+BaTiO3/total-energy
+BaTiO3/phase_transition

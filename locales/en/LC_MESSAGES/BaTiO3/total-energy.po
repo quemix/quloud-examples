@@ -1,0 +1,1007 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, Quemix inc
+# This file is distributed under the same license as the Quloud Examples
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Quloud Examples 2026.5.25\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-28 19:05+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.19.0\n"
+
+#: ../../BaTiO3/total-energy.rst:5
+msgid "二重井戸ポテンシャル Part 2"
+msgstr "Double-Well Potential, Part 2"
+
+#: ../../BaTiO3/total-energy.rst:7
+msgid ""
+"原子が協同して動くと、分極の向き、格子ひずみ、体積は二重井戸の深さにどう影響するでしょうか。\\ 今回の DFT 計算では、立方晶格子で "
+":math:`[111]` 方向の井戸が :math:`[001]` 方向より深くなりました。\\ 正方晶ひずみを加えると "
+":math:`[001]` 方向の井戸が深くなり、圧縮すると両方向の井戸が浅くなりました。"
+msgstr ""
+"When atoms move cooperatively, how do polarization direction, lattice "
+"strain, and volume affect the well depth? \\  In these DFT calculations, "
+"the well along :math:`[111]` was deeper than the one along :math:`[001]` "
+"in a cubic lattice. \\  Applying tetragonal strain deepened the well "
+"along :math:`[001]`, and compression made the wells in both directions "
+"shallower."
+
+#: ../../BaTiO3/total-energy.rst:12
+msgid "本計算例の目的"
+msgstr "Objective of This Calculation Example"
+
+#: ../../BaTiO3/total-energy.rst:14
+msgid ""
+":doc:`Part 1 <total-energy-DFT-MLIP>` では Ti だけを動かしました。\\ ここでは 5 "
+"原子の立方晶セルを出発点とし、Cohen–Krakauer が報告した極性ソフトモードに沿って Ba・Ti・O の相対位置を変えます "
+":sup:`[3]`。\\ 構造を固定したまま各変位で全エネルギーを計算し、Cohen の電子構造の解釈 :sup:`[4]` "
+"と照らし合わせます。"
+msgstr ""
+"In :doc:`Part 1 <total-energy-DFT-MLIP>`, we displaced only Ti. \\  Here "
+"we start with a five-atom cubic cell and change the relative positions of"
+" Ba, Ti, and O along the polar soft mode reported by Cohen–Krakauer "
+":sup:`[3]`. \\  We calculate the total energy with the structure fixed at"
+" each displacement and compare the results with Cohen's interpretation of"
+" the electronic structure :sup:`[4]`."
+
+#: ../../BaTiO3/total-energy.rst:18
+msgid ""
+"計算では、Cohen–Krakauer が求めた協同的な Ba–Ti–O 変位を\\ :math:`[001]` および "
+":math:`[111]` 方向へ適用し、次の点を検証します。"
+msgstr ""
+"We apply the cooperative Ba–Ti–O displacement pattern obtained by "
+"Cohen–Krakauer along \\  :math:`[001]` and :math:`[111]` to examine the "
+"following questions."
+
+#: ../../BaTiO3/total-energy.rst:21
+msgid "立方晶 :math:`Q=0` が極性ソフトモードに対して不安定か。"
+msgstr ""
+"Is the cubic structure at :math:`Q=0` unstable with respect to the polar "
+"soft mode?"
+
+#: ../../BaTiO3/total-energy.rst:22
+msgid ""
+"無ひずみ :math:`[001]`、無ひずみ :math:`[111]`、および\\ 正方晶ひずみ :math:`c/a=1.01` "
+"の井戸深さがどのように異なるか。"
+msgstr ""
+"How do the well depths differ for unstrained :math:`[001]`, unstrained "
+":math:`[111]`, and \\  tetragonal strain with :math:`c/a=1.01`?"
+
+#: ../../BaTiO3/total-energy.rst:24
+msgid "体積を :math:`64.00` Å³ から :math:`62.57` Å³ へ圧縮したとき、\\ 強誘電的不安定性がどの程度抑制されるか。"
+msgstr ""
+"How much does compressing the volume from :math:`64.00` Å³ to "
+":math:`62.57` Å³ \\  suppress the ferroelectric instability?"
+
+#: ../../BaTiO3/total-energy.rst:26
+msgid "DOS/PDOS に現れる Ti :math:`3d`–O :math:`2p` 混成が、\\ 二重井戸ポテンシャルとどのように対応するか。"
+msgstr ""
+"How does Ti :math:`3d`–O :math:`2p` hybridization in the DOS/PDOS \\  "
+"relate to the double-well potential?"
+
+#: ../../BaTiO3/total-energy.rst:29
+msgid ""
+"BaTiO₃ の強誘電性の背景には、局所電場の描像 :sup:`[1]` と\\ `ソフトモード <https://technical-"
+"notes.quemix.com/solid/soft_mode.html>`__\\ 理論 :sup:`[2]` があります。\\ "
+"第一原理計算では、極性変位を促す長距離 Coulomb 相互作用と、立方晶を安定にする短距離の反発の競合から強誘電不安定性が生じ、\\ Ti "
+":math:`3d`–O :math:`2p` 混成がこの短距離反発を弱めると説明されます :sup:`[4]`。\\ この機構は技術ノートの\\"
+" `長距離のクーロン相互作用と短距離の反発 <https://technical-"
+"notes.quemix.com/solid/ferroelectric_origin.html#ferroelectric-"
+"instability-origin>`__\\ で説明しています。\\ "
+"ここでは、二重井戸の深さから、中心からずれた構造がどれだけ安定化するかを評価します。\\ "
+"電子状態密度（DOS）と軌道に射影した状態密度（`PDOS <https://technical-"
+"notes.quemix.com/electronic/pdos.html>`__）から、Ti と O "
+"の軌道成分がどのエネルギー範囲で重なるかを見ます。"
+msgstr ""
+"Two descriptions of ferroelectricity in BaTiO₃ are the local electric "
+"field picture :sup:`[1]` and \\  `soft mode <https://technical-"
+"notes.quemix.com/solid/soft_mode.html>`__ \\  theory :sup:`[2]`. \\  "
+"First-principles calculations attribute the ferroelectric instability to "
+"competition between long-range Coulomb interactions that favor polar "
+"displacements and short-range repulsion that stabilizes the cubic "
+"structure. \\  In this picture, Ti :math:`3d`–O :math:`2p` hybridization "
+"weakens the short-range repulsion :sup:`[4]`. \\  See \\  `long-range "
+"Coulomb interactions and short-range repulsion <https://technical-"
+"notes.quemix.com/solid/ferroelectric_origin.html#ferroelectric-"
+"instability-origin>`__ \\  in the Technical Notes for this mechanism. \\"
+"  Here we use the well depth to evaluate how much the off-center "
+"structure is stabilized. \\  The density of states (DOS) and the "
+"projected density of states (`PDOS <https://technical-"
+"notes.quemix.com/electronic/pdos.html>`__) for individual orbitals show "
+"the energy range over which the Ti and O orbital contributions overlap."
+
+#: ../../BaTiO3/total-energy.rst:40
+msgid "計算モデルと解析方法"
+msgstr "Calculation Models and Analysis Methods"
+
+#: ../../BaTiO3/total-energy.rst:43
+msgid "ソフトモード座標"
+msgstr "Soft-Mode Coordinate"
+
+#: ../../BaTiO3/total-energy.rst:45
+msgid ""
+"Cohen–Krakauer は、立方晶 BaTiO₃ の :math:`\\Gamma` 点において、\\ 約 :math:`-72\\ "
+"\\mathrm{cm^{-1}}` の不安定な極性モードを報告しました :sup:`[3]`。\\ "
+"負の符号は虚数振動数、すなわち立方晶構造のエネルギー曲率が負であることを表します\\ （技術ノートの\\ `虚数振動数と動的安定性 <https"
+"://technical-notes.quemix.com/solid/phonon.html#imaginary-"
+"frequency>`__）。\\ このモードの固有ベクトルに沿って原子を動かし、各変位で全エネルギーを計算します\\ （`frozen "
+"phonon 法 <https://technical-notes.quemix.com/solid/soft_mode.html#frozen-"
+"phonon>`__）。"
+msgstr ""
+"Cohen–Krakauer reported an unstable polar mode at the :math:`\\Gamma` "
+"point of cubic BaTiO₃, \\  with a frequency of about :math:`-72\\ "
+"\\mathrm{cm^{-1}}` :sup:`[3]`. \\  The negative sign denotes an imaginary"
+" frequency and thus a negative energy curvature at the cubic structure \\"
+"  (see \\  `imaginary frequencies and dynamical stability <https"
+"://technical-notes.quemix.com/solid/phonon.html#imaginary-frequency>`__ "
+"in the Technical Notes). \\  We move the atoms along the eigenvector of "
+"this mode and calculate the total energy at each displacement \\  (the "
+"`frozen phonon method <https://technical-"
+"notes.quemix.com/solid/soft_mode.html#frozen-phonon>`__)."
+
+#: ../../BaTiO3/total-energy.rst:52
+msgid "O(2) 原子を固定し、Ti 変位を 1 とした公表固有ベクトルは"
+msgstr ""
+"Fixing O(2) and setting the Ti displacement to 1 gives the published "
+"eigenvector below."
+
+#: ../../BaTiO3/total-energy.rst:54
+#, python-brace-format
+msgid "\\mathrm{Ba:Ti:O(1)}=0.53:1.00:-0.29"
+msgstr "\\mathrm{Ba:Ti:O(1)}=0.53:1.00:-0.29"
+
+#: ../../BaTiO3/total-energy.rst:58
+msgid ""
+"です。実験的な正方晶変位パターン\\ :math:`0.53:1.00:-0.28` とよく一致しています :sup:`[3]`。\\ 本計算では"
+" Ba を固定し、Ti の Ba に対する変位を :math:`Q` と定義します。\\ このとき、変位係数は"
+msgstr ""
+"This agrees well with the experimental tetragonal displacement pattern \\"
+"  :math:`0.53:1.00:-0.28` :sup:`[3]`. \\  In our calculations we fix Ba "
+"and define the displacement of Ti relative to Ba as :math:`Q`. \\  We "
+"then obtain"
+
+#: ../../BaTiO3/total-energy.rst:63
+#, python-brace-format
+msgid ""
+"C_{\\parallel}\n"
+"=\\frac{-0.29-0.53}{1.00-0.53}\n"
+"=-1.744680851,"
+msgstr ""
+"C_{\\parallel}\n"
+"=\\frac{-0.29-0.53}{1.00-0.53}\n"
+"=-1.744680851,"
+
+#: ../../BaTiO3/total-energy.rst:69
+#, python-brace-format
+msgid ""
+"C_{\\perp}\n"
+"=\\frac{0-0.53}{1.00-0.53}\n"
+"=-1.127659574"
+msgstr ""
+"C_{\\perp}\n"
+"=\\frac{0-0.53}{1.00-0.53}\n"
+"=-1.127659574"
+
+#: ../../BaTiO3/total-energy.rst:75
+msgid "となります。"
+msgstr "for the displacement coefficients."
+
+#: ../../BaTiO3/total-energy.rst:77
+msgid ":math:`[001]` 正方晶方向では、"
+msgstr ""
+"For the tetragonal :math:`[001]` direction, we use the following "
+"displacements."
+
+#: ../../BaTiO3/total-energy.rst:79
+msgid ""
+"\\Delta z_{\\mathrm{Ba}} &= 0,\\\\\n"
+"\\Delta z_{\\mathrm{Ti}} &= Q,\\\\\n"
+"\\Delta z_{O_{\\parallel}} &= C_{\\parallel}Q,\\\\\n"
+"\\Delta z_{O_{\\perp}} &= C_{\\perp}Q"
+msgstr ""
+"\\Delta z_{\\mathrm{Ba}} &= 0,\\\\\n"
+"\\Delta z_{\\mathrm{Ti}} &= Q,\\\\\n"
+"\\Delta z_{O_{\\parallel}} &= C_{\\parallel}Q,\\\\\n"
+"\\Delta z_{O_{\\perp}} &= C_{\\perp}Q"
+
+#: ../../BaTiO3/total-energy.rst:86
+msgid ""
+"を用います。例えば :math:`Q=0.04` Å では、Ti は\\ :math:`+0.0400` Å、軸方向 O は "
+":math:`-0.0698` Å、\\ 二つの垂直方向 O はそれぞれ :math:`-0.0451` Å 変位します。\\ "
+"この協同変位により、一方の Ti–O 結合が短くなり、反対側が長くなります。"
+msgstr ""
+"For example, at :math:`Q=0.04` Å, Ti moves by \\  :math:`+0.0400` Å, the "
+"axial O by :math:`-0.0698` Å, \\  and each of the two transverse O atoms "
+"by :math:`-0.0451` Å. \\  This cooperative displacement shortens one Ti–O"
+" bond and lengthens the bond on the opposite side."
+
+#: ../../BaTiO3/total-energy.rst:91
+#, python-brace-format
+msgid ""
+":math:`[111]` 菱面体晶方向では、立方体の体対角線に沿って、3 つの軸方向の変位パターンを重ね合わせます。\\ 全 Ti "
+"変位の大きさを :math:`Q`、各 Cartesian 成分を\\ :math:`d=Q/\\sqrt{3}` とすると、"
+msgstr ""
+"For the rhombohedral :math:`[111]` direction, we superpose the "
+"displacement patterns for the three axes along the body diagonal of the "
+"cube. \\  Let :math:`Q` be the magnitude of the total Ti displacement and"
+" \\  :math:`d=Q/\\sqrt{3}` each Cartesian component. This gives the "
+"displacements below."
+
+#: ../../BaTiO3/total-energy.rst:95
+msgid "\\Delta\\mathbf r_{\\mathrm{Ti}}=(d,d,d),"
+msgstr "\\Delta\\mathbf r_{\\mathrm{Ti}}=(d,d,d),"
+
+#: ../../BaTiO3/total-energy.rst:99
+#, python-brace-format
+msgid ""
+"\\Delta\\mathbf r_{O_z}\n"
+"=(C_{\\perp}d,C_{\\perp}d,C_{\\parallel}d),"
+msgstr ""
+"\\Delta\\mathbf r_{O_z}\n"
+"=(C_{\\perp}d,C_{\\perp}d,C_{\\parallel}d),"
+
+#: ../../BaTiO3/total-energy.rst:104
+#, python-brace-format
+msgid ""
+"\\Delta\\mathbf r_{O_y}\n"
+"=(C_{\\perp}d,C_{\\parallel}d,C_{\\perp}d),"
+msgstr ""
+"\\Delta\\mathbf r_{O_y}\n"
+"=(C_{\\perp}d,C_{\\parallel}d,C_{\\perp}d),"
+
+#: ../../BaTiO3/total-energy.rst:109
+#, python-brace-format
+msgid ""
+"\\Delta\\mathbf r_{O_x}\n"
+"=(C_{\\parallel}d,C_{\\perp}d,C_{\\perp}d)"
+msgstr ""
+"\\Delta\\mathbf r_{O_x}\n"
+"=(C_{\\parallel}d,C_{\\perp}d,C_{\\perp}d)"
+
+#: ../../BaTiO3/total-energy.rst:114
+msgid "となります。本計算で用いた入力値 :math:`\\delta` は Ti の各成分に加える値であるため、\\ 図の横軸に用いる実際の変位量は"
+msgstr ""
+"The input value :math:`\\delta` is added to each component of the Ti "
+"position, \\  so we obtain the actual displacement for the horizontal "
+"axis as follows."
+
+#: ../../BaTiO3/total-energy.rst:117
+#, python-brace-format
+msgid "Q=\\sqrt{3}\\,\\delta"
+msgstr "Q=\\sqrt{3}\\,\\delta"
+
+#: ../../BaTiO3/total-energy.rst:121
+msgid ""
+"です。したがって、入力 :math:`\\delta=0.04` Å は\\ :math:`Q=0.069282` Å に対応します。\\ "
+"この系列では、格子を立方晶に保ち、:math:`[111]` 型の内部変位を与えます。\\ "
+"菱面体晶の格子角ひずみは含みません。Cohen–Krakauer は、菱面体晶の\\ "
+"格子角ひずみが静的井戸深さへ与える影響は小さいことを示しています。"
+msgstr ""
+"Thus, an input of :math:`\\delta=0.04` Å corresponds to \\  "
+":math:`Q=0.069282` Å. \\  This series keeps the lattice cubic and applies"
+" an internal displacement pattern of the :math:`[111]` type. \\  It does "
+"not include rhombohedral lattice-angle strain. Cohen–Krakauer showed that"
+" this strain \\  has little effect on the static well depth."
+
+#: ../../BaTiO3/total-energy.rst:128
+msgid "全エネルギーおよび DOS/PDOS"
+msgstr "Total Energy and DOS/PDOS"
+
+#: ../../BaTiO3/total-energy.rst:130
+msgid "基準構造は 5 原子立方晶 BaTiO₃ とし、理想分率座標を"
+msgstr ""
+"The ideal fractional coordinates below define our five-atom cubic BaTiO₃ "
+"reference structure."
+
+#: ../../BaTiO3/total-energy.rst:132
+msgid ""
+"Ba  0.000000  0.000000  0.000000\n"
+"Ti  0.500000  0.500000  0.500000\n"
+"O1  0.500000  0.500000  0.000000\n"
+"O2  0.500000  0.000000  0.500000\n"
+"O3  0.000000  0.500000  0.500000"
+msgstr ""
+"Ba  0.000000  0.000000  0.000000\n"
+"Ti  0.500000  0.500000  0.500000\n"
+"O1  0.500000  0.500000  0.000000\n"
+"O2  0.500000  0.000000  0.500000\n"
+"O3  0.000000  0.500000  0.500000"
+
+#: ../../BaTiO3/total-energy.rst:140
+msgid ""
+"とします。各変位点ではセルと原子座標を固定し、OpenMX の\\ ``MD.Type Nomd`` による\\ `単点計算 <https"
+"://technical-notes.quemix.com/electronic/structure_optimization.html"
+"#structure-optimization>`__\\ を行います。比較するすべての点で、\\ "
+"交換相関汎関数、擬ポテンシャル、PAO、エネルギーカットオフ、\\ :math:`k` 点メッシュ、電子温度、および SCF "
+"収束条件を統一します。\\ 本結果では、参照論文との整合性を重視して LDA/CA19、500 Ry、\\ "
+":math:`8\\times8\\times8` :math:`k` 点を基本条件としました。"
+msgstr ""
+"At each displacement, we fix the cell and atomic coordinates and use the "
+"OpenMX setting \\  ``MD.Type Nomd`` to run a \\  `single-point "
+"calculation <https://technical-"
+"notes.quemix.com/electronic/structure_optimization.html#structure-"
+"optimization>`__ \\  at that geometry. Across all points in the "
+"comparison, we use the same \\  exchange-correlation functional, "
+"pseudopotentials, PAOs, energy cutoff, \\  :math:`k`-point mesh, "
+"electronic temperature, and SCF convergence criteria. \\  To keep the "
+"calculations consistent with the reference paper, we used LDA/CA19, 500 "
+"Ry, and a \\  :math:`8\\times8\\times8` :math:`k`-point mesh as the main "
+"settings."
+
+#: ../../BaTiO3/total-energy.rst:147
+msgid "各体積では、同じ体積の :math:`Q=0` を基準として"
+msgstr ""
+"At each volume, we take :math:`Q=0` at that same volume as the reference "
+"in the following expression."
+
+#: ../../BaTiO3/total-energy.rst:149
+msgid "\\Delta E(Q;V)=E(Q;V)-E(0;V)"
+msgstr "\\Delta E(Q;V)=E(Q;V)-E(0;V)"
+
+#: ../../BaTiO3/total-energy.rst:153
+msgid "を meV/f.u. 単位で評価します。異なる体積の絶対エネルギー差は、\\ その体積における局所的な強誘電不安定性とは区別する必要があります。"
+msgstr ""
+"We evaluate this difference in meV/f.u. Absolute energy differences "
+"between volumes \\  must be distinguished from the local ferroelectric "
+"instability at a given volume."
+
+#: ../../BaTiO3/total-energy.rst:156
+msgid "DOS/PDOS は、次の三構造について比較します。"
+msgstr "We compare the DOS/PDOS for the following three structures."
+
+#: ../../BaTiO3/total-energy.rst:158 ../../BaTiO3/total-energy.rst:280
+msgid ":math:`Q=0.00` Å、:math:`c/a=1.00`"
+msgstr ":math:`Q=0.00` Å, :math:`c/a=1.00`"
+
+#: ../../BaTiO3/total-energy.rst:159 ../../BaTiO3/total-energy.rst:284
+msgid ":math:`Q=0.04` Å、:math:`c/a=1.00`"
+msgstr ":math:`Q=0.04` Å, :math:`c/a=1.00`"
+
+#: ../../BaTiO3/total-energy.rst:160 ../../BaTiO3/total-energy.rst:288
+msgid ":math:`Q=0.05` Å、:math:`c/a=1.01`"
+msgstr ":math:`Q=0.05` Å, :math:`c/a=1.01`"
+
+#: ../../BaTiO3/total-energy.rst:162
+msgid ""
+"エネルギーは各構造の VBM を :math:`0` eV として整列し、 Gaussian 幅 :math:`\\sigma=0.08` eV "
+"を用います （技術ノートの\\ `ガウス関数によるぼかし <https://technical-"
+"notes.quemix.com/electronic/pdos.html#dos-broadening>`__）。主な解析範囲は、 O "
+":math:`2p` が支配的な占有価電子帯 :math:`-6\\le E-E_{\\mathrm{VBM}}\\le0` eV です。"
+msgstr ""
+"We align the energies by setting the VBM of each structure to :math:`0` "
+"eV and use a Gaussian width of :math:`\\sigma=0.08` eV (see \\  `Gaussian"
+" broadening <https://technical-notes.quemix.com/electronic/pdos.html#dos-"
+"broadening>`__ in the Technical Notes). The analysis focuses on the "
+"occupied valence band dominated by O :math:`2p`, at :math:`-6\\le "
+"E-E_{\\mathrm{VBM}}\\le0` eV."
+
+#: ../../BaTiO3/total-energy.rst:172
+msgid "計算結果と考察"
+msgstr "Calculation Results and Discussion"
+
+#: ../../BaTiO3/total-energy.rst:175
+msgid "二重井戸、方向依存性、ひずみ、および体積効果"
+msgstr "Double Well, Directional Dependence, Strain, and Volume Effects"
+
+#: ../../BaTiO3/total-energy.rst:177
+msgid "2 種類の体積での二重井戸。圧縮すると井戸が浅くなります。"
+msgstr "Double wells at two volumes. Compression makes the wells shallower."
+
+#: ../../BaTiO3/total-energy.rst:182
+msgid ""
+"BaTiO₃ の :math:`[001]` および :math:`[111]` ソフトモードに沿った\\ 二重井戸ポテンシャル。 "
+":math:`V=64.00` Å³ における無ひずみ・ひずみ系列と、\\ :math:`V=62.57` Å³ "
+"における圧縮系列を比較します。横軸の 0 より左側は負の変位です。\\ 井戸の深さは、各系列の :math:`Q=0` "
+"と極小のエネルギー差から読み取ります。"
+msgstr ""
+"Double-well potentials along the :math:`[001]` and :math:`[111]` soft "
+"modes in BaTiO₃. \\  The figure compares the unstrained and strained "
+"series at :math:`V=64.00` Å³ with the compressed series at \\  "
+":math:`V=62.57` Å³. Displacements to the left of zero on the horizontal "
+"axis are negative. \\  Read the well depth from the energy difference "
+"between :math:`Q=0` and the minimum of each curve."
+
+#: ../../BaTiO3/total-energy.rst:187
+msgid "計算値を以下にまとめます。"
+msgstr "The table summarizes the calculated values."
+
+#: ../../BaTiO3/total-energy.rst:189
+msgid "BaTiO₃ の二重井戸ポテンシャルの主要結果"
+msgstr "Main results for the BaTiO₃ double-well potential"
+
+#: ../../BaTiO3/total-energy.rst:194
+msgid "体積"
+msgstr "Volume"
+
+#: ../../BaTiO3/total-energy.rst:195
+msgid "分極方向"
+msgstr "Polarization direction"
+
+#: ../../BaTiO3/total-energy.rst:196
+msgid "格子条件"
+msgstr "Lattice condition"
+
+#: ../../BaTiO3/total-energy.rst:197
+msgid "極小での変位"
+msgstr "Displacement at the minimum"
+
+#: ../../BaTiO3/total-energy.rst:198
+msgid "極小での相対エネルギー"
+msgstr "Relative energy at the minimum"
+
+#: ../../BaTiO3/total-energy.rst:199 ../../BaTiO3/total-energy.rst:204
+#: ../../BaTiO3/total-energy.rst:209
+msgid ":math:`64.00` Å³"
+msgstr ":math:`64.00` Å³"
+
+#: ../../BaTiO3/total-energy.rst:200 ../../BaTiO3/total-energy.rst:205
+#: ../../BaTiO3/total-energy.rst:215
+msgid ":math:`[001]`"
+msgstr ":math:`[001]`"
+
+#: ../../BaTiO3/total-energy.rst:201 ../../BaTiO3/total-energy.rst:216
+msgid ":math:`c/a=1.00`"
+msgstr ":math:`c/a=1.00`"
+
+#: ../../BaTiO3/total-energy.rst:202
+msgid ":math:`Q\\approx0.04` Å"
+msgstr ":math:`Q\\approx0.04` Å"
+
+#: ../../BaTiO3/total-energy.rst:203
+msgid ":math:`-6.621` meV/f.u."
+msgstr ":math:`-6.621` meV/f.u."
+
+#: ../../BaTiO3/total-energy.rst:206
+msgid ":math:`c/a=1.01`"
+msgstr ":math:`c/a=1.01`"
+
+#: ../../BaTiO3/total-energy.rst:207
+msgid ":math:`Q\\approx0.05` Å"
+msgstr ":math:`Q\\approx0.05` Å"
+
+#: ../../BaTiO3/total-energy.rst:208
+msgid ":math:`-13.732` meV/f.u."
+msgstr ":math:`-13.732` meV/f.u."
+
+#: ../../BaTiO3/total-energy.rst:210 ../../BaTiO3/total-energy.rst:220
+msgid ":math:`[111]`"
+msgstr ":math:`[111]`"
+
+#: ../../BaTiO3/total-energy.rst:211 ../../BaTiO3/total-energy.rst:221
+msgid "cubic metric"
+msgstr "cubic metric"
+
+#: ../../BaTiO3/total-energy.rst:212
+msgid ":math:`Q\\approx0.069282` Å"
+msgstr ":math:`Q\\approx0.069282` Å"
+
+#: ../../BaTiO3/total-energy.rst:213
+msgid ":math:`-13.237` meV/f.u."
+msgstr ":math:`-13.237` meV/f.u."
+
+#: ../../BaTiO3/total-energy.rst:214 ../../BaTiO3/total-energy.rst:219
+msgid ":math:`62.57` Å³"
+msgstr ":math:`62.57` Å³"
+
+#: ../../BaTiO3/total-energy.rst:217
+msgid ":math:`Q\\approx0.03` Å"
+msgstr ":math:`Q\\approx0.03` Å"
+
+#: ../../BaTiO3/total-energy.rst:218
+msgid ":math:`-0.761` meV/f.u."
+msgstr ":math:`-0.761` meV/f.u."
+
+#: ../../BaTiO3/total-energy.rst:222
+msgid ":math:`Q\\approx0.034641` Å"
+msgstr ":math:`Q\\approx0.034641` Å"
+
+#: ../../BaTiO3/total-energy.rst:223
+msgid ":math:`-1.759` meV/f.u."
+msgstr ":math:`-1.759` meV/f.u."
+
+#: ../../BaTiO3/total-energy.rst:225
+msgid ""
+":math:`V=64.00` Å³、:math:`c/a=1` の :math:`[001]` 系列で\\ 有限変位のエネルギーが "
+":math:`Q=0` より低いため、立方晶は\\ 極性ソフトモード方向に不安定です。反転対称性により、\\ :math:`+Q` と "
+":math:`-Q` は反対向きの分極を持つ等価な極小に対応します\\ （技術ノートの\\ `+Qと−Qの等価性と反転対称性 <https"
+"://technical-notes.quemix.com/solid/soft_mode.html#sm-inversion-"
+"equivalence>`__）。"
+msgstr ""
+"In the series at :math:`V=64.00` Å³ and :math:`c/a=1` for :math:`[001]`, "
+"\\  finite displacements have lower energies than at :math:`Q=0`, so the "
+"cubic structure is \\  unstable along the polar soft mode. By inversion "
+"symmetry, \\  :math:`+Q` and :math:`-Q` correspond to equivalent minima "
+"with opposite polarizations \\  (see \\  `equivalence of +Q and −Q and "
+"inversion symmetry <https://technical-"
+"notes.quemix.com/solid/soft_mode.html#sm-inversion-equivalence>`__ in the"
+" Technical Notes)."
+
+#: ../../BaTiO3/total-energy.rst:231
+msgid ""
+"無ひずみ条件では、:math:`[111]` の極小（:math:`-13.237` meV/f.u.）が\\ :math:`[001]` "
+"の極小（:math:`-6.621` meV/f.u.）より低く、井戸は深くなります。\\ これは Cohen–Krakauer "
+"が報告した方向依存性と一致します。\\ 一方、:math:`c/a=1.01` の正方晶ひずみを導入すると、\\ :math:`[001]` "
+"の極小は :math:`-13.732` meV/f.u. まで下がり、井戸の深さは\\ 無ひずみ :math:`[111]` "
+"井戸とほぼ同程度になります。\\ したがって、内部ソフトモード変位が不安定性を生み、\\ 正方晶ひずみが :math:`[001]` "
+"状態を追加的に安定化すると解釈できます。"
+msgstr ""
+"Under unstrained conditions, the :math:`[111]` minimum (:math:`-13.237` "
+"meV/f.u.) is lower than the \\  :math:`[001]` minimum (:math:`-6.621` "
+"meV/f.u.), so its well is deeper. \\  This agrees with the directional "
+"dependence reported by Cohen–Krakauer. \\  However, when tetragonal "
+"strain with :math:`c/a=1.01` is applied, the \\  :math:`[001]` minimum "
+"drops to :math:`-13.732` meV/f.u. and the well depth \\  becomes "
+"comparable to that of the unstrained :math:`[111]` well. \\  This "
+"suggests that the internal soft-mode displacement drives the instability "
+"\\  and tetragonal strain further stabilizes the :math:`[001]` state."
+
+#: ../../BaTiO3/total-energy.rst:240
+msgid ""
+"体積を :math:`62.57` Å³ へ圧縮すると、両方向の井戸深さは\\ 約 :math:`1`–:math:`2` meV/f.u. "
+"まで減少します。この結果は、\\ 強誘電不安定性が体積と圧力に極めて敏感であるという\\ Cohen–Krakauer "
+"の結論を再現します。ただし、両系列に小さな負の井戸が残るため、\\ "
+"本結果は「不安定性のほぼ完全な抑制」を示しますが、「完全な消失」を直接示すものではありません。"
+msgstr ""
+"Compressing the volume to :math:`62.57` Å³ reduces the well depth in both"
+" directions \\  to about :math:`1`–:math:`2` meV/f.u. This reproduces \\"
+"  the conclusion that ferroelectric instability is highly sensitive to "
+"volume and pressure, \\  as reported by Cohen–Krakauer. However, both "
+"series retain shallow wells below their zero-displacement energies, \\  "
+"so the results show near-complete suppression of the instability but do "
+"not directly establish its disappearance."
+
+#: ../../BaTiO3/total-energy.rst:249
+msgid "DOS/PDOS と Cohen 1992 Figure 2 との比較"
+msgstr "Comparison of DOS/PDOS with Fig. 2 of Cohen (1992)"
+
+#: ../../BaTiO3/total-energy.rst:251
+msgid "BaTiO3 Gaussian DOS and Ti 3d O 2p PDOS"
+msgstr "BaTiO3 Gaussian DOS and Ti 3d O 2p PDOS"
+
+#: ../../BaTiO3/total-energy.rst:256
+msgid ""
+":math:`Q=0.00` Å、:math:`Q=0.04` Å、および :math:`Q=0.05` Å、:math:`c/a=1.01` の"
+" BaTiO₃ に対する Gaussian total DOS と Ti :math:`3d` / O :math:`2p` PDOS。\\ "
+"エネルギーは各構造の VBM を :math:`0` eV としています。"
+msgstr ""
+"For BaTiO₃ at :math:`Q=0.00` Å, :math:`Q=0.04` Å, and :math:`Q=0.05` Å "
+"with :math:`c/a=1.01`, the plots show the Gaussian-broadened total DOS "
+"and the Ti :math:`3d` / O :math:`2p` PDOS. \\  The energy is set to "
+":math:`0` eV at the VBM of each structure."
+
+#: ../../BaTiO3/total-energy.rst:261
+msgid ""
+"三構造の価電子帯は主として O :math:`2p` から構成されますが、\\ 同じ :math:`-6`–:math:`0` eV 領域に有限の"
+" Ti :math:`3d` 成分が存在します。\\ これは、占有価電子状態が純粋な O :math:`2p` 状態ではなく、Ti "
+":math:`3d` の混じった混成状態であることを示します\\ （PDOS の重なりと混成の関係は技術ノートの\\ "
+"`軌道の混成とスペクトルの重なり <https://technical-notes.quemix.com/electronic/pdos.html"
+"#orbital-hybridization>`__）。\\ すなわち、Ti–O 混成は\\ 立方晶 :math:`Q=0` "
+"ですでに存在し、強誘電変位は混成をゼロから生成するのではなく、\\ 短い Ti–O 結合と長い Ti–O 結合の間で非対称化します。"
+msgstr ""
+"In all three structures, the valence band consists mainly of O "
+":math:`2p`, but \\  a finite contribution is present in the same energy "
+"range of :math:`-6`–:math:`0` eV from Ti :math:`3d`. \\  This shows that "
+"the occupied valence states contain a mixture of O :math:`2p` and Ti "
+":math:`3d` components \\  (for the relation between PDOS overlap and "
+"hybridization, see \\  `orbital hybridization and spectral overlap <https"
+"://technical-notes.quemix.com/electronic/pdos.html#orbital-"
+"hybridization>`__ in the Technical Notes). \\  Thus, Ti–O hybridization "
+"is already present \\  in the cubic structure at :math:`Q=0`. "
+"Ferroelectric displacement does not create hybridization from scratch. "
+"Instead, it makes the hybridization asymmetric \\  between the short and "
+"long Ti–O bonds."
+
+#: ../../BaTiO3/total-energy.rst:269
+msgid "本解析で得た占有価電子帯の指標は次の通りです。"
+msgstr "The indicators for the occupied valence band are listed below."
+
+#: ../../BaTiO3/total-energy.rst:271
+msgid "Ti 3d–O 2p 混成の補助指標"
+msgstr "Supplementary indicators of Ti 3d–O 2p hybridization"
+
+#: ../../BaTiO3/total-energy.rst:276
+msgid "構造"
+msgstr "Structure"
+
+#: ../../BaTiO3/total-energy.rst:277
+msgid "占有 Ti :math:`3d` 重み"
+msgstr "Occupied Ti :math:`3d` weight"
+
+#: ../../BaTiO3/total-energy.rst:278
+#, python-brace-format
+msgid "規格化重なり :math:`H_{pd}`"
+msgstr "Normalized overlap :math:`H_{pd}`"
+
+#: ../../BaTiO3/total-energy.rst:279
+msgid "Ti :math:`3d` + O :math:`2p` 重心"
+msgstr "Centroid of Ti :math:`3d` + O :math:`2p`"
+
+#: ../../BaTiO3/total-energy.rst:281
+msgid "2.14599"
+msgstr "2.14599"
+
+#: ../../BaTiO3/total-energy.rst:282
+msgid "0.76965"
+msgstr "0.76965"
+
+#: ../../BaTiO3/total-energy.rst:283
+msgid ":math:`-2.207` eV"
+msgstr ":math:`-2.207` eV"
+
+#: ../../BaTiO3/total-energy.rst:285
+msgid "2.15145"
+msgstr "2.15145"
+
+#: ../../BaTiO3/total-energy.rst:286
+msgid "0.77974"
+msgstr "0.77974"
+
+#: ../../BaTiO3/total-energy.rst:287
+msgid ":math:`-2.234` eV"
+msgstr ":math:`-2.234` eV"
+
+#: ../../BaTiO3/total-energy.rst:289
+msgid "2.15381"
+msgstr "2.15381"
+
+#: ../../BaTiO3/total-energy.rst:290
+msgid "0.78414"
+msgstr "0.78414"
+
+#: ../../BaTiO3/total-energy.rst:291
+msgid ":math:`-2.269` eV"
+msgstr ":math:`-2.269` eV"
+
+#: ../../BaTiO3/total-energy.rst:293
+#, python-brace-format
+msgid ""
+"占有 Ti :math:`3d` 重みと :math:`H_{pd}` は変位とひずみに伴ってわずかに増加し、\\ Ti :math:`3d`–O"
+" :math:`2p` スペクトルの重なりが系統的に変化します。\\ ただし、これらは局在基底への射影量および DOS "
+"形状の重なり指標であり、\\ 形式的な Ti :math:`d` 電子数や Hamiltonian の混成行列要素そのものではありません\\ "
+"（技術ノートの\\ `非直交基底での射影 <https://technical-"
+"notes.quemix.com/electronic/pdos.html#pdos-nonorthogonal>`__）。\\ "
+"また、各構造を独立に VBM 整列しているため、重心の低エネルギー側への移動は\\ "
+"全エネルギーの分解としては読めません（`エネルギーの基準と価電子帯上端 <https://technical-"
+"notes.quemix.com/electronic/pdos.html#pdos-energy-alignment>`__）。"
+msgstr ""
+"The occupied Ti :math:`3d` weight and :math:`H_{pd}` increase slightly "
+"with displacement and strain, \\  and the Ti :math:`3d`–O :math:`2p` "
+"spectral overlap changes systematically. \\  These quantify projections "
+"onto a localized basis and the overlap of DOS profiles, respectively, \\"
+"  rather than the formal Ti :math:`d` electron count or the hybridization"
+" matrix elements of the Hamiltonian \\  (see \\  `projection in a "
+"nonorthogonal basis <https://technical-"
+"notes.quemix.com/electronic/pdos.html#pdos-nonorthogonal>`__ in the "
+"Technical Notes). \\  As the spectra are aligned independently to each "
+"structure's VBM, the shift of the centroid to lower energy \\  cannot be "
+"interpreted as a decomposition of the total energy (see `energy reference"
+" and the valence band maximum <https://technical-"
+"notes.quemix.com/electronic/pdos.html#pdos-energy-alignment>`__)."
+
+#: ../../BaTiO3/total-energy.rst:301
+msgid ""
+"Cohen 1992 の Figure 2(a) は、強誘電 PbTiO₃ と立方晶 PbTiO₃ を比較し、\\ 強誘電変位によって Ti "
+":math:`3d`–O :math:`2p` 混成が増強され、\\ バンド固有値和が低下することを示しました。Figure 2(b) は、\\ "
+"PbTiO₃ の実験構造を両方に用いて PbTiO₃ と BaTiO₃ を比較し、\\ A サイト元素の化学的違いを分離しています "
+":sup:`[4]`。"
+msgstr ""
+"Figure 2(a) of Cohen (1992) compares ferroelectric and cubic PbTiO₃. \\  "
+"It shows that ferroelectric displacement enhances Ti :math:`3d`–O "
+":math:`2p` hybridization \\  and lowers the sum of the band eigenvalues. "
+"Figure 2(b) compares \\  PbTiO₃ and BaTiO₃ using the experimental PbTiO₃ "
+"structure for both, \\  isolating the chemical difference between the "
+"A-site elements :sup:`[4]`."
+
+#: ../../BaTiO3/total-energy.rst:307
+msgid ""
+"PbTiO₃ では Pb :math:`6s`–O :math:`2p` 混成が大きな正方晶ひずみを安定化するのに対し、\\ BaTiO₃ では "
+"Ba–O 相互作用はよりイオン的で、主要な共有結合成分は Ti :math:`3d`–O :math:`2p` です :sup:`[4]`。\\ "
+"本計算は PbTiO₃ を含まないため Figure 2 の直接再現ではありませんが、\\ BaTiO₃ における Ti :math:`3d` と"
+" O :math:`2p` の価電子帯重なりと、\\ 極性変位に伴う系統的な PDOS 変化を再現しています。"
+msgstr ""
+"In PbTiO₃, Pb :math:`6s`–O :math:`2p` hybridization stabilizes the large "
+"tetragonal strain, whereas \\  in BaTiO₃ the Ba–O interaction is more "
+"ionic and the main covalent contribution comes from Ti :math:`3d`–O "
+":math:`2p` :sup:`[4]`. \\  Our calculations do not include PbTiO₃ and "
+"therefore do not directly reproduce Figure 2. However, they do reproduce "
+"\\  the valence-band overlap of Ti :math:`3d` and O :math:`2p` in BaTiO₃ "
+"\\  and systematic changes in the PDOS with polar displacement."
+
+#: ../../BaTiO3/total-energy.rst:314
+msgid "Ti 3d の除外試験と価電子密度に関する解釈"
+msgstr "Test Excluding Ti 3d and Interpretation of the Valence Electron Density"
+
+#: ../../BaTiO3/total-energy.rst:316
+msgid ""
+"Cohen は、混成を含まないイオン模型（potential-induced-breathing モデル）と、Ti :math:`3d` "
+"の寄与を抑えた LAPW 計算の二つの方法で、\\ Ti–O 混成を抑えると強誘電不安定性が消えることを示しました :sup:`[3]`, "
+":sup:`[4]`。\\ この結果は、混成が短距離 Ti–O 反発を緩めて極性変位を安定にするという因果関係を支持します\\ （技術ノートの\\"
+" `Ti 3d–O 2pの混成の役割 <https://technical-"
+"notes.quemix.com/solid/ferroelectric_origin.html#fo-hybridization>`__）。\\"
+" 本計算では Ti :math:`3d` 除外試験を行っていないため、\\ この因果的証明は参照論文に基づきます。一方、二重井戸ポテンシャルと "
+"DOS/PDOS は、\\ 同じ機構に整合する構造的・軌道的証拠を与えます。"
+msgstr ""
+"Cohen used two approaches, an ionic model without hybridization (the "
+"potential-induced-breathing model) and an LAPW calculation with the Ti "
+":math:`3d` contribution suppressed, \\  to show that suppressing Ti–O "
+"hybridization removes the ferroelectric instability :sup:`[3]`, "
+":sup:`[4]`. \\  This result supports a causal link in which hybridization"
+" weakens short-range Ti–O repulsion and stabilizes polar displacements \\"
+"  (see \\  `role of Ti 3d–O 2p hybridization <https://technical-"
+"notes.quemix.com/solid/ferroelectric_origin.html#fo-hybridization>`__ in "
+"the Technical Notes). \\  We did not perform the test excluding Ti "
+":math:`3d`, \\  so this causal evidence comes from the cited studies. The"
+" double-well potential and DOS/PDOS, by contrast, \\  provide structural "
+"and orbital evidence consistent with the same mechanism."
+
+#: ../../BaTiO3/total-energy.rst:324
+msgid ""
+"現在の Quloud 計算例では価電子密度出力を利用できません。\\ したがって、以下は本計算の直接結果ではなく、Cohen–Krakauer "
+"の\\ 実空間解析から予想される挙動です。"
+msgstr ""
+"Valence electron density output is unavailable for this Quloud "
+"calculation example. \\  The following behavior is therefore expected "
+"from Cohen–Krakauer's \\  real-space analysis. It was not obtained "
+"directly from our calculations."
+
+#: ../../BaTiO3/total-energy.rst:328
+msgid "Ba 周囲の価電子密度変形は小さいです。"
+msgstr "The valence electron density changes little around Ba."
+
+#: ../../BaTiO3/total-energy.rst:329
+msgid "Ti 周囲には O :math:`2p`–Ti :math:`3d` 混成に由来する価電子密度が現れます。"
+msgstr ""
+"Valence electron density due to O :math:`2p`–Ti :math:`3d` hybridization "
+"appears around Ti."
+
+#: ../../BaTiO3/total-energy.rst:330
+msgid "強誘電変位の増加に伴い、短い Ti–O 結合上で結合電荷が増加します。"
+msgstr ""
+"As the ferroelectric displacement increases, the bond charge increases "
+"along the short Ti–O bond."
+
+#: ../../BaTiO3/total-energy.rst:331
+msgid "長い Ti–O 結合側では結合電荷が相対的に減少し、Ti 周囲に双極子的な密度変形が生じます。"
+msgstr ""
+"The bond charge decreases in relative terms on the longer Ti–O side, "
+"producing a dipole-like redistribution of electron density around Ti."
+
+#: ../../BaTiO3/total-energy.rst:332
+msgid "軸方向 O と垂直方向 O の電子状態が非等価になります。"
+msgstr ""
+"The electronic states of the axial and transverse O atoms become "
+"inequivalent."
+
+#: ../../BaTiO3/total-energy.rst:334
+msgid ""
+"この期待される実空間像は、本計算で観測された Ti :math:`3d` と\\ O :math:`2p` の占有価電子帯重なり、および変位に伴う"
+" PDOS の系統的変化と整合します。\\ ただし、静的な価電子密度差だけから Born 有効電荷や動的分極を直接決定することはできず、\\ "
+"その評価には Berry-phase 分極、線形応答、または対応する有限変位解析が必要です\\ （技術ノートの\\ `周期結晶の分極 <https"
+"://technical-notes.quemix.com/solid/polarization.html>`__）。"
+msgstr ""
+"This expected real-space picture agrees with the occupied valence-band "
+"overlap of Ti :math:`3d` and \\  O :math:`2p` observed in our "
+"calculations and the systematic changes in PDOS with displacement. \\  "
+"Static valence electron density differences alone, however, do not "
+"directly determine Born effective charges or dynamical polarization. \\  "
+"Evaluating them requires Berry-phase polarization, linear response, or a "
+"corresponding finite-displacement analysis \\  (see \\  `polarization in "
+"periodic crystals <https://technical-"
+"notes.quemix.com/solid/polarization.html>`__ in the Technical Notes)."
+
+#: ../../BaTiO3/total-energy.rst:342
+msgid "有限温度 MD 計算への接続"
+msgstr "Connection to Finite-Temperature MD Calculations"
+
+#: ../../BaTiO3/total-energy.rst:344
+msgid ""
+"本計算で得られる二重井戸ポテンシャルは、0 K における局所的な\\ ポテンシャルエネルギー面です。有限温度相転移では、局所井戸に加えて、\\ "
+"セル間の分極相関、格子ひずみ、エントロピー、および熱揺らぎを考慮する必要があります。\\ "
+"井戸の深さだけでは、相転移が変位型か秩序–無秩序型かも決まりません\\ （技術ノートの\\ `変位型と秩序–無秩序型の相転移 <https"
+"://technical-notes.quemix.com/solid/soft_mode.html#displacive-order-"
+"disorder>`__）。\\ 次の :doc:`構造相転移 <phase_transition>` では、Ti "
+"の局所変位分布と格子定数が温度とともにどう変わるかを調べます。\\ :math:`[111]` 型の局所変位が高温立方晶でも残るか、静的 DFT "
+"の井戸深さと MD の温度依存構造が整合するかが、\\ 二つの計算をつなぐ点です。\\ 静的 DFT "
+"は「なぜ局所的な極性不安定性が存在するか」を示し、\\ 有限温度 MD "
+"は「その局所不安定性が温度下でどのように秩序化・無秩序化するか」を示します。"
+msgstr ""
+"The double-well potential from this calculation is a local \\  potential "
+"energy surface at 0 K. For finite-temperature phase transitions, besides "
+"the local wells, \\  intercell polarization correlations, lattice strain,"
+" entropy, and thermal fluctuations must be considered. \\  Well depth "
+"alone also cannot determine whether the transition is displacive or "
+"order–disorder \\  (see \\  `displacive and order–disorder phase "
+"transitions <https://technical-notes.quemix.com/solid/soft_mode.html"
+"#displacive-order-disorder>`__ in the Technical Notes). \\  The next "
+"article, :doc:`Structural Phase Transitions <phase_transition>`, examines"
+" how the local Ti displacement distribution and the lattice constants "
+"change with temperature. The two calculations are linked by two "
+"questions. Do \\  :math:`[111]`-type local displacements persist in the "
+"high-temperature cubic phase? \\  Are the static DFT well depths "
+"consistent with the temperature-dependent structures from MD? \\  Static "
+"DFT shows why the local polar instability exists, \\  and finite-"
+"temperature MD shows how that instability leads to ordering and "
+"disordering at finite temperatures."
+
+#: ../../BaTiO3/total-energy.rst:357
+msgid "まとめ"
+msgstr "Summary"
+
+#: ../../BaTiO3/total-energy.rst:359
+msgid ""
+"本 OpenMX/Quloud 計算は、Cohen–Krakauer の極性ソフトモードを用いて、\\ BaTiO₃ "
+"の強誘電不安定性を構造と電子状態の両面から再現しました。"
+msgstr ""
+"Using the polar soft mode of Cohen–Krakauer, our OpenMX/Quloud "
+"calculations reproduced \\  the ferroelectric instability of BaTiO₃ in "
+"both the structure and the electronic states."
+
+#: ../../BaTiO3/total-energy.rst:362
+msgid ""
+"Cohen–Krakauer が報告した不安定モードの振動数は約 :math:`-72\\ \\mathrm{cm^{-1}}` で、変位比は\\"
+" :math:`\\mathrm{Ba:Ti:O(1)}=0.53:1.00:-0.29` です。"
+msgstr ""
+"Cohen–Krakauer reported an unstable mode with a frequency of about "
+":math:`-72\\ \\mathrm{cm^{-1}}` and a displacement ratio of \\  "
+":math:`\\mathrm{Ba:Ti:O(1)}=0.53:1.00:-0.29`."
+
+#: ../../BaTiO3/total-energy.rst:364
+msgid ""
+"同じソフトモードを :math:`[001]` と :math:`[111]` へ適用すると、\\ "
+"それぞれ正方晶型と菱面体晶型の二重井戸ポテンシャルが得られます。"
+msgstr ""
+"Applying the same soft mode along :math:`[001]` and :math:`[111]` yields "
+"\\  tetragonal-type and rhombohedral-type double-well potentials, "
+"respectively."
+
+#: ../../BaTiO3/total-energy.rst:366
+msgid ""
+":math:`V=64.00` Å³ では、無ひずみ :math:`[111]` 井戸が\\ 無ひずみ :math:`[001]` "
+"井戸より深いです。"
+msgstr ""
+"At :math:`V=64.00` Å³, the unstrained :math:`[111]` well is deeper \\  "
+"than the unstrained :math:`[001]` well."
+
+#: ../../BaTiO3/total-energy.rst:368
+msgid ""
+":math:`c/a=1.01` の正方晶ひずみは :math:`[001]` 井戸を約 2 倍深くし、\\ :math:`[111]` "
+"井戸とほぼ同程度に安定化します。"
+msgstr ""
+"Tetragonal strain with :math:`c/a=1.01` roughly doubles the depth of the "
+":math:`[001]` well and brings the depth close to that of the \\  "
+":math:`[111]` well."
+
+#: ../../BaTiO3/total-energy.rst:370
+msgid ""
+":math:`V=62.57` Å³ への圧縮は両井戸を約 :math:`1`–:math:`2` meV/f.u. まで浅くし、\\ "
+"強い体積依存性を示します。"
+msgstr ""
+"Compression to :math:`V=62.57` Å³ reduces both well depths to about "
+":math:`1`–:math:`2` meV/f.u., \\  showing a strong volume dependence."
+
+#: ../../BaTiO3/total-energy.rst:372
+msgid ""
+"DOS/PDOS では、O :math:`2p` 価電子帯内に有限の Ti :math:`3d` 成分が存在し、\\ "
+"極性変位とひずみに伴ってそのスペクトル重なりが系統的に変化します。"
+msgstr ""
+"The DOS/PDOS shows that the O :math:`2p` valence band has a finite Ti "
+":math:`3d` contribution, \\  with systematic changes in spectral overlap "
+"as the polar displacement and strain vary."
+
+#: ../../BaTiO3/total-energy.rst:375
+msgid "以上から、本結果は"
+msgstr "Taken together, these results support Cohen's mechanism, shown below."
+
+#: ../../BaTiO3/total-energy.rst:377
+#, python-brace-format
+msgid ""
+"\\text{極性ソフトモード}\n"
+"\\;\\longrightarrow\\;\n"
+"\\text{非対称な Ti–O 結合}\n"
+"\\;\\longrightarrow\\;\n"
+"\\mathrm{Ti}\\,3d\\text{–}\\mathrm O\\,2p\\text{ 混成の変化}\n"
+"\\;\\longrightarrow\\;\n"
+"\\text{短距離反発の緩和}\n"
+"\\;\\longrightarrow\\;\n"
+"\\text{二重井戸の形成}"
+msgstr ""
+"\\text{polar soft mode}\n"
+"\\;\\longrightarrow\\;\n"
+"\\text{asymmetric Ti–O bonds}\n"
+"\\;\\longrightarrow\\;\n"
+"\\mathrm{Ti}\\,3d\\text{–}\\mathrm O\\,2p\\text{ hybridization changes}\n"
+"\\;\\longrightarrow\\;\n"
+"\\text{weaker short-range repulsion}\n"
+"\\;\\longrightarrow\\;\n"
+"\\text{double well forms}"
+
+#: ../../BaTiO3/total-energy.rst:389
+msgid ""
+"という Cohen の機構を支持します。現在の計算は、構造的不安定性と軌道空間における\\ Ti–O 混成を示しています。一方、Ti "
+":math:`3d` の直接除外試験と価電子密度の実空間可視化は\\ "
+"未実施であり、その因果的・実空間的証拠は参照論文に基づくものとして明確に区別します。"
+msgstr ""
+"Our calculations show the structural instability and \\  Ti–O "
+"hybridization in orbital space. However, we did not directly test the "
+"effect of excluding Ti :math:`3d` or visualize the valence electron "
+"density in real space. \\  The causal and real-space evidence for the "
+"mechanism comes from the cited studies."
+
+#: ../../BaTiO3/total-energy.rst:395
+msgid "参考文献"
+msgstr "References"
+
+#: ../../BaTiO3/total-energy.rst:397
+msgid ""
+":sup:`[1]` Slater, J. C., \"The Lorentz Correction in Barium Titanate,\" "
+"*Physical Review*, **78**, 748--761, 1950. "
+"`https://doi.org/10.1103/PhysRev.78.748 "
+"<https://doi.org/10.1103/PhysRev.78.748>`_"
+msgstr ""
+":sup:`[1]` Slater, J. C., \"The Lorentz Correction in Barium Titanate,\" "
+"*Physical Review*, **78**, 748--761, 1950. "
+"`https://doi.org/10.1103/PhysRev.78.748 "
+"<https://doi.org/10.1103/PhysRev.78.748>`_"
+
+#: ../../BaTiO3/total-energy.rst:402
+msgid ""
+":sup:`[2]` Cochran, W., \"Crystal Stability and the Theory of "
+"Ferroelectricity,\" *Advances in Physics*, **9**, 387--423, 1960. "
+"`https://doi.org/10.1080/00018736000101229 "
+"<https://doi.org/10.1080/00018736000101229>`_"
+msgstr ""
+":sup:`[2]` Cochran, W., \"Crystal Stability and the Theory of "
+"Ferroelectricity,\" *Advances in Physics*, **9**, 387--423, 1960. "
+"`https://doi.org/10.1080/00018736000101229 "
+"<https://doi.org/10.1080/00018736000101229>`_"
+
+#: ../../BaTiO3/total-energy.rst:407
+msgid ""
+":sup:`[3]` Cohen, R. E.; Krakauer, H., \"Lattice dynamics and origin of "
+"ferroelectricity in BaTiO₃: Linearized-augmented-plane-wave total-energy "
+"calculations,\" *Physical Review B*, **42**, 6416--6423, 1990. "
+"`https://doi.org/10.1103/PhysRevB.42.6416 "
+"<https://doi.org/10.1103/PhysRevB.42.6416>`_"
+msgstr ""
+":sup:`[3]` Cohen, R. E.; Krakauer, H., \"Lattice dynamics and origin of "
+"ferroelectricity in BaTiO₃: Linearized-augmented-plane-wave total-energy "
+"calculations,\" *Physical Review B*, **42**, 6416--6423, 1990. "
+"`https://doi.org/10.1103/PhysRevB.42.6416 "
+"<https://doi.org/10.1103/PhysRevB.42.6416>`_"
+
+#: ../../BaTiO3/total-energy.rst:413
+msgid ""
+":sup:`[4]` Cohen, R. E., \"Origin of ferroelectricity in perovskite "
+"oxides,\" *Nature*, **358**, 136--138, 1992. "
+"`https://doi.org/10.1038/358136a0 <https://doi.org/10.1038/358136a0>`_"
+msgstr ""
+":sup:`[4]` Cohen, R. E., \"Origin of ferroelectricity in perovskite "
+"oxides,\" *Nature*, **358**, 136--138, 1992. "
+"`https://doi.org/10.1038/358136a0 <https://doi.org/10.1038/358136a0>`_"
+
+#~ msgid ""
+#~ "です。したがって、入力 :math:`\\delta=0.04` Å は\\ "
+#~ ":math:`Q=0.069282` Å に対応します。\\ この系列では、格子を立方晶に保ち、原子を"
+#~ " :math:`[111]` 方向へ変位させます。\\ "
+#~ "菱面体晶の格子角ひずみは含みません。Cohen–Krakauer は、菱面体晶の\\ "
+#~ "格子角ひずみが静的井戸深さへ与える影響は小さいことを示しています。"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "BaTiO₃ の :math:`[001]` および :math:`[111]` "
+#~ "ソフトモードに沿った\\ 二重井戸ポテンシャル。 :math:`V=64.00` Å³ "
+#~ "における無ひずみ・ひずみ系列と、 :math:`V=62.57` Å³ "
+#~ "における圧縮系列を比較します。井戸の深さは、各系列の :math:`Q=0` と極小のエネルギー差から読み取ります。"
+#~ msgstr ""
+
