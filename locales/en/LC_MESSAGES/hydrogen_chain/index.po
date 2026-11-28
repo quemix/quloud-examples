@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 12:34+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -24,16 +24,28 @@ msgid "水素原子鎖の電子バンド形成"
 msgstr "Electronic Band Formation in a Hydrogen Atom Chain"
 
 #: ../../hydrogen_chain/index.rst:4
-msgid "水素原子を並べたときの軌道エネルギーを計算し、鎖の長さと電子バンド形成の関係を調べます。"
+msgid ""
+"水素原子を等間隔に並べた鎖の軌道エネルギーをPsi4で計算し、原子数を増やすと準位がバンドのように密集するかを調べます。\\ あわせて"
+"、RHFとRKS-PBEで軌道ギャップの原子数依存性が大きく異なる理由を、結合次数とスピン分極から調べます。"
 msgstr ""
-"We calculate orbital energies for a chain of hydrogen atoms and examine "
-"the relationship between chain length and electronic band formation."
+"We use Psi4 to compute the orbital energies of a chain of equally spaced "
+"hydrogen atoms and examine whether the levels crowd together like a band "
+"as the number of atoms increases. \\ We also use bond orders and spin "
+"polarization to examine why the dependence of the orbital gap on atom "
+"count differs greatly between RHF and RKS-PBE."
 
-#: ../../hydrogen_chain/index.rst:8
+#: ../../hydrogen_chain/index.rst:9
 msgid ":doc:`計算結果を読む <band_formation>`"
 msgstr ":doc:`Interpreting the Calculation Results <band_formation>`"
 
-#: ../../hydrogen_chain/index.rst:9
+#: ../../hydrogen_chain/index.rst:10
 msgid ":doc:`計算条件と再現手順 <reproduction>`"
 msgstr ":doc:`Calculation Conditions and Reproduction Procedure <reproduction>`"
+
+#~ msgid "水素原子を並べたときの軌道エネルギーを計算し、鎖の長さと電子バンド形成の関係を調べます。"
+#~ msgstr ""
+#~ "We calculate orbital energies for a "
+#~ "chain of hydrogen atoms and examine "
+#~ "the relationship between chain length "
+#~ "and electronic band formation."
 

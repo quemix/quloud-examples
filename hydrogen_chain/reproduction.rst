@@ -30,7 +30,7 @@ Psi4入力スクリプト
 図の作成スクリプト
 ------------------
 
-* :download:`plot_article_figures.py <scripts/plot_article_figures.py>` : 下記のCSVからモデル図、軌道エネルギー、ギャップ、スピンと結合次数の比較図を作成します。Psi4の計算は行いません。記事中のその他の図は配布済みのPNGを使用しています。
+* :download:`plot_article_figures.py <scripts/plot_article_figures.py>` : 下記のCSVから、記事の :numref:`fig-hchain-model` 〜 :numref:`fig-hchain-levels-n64` と :numref:`fig-hchain-spin` を作成します。Psi4の計算は行いません。このスクリプトで作らない :numref:`fig-hchain-bond-order` 、 :numref:`fig-hchain-bond-order-image` 、 :numref:`fig-hchain-uhf-spectrum` 、 :numref:`fig-hchain-uks-spectrum` は、作成済みのPNGを掲載しています。
 
 数値データ（CSV）
 -----------------
@@ -54,16 +54,16 @@ Psi4入力スクリプト
    * - :download:`hydrogen_chain_spin_summary.csv <data/hydrogen_chain_spin_summary.csv>`
      - 4手法の全エネルギー、軌道ギャップ、中央の交替振幅、スピン密度、 :math:`\langle S^2\rangle` （ :math:`N` = 16, 32、PK）
    * - :download:`hydrogen_chain_spin_sites.csv <data/hydrogen_chain_spin_sites.csv>`
-     - 4手法の原子ごとのLöwdin電子数とスピン密度。原子番号は1始まり
+     - 4手法の原子ごとのLöwdin電子数とスピン密度（ :math:`N` = 16, 32、PK）。原子番号は1始まり
    * - :download:`hydrogen_chain_spin_bonds.csv <data/hydrogen_chain_spin_bonds.csv>`
-     - 4手法の隣接原子間Löwdin結合次数。原子番号は1始まり
+     - 4手法の隣接原子間Löwdin結合次数（ :math:`N` = 16, 32、PK）。原子番号は1始まり
 
 軌道エネルギーの単位はeV、全エネルギーの単位はHartree（ :math:`E_\mathrm{h}` ）です。
 
 計算手順
 ========
 
-手順1〜4のコマンドは、Psi4 1.10の環境で、スクリプトを置いたディレクトリから実行します。各スクリプトはPsi4のログ（ ``*_psi4.log`` ）も出力します。
+手順1〜4のコマンドは、Psi4 1.10の環境で、スクリプトを置いたディレクトリから実行します。CSVとPsi4のログ（ ``*_psi4.log`` ）は、実行したディレクトリに書き出されます。
 
 1. RHFの原子数依存性
 --------------------
@@ -72,7 +72,7 @@ Psi4入力スクリプト
 
    python hydrogen_chain_psi4.py --method rhf --a 1.8 --ns 2 4 8 16 24 32 48 64 80 100 --prefix rhf
 
-``rhf_orbitals.csv`` が得られます。CSVには収束した系だけが書き出されます。この条件では :math:`N` = 80, 100が500反復以内に収束せず、結果から除外されました。
+``rhf_orbitals.csv`` が得られます。記事の :numref:`fig-hchain-rhf-levels` と :numref:`tab-hchain-gaps` のRHFの列の元データです。CSVには収束した系だけが書き出されます。この条件では :math:`N` = 80, 100が500反復以内に収束せず、結果から除外されました。
 
 2. RKS-PBEの原子数依存性
 ------------------------
@@ -87,7 +87,7 @@ Psi4入力スクリプト
 
    python pbe_sad_input.py --method rks --xc pbe --a 1.8 --ns 32 48 64 --prefix pbe_sad
 
-コアハミルトニアン初期推定では、 :math:`N` = 64が500反復以内に収束しませんでした。 :math:`N` = 32では2つの初期推定のギャップが表示桁数で一致し、図と表にはコアハミルトニアン初期推定の結果を使っています。
+コアハミルトニアン初期推定では、 :math:`N` = 64が500反復以内に収束しませんでした。 :math:`N` = 32では2つの初期推定のギャップが表示桁数で一致し、図と表にはコアハミルトニアン初期推定の結果を使っています。 ``pbe_core_orbitals.csv`` と ``pbe_sad_orbitals.csv`` は、記事の :numref:`fig-hchain-pbe-levels` と :numref:`tab-hchain-gaps` のRKS-PBEの列の元データです。
 
 3. 結合次数とRHFの安定性解析
 ----------------------------
@@ -96,7 +96,7 @@ Psi4入力スクリプト
 
    python hydrogen_chain_bond_order.py --a 1.8 --ns 16 32 64
 
-``hydrogen_chain_bond_order.csv`` が得られます。Psi4 1.10の安定性解析は密度フィッティングのSCFに対応していないため、このスクリプトはPK積分を使います。RHF→RHFとRHF→UHFの安定性固有値は、ログの ``Lowest singlet (RHF->RHF) stability eigenvalues`` と ``Lowest triplet (RHF->UHF) stability eigenvalues`` に出力されます。
+``hydrogen_chain_bond_order.csv`` が得られます。記事で示した :math:`N` = 32の鎖中央の結合次数（RHFの0.862と0.378、RKS-PBEの0.666と0.608）は、このファイルで確かめられます。Psi4 1.10の安定性解析は密度フィッティングのSCFに対応していないため、このスクリプトはPK積分を使います。RHF→RHFとRHF→UHFの安定性固有値は、ログの ``Lowest singlet (RHF->RHF) stability eigenvalues`` と ``Lowest triplet (RHF->UHF) stability eigenvalues`` に出力されます。
 
 4. スピン制限解と非制限解の比較
 ------------------------------------
@@ -105,7 +105,7 @@ Psi4入力スクリプト
 
    python hydrogen_chain_spin.py --ns 16 32
 
-``hydrogen_chain_spin_summary.csv`` 、 ``hydrogen_chain_spin_sites.csv`` 、 ``hydrogen_chain_spin_bonds.csv`` 、 ``hydrogen_chain_spin_orbitals.csv`` （α・β軌道のエネルギー）が得られます。
+``hydrogen_chain_spin_summary.csv`` 、 ``hydrogen_chain_spin_sites.csv`` 、 ``hydrogen_chain_spin_bonds.csv`` 、 ``hydrogen_chain_spin_orbitals.csv`` （α・β軌道のエネルギー）が得られます。 ``hydrogen_chain_spin_summary.csv`` の :math:`N` = 32の行が、記事の :numref:`tab-hchain-spin` の値です。 ``hydrogen_chain_spin_orbitals.csv`` は配布していません。
 
 非制限計算の初期軌道は次のようにつくります。まず同じ手法の制限解（RHFまたはRKS-PBE）のFock行列またはKohn–Sham行列をLöwdin直交化し、対角成分に :math:`\pm 0.5\ E_\mathrm{h}` の交互の場をαとβで逆符号に加えて対角化します。得られた軌道をPsi4の ``restart_file`` として読み込ませます。この場は初期軌道の生成だけに使い、SCF本計算には加えていません。ログに ``Reading orbitals`` が出力されていることで、初期軌道の読み込みを確認できます。単純なHOMO–LUMO混合による初期推定では、 :math:`N` = 16のUHFが500反復以内に収束しませんでした。
 
@@ -116,7 +116,9 @@ Psi4入力スクリプト
 
    python plot_article_figures.py
 
-``scripts/`` と同じ階層の ``data/`` にあるCSVを読み、 ``figures/`` に上記の図を出力します。あわせて、中央の結合次数の交替振幅を表示します。
+ダウンロードしたファイルは、同じディレクトリの下に ``scripts/`` と ``data/`` を作って分けて置き、 ``scripts/`` で実行します。スクリプトは ``scripts/`` と同じ階層の ``data/`` からCSVを読み、同じ階層の ``figures/`` に「図の作成スクリプト」に挙げた6つの図を書き出します（同名のPNGは上書きされます）。あわせて、中央の結合次数の交替振幅を表示します。
+
+手順1〜4で計算したCSVから図を描き直すときは、 ``data/`` の同名のCSVを置き換えます。 ``rhf_pbe_comparison.csv`` は手順1〜4では作られないので、 ``rhf_orbitals.csv`` 、 ``pbe_core_orbitals.csv`` 、 ``pbe_sad_orbitals.csv`` から各 :math:`N` のHOMOとLUMOを抜き出して作ります。
 
 数値を扱う上での注意
 ====================

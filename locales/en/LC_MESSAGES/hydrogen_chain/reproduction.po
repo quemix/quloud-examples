@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Quloud Examples 2026.5.25\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-28 12:37+0900\n"
+"POT-Creation-Date: 2026-11-28 22:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -131,13 +131,19 @@ msgstr "Plotting Script"
 #: ../../hydrogen_chain/reproduction.rst:33
 msgid ""
 ":download:`plot_article_figures.py <scripts/plot_article_figures.py>` : "
-"下記のCSVからモデル図、軌道エネルギー、ギャップ、スピンと結合次数の比較図を作成します。Psi4の計算は行いません。記事中のその他の図は配布済みのPNGを使用しています。"
+"下記のCSVから、記事の :numref:`fig-hchain-model` 〜 :numref:`fig-hchain-levels-n64`"
+" と :numref:`fig-hchain-spin` を作成します。Psi4の計算は行いません。このスクリプトで作らない :numref"
+":`fig-hchain-bond-order` 、 :numref:`fig-hchain-bond-order-image` 、 "
+":numref:`fig-hchain-uhf-spectrum` 、 :numref:`fig-hchain-uks-spectrum` "
+"は、作成済みのPNGを掲載しています。"
 msgstr ""
 ":download:`plot_article_figures.py <scripts/plot_article_figures.py>` "
-"uses the CSV files below to produce the model schematic, orbital energy "
-"plots, the orbital gap plot, and the comparison of spin density and bond "
-"order. It does not run Psi4 calculations. The other figures in the "
-"article use the supplied PNG files."
+"uses the CSV files below to produce :numref:`fig-hchain-model` through "
+":numref:`fig-hchain-levels-n64` and :numref:`fig-hchain-spin` of the "
+"article. It does not run Psi4 calculations. For :numref:`fig-hchain-bond-"
+"order`, :numref:`fig-hchain-bond-order-image`, :numref:`fig-hchain-uhf-"
+"spectrum`, and :numref:`fig-hchain-uks-spectrum`, which this script does "
+"not produce, the article shows pre-made PNG files."
 
 #: ../../hydrogen_chain/reproduction.rst:36
 msgid "数値データ（CSV）"
@@ -231,10 +237,10 @@ msgstr ""
 "<data/hydrogen_chain_spin_sites.csv>`"
 
 #: ../../hydrogen_chain/reproduction.rst:57
-msgid "4手法の原子ごとのLöwdin電子数とスピン密度。原子番号は1始まり"
+msgid "4手法の原子ごとのLöwdin電子数とスピン密度（ :math:`N` = 16, 32、PK）。原子番号は1始まり"
 msgstr ""
 "Löwdin electron populations and spin densities for each atom for all four"
-" methods. Atom numbering starts at 1."
+" methods (:math:`N` = 16, 32, PK). Atom numbering starts at 1."
 
 #: ../../hydrogen_chain/reproduction.rst:58
 msgid ""
@@ -245,10 +251,10 @@ msgstr ""
 "<data/hydrogen_chain_spin_bonds.csv>`"
 
 #: ../../hydrogen_chain/reproduction.rst:59
-msgid "4手法の隣接原子間Löwdin結合次数。原子番号は1始まり"
+msgid "4手法の隣接原子間Löwdin結合次数（ :math:`N` = 16, 32、PK）。原子番号は1始まり"
 msgstr ""
-"Löwdin bond orders between neighboring atoms for all four methods. Atom "
-"numbering starts at 1."
+"Löwdin bond orders between neighboring atoms for all four methods "
+"(:math:`N` = 16, 32, PK). Atom numbering starts at 1."
 
 #: ../../hydrogen_chain/reproduction.rst:61
 #, python-brace-format
@@ -263,12 +269,13 @@ msgstr "Calculation Procedure"
 
 #: ../../hydrogen_chain/reproduction.rst:66
 msgid ""
-"手順1〜4のコマンドは、Psi4 1.10の環境で、スクリプトを置いたディレクトリから実行します。各スクリプトはPsi4のログ（ "
-"``*_psi4.log`` ）も出力します。"
+"手順1〜4のコマンドは、Psi4 1.10の環境で、スクリプトを置いたディレクトリから実行します。CSVとPsi4のログ（ "
+"``*_psi4.log`` ）は、実行したディレクトリに書き出されます。"
 msgstr ""
 "The commands in steps 1–4 are run in an environment with Psi4 1.10, from "
-"the directory containing the scripts. Each script also writes a Psi4 log "
-"(``*_psi4.log``)."
+"the directory containing the scripts. The CSV files and the Psi4 logs "
+"(``*_psi4.log``) are written to the directory in which the commands are "
+"run."
 
 #: ../../hydrogen_chain/reproduction.rst:69
 msgid "1. RHFの原子数依存性"
@@ -284,13 +291,16 @@ msgstr ""
 
 #: ../../hydrogen_chain/reproduction.rst:75
 msgid ""
-"``rhf_orbitals.csv`` が得られます。CSVには収束した系だけが書き出されます。この条件では :math:`N` = 80, "
-"100が500反復以内に収束せず、結果から除外されました。"
+"``rhf_orbitals.csv`` が得られます。記事の :numref:`fig-hchain-rhf-levels` と :numref"
+":`tab-hchain-gaps` のRHFの列の元データです。CSVには収束した系だけが書き出されます。この条件では :math:`N` = "
+"80, 100が500反復以内に収束せず、結果から除外されました。"
 msgstr ""
-"The script produces ``rhf_orbitals.csv``. Only systems for which the "
-"calculation converged are written to the CSV file. Under these "
-"conditions, the calculations for :math:`N` = 80, 100 did not converge "
-"within 500 iterations and were excluded from the results."
+"The script produces ``rhf_orbitals.csv``. This file is the source data "
+"for :numref:`fig-hchain-rhf-levels` and the RHF column of :numref:`tab-"
+"hchain-gaps` in the article. Only systems for which the calculation "
+"converged are written to the CSV file. Under these conditions, the "
+"calculations for :math:`N` = 80, 100 did not converge within 500 "
+"iterations and were excluded from the results."
 
 #: ../../hydrogen_chain/reproduction.rst:78
 msgid "2. RKS-PBEの原子数依存性"
@@ -326,13 +336,17 @@ msgstr ""
 #: ../../hydrogen_chain/reproduction.rst:90
 msgid ""
 "コアハミルトニアン初期推定では、 :math:`N` = 64が500反復以内に収束しませんでした。 :math:`N` = "
-"32では2つの初期推定のギャップが表示桁数で一致し、図と表にはコアハミルトニアン初期推定の結果を使っています。"
+"32では2つの初期推定のギャップが表示桁数で一致し、図と表にはコアハミルトニアン初期推定の結果を使っています。 "
+"``pbe_core_orbitals.csv`` と ``pbe_sad_orbitals.csv`` は、記事の :numref:`fig-"
+"hchain-pbe-levels` と :numref:`tab-hchain-gaps` のRKS-PBEの列の元データです。"
 msgstr ""
 "With the core Hamiltonian initial guess, the calculation for :math:`N` = "
 "64 did not converge within 500 iterations. For :math:`N` = 32, the gaps "
-"from the two initial guesses agreed to the displayed precision. The "
+"from the two initial guesses agreed to the displayed precision, and the "
 "figures and tables use the result from the core Hamiltonian initial "
-"guess."
+"guess. ``pbe_core_orbitals.csv`` and ``pbe_sad_orbitals.csv`` are the "
+"source data for :numref:`fig-hchain-pbe-levels` and the RKS-PBE column of"
+" :numref:`tab-hchain-gaps` in the article."
 
 #: ../../hydrogen_chain/reproduction.rst:93
 msgid "3. 結合次数とRHFの安定性解析"
@@ -344,16 +358,19 @@ msgstr "python hydrogen_chain_bond_order.py --a 1.8 --ns 16 32 64"
 
 #: ../../hydrogen_chain/reproduction.rst:99
 msgid ""
-"``hydrogen_chain_bond_order.csv`` が得られます。Psi4 "
+"``hydrogen_chain_bond_order.csv`` が得られます。記事で示した :math:`N` = "
+"32の鎖中央の結合次数（RHFの0.862と0.378、RKS-PBEの0.666と0.608）は、このファイルで確かめられます。Psi4 "
 "1.10の安定性解析は密度フィッティングのSCFに対応していないため、このスクリプトはPK積分を使います。RHF→RHFとRHF→UHFの安定性固有値は、ログの"
 " ``Lowest singlet (RHF->RHF) stability eigenvalues`` と ``Lowest triplet "
 "(RHF->UHF) stability eigenvalues`` に出力されます。"
 msgstr ""
-"The script produces ``hydrogen_chain_bond_order.csv``. Stability analysis"
-" in Psi4 1.10 does not support density-fitted SCF, so this script uses PK"
-" integrals. The RHF→RHF and RHF→UHF stability eigenvalues appear in the "
-"log under ``Lowest singlet (RHF->RHF) stability eigenvalues`` and "
-"``Lowest triplet (RHF->UHF) stability eigenvalues``."
+"The script produces ``hydrogen_chain_bond_order.csv``. The bond orders at"
+" the center of the :math:`N` = 32 chain given in the article (0.862 and "
+"0.378 for RHF, 0.666 and 0.608 for RKS-PBE) can be checked in this file. "
+"Stability analysis in Psi4 1.10 does not support density-fitted SCF, so "
+"this script uses PK integrals. The RHF→RHF and RHF→UHF stability "
+"eigenvalues appear in the log under ``Lowest singlet (RHF->RHF) stability"
+" eigenvalues`` and ``Lowest triplet (RHF->UHF) stability eigenvalues``."
 
 #: ../../hydrogen_chain/reproduction.rst:102
 msgid "4. スピン制限解と非制限解の比較"
@@ -367,11 +384,16 @@ msgstr "python hydrogen_chain_spin.py --ns 16 32"
 msgid ""
 "``hydrogen_chain_spin_summary.csv`` 、 ``hydrogen_chain_spin_sites.csv`` 、"
 " ``hydrogen_chain_spin_bonds.csv`` 、 ``hydrogen_chain_spin_orbitals.csv``"
-" （α・β軌道のエネルギー）が得られます。"
+" （α・β軌道のエネルギー）が得られます。 ``hydrogen_chain_spin_summary.csv`` の :math:`N` = "
+"32の行が、記事の :numref:`tab-hchain-spin` の値です。 "
+"``hydrogen_chain_spin_orbitals.csv`` は配布していません。"
 msgstr ""
 "The script produces ``hydrogen_chain_spin_summary.csv``, "
 "``hydrogen_chain_spin_sites.csv``, ``hydrogen_chain_spin_bonds.csv``, and"
-" ``hydrogen_chain_spin_orbitals.csv`` (the α and β orbital energies)."
+" ``hydrogen_chain_spin_orbitals.csv`` (the α and β orbital energies). The"
+" rows for :math:`N` = 32 in ``hydrogen_chain_spin_summary.csv`` give the "
+"values in :numref:`tab-hchain-spin` of the article. "
+"``hydrogen_chain_spin_orbitals.csv`` is not provided for download."
 
 #: ../../hydrogen_chain/reproduction.rst:110
 #, python-brace-format
@@ -405,19 +427,37 @@ msgstr "python plot_article_figures.py"
 
 #: ../../hydrogen_chain/reproduction.rst:119
 msgid ""
-"``scripts/`` と同じ階層の ``data/`` にあるCSVを読み、 ``figures/`` "
-"に上記の図を出力します。あわせて、中央の結合次数の交替振幅を表示します。"
+"ダウンロードしたファイルは、同じディレクトリの下に ``scripts/`` と ``data/`` を作って分けて置き、 "
+"``scripts/`` で実行します。スクリプトは ``scripts/`` と同じ階層の ``data/`` からCSVを読み、同じ階層の "
+"``figures/`` "
+"に「図の作成スクリプト」に挙げた6つの図を書き出します（同名のPNGは上書きされます）。あわせて、中央の結合次数の交替振幅を表示します。"
 msgstr ""
-"The script reads the CSV files in ``data/``, which sits alongside "
-"``scripts/``, and writes the figures described above to ``figures/``. It "
-"also prints the alternation amplitude of the bond orders at the center of"
-" the chain."
+"Separate the downloaded files into ``scripts/`` and ``data/``, created "
+"under the same directory, and run the script in ``scripts/``. The script "
+"reads the CSV files from ``data/``, which sits alongside ``scripts/``, "
+"and writes the six figures listed under “Plotting Script” to ``figures/``"
+" at the same level (existing PNG files with the same names are "
+"overwritten). It also prints the alternation amplitude of the bond orders"
+" at the center of the chain."
 
-#: ../../hydrogen_chain/reproduction.rst:122
+#: ../../hydrogen_chain/reproduction.rst:121
+msgid ""
+"手順1〜4で計算したCSVから図を描き直すときは、 ``data/`` の同名のCSVを置き換えます。 "
+"``rhf_pbe_comparison.csv`` は手順1〜4では作られないので、 ``rhf_orbitals.csv`` 、 "
+"``pbe_core_orbitals.csv`` 、 ``pbe_sad_orbitals.csv`` から各 :math:`N` "
+"のHOMOとLUMOを抜き出して作ります。"
+msgstr ""
+"To redraw the figures from the CSV files computed in steps 1–4, replace "
+"the CSV files of the same names in ``data/``. ``rhf_pbe_comparison.csv`` "
+"is not produced in steps 1–4, so create it by extracting the HOMO and "
+"LUMO for each :math:`N` from ``rhf_orbitals.csv``, "
+"``pbe_core_orbitals.csv``, and ``pbe_sad_orbitals.csv``."
+
+#: ../../hydrogen_chain/reproduction.rst:124
 msgid "数値を扱う上での注意"
 msgstr "Notes on Numerical Results"
 
-#: ../../hydrogen_chain/reproduction.rst:124
+#: ../../hydrogen_chain/reproduction.rst:126
 msgid ""
 "原子数依存性（手順1・2）はDF-SCF、結合次数とスピンの比較（手順3・4）はPK積分で計算しています。同じ :math:`N` "
 "でも、軌道ギャップは末尾の桁（0.003 eV以下）で一致しません。例えば :math:`N` = 64のRHFギャップはDFで4.764 "
@@ -429,7 +469,7 @@ msgstr ""
 "0.003 eV or less. For example, at :math:`N` = 64, the RHF gap is 4.764 eV"
 " with DF and 4.762 eV with PK."
 
-#: ../../hydrogen_chain/reproduction.rst:125
+#: ../../hydrogen_chain/reproduction.rst:127
 msgid "中央の交替振幅は、鎖中央の8本の結合を1本おきの2組に分け、2組の平均値の差の絶対値を2で割った値です。"
 msgstr ""
 "The central alternation amplitude uses the 8 bonds at the center of the "
@@ -437,7 +477,7 @@ msgstr ""
 "into the other. The amplitude is half the absolute difference between the"
 " two group means."
 
-#: ../../hydrogen_chain/reproduction.rst:126
+#: ../../hydrogen_chain/reproduction.rst:128
 msgid ""
 "非制限計算の軌道ギャップは、両スピンを通じた最高被占有軌道と最低空軌道の差です。スピンごとのギャップも "
 "``hydrogen_chain_spin_summary.csv`` に記録しています。"
@@ -447,7 +487,7 @@ msgstr ""
 "across both spin channels. The gap for each spin is also recorded in "
 "``hydrogen_chain_spin_summary.csv``."
 
-#: ../../hydrogen_chain/reproduction.rst:127
+#: ../../hydrogen_chain/reproduction.rst:129
 msgid ""
 ":math:`\\langle S^2\\rangle` "
 "は密度行列から計算した一行列式に対する値で、Psi4のログの値と照合しました。UKSではKohn–Sham行列式の診断値として扱います。"
@@ -456,13 +496,13 @@ msgstr ""
 "the density matrix and checked it against the value in the Psi4 log. In "
 "UKS, we use it as a diagnostic for the Kohn–Sham determinant."
 
-#: ../../hydrogen_chain/reproduction.rst:128
+#: ../../hydrogen_chain/reproduction.rst:130
 msgid "SCFが収束しても、得られた解が唯一の解や大域的な最低エネルギー解であることは保証されません。"
 msgstr ""
 "SCF convergence does not guarantee that the solution is unique or that it"
 " is the global minimum-energy solution."
 
-#: ../../hydrogen_chain/reproduction.rst:129
+#: ../../hydrogen_chain/reproduction.rst:131
 msgid ""
 "擬似波数 :math:`ka = j\\pi/(N+1)` "
 "はエネルギー順の軌道番号から割り当てたもので、周期系のk点計算や、軌道係数から求めた波数ではありません。"
@@ -471,4 +511,37 @@ msgstr ""
 "orbital index in energy order. It comes neither from a periodic-system "
 "k-point calculation nor from a wave number calculated from orbital "
 "coefficients."
+
+#~ msgid ""
+#~ ":download:`plot_article_figures.py "
+#~ "<scripts/plot_article_figures.py>` : "
+#~ "下記のCSVからモデル図、軌道エネルギー、ギャップ、スピンと結合次数の比較図を作成します。Psi4の計算は行いません。記事中のその他の図は配布済みのPNGを使用しています。"
+#~ msgstr ""
+#~ ":download:`plot_article_figures.py "
+#~ "<scripts/plot_article_figures.py>` uses the CSV "
+#~ "files below to produce the model "
+#~ "schematic, orbital energy plots, the "
+#~ "orbital gap plot, and the comparison "
+#~ "of spin density and bond order. It"
+#~ " does not run Psi4 calculations. The"
+#~ " other figures in the article use "
+#~ "the supplied PNG files."
+
+#~ msgid "4手法の隣接原子間Löwdin結合次数。原子番号は1始まり"
+#~ msgstr ""
+#~ "Löwdin bond orders between neighboring "
+#~ "atoms for all four methods. Atom "
+#~ "numbering starts at 1."
+
+#~ msgid ""
+#~ "``scripts/`` と同じ階層の ``data/`` にあるCSVを読み、 "
+#~ "``figures/`` に上記の図を出力します。あわせて、中央の結合次数の交替振幅を表示します。"
+#~ msgstr ""
+#~ "The script reads the CSV files in"
+#~ " ``data/``, which sits alongside "
+#~ "``scripts/``, and writes the figures "
+#~ "described above to ``figures/``. It also"
+#~ " prints the alternation amplitude of "
+#~ "the bond orders at the center of"
+#~ " the chain."
 
